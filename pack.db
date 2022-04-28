@@ -1,0 +1,9 @@
+81ba322a4bb8b4c3bdbc0d42c2f1c2be89a81b23,0.5.1
+elab-util,https://github.com/stefan-hoeck/idris2-elab-util,29f8153c0c06a69a168f009823a31bae266c5306,elab-util.ipkg
+sop,https://github.com/stefan-hoeck/idris2-sop,af9224510f5c283f3b3c8293524e51c225617658,sop.ipkg
+pretty-show,https://github.com/stefan-hoeck/idris2-pretty-show,d31e1f5a191a78deea1170beee21401da063ed8d,pretty-show.ipkg
+hedgehog,https://github.com/stefan-hoeck/idris2-hedgehog,e9858609ea79f0d2e36e66bfb9a2dbceba7771cc,hedgehog.ipkg
+pack,https://github.com/stefan-hoeck/idris2-pack,430b7daa3523c570770a24581ddbfd0843d0cca5,pack.ipkg
+katla,https://github.com/idris-community/katla,e16c1ec10e9be17cba6f70e91aa3983fa85d521c,katla.ipkg
+collie,https://github.com/ohad/collie,46bff04a8d9a1598fec9b19f515541df16dc64ef,collie.ipkg
+idrall,https://github.com/alexhumphreys/idrall,b5f04575c94cc5cc006791d81f106f5492e3b8f3,idrall.ipkg
