@@ -6,7 +6,7 @@ hedgehog,https://github.com/stefan-hoeck/idris2-hedgehog,e9858609ea79f0d2e36e66b
 json,https://github.com/stefan-hoeck/idris2-json,2d0931546afd1152a55da9e6bf50d0fd8dd99dee,json.ipkg
 tailrec,https://github.com/stefan-hoeck/idris2-tailrec,dd0bc6381b3a2e69aa37f9a8c1b165d4b1516ad7,tailrec.ipkg
 rhone,https://github.com/stefan-hoeck/idris2-rhone,33441db6a0a26bb04ff16b72c0224eaa04b5fee8,rhone.ipkg
-pack,https://github.com/stefan-hoeck/idris2-pack,eae64648400c8289b577a9f635db835909d35c5f,pack.ipkg
+pack,https://github.com/stefan-hoeck/idris2-pack,fa88402afe5042431f794186feeebb4483682937,pack.ipkg
 katla,https://github.com/idris-community/katla,e16c1ec10e9be17cba6f70e91aa3983fa85d521c,katla.ipkg
 collie,https://github.com/ohad/collie,46bff04a8d9a1598fec9b19f515541df16dc64ef,collie.ipkg
 idrall,https://github.com/alexhumphreys/idrall,b5f04575c94cc5cc006791d81f106f5492e3b8f3,idrall.ipkg
