@@ -1,4 +1,4 @@
-81ba322a4bb8b4c3bdbc0d42c2f1c2be89a81b23,0.5.1
+4256cd15fdf1331ec6ab3140f73676100dedf4ae,0.5.1
 elab-util,https://github.com/stefan-hoeck/idris2-elab-util,29f8153c0c06a69a168f009823a31bae266c5306,elab-util.ipkg
 sop,https://github.com/stefan-hoeck/idris2-sop,af9224510f5c283f3b3c8293524e51c225617658,sop.ipkg
 pretty-show,https://github.com/stefan-hoeck/idris2-pretty-show,d31e1f5a191a78deea1170beee21401da063ed8d,pretty-show.ipkg
