@@ -17,3 +17,9 @@ comonad,https://github.com/stefan-hoeck/idris2-comonad,HEAD,comonad.ipkg
 bytestring,https://github.com/stefan-hoeck/idris2-bytestring,HEAD,bytestring.ipkg
 eff,https://github.com/stefan-hoeck/idris2-eff,HEAD,eff.ipkg
 freer,https://github.com/stefan-hoeck/idris2-freer,HEAD,freer.ipkg
+prettier,https://github.com/Z-snails/prettier,HEAD,prettier.ipkg
+fvect,https://github.com/mattpolzin/idris-fvect,HEAD,fvect.ipkg
+xml,https://github.com/madman-bob/idris2-xml,HEAD,xml.ipkg
+indexed,https://github.com/mattpolzin/idris-indexed,HEAD,indexed.ipkg
+dinwiddy,https://github.com/bobbbay/dinwiddy,HEAD,dinwiddy.ipkg
+snocvect,https://github.com/mattpolzin/idris-snocvect,HEAD,snocvect.ipkg
