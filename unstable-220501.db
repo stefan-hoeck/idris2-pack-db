@@ -12,7 +12,7 @@ idrall,https://github.com/alexhumphreys/idrall,b5f04575c94cc5cc006791d81f106f549
 indexed,https://github.com/mattpolzin/idris-indexed,21e448e4da193425336ae150bc55e015c6445415,indexed.ipkg
 json,https://github.com/stefan-hoeck/idris2-json,2d0931546afd1152a55da9e6bf50d0fd8dd99dee,json.ipkg
 katla,https://github.com/idris-community/katla,e16c1ec10e9be17cba6f70e91aa3983fa85d521c,katla.ipkg
-pack,https://github.com/stefan-hoeck/idris2-pack,4c1a8f02cc49a2a8ca15a79614069c276b23ee24,pack.ipkg
+pack,https://github.com/stefan-hoeck/idris2-pack,33252c1e03346e9ce61c4872c9c7c6305f538561,pack.ipkg
 prettier,https://github.com/Z-snails/prettier,0222ada0be5f6abf5528c8513181f2f4ad117b4b,prettier.ipkg
 pretty-show,https://github.com/stefan-hoeck/idris2-pretty-show,d31e1f5a191a78deea1170beee21401da063ed8d,pretty-show.ipkg
 prim,https://github.com/stefan-hoeck/idris2-prim,457fcd05a093d509841d624b83f4fccb54a9c6a4,prim.ipkg
