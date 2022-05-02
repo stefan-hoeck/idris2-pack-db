@@ -22,3 +22,4 @@ xml,https://github.com/madman-bob/idris2-xml,HEAD,xml.ipkg
 indexed,https://github.com/mattpolzin/idris-indexed,HEAD,indexed.ipkg
 dinwiddy,https://github.com/bobbbay/dinwiddy,HEAD,dinwiddy.ipkg
 snocvect,https://github.com/mattpolzin/idris-snocvect,HEAD,snocvect.ipkg
+lsp,https://github.com/idris-community/idris2-lsp,HEAD,lsp.ipkg
