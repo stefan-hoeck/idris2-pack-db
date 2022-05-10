@@ -56,6 +56,12 @@ url    = "https://github.com/mattpolzin/idris-fvect"
 commit = "main"
 ipkg   = "fvect.ipkg"
 
+[db.graph]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-graph"
+commit = "main"
+ipkg   = "graph.ipkg"
+
 [db.hashable]
 type   = "github"
 url    = "https://github.com/Z-snails/Idris2-hashable"
