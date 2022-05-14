@@ -38,6 +38,12 @@ url    = "https://github.com/stefan-hoeck/idris2-eff"
 commit = "main"
 ipkg   = "eff.ipkg"
 
+[db.effect]
+type   = "github"
+url    = "https://github.com/Russoul/Idris2-Effect"
+commit = "main"
+ipkg   = "effect.ipkg"
+
 [db.elab-util]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-elab-util"
