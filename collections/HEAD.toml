@@ -74,6 +74,12 @@ url    = "https://github.com/Z-snails/Idris2-hashable"
 commit = "main"
 ipkg   = "hashable.ipkg"
 
+[db.hashmap]
+type   = "github"
+url    = "https://github.com/Z-snails/idris2-hashmap"
+commit = "main"
+ipkg   = "hashmap.ipkg"
+
 [db.hedgehog]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-hedgehog"
