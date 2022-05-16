@@ -122,6 +122,12 @@ url    = "https://github.com/stefan-hoeck/idris2-pack"
 commit = "main"
 ipkg   = "pack.ipkg"
 
+[db.pack-admin]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-pack-admin"
+commit = "main"
+ipkg   = "pack-admin.ipkg"
+
 [db.pg-idris]
 type   = "github"
 url    = "https://github.com/mattpolzin/pg-idris"
