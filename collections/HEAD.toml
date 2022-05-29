@@ -2,6 +2,12 @@
 version = "0.5.1"
 commit  = "main"
 
+[db.apache-mime-types]
+type = "github"
+url  = "https://github.com/kbertalan/idris2-apache-mime-types"
+commit = "main"
+ipkg = "apache-mime-types.ipkg"
+
 [db.bytestring]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-bytestring"
@@ -193,6 +199,18 @@ type   = "github"
 url    = "https://github.com/cuddlefishie/toml-idr"
 commit = "main"
 ipkg   = "toml.ipkg"
+
+[db.tyttp]
+type = "github"
+url  = "https://github.com/kbertalan/tyttp"
+commit = "main"
+ipkg = "tyttp.ipkg"
+
+[db.tyttp-json]
+type = "github"
+url  = "https://github.com/kbertalan/tyttp-json"
+commit = "main"
+ipkg = "tyttp-json.ipkg"
 
 [db.xml]
 type   = "github"
