@@ -130,7 +130,7 @@ ipkg   = "pack.ipkg"
 
 [db.pack-admin]
 type   = "github"
-url    = "https://github.com/stefan-hoeck/idris2-pack-admin"
+url    = "https://github.com/stefan-hoeck/idris2-pack"
 commit = "main"
 ipkg   = "pack-admin.ipkg"
 
