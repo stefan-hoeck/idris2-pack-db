@@ -47,7 +47,7 @@ ipkg   = "eff.ipkg"
 [db.effect]
 type   = "github"
 url    = "https://github.com/Russoul/Idris2-Effect"
-commit = "main"
+commit = "master"
 ipkg   = "effect.ipkg"
 
 [db.elab-util]
