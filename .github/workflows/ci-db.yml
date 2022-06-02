@@ -1,14 +1,7 @@
+---
 name: Copy nightly
 
 on:
-  push:
-    branches:
-      - '**'
-    tags:
-      - '**'
-  pull_request:
-    branches:
-      - main
   schedule:
     - cron: '0 2 * * *'
 
@@ -31,13 +24,12 @@ jobs:
       - name: Fetch and commit
         run: |
           curl "https://raw.githubusercontent.com/stefan-hoeck/idris2-pack/main/db/latest.toml" > "collections/nightly-$(date +%y%m%d).toml"
-          ls collections/*.toml
-          #          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          #          git config --local user.name "github-actions[bot]"
-          #          git add collections/*.toml
-          #          git commit -m "[ new ] todays nightly"
-          #      - name: Push changes
-          #        uses: ad-m/github-push-action@master
-          #        with:
-          #          github_token: ${{ secrets.GITHUB_TOKEN }}
-          #          branch: ${{ github.ref }}
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add collections/*.toml
+          git commit -m "[ new ] todays nightly"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
