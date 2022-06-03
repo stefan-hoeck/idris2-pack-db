@@ -1,9 +1,9 @@
 ---
-name: Copy nightly
+name: Check Collection
 
 on:
   schedule:
-    - cron: '0 2 * * *'
+    - cron: '0 13 * * *'
 
 permissions: write-all
 
@@ -12,8 +12,9 @@ defaults:
     shell: bash
 
 jobs:
+
   build:
-    name: Copy and commit
+    name: Run installation script
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -21,14 +22,30 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 0
-      - name: Fetch and commit
+      - name: Install scheme
+        run: sudo apt-get update && sudo apt-get install --yes gcc make chezscheme libgmp3-dev nodejs
+      - name: Run installation script
         run: |
-          curl "https://raw.githubusercontent.com/stefan-hoeck/idris2-pack/main/db/latest.toml" > "collections/nightly-$(date +%y%m%d).toml"
+          echo chezscheme | bash -c "$(curl -fsSL https://raw.githubusercontent.com/stefan-hoeck/idris2-pack/main/install.bash)"
+          echo "$HOME/.pack/bin" >> "$GITHUB_PATH"
+      - name: Install pack-admin
+        run: pack install-app pack-admin
+      - name: Extract Collection from HEAD
+        run: pack-admin extract-from-head "$HOME/.pack/db/testdb.toml"
+      - name: Check Collection
+        run: pack-admin check-collection testdb STATUS.md
+      - name: Copy collection
+        run: cp "$HOME/.pack/db/testdb.toml" "collections/nightly-$(date +%y%m%d).toml"
+      - name: Commit files
+        if: always()
+        run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add collections/*.toml
-          git commit -m "[ new ] todays nightly" -m "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+          git add STATUS.md
+          git commit -m "[ check ] collection update" -m "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
       - name: Push changes
+        if: always()
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
