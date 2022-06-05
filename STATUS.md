@@ -28,8 +28,8 @@
 | [json](https://github.com/stefan-hoeck/idris2-json) | Derivable JSON marshallers for Idris2 | 2b7b370ee0ffc5ed57437f2da548548dd0000e9d |
 | [katla](https://github.com/idris-community/katla) |  | 9213675856413c587094e588c2758390f0020faf |
 | [lsp](https://github.com/idris-community/idris2-lsp) |  | 14a7786df970acc13a9d0b33e04fb9540d9cebb5 |
-| [pack](https://github.com/stefan-hoeck/idris2-pack) | A package manager for Idris2 with curated package collections | cfc702702829ce56a28bd116187fd23e82be0a64 |
-| [pack-admin](https://github.com/stefan-hoeck/idris2-pack) | Administration of pack's package collections | cfc702702829ce56a28bd116187fd23e82be0a64 |
+| [pack](https://github.com/stefan-hoeck/idris2-pack) | A package manager for Idris2 with curated package collections | aff8725f4a24e7ba79351bb6a66d7d7997879918 |
+| [pack-admin](https://github.com/stefan-hoeck/idris2-pack) | Administration of pack's package collections | aff8725f4a24e7ba79351bb6a66d7d7997879918 |
 | [pg-idris](https://github.com/mattpolzin/pg-idris) |  | 6f7b2f6c96f963e5073c39613ccd394bc2f3ace5 |
 | [prettier](https://github.com/Z-snails/prettier) |  | 0222ada0be5f6abf5528c8513181f2f4ad117b4b |
 | [pretty-show](https://github.com/stefan-hoeck/idris2-pretty-show) | Pretty printing of values with a Show instance | 09684725181ad4ba2ae8a49443bee358d7947c25 |
@@ -41,7 +41,7 @@
 | [tailrec](https://github.com/stefan-hoeck/idris2-tailrec) | Provably total, stack-safe monadic recursion in Idris2 | ae27e2ed09ef3d880801899cfc26f470f5b71332 |
 | [tester](https://github.com/cuddlefishie/tester-idr) |  | 3dcdb54ed578a14597a17cb93c926734a9da69ca |
 | [toml](https://github.com/cuddlefishie/toml-idr) |  | b4f5a4bd874fa32f20d02311a62a1910dc48123f |
-| [tyttp](https://github.com/kbertalan/tyttp) |  | 9727f97c2509fda11e71307104d9d3b27a41c903 |
+| [tyttp](https://github.com/kbertalan/tyttp) |  | c645138082c95f29220e6eb8e622d6d8ee1132bc |
 | [tyttp-json](https://github.com/kbertalan/tyttp-json) |  | 956385e032243b04980b1f5dabf95411cce665ce |
 | [xml](https://github.com/madman-bob/idris2-xml) |  | 1292ccfcd58c551089ef699e4560343d5c473d64 |
 
