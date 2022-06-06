@@ -1,7 +1,7 @@
 [idris2]
 url     = "https://github.com/idris-lang/Idris2.git"
 version = "0.5.1"
-commit  = "094a9ab06d68bea216d892058c5e323738cab858"
+commit  = "a197300f77288b205a7f93c98d84ac739cc52271"
 
 [db.apache-mime-types]
 type   = "github"
@@ -126,13 +126,13 @@ ipkg   = "lsp.ipkg"
 [db.pack]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-pack"
-commit = "aff8725f4a24e7ba79351bb6a66d7d7997879918"
+commit = "813ca34dbe9eb39e9e4ef6afc8801d76fdedd0e0"
 ipkg   = "pack.ipkg"
 
 [db.pack-admin]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-pack"
-commit = "aff8725f4a24e7ba79351bb6a66d7d7997879918"
+commit = "813ca34dbe9eb39e9e4ef6afc8801d76fdedd0e0"
 ipkg   = "pack-admin.ipkg"
 
 [db.pg-idris]
