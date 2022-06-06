@@ -28,8 +28,8 @@
 | [json](https://github.com/stefan-hoeck/idris2-json) | Derivable JSON marshallers for Idris2 | [2b7b370](https://github.com/stefan-hoeck/idris2-json/commit/2b7b370ee0ffc5ed57437f2da548548dd0000e9d) |
 | [katla](https://github.com/idris-community/katla) |  | [9213675](https://github.com/idris-community/katla/commit/9213675856413c587094e588c2758390f0020faf) |
 | [lsp](https://github.com/idris-community/idris2-lsp) |  | [14a7786](https://github.com/idris-community/idris2-lsp/commit/14a7786df970acc13a9d0b33e04fb9540d9cebb5) |
-| [pack](https://github.com/stefan-hoeck/idris2-pack) | A package manager for Idris2 with curated package collections | [813ca34](https://github.com/stefan-hoeck/idris2-pack/commit/813ca34dbe9eb39e9e4ef6afc8801d76fdedd0e0) |
-| [pack-admin](https://github.com/stefan-hoeck/idris2-pack) | Administration of pack's package collections | [813ca34](https://github.com/stefan-hoeck/idris2-pack/commit/813ca34dbe9eb39e9e4ef6afc8801d76fdedd0e0) |
+| [pack](https://github.com/stefan-hoeck/idris2-pack) | A package manager for Idris2 with curated package collections | [338bc35](https://github.com/stefan-hoeck/idris2-pack/commit/338bc35f7236d8dad123aba0dc73493dccc3e56d) |
+| [pack-admin](https://github.com/stefan-hoeck/idris2-pack) | Administration of pack's package collections | [338bc35](https://github.com/stefan-hoeck/idris2-pack/commit/338bc35f7236d8dad123aba0dc73493dccc3e56d) |
 | [pg-idris](https://github.com/mattpolzin/pg-idris) |  | [6f7b2f6](https://github.com/mattpolzin/pg-idris/commit/6f7b2f6c96f963e5073c39613ccd394bc2f3ace5) |
 | [prettier](https://github.com/Z-snails/prettier) |  | [0222ada](https://github.com/Z-snails/prettier/commit/0222ada0be5f6abf5528c8513181f2f4ad117b4b) |
 | [pretty-show](https://github.com/stefan-hoeck/idris2-pretty-show) | Pretty printing of values with a Show instance | [0968472](https://github.com/stefan-hoeck/idris2-pretty-show/commit/09684725181ad4ba2ae8a49443bee358d7947c25) |
