@@ -5,6 +5,8 @@ on:
   schedule:
     - cron: '0 1 * * *'
 
+  repository_dispatch:
+
 permissions: write-all
 
 defaults:
