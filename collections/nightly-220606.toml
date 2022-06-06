@@ -126,13 +126,13 @@ ipkg   = "lsp.ipkg"
 [db.pack]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-pack"
-commit = "813ca34dbe9eb39e9e4ef6afc8801d76fdedd0e0"
+commit = "338bc35f7236d8dad123aba0dc73493dccc3e56d"
 ipkg   = "pack.ipkg"
 
 [db.pack-admin]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-pack"
-commit = "813ca34dbe9eb39e9e4ef6afc8801d76fdedd0e0"
+commit = "338bc35f7236d8dad123aba0dc73493dccc3e56d"
 ipkg   = "pack-admin.ipkg"
 
 [db.pg-idris]
