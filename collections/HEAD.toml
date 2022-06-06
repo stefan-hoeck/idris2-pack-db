@@ -117,10 +117,11 @@ commit = "main"
 ipkg   = "katla.ipkg"
 
 [db.lsp]
-type   = "github"
-url    = "https://github.com/idris-community/idris2-lsp"
-commit = "main"
-ipkg   = "lsp.ipkg"
+type        = "github"
+url         = "https://github.com/idris-community/idris2-lsp"
+commit      = "main"
+ipkg        = "lsp.ipkg"
+packagePath = true
 
 [db.pack]
 type   = "github"
