@@ -27,9 +27,9 @@
 | [indexed](https://github.com/mattpolzin/idris-indexed) |  | [21e448e](https://github.com/mattpolzin/idris-indexed/commit/21e448e4da193425336ae150bc55e015c6445415) |
 | [json](https://github.com/stefan-hoeck/idris2-json) | Derivable JSON marshallers for Idris2 | [2b7b370](https://github.com/stefan-hoeck/idris2-json/commit/2b7b370ee0ffc5ed57437f2da548548dd0000e9d) |
 | [katla](https://github.com/idris-community/katla) |  | [9213675](https://github.com/idris-community/katla/commit/9213675856413c587094e588c2758390f0020faf) |
-| [lsp](https://github.com/idris-community/idris2-lsp) |  | [14a7786](https://github.com/idris-community/idris2-lsp/commit/14a7786df970acc13a9d0b33e04fb9540d9cebb5) |
-| [pack](https://github.com/stefan-hoeck/idris2-pack) | A package manager for Idris2 with curated package collections | [338bc35](https://github.com/stefan-hoeck/idris2-pack/commit/338bc35f7236d8dad123aba0dc73493dccc3e56d) |
-| [pack-admin](https://github.com/stefan-hoeck/idris2-pack) | Administration of pack's package collections | [338bc35](https://github.com/stefan-hoeck/idris2-pack/commit/338bc35f7236d8dad123aba0dc73493dccc3e56d) |
+| [lsp](https://github.com/idris-community/idris2-lsp) |  | [10c6077](https://github.com/idris-community/idris2-lsp/commit/10c60774cde4be2a43b23393fc013dd237e5189a) |
+| [pack](https://github.com/stefan-hoeck/idris2-pack) | A package manager for Idris2 with curated package collections | [610b73a](https://github.com/stefan-hoeck/idris2-pack/commit/610b73aba7ec48f95d344d6d07095cd832a1a527) |
+| [pack-admin](https://github.com/stefan-hoeck/idris2-pack) | Administration of pack's package collections | [610b73a](https://github.com/stefan-hoeck/idris2-pack/commit/610b73aba7ec48f95d344d6d07095cd832a1a527) |
 | [pg-idris](https://github.com/mattpolzin/pg-idris) |  | [6f7b2f6](https://github.com/mattpolzin/pg-idris/commit/6f7b2f6c96f963e5073c39613ccd394bc2f3ace5) |
 | [prettier](https://github.com/Z-snails/prettier) |  | [0222ada](https://github.com/Z-snails/prettier/commit/0222ada0be5f6abf5528c8513181f2f4ad117b4b) |
 | [pretty-show](https://github.com/stefan-hoeck/idris2-pretty-show) | Pretty printing of values with a Show instance | [0968472](https://github.com/stefan-hoeck/idris2-pretty-show/commit/09684725181ad4ba2ae8a49443bee358d7947c25) |
@@ -42,7 +42,7 @@
 | [tester](https://github.com/cuddlefishie/tester-idr) |  | [3dcdb54](https://github.com/cuddlefishie/tester-idr/commit/3dcdb54ed578a14597a17cb93c926734a9da69ca) |
 | [toml](https://github.com/cuddlefishie/toml-idr) |  | [b4f5a4b](https://github.com/cuddlefishie/toml-idr/commit/b4f5a4bd874fa32f20d02311a62a1910dc48123f) |
 | [tyttp](https://github.com/kbertalan/tyttp) |  | [187917a](https://github.com/kbertalan/tyttp/commit/187917ad951927132029d430e451eae489f6aa78) |
-| [tyttp-json](https://github.com/kbertalan/tyttp-json) |  | [956385e](https://github.com/kbertalan/tyttp-json/commit/956385e032243b04980b1f5dabf95411cce665ce) |
+| [tyttp-json](https://github.com/kbertalan/tyttp-json) |  | [07dd749](https://github.com/kbertalan/tyttp-json/commit/07dd74984810697c2600a49502849856fa41ea83) |
 | [xml](https://github.com/madman-bob/idris2-xml) |  | [1292ccf](https://github.com/madman-bob/idris2-xml/commit/1292ccfcd58c551089ef699e4560343d5c473d64) |
 
 
