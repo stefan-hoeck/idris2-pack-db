@@ -20,8 +20,8 @@
 | [idrall](https://github.com/alexhumphreys/idrall) |  | [b5f0457](https://github.com/alexhumphreys/idrall/commit/b5f04575c94cc5cc006791d81f106f5492e3b8f3) |
 | [indexed](https://github.com/mattpolzin/idris-indexed) |  | [21e448e](https://github.com/mattpolzin/idris-indexed/commit/21e448e4da193425336ae150bc55e015c6445415) |
 | [lsp](https://github.com/idris-community/idris2-lsp) |  | [10c6077](https://github.com/idris-community/idris2-lsp/commit/10c60774cde4be2a43b23393fc013dd237e5189a) |
-| [pack](https://github.com/stefan-hoeck/idris2-pack) | A package manager for Idris2 with curated package collections | [326e1ad](https://github.com/stefan-hoeck/idris2-pack/commit/326e1adc1d9819f258d5d3da93728fe5f3e8e0f9) |
-| [pack-admin](https://github.com/stefan-hoeck/idris2-pack) | Administration of pack's package collections | [326e1ad](https://github.com/stefan-hoeck/idris2-pack/commit/326e1adc1d9819f258d5d3da93728fe5f3e8e0f9) |
+| [pack](https://github.com/stefan-hoeck/idris2-pack) | A package manager for Idris2 with curated package collections | [dc65597](https://github.com/stefan-hoeck/idris2-pack/commit/dc655979f2eb30505a1a86798488a13b7203d8f4) |
+| [pack-admin](https://github.com/stefan-hoeck/idris2-pack) | Administration of pack's package collections | [dc65597](https://github.com/stefan-hoeck/idris2-pack/commit/dc655979f2eb30505a1a86798488a13b7203d8f4) |
 | [prettier](https://github.com/Z-snails/prettier) |  | [0222ada](https://github.com/Z-snails/prettier/commit/0222ada0be5f6abf5528c8513181f2f4ad117b4b) |
 | [prim](https://github.com/stefan-hoeck/idris2-prim) | Laws and utilities for working with primitives in Idris2 | [0ad39cd](https://github.com/stefan-hoeck/idris2-prim/commit/0ad39cd9b29336ce5cf5199af6754af1a085b0c6) |
 | [snocvect](https://github.com/mattpolzin/idris-snocvect) |  | [f6148c3](https://github.com/mattpolzin/idris-snocvect/commit/f6148c3d06c7a9989062a2425f925fc844468215) |
