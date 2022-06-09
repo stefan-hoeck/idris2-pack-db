@@ -2,7 +2,7 @@
 
 | Compiler | Version | Commit |
 | --- | --- | --- |
-| [Idris2](https://github.com/idris-lang/Idris2.git) | 0.5.1 | [88c1862](https://github.com/idris-lang/Idris2.git/commit/88c18621e607438389f56c86cb1f35885cbf6711) |
+| [Idris2](https://github.com/idris-lang/Idris2) | 0.5.1 | [a6a4593](https://github.com/idris-lang/Idris2/commit/a6a4593abab5e32b61a2e9c746bb8e0a2f134df6) |
 
 ## Building Packages
 
