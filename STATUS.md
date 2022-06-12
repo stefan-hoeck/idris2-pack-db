@@ -13,7 +13,7 @@
 | [collie](https://github.com/ohad/collie) |  | [46bff04](https://github.com/ohad/collie/commit/46bff04a8d9a1598fec9b19f515541df16dc64ef) |
 | [comonad](https://github.com/stefan-hoeck/idris2-comonad) | Comonads for Idris2 | [35a6e7c](https://github.com/stefan-hoeck/idris2-comonad/commit/35a6e7c2243e73e9c63340e532adaf3197cea3d3) |
 | [dinwiddy](https://github.com/bobbbay/dinwiddy) |  | [61a81c5](https://github.com/bobbbay/dinwiddy/commit/61a81c55e48e4b7b551fb7493d623cb7659a37ce) |
-| [dom](https://github.com/stefan-hoeck/idris2-dom) | Extensive DOM and web bindings for Idris2 | [c4e0084](https://github.com/stefan-hoeck/idris2-dom/commit/c4e0084b94ebc90d7b47fb4bf6e88aa31a3b1262) |
+| [dom](https://github.com/stefan-hoeck/idris2-dom) | Extensive DOM and web bindings for Idris2 | [a5a15ce](https://github.com/stefan-hoeck/idris2-dom/commit/a5a15ce0cbe632ec43f82d94a81a38bd317e121e) |
 | [eff](https://github.com/stefan-hoeck/idris2-eff) | Extensible, stack-safe effects in Idris2 | [d62a7a8](https://github.com/stefan-hoeck/idris2-eff/commit/d62a7a8a0263beb0cfdd98681fc1d11003e07ed3) |
 | [effect](https://github.com/Russoul/Idris2-Effect) |  | [b76dce1](https://github.com/Russoul/Idris2-Effect/commit/b76dce14b79a5f743243a294c3474c6f113f8e3a) |
 | [elab-util](https://github.com/stefan-hoeck/idris2-elab-util) |  | [036b6d6](https://github.com/stefan-hoeck/idris2-elab-util/commit/036b6d693dffe6efb508bfa2346705d51f9d0b61) |
@@ -27,7 +27,7 @@
 | [indexed](https://github.com/mattpolzin/idris-indexed) |  | [21e448e](https://github.com/mattpolzin/idris-indexed/commit/21e448e4da193425336ae150bc55e015c6445415) |
 | [json](https://github.com/stefan-hoeck/idris2-json) | Derivable JSON marshallers for Idris2 | [2b7b370](https://github.com/stefan-hoeck/idris2-json/commit/2b7b370ee0ffc5ed57437f2da548548dd0000e9d) |
 | [katla](https://github.com/idris-community/katla) |  | [9213675](https://github.com/idris-community/katla/commit/9213675856413c587094e588c2758390f0020faf) |
-| [lsp](https://github.com/idris-community/idris2-lsp) |  | [0a268ab](https://github.com/idris-community/idris2-lsp/commit/0a268ab0b5df508c964033aa4d9fcc7663c0cffc) |
+| [lsp](https://github.com/idris-community/idris2-lsp) |  | [bbac543](https://github.com/idris-community/idris2-lsp/commit/bbac5436af7e1df846700f296fd4778845b10ddf) |
 | [newtype-deriving](https://github.com/MarcelineVQ/idris2-newtype-deriving) | SOP-Based Deriving for Newtype-like types | [376960f](https://github.com/MarcelineVQ/idris2-newtype-deriving/commit/376960fab2dc56740e96f496ad76d692b1f41fae) |
 | [pack](https://github.com/stefan-hoeck/idris2-pack) | A package manager for Idris2 with curated package collections | [1487d6d](https://github.com/stefan-hoeck/idris2-pack/commit/1487d6d3318ba8ca3a9e18f7394b586a0063e047) |
 | [pack-admin](https://github.com/stefan-hoeck/idris2-pack) | Administration of pack's package collections | [1487d6d](https://github.com/stefan-hoeck/idris2-pack/commit/1487d6d3318ba8ca3a9e18f7394b586a0063e047) |
