@@ -178,6 +178,12 @@ url    = "https://github.com/stefan-hoeck/idris2-rhone-js"
 commit = "main"
 ipkg   = "rhone-js.ipkg"
 
+[db.rio]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-rio"
+commit = "main"
+ipkg   = "rio.ipkg"
+
 [db.snocvect]
 type   = "github"
 url    = "https://github.com/mattpolzin/idris-snocvect"
