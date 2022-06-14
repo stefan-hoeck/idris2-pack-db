@@ -29,14 +29,15 @@
 | [katla](https://github.com/idris-community/katla) |  | [9213675](https://github.com/idris-community/katla/commit/9213675856413c587094e588c2758390f0020faf) |
 | [lsp](https://github.com/idris-community/idris2-lsp) |  | [bbac543](https://github.com/idris-community/idris2-lsp/commit/bbac5436af7e1df846700f296fd4778845b10ddf) |
 | [newtype-deriving](https://github.com/MarcelineVQ/idris2-newtype-deriving) | SOP-Based Deriving for Newtype-like types | [376960f](https://github.com/MarcelineVQ/idris2-newtype-deriving/commit/376960fab2dc56740e96f496ad76d692b1f41fae) |
-| [pack](https://github.com/stefan-hoeck/idris2-pack) | A package manager for Idris2 with curated package collections | [1487d6d](https://github.com/stefan-hoeck/idris2-pack/commit/1487d6d3318ba8ca3a9e18f7394b586a0063e047) |
-| [pack-admin](https://github.com/stefan-hoeck/idris2-pack) | Administration of pack's package collections | [1487d6d](https://github.com/stefan-hoeck/idris2-pack/commit/1487d6d3318ba8ca3a9e18f7394b586a0063e047) |
+| [pack](https://github.com/stefan-hoeck/idris2-pack) | A package manager for Idris2 with curated package collections | [f216bec](https://github.com/stefan-hoeck/idris2-pack/commit/f216becf6cee1cfd30a9c0787657ce435c0d054b) |
+| [pack-admin](https://github.com/stefan-hoeck/idris2-pack) | Administration of pack's package collections | [f216bec](https://github.com/stefan-hoeck/idris2-pack/commit/f216becf6cee1cfd30a9c0787657ce435c0d054b) |
 | [pg-idris](https://github.com/mattpolzin/pg-idris) |  | [6f7b2f6](https://github.com/mattpolzin/pg-idris/commit/6f7b2f6c96f963e5073c39613ccd394bc2f3ace5) |
 | [prettier](https://github.com/Z-snails/prettier) |  | [0222ada](https://github.com/Z-snails/prettier/commit/0222ada0be5f6abf5528c8513181f2f4ad117b4b) |
 | [pretty-show](https://github.com/stefan-hoeck/idris2-pretty-show) | Pretty printing of values with a Show instance | [0968472](https://github.com/stefan-hoeck/idris2-pretty-show/commit/09684725181ad4ba2ae8a49443bee358d7947c25) |
 | [prim](https://github.com/stefan-hoeck/idris2-prim) | Laws and utilities for working with primitives in Idris2 | [0ad39cd](https://github.com/stefan-hoeck/idris2-prim/commit/0ad39cd9b29336ce5cf5199af6754af1a085b0c6) |
 | [rhone](https://github.com/stefan-hoeck/idris2-rhone) | Arrowized functional reactive programming in Idris2 | [cc48d75](https://github.com/stefan-hoeck/idris2-rhone/commit/cc48d755e2a56a646063ed07a44d6a452dd0e488) |
 | [rhone-js](https://github.com/stefan-hoeck/idris2-rhone-js) | Reactive single page web applications in Idris2 | [4f37a93](https://github.com/stefan-hoeck/idris2-rhone-js/commit/4f37a9379b7e19609100db8ae062e0f3fd6a98f1) |
+| [rio](https://github.com/stefan-hoeck/idris2-rio) | A simple effect system based on the RIO monad | [8cc5cc0](https://github.com/stefan-hoeck/idris2-rio/commit/8cc5cc095189304394bd224250a0b2b491d86e98) |
 | [snocvect](https://github.com/mattpolzin/idris-snocvect) |  | [f6148c3](https://github.com/mattpolzin/idris-snocvect/commit/f6148c3d06c7a9989062a2425f925fc844468215) |
 | [sop](https://github.com/stefan-hoeck/idris2-sop) | Generic representation of data types as sums of products | [1d8029c](https://github.com/stefan-hoeck/idris2-sop/commit/1d8029c2bda9749d7c4ffe74d75b0bd7f51815d2) |
 | [tailrec](https://github.com/stefan-hoeck/idris2-tailrec) | Provably total, stack-safe monadic recursion in Idris2 | [ae27e2e](https://github.com/stefan-hoeck/idris2-tailrec/commit/ae27e2ed09ef3d880801899cfc26f470f5b71332) |
