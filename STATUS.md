@@ -29,8 +29,8 @@
 | [katla](https://github.com/idris-community/katla) |  | [9213675](https://github.com/idris-community/katla/commit/9213675856413c587094e588c2758390f0020faf) |
 | [lsp](https://github.com/idris-community/idris2-lsp) |  | [bbac543](https://github.com/idris-community/idris2-lsp/commit/bbac5436af7e1df846700f296fd4778845b10ddf) |
 | [newtype-deriving](https://github.com/MarcelineVQ/idris2-newtype-deriving) | SOP-Based Deriving for Newtype-like types | [376960f](https://github.com/MarcelineVQ/idris2-newtype-deriving/commit/376960fab2dc56740e96f496ad76d692b1f41fae) |
-| [pack](https://github.com/stefan-hoeck/idris2-pack) | A package manager for Idris2 with curated package collections | [f216bec](https://github.com/stefan-hoeck/idris2-pack/commit/f216becf6cee1cfd30a9c0787657ce435c0d054b) |
-| [pack-admin](https://github.com/stefan-hoeck/idris2-pack) | Administration of pack's package collections | [f216bec](https://github.com/stefan-hoeck/idris2-pack/commit/f216becf6cee1cfd30a9c0787657ce435c0d054b) |
+| [pack](https://github.com/stefan-hoeck/idris2-pack) | A package manager for Idris2 with curated package collections | [09dab3f](https://github.com/stefan-hoeck/idris2-pack/commit/09dab3fa2a8b76df948bfabb74eb7d58e664dc48) |
+| [pack-admin](https://github.com/stefan-hoeck/idris2-pack) | Administration of pack's package collections | [09dab3f](https://github.com/stefan-hoeck/idris2-pack/commit/09dab3fa2a8b76df948bfabb74eb7d58e664dc48) |
 | [pg-idris](https://github.com/mattpolzin/pg-idris) |  | [6f7b2f6](https://github.com/mattpolzin/pg-idris/commit/6f7b2f6c96f963e5073c39613ccd394bc2f3ace5) |
 | [prettier](https://github.com/Z-snails/prettier) |  | [0222ada](https://github.com/Z-snails/prettier/commit/0222ada0be5f6abf5528c8513181f2f4ad117b4b) |
 | [pretty-show](https://github.com/stefan-hoeck/idris2-pretty-show) | Pretty printing of values with a Show instance | [0968472](https://github.com/stefan-hoeck/idris2-pretty-show/commit/09684725181ad4ba2ae8a49443bee358d7947c25) |
