@@ -1,5 +1,0 @@
-v0.5.1,0.5.1
-elab-util,https://github.com/stefan-hoeck/idris2-elab-util,v0.5.0,elab-util.ipkg
-sop,https://github.com/stefan-hoeck/idris2-sop,v0.5.0,sop.ipkg
-pretty-show,https://github.com/stefan-hoeck/idris2-pretty-show,v0.5.0,pretty-show.ipkg
-hedgehog,https://github.com/stefan-hoeck/idris2-hedgehog,v0.5.0,hedgehog.ipkg

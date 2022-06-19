@@ -17,7 +17,3 @@ by a GitHub action on this repository.
 
 You can see the current package list plus the build status of
 all packages [here](STATUS.md).
-
-Note about the `.db` files: These are from a very early version
-of *pack* and are deprecated. I leave them here for the time
-being but will eventually remove them.
