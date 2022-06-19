@@ -57,6 +57,12 @@ url    = "https://github.com/stefan-hoeck/idris2-elab-util"
 commit = "main"
 ipkg   = "elab-util.ipkg"
 
+[db.fix-whitespace]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris-fix-whitespace"
+commit = "main"
+ipkg   = "fix-whitespace.ipkg"
+
 [db.freer]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-freer"
