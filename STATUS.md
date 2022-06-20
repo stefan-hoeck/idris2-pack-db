@@ -17,6 +17,7 @@
 | [eff](https://github.com/stefan-hoeck/idris2-eff) | Extensible, stack-safe effects in Idris2 | [d62a7a8](https://github.com/stefan-hoeck/idris2-eff/commit/d62a7a8a0263beb0cfdd98681fc1d11003e07ed3) |
 | [effect](https://github.com/Russoul/Idris2-Effect) |  | [b76dce1](https://github.com/Russoul/Idris2-Effect/commit/b76dce14b79a5f743243a294c3474c6f113f8e3a) |
 | [elab-util](https://github.com/stefan-hoeck/idris2-elab-util) |  | [036b6d6](https://github.com/stefan-hoeck/idris2-elab-util/commit/036b6d693dffe6efb508bfa2346705d51f9d0b61) |
+| [fix-whitespace](https://github.com/stefan-hoeck/idris-fix-whitespace) | A small app for fixing whitespace issues in source files | [351b7b8](https://github.com/stefan-hoeck/idris-fix-whitespace/commit/351b7b8925332cc5fcb81dd7a716467bfebb34a3) |
 | [freer](https://github.com/stefan-hoeck/idris2-freer) | Stack-safe freer monads for Idris2 | [87f6104](https://github.com/stefan-hoeck/idris2-freer/commit/87f6104ed438f89e0176dbc7e9ea3f57128e683d) |
 | [fvect](https://github.com/mattpolzin/idris-fvect) |  | [d84969f](https://github.com/mattpolzin/idris-fvect/commit/d84969fce38ff8a10b9d261458f4d495e6e0f1ca) |
 | [graph](https://github.com/stefan-hoeck/idris2-graph) | Sparse, simple functional graphs in Idris2 | [46ad8cb](https://github.com/stefan-hoeck/idris2-graph/commit/46ad8cb827e180dc781e87c095c7dba17b2b9756) |
@@ -37,7 +38,7 @@
 | [prim](https://github.com/stefan-hoeck/idris2-prim) | Laws and utilities for working with primitives in Idris2 | [0ad39cd](https://github.com/stefan-hoeck/idris2-prim/commit/0ad39cd9b29336ce5cf5199af6754af1a085b0c6) |
 | [rhone](https://github.com/stefan-hoeck/idris2-rhone) | Arrowized functional reactive programming in Idris2 | [cc48d75](https://github.com/stefan-hoeck/idris2-rhone/commit/cc48d755e2a56a646063ed07a44d6a452dd0e488) |
 | [rhone-js](https://github.com/stefan-hoeck/idris2-rhone-js) | Reactive single page web applications in Idris2 | [4f37a93](https://github.com/stefan-hoeck/idris2-rhone-js/commit/4f37a9379b7e19609100db8ae062e0f3fd6a98f1) |
-| [rio](https://github.com/stefan-hoeck/idris2-rio) | A simple effect system based on the RIO monad | [69e8750](https://github.com/stefan-hoeck/idris2-rio/commit/69e87508e0b13d2dc50505f63c675196a6fb5198) |
+| [rio](https://github.com/stefan-hoeck/idris2-rio) | A simple effect system based on the RIO monad | [d7dd516](https://github.com/stefan-hoeck/idris2-rio/commit/d7dd516f9571ec7876ade72f0cd723a034a91ecb) |
 | [snocvect](https://github.com/mattpolzin/idris-snocvect) |  | [f6148c3](https://github.com/mattpolzin/idris-snocvect/commit/f6148c3d06c7a9989062a2425f925fc844468215) |
 | [sop](https://github.com/stefan-hoeck/idris2-sop) | Generic representation of data types as sums of products | [c33c47b](https://github.com/stefan-hoeck/idris2-sop/commit/c33c47b1a526b496971928c7af36e6ad095ba40a) |
 | [tailrec](https://github.com/stefan-hoeck/idris2-tailrec) | Provably total, stack-safe monadic recursion in Idris2 | [ae27e2e](https://github.com/stefan-hoeck/idris2-tailrec/commit/ae27e2ed09ef3d880801899cfc26f470f5b71332) |
