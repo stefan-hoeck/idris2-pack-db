@@ -1,7 +1,7 @@
 [idris2]
 url     = "https://github.com/idris-lang/Idris2"
 version = "0.5.1"
-commit  = "e856569d16659b43553dd92cfff9cd064222c9f7"
+commit  = "4024857d20027a2852da1805b148e3185dc146f9"
 
 [db.apache-mime-types]
 type        = "github"
@@ -153,7 +153,7 @@ packagePath = false
 [db.lsp]
 type        = "github"
 url         = "https://github.com/idris-community/idris2-lsp"
-commit      = "bbac5436af7e1df846700f296fd4778845b10ddf"
+commit      = "11aeb51cba79d1bd807f70dff08c98c4feeab0c1"
 ipkg        = "lsp.ipkg"
 packagePath = true
 
@@ -167,14 +167,14 @@ packagePath = false
 [db.pack]
 type        = "github"
 url         = "https://github.com/stefan-hoeck/idris2-pack"
-commit      = "5cfe0cb6cb046d326caead19844c1a52947db8bc"
+commit      = "45d14c330414662096ccc15216a90aa9afebf0c1"
 ipkg        = "pack.ipkg"
 packagePath = false
 
 [db.pack-admin]
 type        = "github"
 url         = "https://github.com/stefan-hoeck/idris2-pack"
-commit      = "5cfe0cb6cb046d326caead19844c1a52947db8bc"
+commit      = "45d14c330414662096ccc15216a90aa9afebf0c1"
 ipkg        = "pack-admin.ipkg"
 packagePath = false
 

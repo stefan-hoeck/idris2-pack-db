@@ -2,7 +2,7 @@
 
 | Compiler | Version | Commit |
 | --- | --- | --- |
-| [Idris2](https://github.com/idris-lang/Idris2) | 0.5.1 | [e856569](https://github.com/idris-lang/Idris2/commit/e856569d16659b43553dd92cfff9cd064222c9f7) |
+| [Idris2](https://github.com/idris-lang/Idris2) | 0.5.1 | [4024857](https://github.com/idris-lang/Idris2/commit/4024857d20027a2852da1805b148e3185dc146f9) |
 
 ## Building Packages
 
@@ -29,10 +29,10 @@
 | [indexed](https://github.com/mattpolzin/idris-indexed) |  | [21e448e](https://github.com/mattpolzin/idris-indexed/commit/21e448e4da193425336ae150bc55e015c6445415) |
 | [json](https://github.com/stefan-hoeck/idris2-json) | Derivable JSON marshallers for Idris2 | [5a92973](https://github.com/stefan-hoeck/idris2-json/commit/5a92973cbeafc046c42e80abf45ee0e69ba3c480) |
 | [katla](https://github.com/idris-community/katla) |  | [9213675](https://github.com/idris-community/katla/commit/9213675856413c587094e588c2758390f0020faf) |
-| [lsp](https://github.com/idris-community/idris2-lsp) |  | [bbac543](https://github.com/idris-community/idris2-lsp/commit/bbac5436af7e1df846700f296fd4778845b10ddf) |
+| [lsp](https://github.com/idris-community/idris2-lsp) |  | [11aeb51](https://github.com/idris-community/idris2-lsp/commit/11aeb51cba79d1bd807f70dff08c98c4feeab0c1) |
 | [newtype-deriving](https://github.com/MarcelineVQ/idris2-newtype-deriving) | SOP-Based Deriving for Newtype-like types | [376960f](https://github.com/MarcelineVQ/idris2-newtype-deriving/commit/376960fab2dc56740e96f496ad76d692b1f41fae) |
-| [pack](https://github.com/stefan-hoeck/idris2-pack) | A package manager for Idris2 with curated package collections | [5cfe0cb](https://github.com/stefan-hoeck/idris2-pack/commit/5cfe0cb6cb046d326caead19844c1a52947db8bc) |
-| [pack-admin](https://github.com/stefan-hoeck/idris2-pack) | Administration of pack's package collections | [5cfe0cb](https://github.com/stefan-hoeck/idris2-pack/commit/5cfe0cb6cb046d326caead19844c1a52947db8bc) |
+| [pack](https://github.com/stefan-hoeck/idris2-pack) | A package manager for Idris2 with curated package collections | [45d14c3](https://github.com/stefan-hoeck/idris2-pack/commit/45d14c330414662096ccc15216a90aa9afebf0c1) |
+| [pack-admin](https://github.com/stefan-hoeck/idris2-pack) | Administration of pack's package collections | [45d14c3](https://github.com/stefan-hoeck/idris2-pack/commit/45d14c330414662096ccc15216a90aa9afebf0c1) |
 | [pg-idris](https://github.com/mattpolzin/pg-idris) |  | [6f7b2f6](https://github.com/mattpolzin/pg-idris/commit/6f7b2f6c96f963e5073c39613ccd394bc2f3ace5) |
 | [prettier](https://github.com/Z-snails/prettier) |  | [0222ada](https://github.com/Z-snails/prettier/commit/0222ada0be5f6abf5528c8513181f2f4ad117b4b) |
 | [pretty-show](https://github.com/stefan-hoeck/idris2-pretty-show) | Pretty printing of values with a Show instance | [cba44f3](https://github.com/stefan-hoeck/idris2-pretty-show/commit/cba44f34bb9c5a3d768c75d11c84d37761cc4c74) |
