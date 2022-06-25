@@ -167,14 +167,14 @@ packagePath = false
 [db.pack]
 type        = "github"
 url         = "https://github.com/stefan-hoeck/idris2-pack"
-commit      = "0e6aaadae7b98813f103adfea5d32cef181d1fbf"
+commit      = "e22ddcfedd0753fef532ca7eb5f346c2f8e3b126"
 ipkg        = "pack.ipkg"
 packagePath = false
 
 [db.pack-admin]
 type        = "github"
 url         = "https://github.com/stefan-hoeck/idris2-pack"
-commit      = "0e6aaadae7b98813f103adfea5d32cef181d1fbf"
+commit      = "e22ddcfedd0753fef532ca7eb5f346c2f8e3b126"
 ipkg        = "pack-admin.ipkg"
 packagePath = false
 
