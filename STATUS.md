@@ -2,7 +2,7 @@
 
 | Compiler | Version | Commit |
 | --- | --- | --- |
-| [Idris2](https://github.com/idris-lang/Idris2) | 0.5.1 | [4024857](https://github.com/idris-lang/Idris2/commit/4024857d20027a2852da1805b148e3185dc146f9) |
+| [Idris2](https://github.com/idris-lang/Idris2) | 0.5.1 | [38caff2](https://github.com/idris-lang/Idris2/commit/38caff23b8b9f1fc9a7a55d73fa10fe4e7cf7b79) |
 
 ## Building Packages
 
@@ -17,7 +17,7 @@
 | [eff](https://github.com/stefan-hoeck/idris2-eff) | Extensible, stack-safe effects in Idris2 | [d62a7a8](https://github.com/stefan-hoeck/idris2-eff/commit/d62a7a8a0263beb0cfdd98681fc1d11003e07ed3) |
 | [effect](https://github.com/Russoul/Idris2-Effect) |  | [b76dce1](https://github.com/Russoul/Idris2-Effect/commit/b76dce14b79a5f743243a294c3474c6f113f8e3a) |
 | [elab-util](https://github.com/stefan-hoeck/idris2-elab-util) |  | [036b6d6](https://github.com/stefan-hoeck/idris2-elab-util/commit/036b6d693dffe6efb508bfa2346705d51f9d0b61) |
-| [filepath](https://github.com/stefan-hoeck/idris2-filepath) | Unix style file paths | [28d5388](https://github.com/stefan-hoeck/idris2-filepath/commit/28d5388f694d4e4713f28268682c5455ef8b2f68) |
+| [filepath](https://github.com/stefan-hoeck/idris2-filepath) | Unix style file paths | [78a8627](https://github.com/stefan-hoeck/idris2-filepath/commit/78a86272108f168c5c2db7b2feaa26c0344f6839) |
 | [fix-whitespace](https://github.com/stefan-hoeck/idris-fix-whitespace) | A small app for fixing whitespace issues in source files | [351b7b8](https://github.com/stefan-hoeck/idris-fix-whitespace/commit/351b7b8925332cc5fcb81dd7a716467bfebb34a3) |
 | [freer](https://github.com/stefan-hoeck/idris2-freer) | Stack-safe freer monads for Idris2 | [87f6104](https://github.com/stefan-hoeck/idris2-freer/commit/87f6104ed438f89e0176dbc7e9ea3f57128e683d) |
 | [fvect](https://github.com/mattpolzin/idris-fvect) |  | [d84969f](https://github.com/mattpolzin/idris-fvect/commit/d84969fce38ff8a10b9d261458f4d495e6e0f1ca) |
@@ -31,8 +31,8 @@
 | [katla](https://github.com/idris-community/katla) |  | [9213675](https://github.com/idris-community/katla/commit/9213675856413c587094e588c2758390f0020faf) |
 | [lsp](https://github.com/idris-community/idris2-lsp) |  | [c1aea55](https://github.com/idris-community/idris2-lsp/commit/c1aea55483c165aad9523c6b4a0a7c67d6262765) |
 | [newtype-deriving](https://github.com/MarcelineVQ/idris2-newtype-deriving) | SOP-Based Deriving for Newtype-like types | [376960f](https://github.com/MarcelineVQ/idris2-newtype-deriving/commit/376960fab2dc56740e96f496ad76d692b1f41fae) |
-| [pack](https://github.com/stefan-hoeck/idris2-pack) | A package manager for Idris2 with curated package collections | [e22ddcf](https://github.com/stefan-hoeck/idris2-pack/commit/e22ddcfedd0753fef532ca7eb5f346c2f8e3b126) |
-| [pack-admin](https://github.com/stefan-hoeck/idris2-pack) | Administration of pack's package collections | [e22ddcf](https://github.com/stefan-hoeck/idris2-pack/commit/e22ddcfedd0753fef532ca7eb5f346c2f8e3b126) |
+| [pack](https://github.com/stefan-hoeck/idris2-pack) | A package manager for Idris2 with curated package collections | [fe72977](https://github.com/stefan-hoeck/idris2-pack/commit/fe7297730d07567f9ee0f3b73697a4a5b2f12a1d) |
+| [pack-admin](https://github.com/stefan-hoeck/idris2-pack) | Administration of pack's package collections | [fe72977](https://github.com/stefan-hoeck/idris2-pack/commit/fe7297730d07567f9ee0f3b73697a4a5b2f12a1d) |
 | [pg-idris](https://github.com/mattpolzin/pg-idris) |  | [6f7b2f6](https://github.com/mattpolzin/pg-idris/commit/6f7b2f6c96f963e5073c39613ccd394bc2f3ace5) |
 | [prettier](https://github.com/Z-snails/prettier) |  | [0222ada](https://github.com/Z-snails/prettier/commit/0222ada0be5f6abf5528c8513181f2f4ad117b4b) |
 | [pretty-show](https://github.com/stefan-hoeck/idris2-pretty-show) | Pretty printing of values with a Show instance | [cba44f3](https://github.com/stefan-hoeck/idris2-pretty-show/commit/cba44f34bb9c5a3d768c75d11c84d37761cc4c74) |
