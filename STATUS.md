@@ -23,7 +23,7 @@
 | [fvect](https://github.com/mattpolzin/idris-fvect) |  | [d84969f](https://github.com/mattpolzin/idris-fvect/commit/d84969fce38ff8a10b9d261458f4d495e6e0f1ca) |
 | [graph](https://github.com/stefan-hoeck/idris2-graph) | Sparse, simple functional graphs in Idris2 | [2465a18](https://github.com/stefan-hoeck/idris2-graph/commit/2465a186f7842c52bcda49f4e2a72d4805846c17) |
 | [hashable](https://github.com/Z-snails/Idris2-hashable) |  | [d97d2c3](https://github.com/Z-snails/Idris2-hashable/commit/d97d2c39d9199941e2de1991224f564fc4b956dd) |
-| [hashmap](https://github.com/Z-snails/idris2-hashmap) |  | [dd2283a](https://github.com/Z-snails/idris2-hashmap/commit/dd2283a6e0fcfb71c0ad9076459ffdfb6110f18a) |
+| [hashmap](https://github.com/Z-snails/idris2-hashmap) |  | [58f5a2d](https://github.com/Z-snails/idris2-hashmap/commit/58f5a2d2c0a7bb082666d6ce668ee242185a52bf) |
 | [hedgehog](https://github.com/stefan-hoeck/idris2-hedgehog) | A property based testing library with integrated shrinking | [289c026](https://github.com/stefan-hoeck/idris2-hedgehog/commit/289c02636ea7a4510320077c81ec72743803a821) |
 | [idrall](https://github.com/alexhumphreys/idrall) |  | [b5f0457](https://github.com/alexhumphreys/idrall/commit/b5f04575c94cc5cc006791d81f106f5492e3b8f3) |
 | [indexed](https://github.com/mattpolzin/idris-indexed) |  | [21e448e](https://github.com/mattpolzin/idris-indexed/commit/21e448e4da193425336ae150bc55e015c6445415) |
