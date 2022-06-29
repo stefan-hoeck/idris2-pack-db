@@ -35,12 +35,15 @@ jobs:
       - name: Extract Collection from HEAD
         run: pack-admin extract-from-head "$HOME/.pack/db/testdb.toml"
       - name: Check Collection
-        run: pack-admin check-collection testdb STATUS.md
+        run: |
+          mkdir "$HOME/output"
+          pack-admin check-collection testdb "$HOME/output/STATUS.md"
       - name: Copy collection
         run: cp "$HOME/.pack/db/testdb.toml" "collections/nightly-$(date +%y%m%d).toml"
       - name: Commit files
         if: always()
         run: |
+          cp "$HOME/output/STATUS.md" STATUS.md
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add collections/*.toml
