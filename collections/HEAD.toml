@@ -243,3 +243,9 @@ type   = "github"
 url    = "https://github.com/madman-bob/idris2-xml"
 commit = "main"
 ipkg   = "xml.ipkg"
+
+[db.tyre]
+type   = "github"
+url    = "https://github.com/kasiaMarek/TyRE"
+commit = "main"
+ipkg   = "tyre.ipkg"
