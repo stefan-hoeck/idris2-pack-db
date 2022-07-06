@@ -167,14 +167,14 @@ packagePath = false
 [db.pack]
 type        = "github"
 url         = "https://github.com/stefan-hoeck/idris2-pack"
-commit      = "6c20e21d785a2a25776f06ae07e890c8012a1f05"
+commit      = "064798192d89f98b24c397695058fd7519f4f491"
 ipkg        = "pack.ipkg"
 packagePath = false
 
 [db.pack-admin]
 type        = "github"
 url         = "https://github.com/stefan-hoeck/idris2-pack"
-commit      = "6c20e21d785a2a25776f06ae07e890c8012a1f05"
+commit      = "064798192d89f98b24c397695058fd7519f4f491"
 ipkg        = "pack-admin.ipkg"
 packagePath = false
 
@@ -260,6 +260,13 @@ type        = "github"
 url         = "https://github.com/cuddlefishie/toml-idr"
 commit      = "b4f5a4bd874fa32f20d02311a62a1910dc48123f"
 ipkg        = "toml.ipkg"
+packagePath = false
+
+[db.tyre]
+type        = "github"
+url         = "https://github.com/kasiaMarek/TyRE"
+commit      = "e42223a67ee8cd0c0ba85529300663bb72efa0ee"
+ipkg        = "tyre.ipkg"
 packagePath = false
 
 [db.tyttp]
