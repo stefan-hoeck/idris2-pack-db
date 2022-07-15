@@ -57,8 +57,8 @@
 | [tester](https://github.com/cuddlefishie/tester-idr) |  | [3dcdb54](https://github.com/cuddlefishie/tester-idr/commit/3dcdb54ed578a14597a17cb93c926734a9da69ca) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/tester/index.html) |
 | [toml](https://github.com/cuddlefishie/toml-idr) |  | [b4f5a4b](https://github.com/cuddlefishie/toml-idr/commit/b4f5a4bd874fa32f20d02311a62a1910dc48123f) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/toml/index.html) |
 | [tyre](https://github.com/kasiaMarek/TyRE) | A typed regex parser | [699c949](https://github.com/kasiaMarek/TyRE/commit/699c949a5633d99061472c65c5cc4d2481ef8c0d) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/tyre/index.html) |
-| [tyttp](https://github.com/kbertalan/tyttp) |  | [187917a](https://github.com/kbertalan/tyttp/commit/187917ad951927132029d430e451eae489f6aa78) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/tyttp/index.html) |
-| [tyttp-json](https://github.com/kbertalan/tyttp-json) |  | [07dd749](https://github.com/kbertalan/tyttp-json/commit/07dd74984810697c2600a49502849856fa41ea83) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/tyttp-json/index.html) |
+| [tyttp](https://github.com/kbertalan/tyttp) |  | [4677b53](https://github.com/kbertalan/tyttp/commit/4677b5336e4cab7f36127dc95dcea05b01c0b5cb) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/tyttp/index.html) |
+| [tyttp-json](https://github.com/kbertalan/tyttp-json) |  | [964621d](https://github.com/kbertalan/tyttp-json/commit/964621d0e6f9802e93f9d4f9475f99555d972dbe) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/tyttp-json/index.html) |
 | [xml](https://github.com/madman-bob/idris2-xml) |  | [1292ccf](https://github.com/madman-bob/idris2-xml/commit/1292ccfcd58c551089ef699e4560343d5c473d64) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/xml/index.html) |
 
 
