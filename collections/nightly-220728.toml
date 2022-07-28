@@ -41,7 +41,7 @@ packagePath = false
 [db.distribution]
 type        = "github"
 url         = "https://github.com/idris-bayes/distribution"
-commit      = "4204bee877d5c5060372d2478b80809fcb079a14"
+commit      = "20062d532aee26f08fe6993de3ea2ad640220b80"
 ipkg        = "distribution.ipkg"
 packagePath = false
 
@@ -181,14 +181,14 @@ packagePath = true
 [db.markdown]
 type        = "github"
 url         = "https://github.com/running-grass/idris2-markdown"
-commit      = "c75eccce11d2ef48c53a0f743ce56adaf5c0b157"
+commit      = "99ee9c7c47e33484a8f890f57982f7492af2c314"
 ipkg        = "markdown.ipkg"
 packagePath = false
 
 [db.monad-bayes]
 type        = "github"
 url         = "https://github.com/idris-bayes/monad-bayes"
-commit      = "f51572e0aa5d9a790f6285829b6ee5f8d53c7f7e"
+commit      = "79cdb058e15d1138505cc97833aa6a54377faa59"
 ipkg        = "monad-bayes.ipkg"
 packagePath = false
 
