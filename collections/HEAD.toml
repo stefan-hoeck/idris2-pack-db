@@ -285,3 +285,9 @@ type   = "github"
 url    = "https://github.com/idris-bayes/monad-bayes"
 commit = "main"
 ipkg   = "monad-bayes.ipkg"
+
+[db.url]
+type   = "github"
+url    = "https://github.com/running-grass/idris2-url"
+commit = "main"
+ipkg   = "url.ipkg"
