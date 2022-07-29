@@ -61,6 +61,7 @@
 | [tyre](https://github.com/kasiaMarek/TyRE) | A typed regex parser | [699c949](https://github.com/kasiaMarek/TyRE/commit/699c949a5633d99061472c65c5cc4d2481ef8c0d) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/tyre/index.html) |
 | [tyttp](https://github.com/kbertalan/tyttp) |  | [562acd0](https://github.com/kbertalan/tyttp/commit/562acd081c84dc41f57b73521c9813c59d265ef7) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/tyttp/index.html) |
 | [tyttp-json](https://github.com/kbertalan/tyttp-json) |  | [9b3b6fa](https://github.com/kbertalan/tyttp-json/commit/9b3b6fa61bf36c62d14a0c5dcd1d2aae64de0a16) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/tyttp-json/index.html) |
+| [url](https://github.com/running-grass/idris2-url) | A url library for idris2 | [4207900](https://github.com/running-grass/idris2-url/commit/4207900eaf6fa4af114f9d98c21d25d91334bbc4) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/url/index.html) |
 | [xml](https://github.com/madman-bob/idris2-xml) |  | [1292ccf](https://github.com/madman-bob/idris2-xml/commit/1292ccfcd58c551089ef699e4560343d5c473d64) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/xml/index.html) |
 
 
