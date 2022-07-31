@@ -232,6 +232,12 @@ url    = "https://github.com/cuddlefishie/toml-idr"
 commit = "main"
 ipkg   = "toml.ipkg"
 
+[db.node]
+type = "github"
+url  = "https://github.com/kbertalan/idris2-node"
+commit = "main"
+ipkg = "node.ipkg"
+
 [db.promise]
 type = "github"
 url  = "https://github.com/kbertalan/idris2-promise"
