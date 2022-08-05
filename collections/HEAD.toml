@@ -297,3 +297,9 @@ type   = "github"
 url    = "https://github.com/running-grass/idris2-url"
 commit = "main"
 ipkg   = "url.ipkg"
+
+[db.prob-fx]
+type   = "github"
+url    = "https://github.com/idris-bayes/prob-fx"
+commit = "main"
+ipkg   = "prob-fx.ipkg"
