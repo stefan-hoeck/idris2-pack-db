@@ -304,9 +304,14 @@ url    = "https://github.com/octeep/idris2-tls"
 commit = "master"
 ipkg   = "tls.ipkg"
 
-
 [db.http]
 type   = "github"
 url    = "https://github.com/octeep/idris2-http"
 commit = "master"
 ipkg   = "http.ipkg"
+
+[db.prob-fx]
+type   = "github"
+url    = "https://github.com/idris-bayes/prob-fx"
+commit = "main"
+ipkg   = "prob-fx.ipkg"
