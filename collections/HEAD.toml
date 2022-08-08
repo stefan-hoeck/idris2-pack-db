@@ -315,3 +315,9 @@ type   = "github"
 url    = "https://github.com/idris-bayes/prob-fx"
 commit = "main"
 ipkg   = "prob-fx.ipkg"
+
+[db.cheerio]
+type   = "github"
+url    = "https://github.com/running-grass/idris2-playground"
+commit = "main"
+ipkg   = "cheerio/cheerio.ipkg"
