@@ -11,6 +11,7 @@
 | [apache-mime-types](https://github.com/kbertalan/idris2-apache-mime-types) |  | [37ab5d1](https://github.com/kbertalan/idris2-apache-mime-types/commit/37ab5d1499ceb29fdbab64739da7a78559aaab5a) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/apache-mime-types/index.html) |
 | [base](https://github.com/idris-lang/Idris2) |  | [4672305](https://github.com/idris-lang/Idris2/commit/4672305fc3ab5b77da38a016b8289fb23f191640) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/base/index.html) |
 | [bytestring](https://github.com/stefan-hoeck/idris2-bytestring) |  | [e06ca87](https://github.com/stefan-hoeck/idris2-bytestring/commit/e06ca875ce5eba11bc3faa62f18ba652c0ea73a1) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/bytestring/index.html) |
+| [cheerio](https://github.com/running-grass/idris2-playground) | A cheerio binding for nodejs. provide css selector and attr getter. | [19f8da9](https://github.com/running-grass/idris2-playground/commit/19f8da95db349aeb8354e8c4dd3cb04d186f28f3) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/cheerio/index.html) |
 | [collie](https://github.com/ohad/collie) |  | [46bff04](https://github.com/ohad/collie/commit/46bff04a8d9a1598fec9b19f515541df16dc64ef) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/collie/index.html) |
 | [comonad](https://github.com/stefan-hoeck/idris2-comonad) | Comonads for Idris2 | [35a6e7c](https://github.com/stefan-hoeck/idris2-comonad/commit/35a6e7c2243e73e9c63340e532adaf3197cea3d3) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/comonad/index.html) |
 | [contrib](https://github.com/idris-lang/Idris2) |  | [4672305](https://github.com/idris-lang/Idris2/commit/4672305fc3ab5b77da38a016b8289fb23f191640) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/contrib/index.html) |
@@ -42,7 +43,7 @@
 | [monad-bayes](https://github.com/idris-bayes/monad-bayes) | A probabilistic language with emphasis on compositional inference, based on the original Haskell library | [79cdb05](https://github.com/idris-bayes/monad-bayes/commit/79cdb058e15d1138505cc97833aa6a54377faa59) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/monad-bayes/index.html) |
 | [network](https://github.com/idris-lang/Idris2) |  | [4672305](https://github.com/idris-lang/Idris2/commit/4672305fc3ab5b77da38a016b8289fb23f191640) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/network/index.html) |
 | [newtype-deriving](https://github.com/MarcelineVQ/idris2-newtype-deriving) | SOP-Based Deriving for Newtype-like types | [376960f](https://github.com/MarcelineVQ/idris2-newtype-deriving/commit/376960fab2dc56740e96f496ad76d692b1f41fae) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/newtype-deriving/index.html) |
-| [node](https://github.com/kbertalan/idris2-node) |  | [a139c04](https://github.com/kbertalan/idris2-node/commit/a139c0425290faa7bb65980c8f0dc39a4626bb50) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/node/index.html) |
+| [node](https://github.com/kbertalan/idris2-node) |  | [c6463cc](https://github.com/kbertalan/idris2-node/commit/c6463cc45877d9314e46f2a88a2ea83252e2d425) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/node/index.html) |
 | [pack](https://github.com/stefan-hoeck/idris2-pack) | A package manager for Idris2 with curated package collections | [feac037](https://github.com/stefan-hoeck/idris2-pack/commit/feac0378d35f60de2a75395e829d71ad6539f550) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/pack/index.html) |
 | [pack-admin](https://github.com/stefan-hoeck/idris2-pack) | Administration of pack's package collections | [feac037](https://github.com/stefan-hoeck/idris2-pack/commit/feac0378d35f60de2a75395e829d71ad6539f550) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/pack-admin/index.html) |
 | [pg-idris](https://github.com/mattpolzin/pg-idris) |  | [656688e](https://github.com/mattpolzin/pg-idris/commit/656688e4def4e9a78b1388bac17b71b230bb42f6) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/pg-idris/index.html) |
@@ -63,7 +64,7 @@
 | [tls](https://github.com/octeep/idris2-tls) | A portable idris2 implementation of TLS | [3181e92](https://github.com/octeep/idris2-tls/commit/3181e9216665a0af0f7988fe5813bef4cca65a5c) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/tls/index.html) |
 | [toml](https://github.com/cuddlefishie/toml-idr) |  | [b4f5a4b](https://github.com/cuddlefishie/toml-idr/commit/b4f5a4bd874fa32f20d02311a62a1910dc48123f) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/toml/index.html) |
 | [tyre](https://github.com/kasiaMarek/TyRE) | A typed regex parser | [699c949](https://github.com/kasiaMarek/TyRE/commit/699c949a5633d99061472c65c5cc4d2481ef8c0d) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/tyre/index.html) |
-| [tyttp](https://github.com/kbertalan/tyttp) |  | [01f58e0](https://github.com/kbertalan/tyttp/commit/01f58e059d2e7f2ab89d46093ce1f3a4ffbd8b91) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/tyttp/index.html) |
+| [tyttp](https://github.com/kbertalan/tyttp) |  | [3cef5ea](https://github.com/kbertalan/tyttp/commit/3cef5ea7fd3f0ddbc6f0ce0c64b3e31249d594cc) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/tyttp/index.html) |
 | [tyttp-json](https://github.com/kbertalan/tyttp-json) |  | [0b36427](https://github.com/kbertalan/tyttp-json/commit/0b36427992b568bbcc4e4d6ba67c6fa0ac6ea85e) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/tyttp-json/index.html) |
 | [url](https://github.com/running-grass/idris2-url) | A url library for idris2 | [4587b14](https://github.com/running-grass/idris2-url/commit/4587b14fbe7752c4aad5aac045e19088ec2e4108) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/url/index.html) |
 | [xml](https://github.com/madman-bob/idris2-xml) |  | [1292ccf](https://github.com/madman-bob/idris2-xml/commit/1292ccfcd58c551089ef699e4560343d5c473d64) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/xml/index.html) |
@@ -73,7 +74,6 @@
 
 | Package | Dependencies | Commit |
 | --- | --- | --- |
-| [cheerio](https://github.com/running-grass/idris2-playground) |  | [a61760c](https://github.com/running-grass/idris2-playground/commit/a61760c750ca1b7b35382459b36b446016aef81e) |
 
 
 ## Unresolved Packages
