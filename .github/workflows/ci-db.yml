@@ -42,17 +42,20 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 0
-      - name: Copy collection
-        run: cp "$HOME/.pack/db/testdb.toml" "collections/nightly-$(date +%y%m%d).toml"
-      - name: Commit files
+      - name: Add STATUS.md
         if: always()
         run: |
           cp "$HOME/output/STATUS.md" STATUS.md
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add collections/*.toml
           git add STATUS.md
-          git commit -m "[ check ] collection update" -m "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+      - name: Git add collection
+        run: |
+          cp "$HOME/.pack/db/testdb.toml" "collections/nightly-$(date +%y%m%d).toml"
+          git add collections/*.toml
+      - name: Git commit
+        if: always()
+        run: git commit -m "[ check ] collection update" -m "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
       - name: Push changes
         if: always()
         uses: ad-m/github-push-action@master
