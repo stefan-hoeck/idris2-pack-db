@@ -39,6 +39,7 @@ jobs:
           build/exec/pack-admin --no-prompt check-collection testdb $HOME/output/STATUS.md
       - name: Checkout
         uses: actions/checkout@v3
+        if: always()
         with:
           persist-credentials: false
           fetch-depth: 0
