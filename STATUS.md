@@ -43,8 +43,8 @@
 | [network](https://github.com/idris-lang/Idris2) |  | [4672305](https://github.com/idris-lang/Idris2/commit/4672305fc3ab5b77da38a016b8289fb23f191640) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/network/index.html) |
 | [newtype-deriving](https://github.com/MarcelineVQ/idris2-newtype-deriving) | SOP-Based Deriving for Newtype-like types | [376960f](https://github.com/MarcelineVQ/idris2-newtype-deriving/commit/376960fab2dc56740e96f496ad76d692b1f41fae) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/newtype-deriving/index.html) |
 | [node](https://github.com/kbertalan/idris2-node) |  | [a139c04](https://github.com/kbertalan/idris2-node/commit/a139c0425290faa7bb65980c8f0dc39a4626bb50) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/node/index.html) |
-| [pack](https://github.com/stefan-hoeck/idris2-pack) | A package manager for Idris2 with curated package collections | [f8516b3](https://github.com/stefan-hoeck/idris2-pack/commit/f8516b380b19e075d50fedbde0c117e9a78f9d64) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/pack/index.html) |
-| [pack-admin](https://github.com/stefan-hoeck/idris2-pack) | Administration of pack's package collections | [f8516b3](https://github.com/stefan-hoeck/idris2-pack/commit/f8516b380b19e075d50fedbde0c117e9a78f9d64) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/pack-admin/index.html) |
+| [pack](https://github.com/stefan-hoeck/idris2-pack) | A package manager for Idris2 with curated package collections | [feac037](https://github.com/stefan-hoeck/idris2-pack/commit/feac0378d35f60de2a75395e829d71ad6539f550) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/pack/index.html) |
+| [pack-admin](https://github.com/stefan-hoeck/idris2-pack) | Administration of pack's package collections | [feac037](https://github.com/stefan-hoeck/idris2-pack/commit/feac0378d35f60de2a75395e829d71ad6539f550) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/pack-admin/index.html) |
 | [pg-idris](https://github.com/mattpolzin/pg-idris) |  | [656688e](https://github.com/mattpolzin/pg-idris/commit/656688e4def4e9a78b1388bac17b71b230bb42f6) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/pg-idris/index.html) |
 | [prelude](https://github.com/idris-lang/Idris2) |  | [4672305](https://github.com/idris-lang/Idris2/commit/4672305fc3ab5b77da38a016b8289fb23f191640) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/prelude/index.html) |
 | [prettier](https://github.com/Z-snails/prettier) |  | [0222ada](https://github.com/Z-snails/prettier/commit/0222ada0be5f6abf5528c8513181f2f4ad117b4b) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/prettier/index.html) |
@@ -73,12 +73,10 @@
 
 | Package | Dependencies | Commit |
 | --- | --- | --- |
+| [cheerio](https://github.com/running-grass/idris2-playground) |  | [a61760c](https://github.com/running-grass/idris2-playground/commit/a61760c750ca1b7b35382459b36b446016aef81e) |
 
 
 ## Unresolved Packages
 
 | Package | Error |
 | --- | --- |
-| cheerio | Error when executing system command.
-Command: /home/runner/.pack/install/4672305fc3ab5b77da38a016b8289fb23f191640/idris2/bin/idris2 --install-with-src cheerio.ipkg
-Error code: 1 |
