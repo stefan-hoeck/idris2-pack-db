@@ -34,7 +34,7 @@
 | [idrall](https://github.com/alexhumphreys/idrall) | Dhall compiler for Idris2 | [86e43e4](https://github.com/alexhumphreys/idrall/commit/86e43e48e5edfe2bafbccd1544777a6bea5eec59) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/idrall/index.html) |
 | [idris2](https://github.com/idris-lang/Idris2) |  | [23e3695](https://github.com/idris-lang/Idris2/commit/23e3695d74bdbbc6f4d71f6930ae28736ecc4ba6) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/idris2/index.html) |
 | [indexed](https://github.com/mattpolzin/idris-indexed) |  | [eb1a019](https://github.com/mattpolzin/idris-indexed/commit/eb1a019dddcf90412fa8ada1e14574b37a3539c3) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/indexed/index.html) |
-| [json](https://github.com/stefan-hoeck/idris2-json) | Derivable JSON marshallers for Idris2 | [5a92973](https://github.com/stefan-hoeck/idris2-json/commit/5a92973cbeafc046c42e80abf45ee0e69ba3c480) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/json/index.html) |
+| [json](https://github.com/stefan-hoeck/idris2-json) | Derivable JSON marshallers for Idris2 | [15cde66](https://github.com/stefan-hoeck/idris2-json/commit/15cde66d582a4fff44f43a309701bc2a26026089) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/json/index.html) |
 | [katla](https://github.com/idris-community/katla) |  | [9213675](https://github.com/idris-community/katla/commit/9213675856413c587094e588c2758390f0020faf) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/katla/index.html) |
 | [linear](https://github.com/idris-lang/Idris2) |  | [23e3695](https://github.com/idris-lang/Idris2/commit/23e3695d74bdbbc6f4d71f6930ae28736ecc4ba6) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/linear/index.html) |
 | [log-domain](https://github.com/idris-bayes/log-domain) | A small representation of numerical computations in the log domain. | [7eb33c3](https://github.com/idris-bayes/log-domain/commit/7eb33c36fb411b3e9dc43e0c5ad5d8f2f3dae80e) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/log-domain/index.html) |
@@ -55,7 +55,7 @@
 | [promise](https://github.com/kbertalan/idris2-promise) | Promise for Idris2 | [ec18d78](https://github.com/kbertalan/idris2-promise/commit/ec18d7844269817e8f18a39d9532ecbbfc884cca) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/promise/index.html) |
 | [rhone](https://github.com/stefan-hoeck/idris2-rhone) | Arrowized functional reactive programming in Idris2 | [a12fa1c](https://github.com/stefan-hoeck/idris2-rhone/commit/a12fa1c65bbfb072e0a4e76e40cd0097d3c4c2e1) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/rhone/index.html) |
 | [rhone-js](https://github.com/stefan-hoeck/idris2-rhone-js) | Reactive single page web applications in Idris2 | [8c33aa4](https://github.com/stefan-hoeck/idris2-rhone-js/commit/8c33aa4f0e038c6a4c2932fdcc92214e148cf6d3) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/rhone-js/index.html) |
-| [rio](https://github.com/stefan-hoeck/idris2-rio) | A simple effect system based on the RIO monad | [e6e06e1](https://github.com/stefan-hoeck/idris2-rio/commit/e6e06e1033686301c0a2b1fb903186da0464ff20) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/rio/index.html) |
+| [rio](https://github.com/stefan-hoeck/idris2-rio) | A simple effect system based on the RIO monad | [19f88ae](https://github.com/stefan-hoeck/idris2-rio/commit/19f88ae22b4927c1a017edf02995c7178155106f) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/rio/index.html) |
 | [snocvect](https://github.com/mattpolzin/idris-snocvect) |  | [f6148c3](https://github.com/mattpolzin/idris-snocvect/commit/f6148c3d06c7a9989062a2425f925fc844468215) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/snocvect/index.html) |
 | [sop](https://github.com/stefan-hoeck/idris2-sop) | Generic representation of data types as sums of products | [7b4c118](https://github.com/stefan-hoeck/idris2-sop/commit/7b4c1189c8c9df5b34e5b4aec3aecef43dc8aa3c) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/sop/index.html) |
 | [tailrec](https://github.com/stefan-hoeck/idris2-tailrec) | Provably total, stack-safe monadic recursion in Idris2 | [ae27e2e](https://github.com/stefan-hoeck/idris2-tailrec/commit/ae27e2ed09ef3d880801899cfc26f470f5b71332) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/tailrec/index.html) |
@@ -65,7 +65,6 @@
 | [toml](https://github.com/cuddlefishie/toml-idr) |  | [b4f5a4b](https://github.com/cuddlefishie/toml-idr/commit/b4f5a4bd874fa32f20d02311a62a1910dc48123f) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/toml/index.html) |
 | [tyre](https://github.com/kasiaMarek/TyRE) | A typed regex parser | [dc6491e](https://github.com/kasiaMarek/TyRE/commit/dc6491eaefb2bdf524c6a43fd9b74637aba76714) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/tyre/index.html) |
 | [tyttp](https://github.com/kbertalan/tyttp) | An experimental web server framework targeting NodeJS | [bc321de](https://github.com/kbertalan/tyttp/commit/bc321dedd1ccf8ebd1565cb4bc3ec1b125dc3325) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/tyttp/index.html) |
-| [tyttp-json](https://github.com/kbertalan/tyttp-json) | JSON payload consumer and producer for TyTTP web framework | [267693c](https://github.com/kbertalan/tyttp-json/commit/267693ca7d68b511f5d89f178555c928443e6279) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/tyttp-json/index.html) |
 | [url](https://github.com/running-grass/idris2-url) | A url library for idris2 | [4587b14](https://github.com/running-grass/idris2-url/commit/4587b14fbe7752c4aad5aac045e19088ec2e4108) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/url/index.html) |
 | [xml](https://github.com/madman-bob/idris2-xml) |  | [1292ccf](https://github.com/madman-bob/idris2-xml/commit/1292ccfcd58c551089ef699e4560343d5c473d64) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/xml/index.html) |
 
@@ -74,6 +73,7 @@
 
 | Package | Dependencies | Commit |
 | --- | --- | --- |
+| [tyttp-json](https://github.com/kbertalan/tyttp-json) |  | [267693c](https://github.com/kbertalan/tyttp-json/commit/267693ca7d68b511f5d89f178555c928443e6279) |
 
 
 ## Unresolved Packages
