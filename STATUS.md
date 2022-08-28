@@ -35,7 +35,7 @@
 | [idris2](https://github.com/idris-lang/Idris2) |  | [23e3695](https://github.com/idris-lang/Idris2/commit/23e3695d74bdbbc6f4d71f6930ae28736ecc4ba6) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/idris2/index.html) |
 | [indexed](https://github.com/mattpolzin/idris-indexed) |  | [eb1a019](https://github.com/mattpolzin/idris-indexed/commit/eb1a019dddcf90412fa8ada1e14574b37a3539c3) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/indexed/index.html) |
 | [json](https://github.com/stefan-hoeck/idris2-json) | Derivable JSON marshallers for Idris2 | [15cde66](https://github.com/stefan-hoeck/idris2-json/commit/15cde66d582a4fff44f43a309701bc2a26026089) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/json/index.html) |
-| [katla](https://github.com/idris-community/katla) |  | [9213675](https://github.com/idris-community/katla/commit/9213675856413c587094e588c2758390f0020faf) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/katla/index.html) |
+| [katla](https://github.com/idris-community/katla) |  | [a7f9f6c](https://github.com/idris-community/katla/commit/a7f9f6c5c605dda745c6a9d847e5cf728b011e6b) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/katla/index.html) |
 | [linear](https://github.com/idris-lang/Idris2) |  | [23e3695](https://github.com/idris-lang/Idris2/commit/23e3695d74bdbbc6f4d71f6930ae28736ecc4ba6) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/linear/index.html) |
 | [log-domain](https://github.com/idris-bayes/log-domain) | A small representation of numerical computations in the log domain. | [7eb33c3](https://github.com/idris-bayes/log-domain/commit/7eb33c36fb411b3e9dc43e0c5ad5d8f2f3dae80e) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/log-domain/index.html) |
 | [lsp](https://github.com/idris-community/idris2-lsp) |  | [0381d6c](https://github.com/idris-community/idris2-lsp/commit/0381d6c3dc865937352d5918049234c6e0c1acd6) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/lsp/index.html) |
@@ -43,7 +43,7 @@
 | [monad-bayes](https://github.com/idris-bayes/monad-bayes) | A probabilistic language with emphasis on compositional inference, based on the original Haskell library | [79cdb05](https://github.com/idris-bayes/monad-bayes/commit/79cdb058e15d1138505cc97833aa6a54377faa59) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/monad-bayes/index.html) |
 | [network](https://github.com/idris-lang/Idris2) |  | [23e3695](https://github.com/idris-lang/Idris2/commit/23e3695d74bdbbc6f4d71f6930ae28736ecc4ba6) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/network/index.html) |
 | [newtype-deriving](https://github.com/MarcelineVQ/idris2-newtype-deriving) | SOP-Based Deriving for Newtype-like types | [376960f](https://github.com/MarcelineVQ/idris2-newtype-deriving/commit/376960fab2dc56740e96f496ad76d692b1f41fae) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/newtype-deriving/index.html) |
-| [node](https://github.com/kbertalan/idris2-node) | Node JS API bindings for Idris2 | [3aca2a0](https://github.com/kbertalan/idris2-node/commit/3aca2a0387ee69b2671278acc1f368b8cefc0139) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/node/index.html) |
+| [node](https://github.com/kbertalan/idris2-node) | Node JS API bindings for Idris2 | [73254a8](https://github.com/kbertalan/idris2-node/commit/73254a812b337fd3e0c131ded6c238e88c910e51) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/node/index.html) |
 | [pack](https://github.com/stefan-hoeck/idris2-pack) | A package manager for Idris2 with curated package collections | [7ae2b71](https://github.com/stefan-hoeck/idris2-pack/commit/7ae2b71a037e6f17ba053df72d1d64abc9242d9d) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/pack/index.html) |
 | [pack-admin](https://github.com/stefan-hoeck/idris2-pack) | Administration of pack's package collections | [7ae2b71](https://github.com/stefan-hoeck/idris2-pack/commit/7ae2b71a037e6f17ba053df72d1d64abc9242d9d) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/pack-admin/index.html) |
 | [pg-idris](https://github.com/mattpolzin/pg-idris) |  | [656688e](https://github.com/mattpolzin/pg-idris/commit/656688e4def4e9a78b1388bac17b71b230bb42f6) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/pg-idris/index.html) |
@@ -64,7 +64,8 @@
 | [tls](https://github.com/octeep/idris2-tls) | A portable idris2 implementation of TLS | [3181e92](https://github.com/octeep/idris2-tls/commit/3181e9216665a0af0f7988fe5813bef4cca65a5c) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/tls/index.html) |
 | [toml](https://github.com/cuddlefishie/toml-idr) |  | [b4f5a4b](https://github.com/cuddlefishie/toml-idr/commit/b4f5a4bd874fa32f20d02311a62a1910dc48123f) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/toml/index.html) |
 | [tyre](https://github.com/kasiaMarek/TyRE) | A typed regex parser | [dc6491e](https://github.com/kasiaMarek/TyRE/commit/dc6491eaefb2bdf524c6a43fd9b74637aba76714) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/tyre/index.html) |
-| [tyttp](https://github.com/kbertalan/tyttp) | An experimental web server framework targeting NodeJS | [bc321de](https://github.com/kbertalan/tyttp/commit/bc321dedd1ccf8ebd1565cb4bc3ec1b125dc3325) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/tyttp/index.html) |
+| [tyttp](https://github.com/kbertalan/tyttp) | An experimental web server framework targeting NodeJS | [8c0c2da](https://github.com/kbertalan/tyttp/commit/8c0c2da768ef6dd52d8be97fff6d96dca6f523db) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/tyttp/index.html) |
+| [tyttp-json](https://github.com/kbertalan/tyttp-json) | JSON payload consumer and producer for TyTTP web framework | [78c3460](https://github.com/kbertalan/tyttp-json/commit/78c3460b2df93e66539ea428dfbde07f2d85a237) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/tyttp-json/index.html) |
 | [url](https://github.com/running-grass/idris2-url) | A url library for idris2 | [4587b14](https://github.com/running-grass/idris2-url/commit/4587b14fbe7752c4aad5aac045e19088ec2e4108) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/url/index.html) |
 | [xml](https://github.com/madman-bob/idris2-xml) |  | [1292ccf](https://github.com/madman-bob/idris2-xml/commit/1292ccfcd58c551089ef699e4560343d5c473d64) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/xml/index.html) |
 
@@ -73,7 +74,6 @@
 
 | Package | Dependencies | Commit |
 | --- | --- | --- |
-| [tyttp-json](https://github.com/kbertalan/tyttp-json) |  | [267693c](https://github.com/kbertalan/tyttp-json/commit/267693ca7d68b511f5d89f178555c928443e6279) |
 
 
 ## Unresolved Packages
