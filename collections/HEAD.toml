@@ -244,6 +244,12 @@ url  = "https://github.com/kbertalan/idris2-promise"
 commit = "main"
 ipkg = "promise.ipkg"
 
+[db.timeit]
+type = "github"
+url  = "https://github.com/MarcelineVQ/idris2-timeit"
+commit = "main"
+ipkg = "timeit.ipkg"
+
 [db.tyttp]
 type = "github"
 url  = "https://github.com/kbertalan/tyttp"
