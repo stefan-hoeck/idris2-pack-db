@@ -340,7 +340,7 @@ url    = "https://github.com/running-grass/idris2-playground"
 commit = "main"
 ipkg   = "game-2048/game-2048.ipkg"
 
-[db.game-2048]
+[db.spidr]
 type   = "github"
 url    = "https://github.com/joelberkeley/spidr"
 commit = "pack"
