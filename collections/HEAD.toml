@@ -27,6 +27,12 @@ url    = "https://github.com/stefan-hoeck/idris2-comonad"
 commit = "main"
 ipkg   = "comonad.ipkg"
 
+[db.crypt]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-crypt"
+commit = "main"
+ipkg   = "crypt.ipkg"
+
 [db.dinwiddy]
 type   = "github"
 url    = "https://github.com/bobbbay/dinwiddy"
