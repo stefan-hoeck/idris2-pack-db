@@ -27,6 +27,12 @@ url    = "https://github.com/stefan-hoeck/idris2-comonad"
 commit = "main"
 ipkg   = "comonad.ipkg"
 
+[db.coop]
+type   = "github"
+url    = "https://github.com/buzden/idris2-coop"
+commit = "master"
+ipkg   = "coop.ipkg"
+
 [db.crypt]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-crypt"
