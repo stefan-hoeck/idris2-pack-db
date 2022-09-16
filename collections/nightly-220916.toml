@@ -1,0 +1,417 @@
+[idris2]
+url     = "https://github.com/idris-lang/Idris2"
+version = "0.5.1"
+commit  = "d1ae9d9fd5dc20ab9540fb0b9989f60e79ae1263"
+
+[db.apache-mime-types]
+type        = "github"
+url         = "https://github.com/kbertalan/idris2-apache-mime-types"
+commit      = "973de0e7224a25606eca25a1caf853b83925d36d"
+ipkg        = "apache-mime-types.ipkg"
+packagePath = false
+
+[db.bytestring]
+type        = "github"
+url         = "https://github.com/stefan-hoeck/idris2-bytestring"
+commit      = "93640b70cc2df6ec064b4a6ae86b7d592aaaa2dc"
+ipkg        = "bytestring.ipkg"
+packagePath = false
+
+[db.cheerio]
+type        = "github"
+url         = "https://github.com/running-grass/idris2-playground"
+commit      = "1598036825cdb4caf6b98a9aa8d3d439b6c27b35"
+ipkg        = "cheerio/cheerio.ipkg"
+packagePath = false
+
+[db.collie]
+type        = "github"
+url         = "https://github.com/ohad/collie"
+commit      = "46bff04a8d9a1598fec9b19f515541df16dc64ef"
+ipkg        = "collie.ipkg"
+packagePath = false
+
+[db.comonad]
+type        = "github"
+url         = "https://github.com/stefan-hoeck/idris2-comonad"
+commit      = "35a6e7c2243e73e9c63340e532adaf3197cea3d3"
+ipkg        = "comonad.ipkg"
+packagePath = false
+
+[db.coop]
+type        = "github"
+url         = "https://github.com/buzden/idris2-coop"
+commit      = "371fb23b7c15c7f58d702b83d4344a87c89178eb"
+ipkg        = "coop.ipkg"
+packagePath = false
+
+[db.crypt]
+type        = "github"
+url         = "https://github.com/stefan-hoeck/idris2-crypt"
+commit      = "2d499c86efd286a7bf263402f59a0c37d9936b6b"
+ipkg        = "crypt.ipkg"
+packagePath = false
+
+[db.dinwiddy]
+type        = "github"
+url         = "https://github.com/bobbbay/dinwiddy"
+commit      = "61a81c55e48e4b7b551fb7493d623cb7659a37ce"
+ipkg        = "dinwiddy.ipkg"
+packagePath = false
+
+[db.distribution]
+type        = "github"
+url         = "https://github.com/idris-bayes/distribution"
+commit      = "07d41e454f246b63ced33f020ff7329722b74ba4"
+ipkg        = "distribution.ipkg"
+packagePath = false
+
+[db.dom]
+type        = "github"
+url         = "https://github.com/stefan-hoeck/idris2-dom"
+commit      = "7916d7a744fa3ec39c4d547de659e0740c98407c"
+ipkg        = "dom.ipkg"
+packagePath = false
+
+[db.eff]
+type        = "github"
+url         = "https://github.com/stefan-hoeck/idris2-eff"
+commit      = "d62a7a8a0263beb0cfdd98681fc1d11003e07ed3"
+ipkg        = "eff.ipkg"
+packagePath = false
+
+[db.effect]
+type        = "github"
+url         = "https://github.com/Russoul/Idris2-Effect"
+commit      = "b76dce14b79a5f743243a294c3474c6f113f8e3a"
+ipkg        = "effect.ipkg"
+packagePath = false
+
+[db.elab-util]
+type        = "github"
+url         = "https://github.com/stefan-hoeck/idris2-elab-util"
+commit      = "e2b9dc3ac5f75286089e48f34223022f2a12d332"
+ipkg        = "elab-util.ipkg"
+packagePath = false
+
+[db.filepath]
+type        = "github"
+url         = "https://github.com/stefan-hoeck/idris2-filepath"
+commit      = "926db7a69f50810fd95ca65c114258cc52922906"
+ipkg        = "filepath.ipkg"
+packagePath = false
+
+[db.fix-whitespace]
+type        = "github"
+url         = "https://github.com/stefan-hoeck/idris-fix-whitespace"
+commit      = "351b7b8925332cc5fcb81dd7a716467bfebb34a3"
+ipkg        = "fix-whitespace.ipkg"
+packagePath = false
+
+[db.free]
+type        = "github"
+url         = "https://github.com/idris-bayes/free"
+commit      = "809e1450094eab85a64f926967f8b056402291d6"
+ipkg        = "free.ipkg"
+packagePath = false
+
+[db.freer]
+type        = "github"
+url         = "https://github.com/stefan-hoeck/idris2-freer"
+commit      = "87f6104ed438f89e0176dbc7e9ea3f57128e683d"
+ipkg        = "freer.ipkg"
+packagePath = false
+
+[db.fvect]
+type        = "github"
+url         = "https://github.com/mattpolzin/idris-fvect"
+commit      = "d84969fce38ff8a10b9d261458f4d495e6e0f1ca"
+ipkg        = "fvect.ipkg"
+packagePath = false
+
+[db.game-2048]
+type        = "github"
+url         = "https://github.com/running-grass/idris2-playground"
+commit      = "1598036825cdb4caf6b98a9aa8d3d439b6c27b35"
+ipkg        = "game-2048/game-2048.ipkg"
+packagePath = false
+
+[db.graph]
+type        = "github"
+url         = "https://github.com/stefan-hoeck/idris2-graph"
+commit      = "2465a186f7842c52bcda49f4e2a72d4805846c17"
+ipkg        = "graph.ipkg"
+packagePath = false
+
+[db.hashable]
+type        = "github"
+url         = "https://github.com/Z-snails/Idris2-hashable"
+commit      = "d97d2c39d9199941e2de1991224f564fc4b956dd"
+ipkg        = "hashable.ipkg"
+packagePath = false
+
+[db.hashmap]
+type        = "github"
+url         = "https://github.com/Z-snails/idris2-hashmap"
+commit      = "58f5a2d2c0a7bb082666d6ce668ee242185a52bf"
+ipkg        = "hashmap.ipkg"
+packagePath = false
+
+[db.hedgehog]
+type        = "github"
+url         = "https://github.com/stefan-hoeck/idris2-hedgehog"
+commit      = "289c02636ea7a4510320077c81ec72743803a821"
+ipkg        = "hedgehog.ipkg"
+packagePath = false
+
+[db.http]
+type        = "github"
+url         = "https://github.com/octeep/idris2-http"
+commit      = "2ec649cea86e8855d4f3b527f2256b152585445f"
+ipkg        = "http.ipkg"
+packagePath = false
+
+[db.idrall]
+type        = "github"
+url         = "https://github.com/alexhumphreys/idrall"
+commit      = "86e43e48e5edfe2bafbccd1544777a6bea5eec59"
+ipkg        = "idrall.ipkg"
+packagePath = false
+
+[db.indexed]
+type        = "github"
+url         = "https://github.com/mattpolzin/idris-indexed"
+commit      = "eb1a019dddcf90412fa8ada1e14574b37a3539c3"
+ipkg        = "indexed.ipkg"
+packagePath = false
+
+[db.json]
+type        = "github"
+url         = "https://github.com/stefan-hoeck/idris2-json"
+commit      = "23b925a6b68ba8bd2d0298fc4b94e5cb78242e80"
+ipkg        = "json.ipkg"
+packagePath = false
+
+[db.katla]
+type        = "github"
+url         = "https://github.com/idris-community/katla"
+commit      = "a7f9f6c5c605dda745c6a9d847e5cf728b011e6b"
+ipkg        = "katla.ipkg"
+packagePath = false
+
+[db.log-domain]
+type        = "github"
+url         = "https://github.com/idris-bayes/log-domain"
+commit      = "7eb33c36fb411b3e9dc43e0c5ad5d8f2f3dae80e"
+ipkg        = "log-domain.ipkg"
+packagePath = false
+
+[db.lsp]
+type        = "github"
+url         = "https://github.com/idris-community/idris2-lsp"
+commit      = "0381d6c3dc865937352d5918049234c6e0c1acd6"
+ipkg        = "lsp.ipkg"
+packagePath = true
+
+[db.markdown]
+type        = "github"
+url         = "https://github.com/running-grass/idris2-markdown"
+commit      = "38334267cbbe0ed067320d2e8bec36b08f475f5a"
+ipkg        = "markdown.ipkg"
+packagePath = false
+
+[db.matrix]
+type        = "github"
+url         = "https://github.com/running-grass/idris2-playground"
+commit      = "1598036825cdb4caf6b98a9aa8d3d439b6c27b35"
+ipkg        = "matrix/matrix.ipkg"
+packagePath = false
+
+[db.monad-bayes]
+type        = "github"
+url         = "https://github.com/idris-bayes/monad-bayes"
+commit      = "79cdb058e15d1138505cc97833aa6a54377faa59"
+ipkg        = "monad-bayes.ipkg"
+packagePath = false
+
+[db.newtype-deriving]
+type        = "github"
+url         = "https://github.com/MarcelineVQ/idris2-newtype-deriving"
+commit      = "376960fab2dc56740e96f496ad76d692b1f41fae"
+ipkg        = "newtype-deriving.ipkg"
+packagePath = false
+
+[db.node]
+type        = "github"
+url         = "https://github.com/kbertalan/idris2-node"
+commit      = "73254a812b337fd3e0c131ded6c238e88c910e51"
+ipkg        = "node.ipkg"
+packagePath = false
+
+[db.pack]
+type        = "github"
+url         = "https://github.com/stefan-hoeck/idris2-pack"
+commit      = "ddf1e87c6868eb60177a3865d22fdd963e64fd56"
+ipkg        = "pack.ipkg"
+packagePath = false
+
+[db.pack-admin]
+type        = "github"
+url         = "https://github.com/stefan-hoeck/idris2-pack"
+commit      = "ddf1e87c6868eb60177a3865d22fdd963e64fd56"
+ipkg        = "pack-admin.ipkg"
+packagePath = false
+
+[db.pg-idris]
+type        = "github"
+url         = "https://github.com/mattpolzin/pg-idris"
+commit      = "c1dbd7969ead1228e2425cb9d9e72bf0ab0071b9"
+ipkg        = "pg-idris.ipkg"
+packagePath = false
+
+[db.prettier]
+type        = "github"
+url         = "https://github.com/Z-snails/prettier"
+commit      = "0222ada0be5f6abf5528c8513181f2f4ad117b4b"
+ipkg        = "prettier.ipkg"
+packagePath = false
+
+[db.pretty-show]
+type        = "github"
+url         = "https://github.com/stefan-hoeck/idris2-pretty-show"
+commit      = "f7383c098418e875b6896cd061861a5301bd67c2"
+ipkg        = "pretty-show.ipkg"
+packagePath = false
+
+[db.prim]
+type        = "github"
+url         = "https://github.com/stefan-hoeck/idris2-prim"
+commit      = "6ab4711568440c90957abce5ac8d1f3f40f97392"
+ipkg        = "prim.ipkg"
+packagePath = false
+
+[db.prob-fx]
+type        = "github"
+url         = "https://github.com/idris-bayes/prob-fx"
+commit      = "ade21a9cb406870e6226858ea26a421291a111bc"
+ipkg        = "prob-fx.ipkg"
+packagePath = false
+
+[db.promise]
+type        = "github"
+url         = "https://github.com/kbertalan/idris2-promise"
+commit      = "ec18d7844269817e8f18a39d9532ecbbfc884cca"
+ipkg        = "promise.ipkg"
+packagePath = false
+
+[db.rhone]
+type        = "github"
+url         = "https://github.com/stefan-hoeck/idris2-rhone"
+commit      = "a12fa1c65bbfb072e0a4e76e40cd0097d3c4c2e1"
+ipkg        = "rhone.ipkg"
+packagePath = false
+
+[db.rhone-js]
+type        = "github"
+url         = "https://github.com/stefan-hoeck/idris2-rhone-js"
+commit      = "8c33aa4f0e038c6a4c2932fdcc92214e148cf6d3"
+ipkg        = "rhone-js.ipkg"
+packagePath = false
+
+[db.rio]
+type        = "github"
+url         = "https://github.com/stefan-hoeck/idris2-rio"
+commit      = "eb837aec0bedd6dce27b188234d7650f8422cf1e"
+ipkg        = "rio.ipkg"
+packagePath = false
+
+[db.snocvect]
+type        = "github"
+url         = "https://github.com/mattpolzin/idris-snocvect"
+commit      = "f6148c3d06c7a9989062a2425f925fc844468215"
+ipkg        = "snocvect.ipkg"
+packagePath = false
+
+[db.sop]
+type        = "github"
+url         = "https://github.com/stefan-hoeck/idris2-sop"
+commit      = "7b4c1189c8c9df5b34e5b4aec3aecef43dc8aa3c"
+ipkg        = "sop.ipkg"
+packagePath = false
+
+[db.spidr]
+type        = "github"
+url         = "https://github.com/joelberkeley/spidr"
+commit      = "d55691581039bc85c15346cf6b424dda080f4455"
+ipkg        = "spidr.ipkg"
+packagePath = false
+
+[db.tailrec]
+type        = "github"
+url         = "https://github.com/stefan-hoeck/idris2-tailrec"
+commit      = "ae27e2ed09ef3d880801899cfc26f470f5b71332"
+ipkg        = "tailrec.ipkg"
+packagePath = false
+
+[db.tester]
+type        = "github"
+url         = "https://github.com/cuddlefishie/tester-idr"
+commit      = "3dcdb54ed578a14597a17cb93c926734a9da69ca"
+ipkg        = "tester.ipkg"
+packagePath = false
+
+[db.timeit]
+type        = "github"
+url         = "https://github.com/MarcelineVQ/idris2-timeit"
+commit      = "9566f71e9e7a68e8da4a30b8318f40099dda5c11"
+ipkg        = "timeit.ipkg"
+packagePath = false
+
+[db.tls]
+type        = "github"
+url         = "https://github.com/octeep/idris2-tls"
+commit      = "3181e9216665a0af0f7988fe5813bef4cca65a5c"
+ipkg        = "tls.ipkg"
+packagePath = false
+
+[db.toml]
+type        = "github"
+url         = "https://github.com/cuddlefishie/toml-idr"
+commit      = "b4f5a4bd874fa32f20d02311a62a1910dc48123f"
+ipkg        = "toml.ipkg"
+packagePath = false
+
+[db.tyre]
+type        = "github"
+url         = "https://github.com/kasiaMarek/TyRE"
+commit      = "dc6491eaefb2bdf524c6a43fd9b74637aba76714"
+ipkg        = "tyre.ipkg"
+packagePath = false
+
+[db.tyttp]
+type        = "github"
+url         = "https://github.com/kbertalan/tyttp"
+commit      = "8c0c2da768ef6dd52d8be97fff6d96dca6f523db"
+ipkg        = "tyttp.ipkg"
+packagePath = false
+
+[db.tyttp-json]
+type        = "github"
+url         = "https://github.com/kbertalan/tyttp-json"
+commit      = "78c3460b2df93e66539ea428dfbde07f2d85a237"
+ipkg        = "tyttp-json.ipkg"
+packagePath = false
+
+[db.url]
+type        = "github"
+url         = "https://github.com/running-grass/idris2-url"
+commit      = "4587b14fbe7752c4aad5aac045e19088ec2e4108"
+ipkg        = "url.ipkg"
+packagePath = false
+
+[db.xml]
+type        = "github"
+url         = "https://github.com/madman-bob/idris2-xml"
+commit      = "1292ccfcd58c551089ef699e4560343d5c473d64"
+ipkg        = "xml.ipkg"
+packagePath = false
