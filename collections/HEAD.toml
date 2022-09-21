@@ -196,6 +196,12 @@ url    = "https://github.com/stefan-hoeck/idris2-prim"
 commit = "main"
 ipkg   = "prim.ipkg"
 
+[db.profiler]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-profiler"
+commit = "main"
+ipkg   = "profiler.ipkg"
+
 [db.rhone]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-rhone"
