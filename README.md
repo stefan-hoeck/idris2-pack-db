@@ -1,6 +1,6 @@
 # Curated Package Collections for Idris2
 
-![Check Collection](https://github.com/stefan-hoeck/idris2-pack-db/actions/workflows/ci-db.yml/badge.svg)
+[![Check Collection](https://github.com/stefan-hoeck/idris2-pack-db/actions/workflows/ci-db.yml/badge.svg)](STATUS.md)
 
 These are package collections to be used with the
 [pack](https://github.com/stefan-hoeck/idris2-pack) package manager
