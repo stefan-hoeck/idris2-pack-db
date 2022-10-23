@@ -41,6 +41,7 @@
 | [katla](https://github.com/idris-community/katla) |  | [a7f9f6c](https://github.com/idris-community/katla/commit/a7f9f6c5c605dda745c6a9d847e5cf728b011e6b) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/katla/index.html) |
 | [linear](https://github.com/idris-lang/Idris2) |  | [c906720](https://github.com/idris-lang/Idris2/commit/c906720ee3782fff5117590d94da30c6cf9860bd) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/linear/index.html) |
 | [log-domain](https://github.com/idris-bayes/log-domain) | A small representation of numerical computations in the log domain. | [7eb33c3](https://github.com/idris-bayes/log-domain/commit/7eb33c36fb411b3e9dc43e0c5ad5d8f2f3dae80e) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/log-domain/index.html) |
+| [lsp](https://github.com/idris-community/idris2-lsp) |  | [dc7d3e5](https://github.com/idris-community/idris2-lsp/commit/dc7d3e5dc2ba0951014729fb32001ac30534f769) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/lsp/index.html) |
 | [markdown](https://github.com/running-grass/idris2-markdown) | A markdown parser for idris2 | [3833426](https://github.com/running-grass/idris2-markdown/commit/38334267cbbe0ed067320d2e8bec36b08f475f5a) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/markdown/index.html) |
 | [matrix](https://github.com/running-grass/idris2-playground) | Matrix operation library. | [0dacfd8](https://github.com/running-grass/idris2-playground/commit/0dacfd81b49749d68a5fd905e95c860fdab072ab) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/matrix/index.html) |
 | [monad-bayes](https://github.com/idris-bayes/monad-bayes) | A probabilistic language with emphasis on compositional inference, based on the original Haskell library | [79cdb05](https://github.com/idris-bayes/monad-bayes/commit/79cdb058e15d1138505cc97833aa6a54377faa59) | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/monad-bayes/index.html) |
@@ -81,7 +82,6 @@
 
 | Package | Dependencies | Commit |
 | --- | --- | --- |
-| [lsp](https://github.com/idris-community/idris2-lsp) |  | [1377eac](https://github.com/idris-community/idris2-lsp/commit/1377eac1cbd718bf23241f58bc2b5abe54b98b82) |
 
 
 ## Unresolved Packages
