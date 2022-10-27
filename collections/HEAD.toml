@@ -1,5 +1,5 @@
 [idris2]
-version = "0.5.1"
+version = "0.6.0"
 url     = "https://github.com/idris-lang/Idris2"
 commit  = "main"
 
