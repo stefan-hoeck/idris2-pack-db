@@ -363,3 +363,9 @@ type   = "github"
 url    = "https://github.com/joelberkeley/spidr"
 commit = "pack"
 ipkg   = "spidr.ipkg"
+
+[db.uniplate]
+type   = "github"
+url    = "https://github.com/Z-snails/uniplate-idr"
+commit = "main"
+ipkg   = "uniplate.ipkg"
