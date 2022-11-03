@@ -369,3 +369,10 @@ type   = "github"
 url    = "https://github.com/Z-snails/uniplate-idr"
 commit = "main"
 ipkg   = "uniplate.ipkg"
+
+[db.webidl]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-webidl"
+commit = "main"
+ipkg   = "webidl.ipkg"
+test   = "test/test.ipkg"
