@@ -3,6 +3,13 @@ version = "0.6.0"
 url     = "https://github.com/idris-lang/Idris2"
 commit  = "main"
 
+[db.algebra]
+type = "github"
+url  = "https://github.com/kbertalan/idris2-algebra"
+commit = "main"
+ipkg = "algebra.ipkg"
+test = "test/test.ipkg"
+
 [db.apache-mime-types]
 type = "github"
 url  = "https://github.com/kbertalan/idris2-apache-mime-types"
@@ -74,6 +81,7 @@ type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-filepath"
 commit = "main"
 ipkg   = "filepath.ipkg"
+test   = "test/test.ipkg"
 
 [db.fix-whitespace]
 type   = "github"
@@ -189,12 +197,14 @@ type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-pretty-show"
 commit = "main"
 ipkg   = "pretty-show.ipkg"
+test   = "test/test.ipkg"
 
 [db.prim]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-prim"
 commit = "main"
 ipkg   = "prim.ipkg"
+test   = "test/test.ipkg"
 
 [db.profiler]
 type   = "github"
