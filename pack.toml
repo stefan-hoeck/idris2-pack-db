@@ -1,0 +1,13 @@
+pack.commit = "latest:main"
+
+[custom.all.pack-admin]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-pack"
+commit = "latest:main"
+ipkg   = "pack-admin.ipkg"
+
+[custom.all.pack]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-pack"
+commit = "latest:main"
+ipkg   = "pack.ipkg"
