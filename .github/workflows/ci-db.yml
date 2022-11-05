@@ -29,6 +29,8 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 0
+      - name: Use latest pack commit
+        run: pack update
       - name: Install pack-admin
         run: pack --no-prompt install-app pack-admin
       - name: Extract Collection from HEAD
