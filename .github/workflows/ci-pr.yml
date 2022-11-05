@@ -1,0 +1,36 @@
+---
+name: Check Collection
+
+on:
+  push:
+    branches:
+      - '**'
+    tags:
+      - '**'
+  pull_request:
+    branches:
+      - main
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+
+  build:
+    name: Check package collection
+    runs-on: ubuntu-latest
+    env:
+      PACK_DIR: /root/.pack
+    strategy:
+      fail-fast: false
+    container: ghcr.io/stefan-hoeck/idris2-pack:latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install pack-admin
+        run: pack --no-prompt install-app pack-admin
+      - name: Extract Collection from HEAD
+        run: pack-admin --no-prompt extract-from-head "$PACK_DIR/db/testdb.toml"
+      - name: Check Collection
+        run: pack-admin --no-prompt check-collection testdb STATUS.md
