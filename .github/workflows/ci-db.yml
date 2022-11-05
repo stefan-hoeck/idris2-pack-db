@@ -32,8 +32,8 @@ jobs:
       - name: Install dependencies
         run: |
           apt-get update
-          apt-get install libgsl-dev
-          apt-get install libpq-dev
+          apt-get install --yes libgsl-dev
+          apt-get install --yes libpq-dev
       - name: Use latest pack commit
         run: pack update
       - name: Install pack-admin
