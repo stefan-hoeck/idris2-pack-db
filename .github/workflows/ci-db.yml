@@ -31,9 +31,9 @@ jobs:
           fetch-depth: 0
       - name: Install dependencies
         run: |
-          sudo apt-get update
-          sudo apt-get install libgsl-dev
-          sudo apt-get install libpq-dev
+          apt-get update
+          apt-get install libgsl-dev
+          apt-get install libpq-dev
       - name: Use latest pack commit
         run: pack update
       - name: Install pack-admin
