@@ -46,9 +46,11 @@ jobs:
       - name: Add STATUS.md
         if: always()
         run: |
+          pwd
+          cp "$HOME/output/STATUS.md" STATUS.md
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git add "$HOME/output/STATUS.md"
+          git add STATUS.md
       - name: Git add collection
         run: |
           cp "$PACK_DIR/db/testdb.toml" "collections/nightly-$(date +%y%m%d).toml"
