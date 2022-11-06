@@ -24,16 +24,13 @@ jobs:
       fail-fast: false
     container: ghcr.io/stefan-hoeck/idris2-pack:latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          persist-credentials: false
-          fetch-depth: 0
       - name: Install dependencies
         run: |
           apt-get update
           apt-get install --yes libgsl-dev
           apt-get install --yes libpq-dev
+      - name: Checkout
+        uses: actions/checkout@v3
       - name: Use latest pack commit
         run: pack update
       - name: Install pack-admin
@@ -43,23 +40,21 @@ jobs:
       - name: Extract Collection from HEAD
         run: pack-admin --no-prompt extract-from-head "$PACK_DIR/db/testdb.toml"
       - name: Check Collection
-        run: pack-admin --no-prompt check-collection testdb STATUS.md
+        run: |
+          mkdir "$HOME/output"
+          pack-admin --no-prompt check-collection testdb "$HOME/output/STATUS.md"
       - name: Add STATUS.md
         if: always()
         run: |
-          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add STATUS.md
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add "$HOME/output/STATUS.md"
       - name: Git add collection
         run: |
           cp "$PACK_DIR/db/testdb.toml" "collections/nightly-$(date +%y%m%d).toml"
           git add collections/*.toml
       - name: Git commit
         if: always()
-        run: git commit -m "[ check ] collection update" -m "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
-      - name: Push changes
-        if: always()
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
+        run: |
+          git commit -m "[ check ] collection update" -m "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+          git push
