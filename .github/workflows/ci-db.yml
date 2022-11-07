@@ -73,8 +73,13 @@ jobs:
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add STATUS.md
+      - name: Check file existence
+        id: check_files
+        uses: andstor/file-existence-action@v2
+        with:
+          files: "~/output/testdb.toml"
       - name: Git add collection
-        if: ${{ github.event.workflow_run.check-db == 'success' }}
+        if: steps.check_files.outputs.files_exists == 'true'
         run: |
           cp "$HOME/output/testdb.toml" "collections/nightly-$(date +%y%m%d).toml"
           git add collections/*.toml
