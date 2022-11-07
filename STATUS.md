@@ -58,7 +58,6 @@
 | [pretty-show](https://github.com/stefan-hoeck/idris2-pretty-show) | Pretty printing of values with a Show instance | [09ccca6](https://github.com/stefan-hoeck/idris2-pretty-show/commit/09ccca6de87375a79fed011d54ca59417a189d29) | success | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/pretty-show/index.html) |
 | [prim](https://github.com/stefan-hoeck/idris2-prim) | Laws and utilities for working with primitives in Idris2 | [e43caf8](https://github.com/stefan-hoeck/idris2-prim/commit/e43caf8dadcff083ff8e37f5181e223120acea44) | success | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/prim/index.html) |
 | [prob-fx](https://github.com/idris-bayes/prob-fx) | A probabilistic programming language for modular modelling via effect handlers | [ade21a9](https://github.com/idris-bayes/prob-fx/commit/ade21a9cb406870e6226858ea26a421291a111bc) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/prob-fx/index.html) |
-| [profiler](https://github.com/stefan-hoeck/idris2-profiler) | A simple profiling utility for Idris 2 | [7740cb2](https://github.com/stefan-hoeck/idris2-profiler/commit/7740cb25f942559c528b4084774fb221ed41a57e) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/profiler/index.html) |
 | [promise](https://github.com/kbertalan/idris2-promise) | Promise for Idris2 | [ec18d78](https://github.com/kbertalan/idris2-promise/commit/ec18d7844269817e8f18a39d9532ecbbfc884cca) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/promise/index.html) |
 | [rhone](https://github.com/stefan-hoeck/idris2-rhone) | Arrowized functional reactive programming in Idris2 | [a12fa1c](https://github.com/stefan-hoeck/idris2-rhone/commit/a12fa1c65bbfb072e0a4e76e40cd0097d3c4c2e1) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/rhone/index.html) |
 | [rhone-js](https://github.com/stefan-hoeck/idris2-rhone-js) | Reactive single page web applications in Idris2 | [528b9fd](https://github.com/stefan-hoeck/idris2-rhone-js/commit/528b9fd32ea632346764b1e70bebd3f50881330e) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/rhone-js/index.html) |
@@ -91,3 +90,6 @@
 
 | Package | Error |
 | --- | --- |
+| profiler | Error when executing system command.
+Command: "git" "fetch" "-q" "origin" "7740cb25f942559c528b4084774fb221ed41a57e"
+Error code: 128 |
