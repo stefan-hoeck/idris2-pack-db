@@ -25,10 +25,23 @@ jobs:
         uses: actions/checkout@v3
       - name: Make output
         run: mkdir -p "$HOME/output"
-      - name: Copy files
+      - name: Install dependencies
         run: |
-          head -n1 /dev/urandom >> "$HOME/output/STATUS.md"
-          head -n1 /dev/urandom >> "$HOME/output/testdb.toml"
+          apt-get update
+          apt-get install --yes libgsl-dev
+          apt-get install --yes libpq-dev
+      - name: Use latest pack commit
+        run: pack update
+      - name: Install pack-admin
+        run: pack --no-prompt install-app pack-admin
+      - name: Copy HEAD
+        run: cp collections/HEAD.toml "$PACK_DIR/db/HEAD.toml"
+      - name: Extract Collection from HEAD
+        run: pack-admin --no-prompt extract-from-head "$PACK_DIR/db/testdb.toml"
+      - name: Check Collection
+        run: pack-admin --no-prompt check-collection testdb "$HOME/output/STATUS.md"
+      - name: Copy new db
+        run: cp "$PACK_DIR/db/testdb.toml" "$HOME/output/testdb.toml"
       - name: Save generated files
         uses: actions/upload-artifact@master
         with:
@@ -36,21 +49,6 @@ jobs:
           path: ~/output/*
           if-no-files-found: error
 
-          #- name: Install dependencies
-          #  run: |
-          #    apt-get update
-          #    apt-get install --yes libgsl-dev
-          #    apt-get install --yes libpq-dev
-          #- name: Use latest pack commit
-          #  run: pack update
-          #- name: Install pack-admin
-          #  run: pack --no-prompt install-app pack-admin
-          #- name: Copy HEAD
-          #  run: cp collections/HEAD.toml "$PACK_DIR/db/HEAD.toml"
-          #- name: Extract Collection from HEAD
-          #  run: pack-admin --no-prompt extract-from-head "$PACK_DIR/db/testdb.toml"
-          #- name: Check Collection
-          #  run: pack-admin --no-prompt check-collection testdb STATUS.md
 
   upload:
     name: Upload generated files to main
