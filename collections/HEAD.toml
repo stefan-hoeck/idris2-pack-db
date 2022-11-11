@@ -107,6 +107,13 @@ url    = "https://github.com/stefan-hoeck/idris2-graph"
 commit = "main"
 ipkg   = "graph.ipkg"
 
+[db.golden-runner-helper]
+type   = "github"
+url    = "https://github.com/buzden/idris2-golden-runner-helper"
+commit = "master"
+ipkg   = "golden-runner-helper.ipkg"
+test   = "tests/tests.ipkg"
+
 [db.hashable]
 type   = "github"
 url    = "https://github.com/Z-snails/Idris2-hashable"
@@ -241,6 +248,13 @@ type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-sop"
 commit = "main"
 ipkg   = "sop.ipkg"
+
+[db.summary-stat]
+type   = "github"
+url    = "https://github.com/buzden/idris2-summary-stat"
+commit = "master"
+ipkg   = "summary-stat.ipkg"
+test   = "tests/tests.ipkg"
 
 [db.tailrec]
 type   = "github"
