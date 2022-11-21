@@ -30,6 +30,8 @@ jobs:
           apt-get update
           apt-get install --yes libgsl-dev
           apt-get install --yes libpq-dev
+          # ncurses-idris:
+          apt-get install --yes libncurses-dev libc6-dev
       - name: Use latest pack commit
         run: pack update
       - name: Install pack-admin
