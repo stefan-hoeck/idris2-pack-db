@@ -169,11 +169,11 @@ url  = "https://github.com/running-grass/idris2-markdown"
 commit = "main"
 ipkg = "markdown.ipkg"
 
-[db.newtype-deriving]
-type   = "github"
-url    = "https://github.com/MarcelineVQ/idris2-newtype-deriving"
-commit = "master"
-ipkg   = "newtype-deriving.ipkg"
+# [db.newtype-deriving]
+# type   = "github"
+# url    = "https://github.com/MarcelineVQ/idris2-newtype-deriving"
+# commit = "master"
+# ipkg   = "newtype-deriving.ipkg"
 
 [db.ncurses-idris]
 type   = "github"
