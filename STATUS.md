@@ -8,7 +8,7 @@
 
 | Package | Description | Commit | Tests | API Docs |
 | --- | --- | --- | --- | --- |
-| [algebra](https://github.com/stefan-hoeck/idris2-algebra) | Lawful algebraic structures | [4b712cb](https://github.com/stefan-hoeck/idris2-algebra/commit/4b712cb5cf199b281467eea9eb3b2fad6dce4f74) | success | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/algebra/index.html) |
+| [algebra](https://github.com/stefan-hoeck/idris2-algebra) | Lawful algebraic structures | [1d0d10e](https://github.com/stefan-hoeck/idris2-algebra/commit/1d0d10e1bcd0a6f08dd478ecebf7337c98fe3fba) | success | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/algebra/index.html) |
 | [apache-mime-types](https://github.com/kbertalan/idris2-apache-mime-types) | Mime types db based on Apache HTTPD dataset | [973de0e](https://github.com/kbertalan/idris2-apache-mime-types/commit/973de0e7224a25606eca25a1caf853b83925d36d) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/apache-mime-types/index.html) |
 | [base](https://github.com/idris-lang/Idris2) |  | [e673d05](https://github.com/idris-lang/Idris2/commit/e673d05a67b82591131e35ccd50fc234fb9aed85) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/base/index.html) |
 | [bytestring](https://github.com/stefan-hoeck/idris2-bytestring) | Immutable byte vectors for Idris2 | [a6e89b3](https://github.com/stefan-hoeck/idris2-bytestring/commit/a6e89b37a4844cbf8cb21465db2750ab5da08d82) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/bytestring/index.html) |
