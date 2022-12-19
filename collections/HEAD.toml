@@ -138,6 +138,13 @@ url    = "https://github.com/alexhumphreys/idrall"
 commit = "main"
 ipkg   = "idrall.ipkg"
 
+[db.if-unsolved-implicit]
+type   = "git"
+url    = "https://github.com/buzden/idris2-if-unsolved-implicit"
+commit = "master"
+ipkg   = "if-unsolved-implicit.ipkg"
+test   = "tests/tests.ipkg"
+
 [db.indexed]
 type   = "github"
 url    = "https://github.com/mattpolzin/idris-indexed"
@@ -225,6 +232,13 @@ url    = "https://github.com/stefan-hoeck/idris2-profiler"
 commit = "main"
 ipkg   = "profiler.ipkg"
 
+[db.random-pure]
+type   = "git"
+url    = "https://github.com/buzden/idris2-random-pure"
+commit = "master"
+ipkg   = "random-pure.ipkg"
+test   = "tests/tests.ipkg"
+
 [db.rhone]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-rhone"
@@ -279,6 +293,13 @@ type   = "github"
 url    = "https://github.com/cuddlefishie/toml-idr"
 commit = "main"
 ipkg   = "toml.ipkg"
+
+[db.typelevel-emptiness-collections]
+type   = "git"
+url    = "https://github.com/buzden/idris2-typelevel-emptiness-collections"
+commit = "master"
+ipkg   = "typelevel-emptiness-collections.ipkg"
+test   = "tests/tests.ipkg"
 
 [db.node]
 type = "github"
