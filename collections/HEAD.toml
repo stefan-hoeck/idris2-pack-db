@@ -200,6 +200,12 @@ url    = "https://github.com/stefan-hoeck/idris2-pack"
 commit = "main"
 ipkg   = "pack-admin.ipkg"
 
+[db.park_bench]
+type   = "github"
+url    = "https://github.com/Z-snails/park_bench"
+commit = "main"
+ipkg   = "park_bench.ipkg"
+
 [db.pg-idris]
 type   = "github"
 url    = "https://github.com/mattpolzin/pg-idris"
