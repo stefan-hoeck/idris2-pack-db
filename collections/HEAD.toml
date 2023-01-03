@@ -275,6 +275,13 @@ url    = "https://github.com/stefan-hoeck/idris2-sop"
 commit = "main"
 ipkg   = "sop.ipkg"
 
+[db.string-builder]
+type   = "github"
+url    = "https://github.com/Z-snails/string-builder"
+commit = "main"
+ipkg   = "string-builder.ipkg"
+test   = "test/test.ipkg"
+
 [db.summary-stat]
 type   = "github"
 url    = "https://github.com/buzden/idris2-summary-stat"
