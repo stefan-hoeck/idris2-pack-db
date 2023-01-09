@@ -39,6 +39,7 @@ type   = "github"
 url    = "https://github.com/buzden/idris2-coop"
 commit = "master"
 ipkg   = "coop.ipkg"
+test   = "tests/tests.ipkg"
 
 [db.crypt]
 type   = "github"
