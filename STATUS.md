@@ -44,6 +44,7 @@
 | [katla](https://github.com/idris-community/katla) |  | [a24201d](https://github.com/idris-community/katla/commit/a24201dc9c04d455c871f7a9e3775a25518c78cb) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/katla/index.html) |
 | [linear](https://github.com/idris-lang/Idris2) |  | [936b727](https://github.com/idris-lang/Idris2/commit/936b7270aed6061999119b77da2ede8f1f4b887e) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/linear/index.html) |
 | [log-domain](https://github.com/idris-bayes/log-domain) | A small representation of numerical computations in the log domain. | [7eb33c3](https://github.com/idris-bayes/log-domain/commit/7eb33c36fb411b3e9dc43e0c5ad5d8f2f3dae80e) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/log-domain/index.html) |
+| [lsp](https://github.com/idris-community/idris2-lsp) |  | [4fcdd53](https://github.com/idris-community/idris2-lsp/commit/4fcdd53aa93f4db23891f138b6d4acda669c4e7d) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/lsp/index.html) |
 | [markdown](https://github.com/running-grass/idris2-markdown) | A markdown parser for idris2 | [3833426](https://github.com/running-grass/idris2-markdown/commit/38334267cbbe0ed067320d2e8bec36b08f475f5a) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/markdown/index.html) |
 | [matrix](https://github.com/running-grass/idris2-playground) | Matrix operation library. | [0dacfd8](https://github.com/running-grass/idris2-playground/commit/0dacfd81b49749d68a5fd905e95c860fdab072ab) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/matrix/index.html) |
 | [monad-bayes](https://github.com/idris-bayes/monad-bayes) | A probabilistic language with emphasis on compositional inference, based on the original Haskell library | [79cdb05](https://github.com/idris-bayes/monad-bayes/commit/79cdb058e15d1138505cc97833aa6a54377faa59) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/monad-bayes/index.html) |
@@ -54,6 +55,7 @@
 | [pack-admin](https://github.com/stefan-hoeck/idris2-pack) | Administration of pack's package collections | [b3f8cd2](https://github.com/stefan-hoeck/idris2-pack/commit/b3f8cd2bbdf1fecc749d80f16f1190f56dac45cf) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/pack-admin/index.html) |
 | [papers](https://github.com/idris-lang/Idris2) |  | [936b727](https://github.com/idris-lang/Idris2/commit/936b7270aed6061999119b77da2ede8f1f4b887e) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/papers/index.html) |
 | [park_bench](https://github.com/Z-snails/park_bench) |  | [c9a212e](https://github.com/Z-snails/park_bench/commit/c9a212e4873cc533dee361e1614189c95a56c873) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/park_bench/index.html) |
+| [pg-idris](https://github.com/mattpolzin/pg-idris) | Postgres support for Idris 2 programs compiled with the Chez Scheme or NodeJS backends. | [649dd13](https://github.com/mattpolzin/pg-idris/commit/649dd130f984166516686afe8fbc46cbb5bcd4d5) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/pg-idris/index.html) |
 | [prelude](https://github.com/idris-lang/Idris2) |  | [936b727](https://github.com/idris-lang/Idris2/commit/936b7270aed6061999119b77da2ede8f1f4b887e) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/prelude/index.html) |
 | [prettier](https://github.com/Z-snails/prettier) |  | [a6ff359](https://github.com/Z-snails/prettier/commit/a6ff359cae33c64e16b8df5ee690215f8639f2d4) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/prettier/index.html) |
 | [pretty-show](https://github.com/stefan-hoeck/idris2-pretty-show) | Pretty printing of values with a Show instance | [8a404e3](https://github.com/stefan-hoeck/idris2-pretty-show/commit/8a404e37ef21826d09e7cb38aea70b6e7a78f864) | success | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/pretty-show/index.html) |
@@ -90,8 +92,6 @@
 
 | Package | Dependencies | Commit |
 | --- | --- | --- |
-| [lsp](https://github.com/idris-community/idris2-lsp) |  | [a442716](https://github.com/idris-community/idris2-lsp/commit/a442716c5e37b5fda310caa545b3e65d5623215b) |
-| [pg-idris](https://github.com/mattpolzin/pg-idris) |  | [ab48194](https://github.com/mattpolzin/pg-idris/commit/ab481944022b00caeca134bdbc8d6804fe65d6ae) |
 
 
 ## Unresolved Packages
