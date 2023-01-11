@@ -16,7 +16,7 @@
 | [collie](https://github.com/ohad/collie) |  | [46bff04](https://github.com/ohad/collie/commit/46bff04a8d9a1598fec9b19f515541df16dc64ef) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/collie/index.html) |
 | [comonad](https://github.com/stefan-hoeck/idris2-comonad) | Comonads for Idris2 | [35a6e7c](https://github.com/stefan-hoeck/idris2-comonad/commit/35a6e7c2243e73e9c63340e532adaf3197cea3d3) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/comonad/index.html) |
 | [contrib](https://github.com/idris-lang/Idris2) |  | [936b727](https://github.com/idris-lang/Idris2/commit/936b7270aed6061999119b77da2ede8f1f4b887e) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/contrib/index.html) |
-| [coop](https://github.com/buzden/idris2-coop) | A library for simple concurrency without parallelism | [371fb23](https://github.com/buzden/idris2-coop/commit/371fb23b7c15c7f58d702b83d4344a87c89178eb) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/coop/index.html) |
+| [coop](https://github.com/buzden/idris2-coop) | A library for simple concurrency without parallelism | [b9353a2](https://github.com/buzden/idris2-coop/commit/b9353a27fbfed9021877959c2bb8e43a1721e355) | success | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/coop/index.html) |
 | [crypt](https://github.com/stefan-hoeck/idris2-crypt) | FFI bindings to the crypt C-library used for passphrase hashing | [2d499c8](https://github.com/stefan-hoeck/idris2-crypt/commit/2d499c86efd286a7bf263402f59a0c37d9936b6b) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/crypt/index.html) |
 | [dinwiddy](https://github.com/bobbbay/dinwiddy) |  | [61a81c5](https://github.com/bobbbay/dinwiddy/commit/61a81c55e48e4b7b551fb7493d623cb7659a37ce) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/dinwiddy/index.html) |
 | [distribution](https://github.com/idris-bayes/distribution) | An FFI for statistical distributions from the GSL C library. | [bced45a](https://github.com/idris-bayes/distribution/commit/bced45ab5367184c8a4d88ce695c9a4714c34c98) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/distribution/index.html) |
@@ -92,6 +92,7 @@
 
 | Package | Dependencies | Commit |
 | --- | --- | --- |
+| [idrisGL](https://github.com/ECburx/Idris2GL) |  | [cc415b4](https://github.com/ECburx/Idris2GL/commit/cc415b4c5341be732f448ec8a01370c59bcd1f02) |
 
 
 ## Unresolved Packages
