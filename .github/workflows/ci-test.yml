@@ -70,10 +70,6 @@ jobs:
         with:
           name: freshly-generated-status
           path: ~/output/
-      - name: Copy files
-        run: |
-          cp ~/output/STATUS.md .test/STATUS.md
-          [ -f ~/output/testdb.toml ] && cp ~/output/testdb.toml .test/testdb.toml
       - name: Add files
         run: |
           cp ~/output/STATUS.md .test/STATUS.md
