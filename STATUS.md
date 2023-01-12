@@ -38,6 +38,7 @@
 | [http](https://github.com/octeep/idris2-http) | A http client implementation in idris2 | [f4c4952](https://github.com/octeep/idris2-http/commit/f4c4952181ac0912c5ceebe5e4bf7cf1f1a2fe45) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/http/index.html) |
 | [idrall](https://github.com/alexhumphreys/idrall) | Dhall compiler for Idris2 | [62a4558](https://github.com/alexhumphreys/idrall/commit/62a455894b1db5134c8b56d31aadb31d483a4b2c) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/idrall/index.html) |
 | [idris2](https://github.com/idris-lang/Idris2) |  | [936b727](https://github.com/idris-lang/Idris2/commit/936b7270aed6061999119b77da2ede8f1f4b887e) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/idris2/index.html) |
+| [idrisGL](https://github.com/ECburx/Idris2GL) |  | [cc415b4](https://github.com/ECburx/Idris2GL/commit/cc415b4c5341be732f448ec8a01370c59bcd1f02) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/idrisGL/index.html) |
 | [if-unsolved-implicit](https://github.com/buzden/idris2-if-unsolved-implicit) | An interface helping to set a value to an implicit when it is unsolved | [ca68ca7](https://github.com/buzden/idris2-if-unsolved-implicit/commit/ca68ca72da60f538beb315c424091f4708a114c5) | success | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/if-unsolved-implicit/index.html) |
 | [indexed](https://github.com/mattpolzin/idris-indexed) |  | [eb1a019](https://github.com/mattpolzin/idris-indexed/commit/eb1a019dddcf90412fa8ada1e14574b37a3539c3) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/indexed/index.html) |
 | [json](https://github.com/stefan-hoeck/idris2-json) | Derivable JSON marshallers for Idris2 | [cd3e660](https://github.com/stefan-hoeck/idris2-json/commit/cd3e660f549dbf69021364f02a8ad4ef749f97a9) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/json/index.html) |
@@ -92,7 +93,6 @@
 
 | Package | Dependencies | Commit |
 | --- | --- | --- |
-| [idrisGL](https://github.com/ECburx/Idris2GL) |  | [cc415b4](https://github.com/ECburx/Idris2GL/commit/cc415b4c5341be732f448ec8a01370c59bcd1f02) |
 
 
 ## Unresolved Packages
