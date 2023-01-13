@@ -79,7 +79,8 @@ jobs:
           [ -f ~/output/testdb.toml ] && cp ~/output/testdb.toml  "collections/nightly-$(date +%y%m%d).toml"
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add .test/*
+          git add STATUS.md
+          git add collections/*
       - name: Git commit
         run: git commit -m "[ check ] collection update" -m "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
       - name: Push changes
