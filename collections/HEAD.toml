@@ -177,6 +177,13 @@ url  = "https://github.com/running-grass/idris2-markdown"
 commit = "main"
 ipkg = "markdown.ipkg"
 
+[db.multiplate]
+type   = "github"
+url    = "https://github.com/Z-snails/multiplate-idr"
+commit = "main"
+ipkg   = "multiplate.ipkg"
+test   = "test/test.ipkg"
+
 # [db.newtype-deriving]
 # type   = "github"
 # url    = "https://github.com/MarcelineVQ/idris2-newtype-deriving"
