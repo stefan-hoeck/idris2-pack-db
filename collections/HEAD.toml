@@ -10,6 +10,12 @@ commit = "main"
 ipkg = "algebra.ipkg"
 test = "test/test.ipkg"
 
+[db.ansi]
+type = "github"
+url  = "https://github.com/idris-community/idris2-ansi"
+commit = "main"
+ipkg = "ansi.ipkg"
+
 [db.apache-mime-types]
 type = "github"
 url  = "https://github.com/kbertalan/idris2-apache-mime-types"
@@ -101,6 +107,12 @@ type   = "github"
 url    = "https://github.com/mattpolzin/idris-fvect"
 commit = "main"
 ipkg   = "fvect.ipkg"
+
+[db.getopts]
+type = "github"
+url  = "https://github.com/idris-community/idris2-getopts"
+commit = "main"
+ipkg = "getopts.ipkg"
 
 [db.graph]
 type   = "github"
@@ -225,6 +237,12 @@ type   = "github"
 url    = "https://github.com/Z-snails/prettier"
 commit = "main"
 ipkg   = "prettier.ipkg"
+
+[db.prettier-ansi]
+type = "github"
+url  = "https://github.com/idris-community/idris2-ansi"
+commit = "main"
+ipkg = "prettier/prettier-ansi.ipkg"
 
 [db.pretty-show]
 type   = "github"
