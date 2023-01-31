@@ -52,6 +52,7 @@ type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-crypt"
 commit = "main"
 ipkg   = "crypt.ipkg"
+test   = "test/test.ipkg"
 
 [db.dinwiddy]
 type   = "github"
@@ -125,6 +126,7 @@ type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-graph"
 commit = "main"
 ipkg   = "graph.ipkg"
+test   = "test/test.ipkg"
 
 [db.golden-runner-helper]
 type   = "github"
@@ -170,11 +172,18 @@ url    = "https://github.com/mattpolzin/idris-indexed"
 commit = "main"
 ipkg   = "indexed.ipkg"
 
+[db.js]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-dom"
+commit = "main"
+ipkg   = "js/js.ipkg"
+
 [db.json]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-json"
 commit = "main"
 ipkg   = "json.ipkg"
+test   = "test/test.ipkg"
 
 [db.katla]
 type   = "github"
@@ -289,6 +298,7 @@ type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-rhone"
 commit = "main"
 ipkg   = "rhone.ipkg"
+test   = "test/test.ipkg"
 
 [db.rhone-js]
 type   = "github"
@@ -301,6 +311,7 @@ type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-rio"
 commit = "main"
 ipkg   = "rio.ipkg"
+test   = "test.ipkg"
 
 [db.snocvect]
 type   = "github"
