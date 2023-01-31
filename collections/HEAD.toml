@@ -77,6 +77,12 @@ url    = "https://github.com/Russoul/Idris2-Effect"
 commit = "master"
 ipkg   = "effect.ipkg"
 
+[db.elab-pretty]
+type   = "git"
+url    = "https://github.com/stefan-hoeck/idris2-elab-util"
+commit = "latest:main"
+ipkg   = "elab-pretty.ipkg"
+
 [db.elab-util]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-elab-util"
