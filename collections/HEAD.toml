@@ -22,6 +22,12 @@ url  = "https://github.com/kbertalan/idris2-apache-mime-types"
 commit = "main"
 ipkg = "apache-mime-types.ipkg"
 
+[db.barbies]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-barbies"
+commit = "main"
+ipkg   = "barbies.ipkg"
+
 [db.bytestring]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-bytestring"
