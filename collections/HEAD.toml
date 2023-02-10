@@ -320,6 +320,12 @@ commit = "master"
 ipkg   = "random-pure.ipkg"
 test   = "tests/tests.ipkg"
 
+[db.refined]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-refined"
+commit = "main"
+ipkg   = "refined.ipkg"
+
 [db.rhone]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-rhone"
