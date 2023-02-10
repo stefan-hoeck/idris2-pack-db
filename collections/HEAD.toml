@@ -28,6 +28,20 @@ url    = "https://github.com/stefan-hoeck/idris2-barbies"
 commit = "main"
 ipkg   = "barbies.ipkg"
 
+[db.bounded-doubles]
+type   = "github"
+url    = "https://github.com/buzden/idris2-bounded-doubles"
+commit = "master"
+ipkg   = "bounded-doubles.ipkg"
+test   = "tests/library-tests.ipkg"
+
+[db.bounded-doubles-hedgehog-generators]
+type   = "github"
+url    = "https://github.com/buzden/idris2-bounded-doubles"
+commit = "master"
+ipkg   = "hedgehog-generators.ipkg"
+test   = "tests/generators-tests.ipkg"
+
 [db.bytestring]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-bytestring"
@@ -210,6 +224,13 @@ url  = "https://github.com/running-grass/idris2-markdown"
 commit = "main"
 ipkg = "markdown.ipkg"
 
+[db.mtl-tuple-impls]
+type   = "github"
+url    = "https://github.com/buzden/idris2-mtl-tuple-impls"
+commit = "master"
+ipkg   = "mtl-tuple-impls.ipkg"
+test   = "tests/tests.ipkg"
+
 [db.multiplate]
 type   = "github"
 url    = "https://github.com/Z-snails/multiplate-idr"
@@ -350,6 +371,13 @@ type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-tailrec"
 commit = "main"
 ipkg   = "tailrec.ipkg"
+
+[db.time-for-sleep]
+type   = "github"
+url    = "https://github.com/buzden/idris2-time-for-sleep"
+commit = "master"
+ipkg   = "time-for-sleep.ipkg"
+test   = "tests/tests.ipkg"
 
 [db.tester]
 type   = "github"
