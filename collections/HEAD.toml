@@ -430,11 +430,11 @@ url    = "https://github.com/idris-bayes/log-domain"
 commit = "main"
 ipkg   = "log-domain.ipkg"
 
-[db.monad-bayes]
-type   = "github"
-url    = "https://github.com/idris-bayes/monad-bayes"
-commit = "main"
-ipkg   = "monad-bayes.ipkg"
+# [db.monad-bayes]
+# type   = "github"
+# url    = "https://github.com/idris-bayes/monad-bayes"
+# commit = "main"
+# ipkg   = "monad-bayes.ipkg"
 
 [db.url]
 type   = "github"
@@ -448,17 +448,17 @@ url    = "https://github.com/octeep/idris2-tls"
 commit = "master"
 ipkg   = "tls.ipkg"
 
-[db.http]
-type   = "github"
-url    = "https://github.com/octeep/idris2-http"
-commit = "master"
-ipkg   = "http.ipkg"
+# [db.http]
+# type   = "github"
+# url    = "https://github.com/octeep/idris2-http"
+# commit = "master"
+# ipkg   = "http.ipkg"
 
-[db.prob-fx]
-type   = "github"
-url    = "https://github.com/idris-bayes/prob-fx"
-commit = "main"
-ipkg   = "prob-fx.ipkg"
+# [db.prob-fx]
+# type   = "github"
+# url    = "https://github.com/idris-bayes/prob-fx"
+# commit = "main"
+# ipkg   = "prob-fx.ipkg"
 
 [db.cheerio]
 type   = "github"
@@ -478,11 +478,11 @@ url    = "https://github.com/running-grass/idris2-playground"
 commit = "main"
 ipkg   = "game-2048/game-2048.ipkg"
 
-[db.spidr]
-type   = "github"
-url    = "https://github.com/joelberkeley/spidr"
-commit = "pack"
-ipkg   = "spidr.ipkg"
+# [db.spidr]
+# type   = "github"
+# url    = "https://github.com/joelberkeley/spidr"
+# commit = "pack"
+# ipkg   = "spidr.ipkg"
 
 [db.uniplate]
 type   = "github"
