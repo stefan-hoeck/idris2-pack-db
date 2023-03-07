@@ -44,6 +44,8 @@ jobs:
         run: pack-admin --no-prompt extract-from-head "$PACK_DIR/db/testdb.toml"
       - name: Switch Collection
         run: pack --no-prompt --bootstrap switch "testdb"
+      - name: Re-Install pack-admin
+        run: pack --no-prompt install-app pack-admin
       - name: Check Collection
         run: pack-admin --no-prompt check-collection "$HOME/output/"
       - name: Save generated files
