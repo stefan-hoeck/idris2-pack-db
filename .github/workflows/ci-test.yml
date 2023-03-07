@@ -86,4 +86,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}
       - name: Fail if missing
-        run: [ -f ~/output/testdb.toml ]
+        run: test -f ~/output/testdb.toml
