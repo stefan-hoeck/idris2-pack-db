@@ -42,10 +42,10 @@ jobs:
         run: cp collections/HEAD.toml "$PACK_DIR/db/HEAD.toml"
       - name: Extract Collection from HEAD
         run: pack-admin --no-prompt extract-from-head "$PACK_DIR/db/testdb.toml"
+      - name: Switch Collection
+        run: pack --no-prompt --bootstrap switch "testdb"
       - name: Check Collection
-        run: pack-admin --no-prompt check-collection testdb "$HOME/output/STATUS.md"
-      - name: Copy new db
-        run: cp "$PACK_DIR/db/testdb.toml" "$HOME/output/testdb.toml"
+        run: pack-admin --no-prompt check-collection "$HOME/output/"
       - name: Save generated files
         uses: actions/upload-artifact@master
         with:
@@ -85,3 +85,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}
+      - name: Fail if missing
+        run: [ -f ~/output/testdb.toml ]
