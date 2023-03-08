@@ -275,6 +275,34 @@ commit = "main"
 ipkg   = "parser.ipkg"
 test   = "test/test.ipkg"
 
+[db.parser-json]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-parser"
+commit = "main"
+ipkg   = "json/parser-json.ipkg"
+test   = "test/test.ipkg"
+
+[db.parser-show]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-parser"
+commit = "main"
+ipkg   = "show/parser-show.ipkg"
+test   = "test/test.ipkg"
+
+[db.parser-toml]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-parser"
+commit = "main"
+ipkg   = "toml/parser-toml.ipkg"
+test   = "test/test.ipkg"
+
+[db.parser-webidl]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-parser"
+commit = "main"
+ipkg   = "webidl/parser-webidl.ipkg"
+test   = "test/test.ipkg"
+
 [db.pg-idris]
 type   = "github"
 url    = "https://github.com/mattpolzin/pg-idris"
