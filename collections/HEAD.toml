@@ -348,6 +348,12 @@ url    = "https://github.com/stefan-hoeck/idris2-profiler"
 commit = "main"
 ipkg   = "profiler.ipkg"
 
+[db.profunctors]
+type   = "github"
+url    = "https://github.com/kiana-S/idris2-profunctors"
+commit = "main"
+ipkg   = "profunctors.ipkg"
+
 [db.random-pure]
 type   = "git"
 url    = "https://github.com/buzden/idris2-random-pure"
