@@ -361,6 +361,13 @@ url    = "https://github.com/stefan-hoeck/idris2-refined"
 commit = "main"
 ipkg   = "refined.ipkg"
 
+[db.refined-json]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-refined"
+commit = "main"
+ipkg   = "json/refined-json.ipkg"
+test   = "test/test.ipkg"
+
 [db.rhone]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-rhone"
