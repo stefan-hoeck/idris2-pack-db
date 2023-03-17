@@ -86,6 +86,12 @@ url    = "https://github.com/stefan-hoeck/idris2-dom"
 commit = "main"
 ipkg   = "dom.ipkg"
 
+[db.dot-gv]
+type   = "github"
+url    = "https://github.com/CodingCellist/idris2-dot-parse"
+commit = "main"
+ipkg   = "dot-parse.ipkg"
+
 [db.eff]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-eff"
