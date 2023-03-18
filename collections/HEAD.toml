@@ -302,6 +302,13 @@ commit = "main"
 ipkg   = "show/parser-show.ipkg"
 test   = "test/test.ipkg"
 
+[db.parser-tsv]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-parser"
+commit = "main"
+ipkg   = "tsv/parser-tsv.ipkg"
+test   = "test/test.ipkg"
+
 [db.parser-toml]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-parser"
