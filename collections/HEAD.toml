@@ -185,6 +185,19 @@ url    = "https://github.com/alexhumphreys/idrall"
 commit = "main"
 ipkg   = "idrall.ipkg"
 
+[db.idris2-go]
+type        = "github"
+url         = "https://github.com/kbertalan/idris2-go"
+commit      = "main"
+ipkg        = "idris2-go.ipkg"
+packagePath = true
+
+[db.idris2-go-lib]
+type   = "github"
+url    = "https://github.com/kbertalan/idris2-go"
+commit = "main"
+ipkg   = "idris2-go-lib.ipkg"
+
 [db.if-unsolved-implicit]
 type   = "git"
 url    = "https://github.com/buzden/idris2-if-unsolved-implicit"
