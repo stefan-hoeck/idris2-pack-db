@@ -387,6 +387,13 @@ commit = "main"
 ipkg   = "json/refined-json.ipkg"
 test   = "test/test.ipkg"
 
+[db.refined-tsv]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-refined"
+commit = "main"
+ipkg   = "tsv/refined-tsv.ipkg"
+test   = "test/test.ipkg"
+
 [db.rhone]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-rhone"
