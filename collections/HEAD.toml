@@ -197,6 +197,7 @@ type        = "github"
 url         = "https://github.com/kbertalan/idris2-go"
 commit      = "main"
 ipkg        = "idris2-go.ipkg"
+test        = "tests/compilertests.ipkg"
 packagePath = true
 
 [db.idris2-go-lib]
@@ -204,6 +205,7 @@ type   = "github"
 url    = "https://github.com/kbertalan/idris2-go"
 commit = "main"
 ipkg   = "idris2-go-lib.ipkg"
+test   = "tests/libtests.ipkg"
 
 [db.if-unsolved-implicit]
 type   = "git"
