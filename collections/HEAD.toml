@@ -387,6 +387,12 @@ url    = "https://github.com/kiana-S/idris2-profunctors"
 commit = "main"
 ipkg   = "profunctors.ipkg"
 
+[db.quantifiers-extra]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-quantifiers-extra"
+commit = "main"
+ipkg   = "quantifiers-extra.ipkg"
+
 [db.random-pure]
 type   = "git"
 url    = "https://github.com/buzden/idris2-random-pure"
