@@ -245,6 +245,12 @@ url    = "https://github.com/idris-community/katla"
 commit = "main"
 ipkg   = "katla.ipkg"
 
+[db.lens]
+type   = "github"
+url    = "https://github.com/kiana-S/idris2-lens"
+commit = "main"
+ipkg   = "lens.ipkg"
+
 [db.lsp]
 type        = "github"
 url         = "https://github.com/idris-community/idris2-lsp"
