@@ -116,7 +116,6 @@
 
 | Package | Dependencies | Commit |
 | --- | --- | --- |
-| [ncurses-idris](https://github.com/mattpolzin/ncurses-idris) |  | [5878735](https://github.com/mattpolzin/ncurses-idris/commit/58787352ce275e0c1da66b1ea54fd71762ee8f82) |
 
 
 ## Unresolved Packages
