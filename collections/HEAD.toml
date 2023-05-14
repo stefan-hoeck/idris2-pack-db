@@ -462,7 +462,7 @@ ipkg   = "sop.ipkg"
 [db.spidr]
 type   = "github"
 url    = "https://github.com/joelberkeley/spidr"
-commit = "main"
+commit = "master"
 ipkg   = "spidr.ipkg"
 
 [db.string-builder]
