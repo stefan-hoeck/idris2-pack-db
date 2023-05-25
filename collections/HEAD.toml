@@ -565,11 +565,11 @@ url    = "https://github.com/idris-bayes/log-domain"
 commit = "main"
 ipkg   = "log-domain.ipkg"
 
-# [db.monad-bayes]
-# type   = "github"
-# url    = "https://github.com/idris-bayes/monad-bayes"
-# commit = "main"
-# ipkg   = "monad-bayes.ipkg"
+[db.monad-bayes]
+type   = "github"
+url    = "https://github.com/idris-bayes/monad-bayes"
+commit = "main"
+ipkg   = "monad-bayes.ipkg"
 
 [db.url]
 type   = "github"
