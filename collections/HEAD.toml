@@ -637,3 +637,9 @@ url    = "https://github.com/ECburx/Idris2GL"
 commit = "main"
 ipkg   = "idrisGL.ipkg"
 
+[db.c-ffi]
+type   = "github"
+url    = "https://github.com/joelberkeley/c-ffi"
+commit = "master"
+ipkg   = "c-ffi.ipkg"
+test   = "test.ipkg"
