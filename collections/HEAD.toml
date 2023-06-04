@@ -290,11 +290,11 @@ test   = "test/test.ipkg"
 # commit = "master"
 # ipkg   = "newtype-deriving.ipkg"
 
-# [db.ncurses-idris]
-# type   = "github"
-# url    = "https://github.com/mattpolzin/ncurses-idris"
-# commit = "main"
-# ipkg   = "ncurses-idris.ipkg"
+[db.ncurses-idris]
+type   = "github"
+url    = "https://github.com/mattpolzin/ncurses-idris"
+commit = "main"
+ipkg   = "ncurses-idris.ipkg"
 
 [db.pack]
 type   = "github"
