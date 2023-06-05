@@ -413,6 +413,12 @@ url    = "https://github.com/stefan-hoeck/idris2-quantifiers-extra"
 commit = "main"
 ipkg   = "quantifiers-extra.ipkg"
 
+[db.qutescript]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-qutescript"
+commit = "main"
+ipkg   = "qutescript.ipkg"
+
 [db.random-pure]
 type   = "git"
 url    = "https://github.com/buzden/idris2-random-pure"
