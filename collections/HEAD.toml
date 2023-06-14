@@ -277,6 +277,12 @@ url  = "https://github.com/running-grass/idris2-markdown"
 commit = "main"
 ipkg = "markdown.ipkg"
 
+[db.monocle]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-monocle"
+commit = "main"
+ipkg   = "monocle.ipkg"
+
 [db.mtl-tuple-impls]
 type   = "github"
 url    = "https://github.com/buzden/idris2-mtl-tuple-impls"
