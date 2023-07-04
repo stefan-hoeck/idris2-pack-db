@@ -226,6 +226,12 @@ url    = "https://github.com/mattpolzin/idris-indexed"
 commit = "main"
 ipkg   = "indexed.ipkg"
 
+[db.indexed-graph]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-indexed-graph"
+commit = "main"
+ipkg   = "indexed-graph.ipkg"
+
 [db.js]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-dom"
