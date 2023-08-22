@@ -258,6 +258,12 @@ commit = "main"
 ipkg   = "simple/json-simple.ipkg"
 test   = "test/test.ipkg"
 
+[db.just-a-monad]
+type   = "github"
+url    = "https://github.com/Russoul/Just-a-Monad"
+commit = "main"
+ipkg   = "just-a-monad.ipkg"
+
 [db.katla]
 type   = "github"
 url    = "https://github.com/idris-community/katla"
