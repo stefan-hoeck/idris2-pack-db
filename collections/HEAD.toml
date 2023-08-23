@@ -667,6 +667,7 @@ type   = "github"
 url    = "https://git.sr.ht/~janus/utf8"
 commit = "master"
 ipkg   = "utf8.ipkg"
+test   = "test/test.ipkg"
 
 [db.webidl]
 type   = "github"
