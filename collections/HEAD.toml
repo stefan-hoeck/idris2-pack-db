@@ -289,6 +289,12 @@ commit      = "main"
 ipkg        = "lsp.ipkg"
 packagePath = true
 
+[db.lsp-lib]
+type        = "github"
+url         = "https://github.com/idris-community/lsp-lib"
+commit      = "main"
+ipkg        = "lsp-lib.ipkg"
+
 [db.markdown]
 type = "github"
 url  = "https://github.com/running-grass/idris2-markdown"
