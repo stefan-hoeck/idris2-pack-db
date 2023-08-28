@@ -198,6 +198,7 @@ type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-hedgehog"
 commit = "main"
 ipkg   = "hedgehog.ipkg"
+tsst   = "tests/tests.ipkg"
 
 [db.idrall]
 type   = "github"
