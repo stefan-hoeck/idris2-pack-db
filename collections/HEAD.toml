@@ -283,11 +283,11 @@ url    = "https://github.com/kiana-S/idris2-lens"
 commit = "main"
 ipkg   = "lens.ipkg"
 
-[db.lsp]
+[db.idris2-lsp]
 type        = "github"
 url         = "https://github.com/idris-community/idris2-lsp"
 commit      = "main"
-ipkg        = "lsp.ipkg"
+ipkg        = "idris2-lsp.ipkg"
 packagePath = true
 
 [db.lsp-lib]
