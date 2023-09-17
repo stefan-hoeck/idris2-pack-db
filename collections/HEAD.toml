@@ -700,3 +700,51 @@ url    = "https://github.com/joelberkeley/c-ffi"
 commit = "master"
 ipkg   = "c-ffi.ipkg"
 test   = "test.ipkg"
+
+[db.cont]
+type = "github"
+url  = "https://git.sr.ht/~janus/cont"
+commit = "master"
+ipkg = "cont.ipkg"
+
+[db.buf-conn]
+type = "github"
+url = "https://git.sr.ht/~janus/buf-conn"
+commit = "master"
+ipkg = "buf-conn.ipkg"
+
+[db.http2]
+type = "github"
+url = "https://git.sr.ht/~janus/http2"
+commit = "master"
+ipkg = "http2.ipkg"
+
+[db.pg]
+type = "github"
+url = "https://git.sr.ht/~janus/pg"
+commit = "master"
+ipkg = "pg.ipkg"
+
+[db.pg-types]
+type = "github"
+url = "https://git.sr.ht/~janus/pg-types"
+commit = "master"
+ipkg = "pg-types.ipkg"
+
+[db.racket-tcp]
+type = "github"
+url = "https://git.sr.ht/~janus/racket-tcp"
+commit = "master"
+ipkg = "racket-tcp.ipkg"
+
+[db.web-server-racket]
+type = "github"
+url = "https://git.sr.ht/~janus/web-server-racket"
+commit = "master"
+ipkg = "web-server-racket.ipkg"
+
+[db.web-server-racket-hello-world]
+type = "github"
+url = "https://git.sr.ht/~janus/web-server-racket-hello-world"
+commit = "master"
+ipkg = "web-server-racket-hello-world.ipkg"
