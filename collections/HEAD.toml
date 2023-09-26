@@ -334,6 +334,12 @@ url    = "https://github.com/mattpolzin/ncurses-idris"
 commit = "main"
 ipkg   = "ncurses-idris.ipkg"
 
+[db.numidr]
+type   = "github"
+url    = "https://github.com/kiana-S/numidr"
+commit = "main"
+ipkg   = "numidr.ipkg"
+
 [db.pack]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-pack"
