@@ -55,7 +55,7 @@
 | [idris2-go-lib](https://github.com/kbertalan/idris2-go) | Library for generating Go source code |  | [eeeea79](https://github.com/kbertalan/idris2-go/commit/eeeea792195c211b409dc0b6515dad68a1048409) | success | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/idris2-go-lib/index.html) |
 | [idris2-lsp](https://github.com/idris-community/idris2-lsp) |  |  | [7fa662a](https://github.com/idris-community/idris2-lsp/commit/7fa662a2ae416898152d7423a92cb1584a476304) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/idris2-lsp/index.html) |
 | [idrisGL](https://github.com/ECburx/Idris2GL) |  | GPL-3.0 License | [3ed89f3](https://github.com/ECburx/Idris2GL/commit/3ed89f3116569260d766d14908cba9debbcea9ff) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/idrisGL/index.html) |
-| [if-unsolved-implicit](https://github.com/buzden/idris2-if-unsolved-implicit) | An interface helping to set a value to an implicit when it is unsolved | Apache-2.0 | [c76eb99](https://github.com/buzden/idris2-if-unsolved-implicit/commit/c76eb9940c06ddcaa9643062d80598fae0fbe271) | success | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/if-unsolved-implicit/index.html) |
+| [if-unsolved-implicit](https://github.com/buzden/idris2-if-unsolved-implicit) | An interface helping to set a value to an implicit when it is unsolved | Apache-2.0 | [b79938e](https://github.com/buzden/idris2-if-unsolved-implicit/commit/b79938e186e92e0a7428500f015bc5221388c8b6) | success | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/if-unsolved-implicit/index.html) |
 | [indexed](https://github.com/mattpolzin/idris-indexed) |  |  | [d3fe9a1](https://github.com/mattpolzin/idris-indexed/commit/d3fe9a1d1aac2e269667e9d2bb44eac8bee6a013) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/indexed/index.html) |
 | [indexed-graph](https://github.com/stefan-hoeck/idris2-indexed-graph) | Array-backed, order indexed, sparse, simple graphs in Idris2 | BSD-3 Clause | [894ee97](https://github.com/stefan-hoeck/idris2-indexed-graph/commit/894ee9764103b378c6f0cb32ac7a572233171d79) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/indexed-graph/index.html) |
 | [js](https://github.com/stefan-hoeck/idris2-dom) | Utilities for working with the JavaScript backends |  | [ebfb4dc](https://github.com/stefan-hoeck/idris2-dom/commit/ebfb4dcdd9a83954b36098c3ccbd6e3c4d08ab4a) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/js/index.html) |
@@ -63,6 +63,7 @@
 | [json-simple](https://github.com/stefan-hoeck/idris2-json) | Simplified derivable JSON marshallers for simple people like me |  | [7ab8a29](https://github.com/stefan-hoeck/idris2-json/commit/7ab8a2977464b1ee441f9802519ffad6a349dbbe) | success | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/json-simple/index.html) |
 | [just-a-monad](https://github.com/Russoul/Just-a-Monad) |  |  | [4a69d28](https://github.com/Russoul/Just-a-Monad/commit/4a69d28651c6edefd30d313d6defd5914cb44931) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/just-a-monad/index.html) |
 | [katla](https://github.com/idris-community/katla) |  |  | [6897c71](https://github.com/idris-community/katla/commit/6897c710c970f2177eb86ee2c88084ef5c0ea21c) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/katla/index.html) |
+| [lana](https://git.sr.ht/~janus/lana) | Bi-directional and extensible JSON schemas using tagless final. Including serialization/deserialization. | MIT | [cb4f9f9](https://git.sr.ht/~janus/lana/commit/cb4f9f9361240fe77317d69f8c62aabfcf46a459) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/lana/index.html) |
 | [lens](https://github.com/kiana-S/idris2-lens) | Batteries-included profunctor optics | MIT | [e1da487](https://github.com/kiana-S/idris2-lens/commit/e1da48721e42e0f7cf1c425102a6542b702ec2bc) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/lens/index.html) |
 | [linear](https://github.com/idris-lang/Idris2) |  |  | [1256ded](https://github.com/idris-lang/Idris2/commit/1256ded11082e08855c22ee290dbf5b353a51aad) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/linear/index.html) |
 | [log-domain](https://github.com/idris-bayes/log-domain) | A small representation of numerical computations in the log domain. | The BSD 3-Clause License | [7eb33c3](https://github.com/idris-bayes/log-domain/commit/7eb33c36fb411b3e9dc43e0c5ad5d8f2f3dae80e) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/log-domain/index.html) |
@@ -137,7 +138,6 @@
 
 | Package | Dependencies | Commit |
 | --- | --- | --- |
-| [lana](https://git.sr.ht/~janus/lana) |  | [cb4f9f9](https://git.sr.ht/~janus/lana/commit/cb4f9f9361240fe77317d69f8c62aabfcf46a459) |
 
 
 ## Unresolved Packages
