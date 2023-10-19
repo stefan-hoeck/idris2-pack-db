@@ -515,6 +515,12 @@ url    = "https://github.com/stefan-hoeck/idris2-sop"
 commit = "main"
 ipkg   = "sop.ipkg"
 
+[db.sqlite3]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-sqlite3"
+commit = "main"
+ipkg   = "sqlite3.ipkg"
+
 [db.string-builder]
 type   = "github"
 url    = "https://github.com/Z-snails/string-builder"
