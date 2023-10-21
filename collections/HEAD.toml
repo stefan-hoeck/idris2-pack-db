@@ -541,6 +541,13 @@ commit = "master"
 ipkg   = "summary-stat.ipkg"
 test   = "tests/tests.ipkg"
 
+[db.swirl]
+type   = "git"
+url    = "https://github.com/buzden/idris2-swirl"
+commit = "master"
+ipkg   = "swirl.ipkg"
+test   = "tests/tests.ipkg"
+
 [db.tailrec]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-tailrec"
