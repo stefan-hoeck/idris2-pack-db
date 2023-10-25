@@ -534,6 +534,13 @@ commit = "main"
 ipkg   = "string-builder.ipkg"
 test   = "test/test.ipkg"
 
+[db.string-search]
+type   = "github"
+url    = "https://git.sr.ht/~janus/string-search"
+commit = "master"
+ipkg   = "string-search.ipkg"
+test   = "test/test.ipkg"
+
 [db.summary-stat]
 type   = "github"
 url    = "https://github.com/buzden/idris2-summary-stat"
