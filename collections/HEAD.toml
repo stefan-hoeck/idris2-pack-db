@@ -35,6 +35,13 @@ url    = "https://github.com/stefan-hoeck/idris2-barbies"
 commit = "main"
 ipkg   = "barbies.ipkg"
 
+[db.base64]
+type   = "github"
+url    = "https://git.sr.ht/~janus/base64"
+commit = "master"
+ipkg   = "base64.ipkg"
+test   = "test/test.ipkg"
+
 [db.bounded-doubles]
 type   = "github"
 url    = "https://github.com/buzden/idris2-bounded-doubles"
@@ -187,6 +194,12 @@ commit = "master"
 ipkg   = "golden-runner-helper.ipkg"
 test   = "tests/tests.ipkg"
 
+[db.hash]
+type   = "github"
+url    = "https://git.sr.ht/~janus/hash"
+commit = "master"
+ipkg   = "hash.ipkg"
+
 [db.hashable]
 type   = "github"
 url    = "https://github.com/Z-snails/Idris2-hashable"
@@ -204,7 +217,14 @@ type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-hedgehog"
 commit = "main"
 ipkg   = "hedgehog.ipkg"
-tsst   = "tests/tests.ipkg"
+test   = "tests/tests.ipkg"
+
+[db.hmac]
+type   = "github"
+url    = "https://git.sr.ht/~janus/hmac"
+commit = "master"
+ipkg   = "hmac.ipkg"
+test   = "test/test.ipkg"
 
 [db.idrall]
 type   = "github"
@@ -508,6 +528,20 @@ url    = "https://github.com/stefan-hoeck/idris2-rio"
 commit = "main"
 ipkg   = "rio.ipkg"
 test   = "test.ipkg"
+
+[db.scram]
+type   = "github"
+url    = "https://git.sr.ht/~janus/scram"
+commit = "master"
+ipkg   = "scram.ipkg"
+test   = "test/test.ipkg"
+
+[db.sha]
+type   = "github"
+url    = "https://git.sr.ht/~janus/sha"
+commit = "master"
+ipkg   = "sha.ipkg"
+test   = "test/test.ipkg"
 
 [db.snocvect]
 type   = "github"
