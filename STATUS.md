@@ -117,6 +117,8 @@
 | [sha](https://git.sr.ht/~janus/sha) | SHA (Secure Hashing Algorithm) implementations in C, copied from cryptohash-sha1, cryptohash-sha256. Provides `Data.Cryptography.Hash.SHA`. | BSD-3 Clause | [54729a5](https://git.sr.ht/~janus/sha/commit/54729a52f9462f3155a11961eaca4373691575ff) | success | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/sha/index.html) |
 | [snocvect](https://github.com/mattpolzin/idris-snocvect) |  | MIT | [f6148c3](https://github.com/mattpolzin/idris-snocvect/commit/f6148c3d06c7a9989062a2425f925fc844468215) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/snocvect/index.html) |
 | [sop](https://github.com/stefan-hoeck/idris2-sop) | Generic representation of data types as sums of products | BSD-2 Clause | [050dc40](https://github.com/stefan-hoeck/idris2-sop/commit/050dc401257bc521bd171dbdff9728f32909e0d4) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/sop/index.html) |
+| [sqlite3](https://github.com/stefan-hoeck/idris2-sqlite3) | Idris2 bindings to the sqlite3 API | BSD-3 Clause | [ab0b0b3](https://github.com/stefan-hoeck/idris2-sqlite3/commit/ab0b0b334d99028d739e617dc64711699a966716) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/sqlite3/index.html) |
+| [sqlite3-rio](https://github.com/stefan-hoeck/idris2-sqlite3) | RIO wrappers for the sqlite3 library | BSD-3 Clause | [ab0b0b3](https://github.com/stefan-hoeck/idris2-sqlite3/commit/ab0b0b334d99028d739e617dc64711699a966716) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/sqlite3-rio/index.html) |
 | [string-builder](https://github.com/Z-snails/string-builder) | Efficient string builders |  | [6dfb5e0](https://github.com/Z-snails/string-builder/commit/6dfb5e0070274ead1b8fd4e1229b5254da7ddd15) | success | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/string-builder/index.html) |
 | [string-search](https://git.sr.ht/~janus/string-search) | Search for the index of a `Buffer` contained in another `Buffer`. Uses `memmem` from `libc`. Also provides `splitBits8 : List Bits8 -> List Bits8 -> Maybe (List Bits8, List Bits8)`. | BSD-3 Clause | [a30d7dc](https://git.sr.ht/~janus/string-search/commit/a30d7dcbd232edab23459ebbc68ca129b2574222) | success | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/string-search/index.html) |
 | [summary-stat](https://github.com/buzden/idris2-summary-stat) | Facilities for summary statistics | Apache-2.0 | [16832d9](https://github.com/buzden/idris2-summary-stat/commit/16832d9a8843d0c8fa4e7f8defe54b7a28de0d76) | failure | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/summary-stat/index.html) |
@@ -146,8 +148,6 @@
 | Package | Dependencies | Commit |
 | --- | --- | --- |
 | [spidr](https://github.com/joelberkeley/spidr) |  | [c1bde4a](https://github.com/joelberkeley/spidr/commit/c1bde4a5d0839482e704ea26d041874f8aaa044b) |
-| [sqlite3](https://github.com/stefan-hoeck/idris2-sqlite3) |  | [2030938](https://github.com/stefan-hoeck/idris2-sqlite3/commit/203093845a17cbde13d3f5ce3501943b69089781) |
-| [sqlite3-rio](https://github.com/stefan-hoeck/idris2-sqlite3) | sqlite3 | [2030938](https://github.com/stefan-hoeck/idris2-sqlite3/commit/203093845a17cbde13d3f5ce3501943b69089781) |
 
 
 ## Unresolved Packages
