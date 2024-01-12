@@ -44,6 +44,8 @@ jobs:
           apt-get install --yes libsdl1.2-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl2-image-dev libsdl2-ttf-dev libsdl2-gfx-dev libsdl2-mixer-dev
           # idris2-go:
           apt-get install --yes golang-go
+          # libuv
+          apt-get install --yes libuv1-dev
       - name: Use latest pack commit
         run: pack update
       - name: Install pack-admin
