@@ -35,12 +35,12 @@ url    = "https://github.com/stefan-hoeck/idris2-barbies"
 commit = "main"
 ipkg   = "barbies.ipkg"
 
-# [db.base64]
-# type   = "github"
-# url    = "https://git.sr.ht/~janus/base64"
-# commit = "master"
-# ipkg   = "base64.ipkg"
-# test   = "test/test.ipkg"
+[db.base64]
+type   = "github"
+url    = "https://git.sr.ht/~janus/base64"
+commit = "master"
+ipkg   = "base64.ipkg"
+test   = "test/test.ipkg"
 
 [db.bounded-doubles]
 type   = "github"
@@ -194,11 +194,11 @@ commit = "master"
 ipkg   = "golden-runner-helper.ipkg"
 test   = "tests/tests.ipkg"
 
-# [db.hash]
-# type   = "github"
-# url    = "https://git.sr.ht/~janus/hash"
-# commit = "master"
-# ipkg   = "hash.ipkg"
+[db.hash]
+type   = "github"
+url    = "https://git.sr.ht/~janus/hash"
+commit = "master"
+ipkg   = "hash.ipkg"
 
 [db.hashable]
 type   = "github"
@@ -219,12 +219,12 @@ commit = "main"
 ipkg   = "hedgehog.ipkg"
 test   = "tests/tests.ipkg"
 
-# [db.hmac]
-# type   = "github"
-# url    = "https://git.sr.ht/~janus/hmac"
-# commit = "master"
-# ipkg   = "hmac.ipkg"
-# test   = "test/test.ipkg"
+[db.hmac]
+type   = "github"
+url    = "https://git.sr.ht/~janus/hmac"
+commit = "master"
+ipkg   = "hmac.ipkg"
+test   = "test/test.ipkg"
 
 [db.idrall]
 type   = "github"
@@ -297,11 +297,11 @@ url    = "https://github.com/idris-community/katla"
 commit = "main"
 ipkg   = "katla.ipkg"
 
-# [db.lana]
-# type   = "github"
-# url    = "https://git.sr.ht/~janus/lana"
-# commit = "master"
-# ipkg   = "lana.ipkg"
+[db.lana]
+type   = "github"
+url    = "https://git.sr.ht/~janus/lana"
+commit = "master"
+ipkg   = "lana.ipkg"
 
 [db.lens]
 type   = "github"
@@ -529,19 +529,19 @@ commit = "main"
 ipkg   = "rio.ipkg"
 test   = "test.ipkg"
 
-# [db.scram]
-# type   = "github"
-# url    = "https://git.sr.ht/~janus/scram"
-# commit = "master"
-# ipkg   = "scram.ipkg"
-# test   = "test/test.ipkg"
+[db.scram]
+type   = "github"
+url    = "https://git.sr.ht/~janus/scram"
+commit = "master"
+ipkg   = "scram.ipkg"
+test   = "test/test.ipkg"
 
-# [db.sha]
-# type   = "github"
-# url    = "https://git.sr.ht/~janus/sha"
-# commit = "master"
-# ipkg   = "sha.ipkg"
-# test   = "test/test.ipkg"
+[db.sha]
+type   = "github"
+url    = "https://git.sr.ht/~janus/sha"
+commit = "master"
+ipkg   = "sha.ipkg"
+test   = "test/test.ipkg"
 
 [db.snocvect]
 type   = "github"
@@ -574,12 +574,12 @@ commit = "main"
 ipkg   = "string-builder.ipkg"
 test   = "test/test.ipkg"
 
-# [db.string-search]
-# type   = "github"
-# url    = "https://git.sr.ht/~janus/string-search"
-# commit = "master"
-# ipkg   = "string-search.ipkg"
-# test   = "test/test.ipkg"
+[db.string-search]
+type   = "github"
+url    = "https://git.sr.ht/~janus/string-search"
+commit = "master"
+ipkg   = "string-search.ipkg"
+test   = "test/test.ipkg"
 
 [db.summary-stat]
 type   = "github"
@@ -705,17 +705,17 @@ url    = "https://github.com/octeep/idris2-tls"
 commit = "master"
 ipkg   = "tls.ipkg"
 
-# [db.http]
-# type   = "github"
-# url    = "https://github.com/octeep/idris2-http"
-# commit = "master"
-# ipkg   = "http.ipkg"
+[db.http]
+type   = "github"
+url    = "https://github.com/octeep/idris2-http"
+commit = "master"
+ipkg   = "http.ipkg"
 
-# [db.prob-fx]
-# type   = "github"
-# url    = "https://github.com/idris-bayes/prob-fx"
-# commit = "main"
-# ipkg   = "prob-fx.ipkg"
+[db.prob-fx]
+type   = "github"
+url    = "https://github.com/idris-bayes/prob-fx"
+commit = "main"
+ipkg   = "prob-fx.ipkg"
 
 [db.cheerio]
 type   = "github"
@@ -747,12 +747,12 @@ url    = "https://github.com/Z-snails/uniplate-idr"
 commit = "main"
 ipkg   = "uniplate.ipkg"
 
-# [db.utf8]
-# type   = "github"
-# url    = "https://git.sr.ht/~janus/utf8"
-# commit = "master"
-# ipkg   = "utf8.ipkg"
-# test   = "test/test.ipkg"
+[db.utf8]
+type   = "github"
+url    = "https://git.sr.ht/~janus/utf8"
+commit = "master"
+ipkg   = "utf8.ipkg"
+test   = "test/test.ipkg"
 
 [db.uv]
 type   = "github"
@@ -785,50 +785,50 @@ commit = "master"
 ipkg   = "c-ffi.ipkg"
 test   = "test.ipkg"
 
-# [db.cont]
-# type = "github"
-# url  = "https://git.sr.ht/~janus/cont"
-# commit = "master"
-# ipkg = "cont.ipkg"
+[db.cont]
+type = "github"
+url  = "https://git.sr.ht/~janus/cont"
+commit = "master"
+ipkg = "cont.ipkg"
 
-# [db.buf-conn]
-# type = "github"
-# url = "https://git.sr.ht/~janus/buf-conn"
-# commit = "master"
-# ipkg = "buf-conn.ipkg"
+[db.buf-conn]
+type = "github"
+url = "https://git.sr.ht/~janus/buf-conn"
+commit = "master"
+ipkg = "buf-conn.ipkg"
 
-# [db.http2]
-# type = "github"
-# url = "https://git.sr.ht/~janus/http2"
-# commit = "master"
-# ipkg = "http2.ipkg"
+[db.http2]
+type = "github"
+url = "https://git.sr.ht/~janus/http2"
+commit = "master"
+ipkg = "http2.ipkg"
 
-# [db.pg]
-# type = "github"
-# url = "https://git.sr.ht/~janus/pg"
-# commit = "master"
-# ipkg = "pg.ipkg"
+[db.pg]
+type = "github"
+url = "https://git.sr.ht/~janus/pg"
+commit = "master"
+ipkg = "pg.ipkg"
 
-# [db.pg-types]
-# type = "github"
-# url = "https://git.sr.ht/~janus/pg-types"
-# commit = "master"
-# ipkg = "pg-types.ipkg"
+[db.pg-types]
+type = "github"
+url = "https://git.sr.ht/~janus/pg-types"
+commit = "master"
+ipkg = "pg-types.ipkg"
 
-# [db.racket-tcp]
-# type = "github"
-# url = "https://git.sr.ht/~janus/racket-tcp"
-# commit = "master"
-# ipkg = "racket-tcp.ipkg"
+[db.racket-tcp]
+type = "github"
+url = "https://git.sr.ht/~janus/racket-tcp"
+commit = "master"
+ipkg = "racket-tcp.ipkg"
 
-# [db.web-server-racket]
-# type = "github"
-# url = "https://git.sr.ht/~janus/web-server-racket"
-# commit = "master"
-# ipkg = "web-server-racket.ipkg"
+[db.web-server-racket]
+type = "github"
+url = "https://git.sr.ht/~janus/web-server-racket"
+commit = "master"
+ipkg = "web-server-racket.ipkg"
 
-# [db.web-server-racket-hello-world]
-# type = "github"
-# url = "https://git.sr.ht/~janus/web-server-racket-hello-world"
-# commit = "master"
-# ipkg = "web-server-racket-hello-world.ipkg"
+[db.web-server-racket-hello-world]
+type = "github"
+url = "https://git.sr.ht/~janus/web-server-racket-hello-world"
+commit = "master"
+ipkg = "web-server-racket-hello-world.ipkg"
