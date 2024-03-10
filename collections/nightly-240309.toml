@@ -350,7 +350,7 @@ test        = "tests/libtests.ipkg"
 [db.idris2-lsp]
 type        = "github"
 url         = "https://github.com/idris-community/idris2-lsp"
-commit      = "a77ef2d563418925aa274fa29f06880dde43f4ec"
+commit      = "07e751bb6372b496844ba0fc22c1692b22e98919"
 ipkg        = "idris2-lsp.ipkg"
 packagePath = true
 
