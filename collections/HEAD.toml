@@ -112,6 +112,12 @@ url    = "https://github.com/stefan-hoeck/idris2-dom-mvc"
 commit = "main"
 ipkg   = "dom-mvc.ipkg"
 
+[db.dom-mvc-extra]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-dom-mvc"
+commit = "main"
+ipkg   = "extra/dom-mvc-extra.ipkg"
+
 [db.dot-gv]
 type   = "github"
 url    = "https://github.com/CodingCellist/idris2-dot-parse"
