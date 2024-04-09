@@ -94,6 +94,13 @@ commit = "main"
 ipkg   = "crypt.ipkg"
 test   = "test/test.ipkg"
 
+[db.deptycheck]
+type   = "git"
+url    = "https://github.com/buzden/deptycheck"
+commit = "master"
+ipkg   = "deptycheck.ipkg"
+test   = "tests/tests.ipkg"
+
 [db.dinwiddy]
 type   = "github"
 url    = "https://github.com/bobbbay/dinwiddy"
