@@ -84,6 +84,7 @@
 | [ncurses-idris](https://github.com/mattpolzin/ncurses-idris) | NCurses support for Idris 2 apps compiled with the Chez Scheme backend. | MIT | [e4faae7](https://github.com/mattpolzin/ncurses-idris/commit/e4faae7df3867d2d546d220dd9f9889ecda3cf6e) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/ncurses-idris/index.html) |
 | [network](https://github.com/idris-lang/Idris2) |  |  | [2298f88](https://github.com/idris-lang/Idris2/commit/2298f8837b0afb9c0fba3ae7ec3f4022550999ec) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/network/index.html) |
 | [node](https://github.com/kbertalan/idris2-node) | Node JS API bindings for Idris2 |  | [917e6cb](https://github.com/kbertalan/idris2-node/commit/917e6cb32b1ba6e171170b4d713acaff1fea79d6) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/node/index.html) |
+| [numidr](https://github.com/kiana-S/numidr) | Linear algebra and data science library | MIT | [3b361ca](https://github.com/kiana-S/numidr/commit/3b361caeb73607a295257f9275f8174e957bdb0d) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/numidr/index.html) |
 | [pack](https://github.com/stefan-hoeck/idris2-pack) | A package manager for Idris2 with curated package collections |  | [6bce9e9](https://github.com/stefan-hoeck/idris2-pack/commit/6bce9e9cd95af2a9254e52d928d5c2ab7ea80bca) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/pack/index.html) |
 | [pack-admin](https://github.com/stefan-hoeck/idris2-pack) | Administration of pack's package collections |  | [6bce9e9](https://github.com/stefan-hoeck/idris2-pack/commit/6bce9e9cd95af2a9254e52d928d5c2ab7ea80bca) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/pack-admin/index.html) |
 | [papers](https://github.com/idris-lang/Idris2) |  |  | [2298f88](https://github.com/idris-lang/Idris2/commit/2298f8837b0afb9c0fba3ae7ec3f4022550999ec) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-docs/docs/papers/index.html) |
@@ -153,7 +154,6 @@
 
 | Package | Dependencies | Commit |
 | --- | --- | --- |
-| [numidr](https://github.com/kiana-S/numidr) |  | [762a41c](https://github.com/kiana-S/numidr/commit/762a41c32b520c11b06e1a1d35222e1c4fa4ac00) |
 
 
 ## Unresolved Packages
