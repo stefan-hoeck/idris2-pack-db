@@ -663,18 +663,21 @@ type = "github"
 url  = "https://github.com/kbertalan/tyttp"
 commit = "main"
 ipkg = "tyttp.ipkg"
+test = "tests/tests.ipkg"
 
 [db.tyttp-adapter-node]
 type = "github"
 url  = "https://github.com/kbertalan/tyttp"
 commit = "main"
 ipkg = "adapter-node/tyttp-adapter-node.ipkg"
+test = "tests/tests.ipkg"
 
 [db.tyttp-json]
 type = "github"
-url  = "https://github.com/kbertalan/tyttp-json"
+url  = "https://github.com/kbertalan/tyttp"
 commit = "main"
-ipkg = "tyttp-json.ipkg"
+ipkg = "json/tyttp-json.ipkg"
+test = "tests/tests.ipkg"
 
 [db.xml]
 type   = "github"
