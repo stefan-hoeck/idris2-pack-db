@@ -670,14 +670,14 @@ type = "github"
 url  = "https://github.com/kbertalan/tyttp"
 commit = "main"
 ipkg = "adapter-node/tyttp-adapter-node.ipkg"
-test = "tests/tests.ipkg"
+test = "adapter-node/tests/tests.ipkg"
 
 [db.tyttp-json]
 type = "github"
 url  = "https://github.com/kbertalan/tyttp"
 commit = "main"
 ipkg = "json/tyttp-json.ipkg"
-test = "tests/tests.ipkg"
+test = "json/tests/tests.ipkg"
 
 [db.xml]
 type   = "github"
