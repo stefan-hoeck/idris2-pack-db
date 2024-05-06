@@ -46,6 +46,8 @@ jobs:
           apt-get install --yes golang-go
           # libuv
           apt-get install --yes libuv1-dev
+          # node codegen:
+          apt-get install --yes nodejs
       - name: Use latest pack commit
         run: pack update
       - name: Install pack-admin
