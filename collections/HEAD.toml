@@ -508,6 +508,12 @@ commit = "master"
 ipkg   = "random-pure.ipkg"
 test   = "tests/tests.ipkg"
 
+[db.ratio]
+type   = "github"
+url    = "https://github.com/kiana-S/idris2-ratio"
+commit = "main"
+ipkg   = "ratio.ipkg"
+
 [db.refined]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-refined"
