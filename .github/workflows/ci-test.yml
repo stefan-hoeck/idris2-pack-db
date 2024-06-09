@@ -43,6 +43,8 @@ jobs:
           apt-get install --yes libuv1-dev
           # node codegen:
           apt-get install --yes nodejs
+          # spidr ecosystem
+          apt-get install --yes curl
       - name: Use latest pack commit
         run: pack update
       - name: Install pack-admin

@@ -763,6 +763,18 @@ url    = "https://github.com/joelberkeley/spidr"
 commit = "master"
 ipkg   = "spidr/spidr.ipkg"
 
+[db.pjrt-plugin-xla-cpu]
+type   = "github"
+url    = "https://github.com/joelberkeley/spidr"
+commit = "master"
+ipkg   = "pjrt-plugins/xla-cpu/pjrt-plugin-xla-cpu.ipkg"
+
+[db.pjrt-plugin-xla-cuda]
+type   = "github"
+url    = "https://github.com/joelberkeley/spidr"
+commit = "master"
+ipkg   = "pjrt-plugins/xla-cuda/pjrt-plugin-xla-cuda.ipkg"
+
 [db.uniplate]
 type   = "github"
 url    = "https://github.com/Z-snails/uniplate-idr"
