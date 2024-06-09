@@ -350,14 +350,14 @@ packagePath = false
 [db.idris2-go]
 type        = "github"
 url         = "https://github.com/kbertalan/idris2-go"
-commit      = "9bb761baa6826eb8c1388005be52df2b415de206"
+commit      = "070087e7f216bd651df6f4491f71a6d812631dd7"
 ipkg        = "idris2-go.ipkg"
 packagePath = true
 
 [db.idris2-go-lib]
 type        = "github"
 url         = "https://github.com/kbertalan/idris2-go"
-commit      = "9bb761baa6826eb8c1388005be52df2b415de206"
+commit      = "070087e7f216bd651df6f4491f71a6d812631dd7"
 ipkg        = "idris2-go-lib.ipkg"
 packagePath = false
 test        = "tests/libtests.ipkg"
@@ -408,7 +408,7 @@ packagePath = false
 [db.json]
 type        = "github"
 url         = "https://github.com/stefan-hoeck/idris2-json"
-commit      = "947f11517174405298dc259098b538a007954b33"
+commit      = "6fc9c0dc083ebf9b3caab5b179f50a5c8f1b4166"
 ipkg        = "json.ipkg"
 packagePath = false
 test        = "test/test.ipkg"
@@ -416,7 +416,7 @@ test        = "test/test.ipkg"
 [db.json-simple]
 type        = "github"
 url         = "https://github.com/stefan-hoeck/idris2-json"
-commit      = "947f11517174405298dc259098b538a007954b33"
+commit      = "6fc9c0dc083ebf9b3caab5b179f50a5c8f1b4166"
 ipkg        = "simple/json-simple.ipkg"
 packagePath = false
 test        = "test/test.ipkg"
