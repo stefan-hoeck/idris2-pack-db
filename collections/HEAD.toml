@@ -232,12 +232,12 @@ commit = "main"
 ipkg   = "hedgehog.ipkg"
 test   = "tests/tests.ipkg"
 
-# [db.hmac]
-# type   = "github"
-# url    = "https://git.sr.ht/~janus/hmac"
-# commit = "master"
-# ipkg   = "hmac.ipkg"
-# test   = "test/test.ipkg"
+[db.hmac]
+type   = "github"
+url    = "https://git.sr.ht/~janus/hmac"
+commit = "master"
+ipkg   = "hmac.ipkg"
+test   = "test/test.ipkg"
 
 [db.idrall]
 type   = "github"
@@ -837,11 +837,11 @@ url = "https://git.sr.ht/~janus/http2"
 commit = "master"
 ipkg = "http2.ipkg"
 
-# [db.pg]
-# type = "github"
-# url = "https://git.sr.ht/~janus/pg"
-# commit = "master"
-# ipkg = "pg.ipkg"
+[db.pg]
+type = "github"
+url = "https://git.sr.ht/~janus/pg"
+commit = "master"
+ipkg = "pg.ipkg"
 
 [db.pg-types]
 type = "github"
@@ -855,14 +855,14 @@ url = "https://git.sr.ht/~janus/racket-tcp"
 commit = "master"
 ipkg = "racket-tcp.ipkg"
 
-# [db.web-server-racket]
-# type = "github"
-# url = "https://git.sr.ht/~janus/web-server-racket"
-# commit = "master"
-# ipkg = "web-server-racket.ipkg"
-# 
-# [db.web-server-racket-hello-world]
-# type = "github"
-# url = "https://git.sr.ht/~janus/web-server-racket-hello-world"
-# commit = "master"
-# ipkg = "web-server-racket-hello-world.ipkg"
+[db.web-server-racket]
+type = "github"
+url = "https://git.sr.ht/~janus/web-server-racket"
+commit = "master"
+ipkg = "web-server-racket.ipkg"
+
+[db.web-server-racket-hello-world]
+type = "github"
+url = "https://git.sr.ht/~janus/web-server-racket-hello-world"
+commit = "master"
+ipkg = "web-server-racket-hello-world.ipkg"
