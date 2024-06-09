@@ -761,7 +761,7 @@ ipkg   = "game-2048/game-2048.ipkg"
 type   = "github"
 url    = "https://github.com/joelberkeley/spidr"
 commit = "master"
-ipkg   = "spidr.ipkg"
+ipkg   = "spidr/spidr.ipkg"
 
 [db.uniplate]
 type   = "github"
