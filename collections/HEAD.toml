@@ -29,6 +29,12 @@ commit = "main"
 ipkg = "array.ipkg"
 test = "test/test.ipkg"
 
+[db.async]
+type = "github"
+url  = "https://github.com/stefan-hoeck/idris2-async"
+commit = "main"
+ipkg = "async.ipkg"
+
 [db.barbies]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-barbies"
