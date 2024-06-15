@@ -48,6 +48,13 @@ commit = "master"
 ipkg   = "base64.ipkg"
 test   = "test/test.ipkg"
 
+[db.best-alternative]
+type   = "git"
+url    = "https://github.com/buzden/idris2-best-alternative"
+commit = "master"
+ipkg   = "best-alternative.ipkg"
+test   = "tests/tests.ipkg"
+
 [db.bounded-doubles]
 type   = "github"
 url    = "https://github.com/buzden/idris2-bounded-doubles"
@@ -74,6 +81,13 @@ url    = "https://github.com/ohad/collie"
 commit = "main"
 ipkg   = "collie.ipkg"
 
+[db.collection-utils]
+type   = "github"
+url    = "https://github.com/buzden/idris2-collection-utils"
+commit = "master"
+ipkg   = "collection-utils.ipkg"
+test   = "test/test.ipkg"
+
 [db.comonad]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-comonad"
@@ -99,6 +113,13 @@ url    = "https://github.com/stefan-hoeck/idris2-crypt"
 commit = "main"
 ipkg   = "crypt.ipkg"
 test   = "test/test.ipkg"
+
+[db.dependent-vect]
+type   = "git"
+url    = "https://github.com/buzden/idris2-dependent-vect"
+commit = "master"
+ipkg   = "dependent-vect.ipkg"
+test   = "tests/tests.ipkg"
 
 [db.deptycheck]
 type   = "git"
@@ -161,12 +182,26 @@ url    = "https://github.com/stefan-hoeck/idris2-elab-util"
 commit = "main"
 ipkg   = "elab-util.ipkg"
 
+[db.i-hate-parens]
+type   = "git"
+url    = "https://github.com/buzden/idris2-i-hate-parens"
+commit = "master"
+ipkg   = "i-hate-parens.ipkg"
+test   = "tests/tests.ipkg"
+
 [db.filepath]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-filepath"
 commit = "main"
 ipkg   = "filepath.ipkg"
 test   = "test/test.ipkg"
+
+[db.fin-lizzie]
+type   = "git"
+url    = "https://github.com/buzden/idris2-fin-lizzie"
+commit = "master"
+ipkg   = "fin-lizzie.ipkg"
+test   = "tests/tests.ipkg"
 
 [db.finite]
 type   = "github"
@@ -450,6 +485,13 @@ type   = "github"
 url    = "https://github.com/mattpolzin/pg-idris"
 commit = "main"
 ipkg   = "pg-idris.ipkg"
+
+[db.positive-nat]
+type   = "git"
+url    = "https://github.com/buzden/idris2-positive-nat"
+commit = "master"
+ipkg   = "positive-nat.ipkg"
+test   = "tests/tests.ipkg"
 
 [db.prettier]
 type   = "github"
