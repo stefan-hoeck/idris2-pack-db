@@ -662,6 +662,12 @@ commit = "master"
 ipkg   = "summary-stat.ipkg"
 test   = "tests/tests.ipkg"
 
+[db.svg]
+type   = "git"
+url    = "https://github.com/stefan-hoeck/idris2-svg"
+commit = "main"
+ipkg   = "svg.ipkg"
+
 [db.swirl]
 type   = "git"
 url    = "https://github.com/buzden/idris2-swirl"
