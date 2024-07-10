@@ -569,6 +569,12 @@ url    = "https://github.com/kiana-S/idris2-ratio"
 commit = "main"
 ipkg   = "ratio.ipkg"
 
+[db.ref1]
+type = "github"
+url  = "https://github.com/stefan-hoeck/idris2-ref1"
+commit = "main"
+ipkg = "ref1.ipkg"
+
 [db.refined]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-refined"
