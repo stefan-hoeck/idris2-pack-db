@@ -800,17 +800,17 @@ url    = "https://github.com/running-grass/idris2-url"
 commit = "main"
 ipkg   = "url.ipkg"
 
-[db.tls]
-type   = "github"
-url    = "https://github.com/octeep/idris2-tls"
-commit = "master"
-ipkg   = "tls.ipkg"
-
-[db.http]
-type   = "github"
-url    = "https://github.com/octeep/idris2-http"
-commit = "master"
-ipkg   = "http.ipkg"
+# [db.tls]
+# type   = "github"
+# url    = "https://github.com/octeep/idris2-tls"
+# commit = "master"
+# ipkg   = "tls.ipkg"
+# 
+# [db.http]
+# type   = "github"
+# url    = "https://github.com/octeep/idris2-http"
+# commit = "master"
+# ipkg   = "http.ipkg"
 
 [db.prob-fx]
 type   = "github"
