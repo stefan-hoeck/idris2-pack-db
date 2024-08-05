@@ -812,11 +812,11 @@ ipkg   = "url.ipkg"
 # commit = "master"
 # ipkg   = "http.ipkg"
 
-[db.prob-fx]
-type   = "github"
-url    = "https://github.com/idris-bayes/prob-fx"
-commit = "main"
-ipkg   = "prob-fx.ipkg"
+# [db.prob-fx]
+# type   = "github"
+# url    = "https://github.com/idris-bayes/prob-fx"
+# commit = "main"
+# ipkg   = "prob-fx.ipkg"
 
 [db.cheerio]
 type   = "github"
