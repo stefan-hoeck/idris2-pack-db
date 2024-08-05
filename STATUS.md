@@ -166,7 +166,6 @@
 
 | Package | Dependencies | Commit |
 | --- | --- | --- |
-| [prob-fx](https://github.com/idris-bayes/prob-fx) |  | [ade21a9](https://github.com/idris-bayes/prob-fx/commit/ade21a9cb406870e6226858ea26a421291a111bc) |
 
 
 ## Unresolved Packages
