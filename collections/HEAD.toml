@@ -195,6 +195,13 @@ url    = "https://github.com/stefan-hoeck/idris2-elab-util"
 commit = "main"
 ipkg   = "elab-util.ipkg"
 
+[db.epoll]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-epoll"
+commit = "main"
+ipkg   = "epoll.ipkg"
+test   = "tests/test.ipkg"
+
 [db.i-hate-parens]
 type   = "git"
 url    = "https://github.com/buzden/idris2-i-hate-parens"
