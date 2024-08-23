@@ -81,6 +81,19 @@ url    = "https://github.com/stefan-hoeck/idris2-bytestring"
 commit = "main"
 ipkg   = "bytestring.ipkg"
 
+[db.chem]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-chem"
+commit = "main"
+ipkg   = "chem.ipkg"
+test   = "test/test.ipkg"
+
+[db.chem-generators]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-chem"
+commit = "main"
+ipkg   = "chem-generators/chem-generators.ipkg"
+
 [db.collie]
 type   = "github"
 url    = "https://github.com/ohad/collie"
@@ -126,6 +139,12 @@ url    = "https://github.com/stefan-hoeck/idris2-crypt"
 commit = "main"
 ipkg   = "crypt.ipkg"
 test   = "test/test.ipkg"
+
+[db.cyby-draw]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-cyby-draw"
+commit = "main"
+ipkg   = "cyby-draw.ipkg"
 
 [db.dependent-vect]
 type   = "git"
