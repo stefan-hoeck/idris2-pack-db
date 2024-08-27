@@ -41,6 +41,8 @@ jobs:
           apt-get install --yes golang-go
           # libuv
           apt-get install --yes libuv1-dev
+          # rtlsdr
+          apt-get install --yes librtlsdr-dev
           # node codegen:
           apt-get install --yes nodejs
           # spidr ecosystem
