@@ -133,6 +133,13 @@ commit = "master"
 ipkg   = "cozippable.ipkg"
 test   = "test/test.ipkg"
 
+[db.cptr]
+type = "github"
+url  = "https://github.com/stefan-hoeck/idris2-cptr"
+commit = "main"
+ipkg = "cptr.ipkg"
+test = "test/test.ipkg"
+
 [db.crypt]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-crypt"
@@ -401,6 +408,13 @@ type   = "github"
 url    = "https://github.com/kiana-S/idris2-lens"
 commit = "main"
 ipkg   = "lens.ipkg"
+
+[db.linux]
+type = "github"
+url  = "https://github.com/stefan-hoeck/idris2-linux"
+commit = "main"
+ipkg = "linux.ipkg"
+test = "test/test.ipkg"
 
 [db.idris2-lsp]
 type        = "github"
