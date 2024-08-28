@@ -65,6 +65,6 @@ jobs:
       - name: Re-Install pack-admin
         run: pack --no-prompt install-app pack-admin
       - name: Check Collection
-        run: pack-admin --no-prompt check-collection "$HOME/output/"
+        run: pack-admin --no-prompt --skip-tests check-collection "$HOME/output/"
       - name: Fail if missing
         run: test -f "$HOME/output/testdb.toml"

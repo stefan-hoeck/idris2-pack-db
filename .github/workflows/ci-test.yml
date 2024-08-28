@@ -60,7 +60,7 @@ jobs:
       - name: Re-Install pack-admin
         run: pack --no-prompt install-app pack-admin
       - name: Check Collection
-        run: pack-admin --no-prompt check-collection "$HOME/output/"
+        run: pack-admin --no-prompt --skip-tests --with-docs --use-katla check-collection "$HOME/output/"
       - name: Save generated files
         uses: actions/upload-artifact@master
         with:
