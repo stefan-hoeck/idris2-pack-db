@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>IdrisGL.Random</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : IdrisGL.Random
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>IdrisGL.Random</h1><span style="float:right">(<a href="IdrisGL.Random.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="IdrisGL.Random.randomInt"><code><a class="type" href="IdrisGL.Random.html#IdrisGL.Random.randomInt"><span class="name function">randomInt</span></a>&ensp;:&ensp;<span class="name type">Int</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Int</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Int</span></code></dt><dd><pre>  An unsafe, predictable and limited random integer generator, in range [lower, upper].<br>  Switch &lt;lower&gt; and &lt;upper&gt; if &lt;upper&gt; is LOWER than &lt;lower&gt;.<br>  <br>  This function is only for users who want to easily render random picture elements.<br>  Please don&apos;t use it for precise calculations.<br>  No random built-in functions been found in idris2 version 0.4.<br>  <br>  @ lower Lower bound.<br>  @ upper Upper bound.</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="IdrisGL.Random.randomNat"><code><a class="type" href="IdrisGL.Random.html#IdrisGL.Random.randomNat"><span class="name function">randomNat</span></a>&ensp;:&ensp;<span class="type resolved" title="Prelude.Types.Nat"><span class="name type">Nat</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Types.Nat"><span class="name type">Nat</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Types.Nat"><span class="name type">Nat</span></span></code></dt><dd><pre>  An unsafe, predictable and limited random natrual number generator, in range [lower, upper].<br>  Switch &lt;lower&gt; and &lt;upper&gt; if &lt;upper&gt; is LOWER than &lt;lower&gt;.<br>  <br>  This function is only for users who want to easily render random picture elements.<br>  Please don&apos;t use it for precise calculations.<br>  No random built-in functions been found in idris2 version 0.4.<br>  <br>  @ lower Lower bound.<br>  @ upper Upper bound.</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="IdrisGL.Random.randomFin"><code><a class="type" href="IdrisGL.Random.html#IdrisGL.Random.randomFin"><span class="name function">randomFin</span></a>&ensp;:&ensp;<span class="type resolved" title="Prelude.Types.Nat"><span class="name type">Nat</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="boundvar">upper</span>&ensp;:&ensp;<span class="type resolved" title="Prelude.Types.Nat"><span class="name type">Nat</span></span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Types.Maybe"><span class="name type">Maybe</span></span>&ensp;(<span class="type resolved" title="Data.Fin.Fin"><span class="name type">Fin</span></span>&ensp;<span class="boundvar">upper</span>)</code></dt><dd><pre>  An unsafe, predictable and limited random (Fin upper) generator, in range [lower, upper].<br>  Switch &lt;lower&gt; and &lt;upper&gt; if &lt;upper&gt; is LOWER than &lt;lower&gt;.<br>  <br>  This function is only for users who want to easily render random picture elements.<br>  Please don&apos;t use it for precise calculations.<br>  No random built-in functions been found in idris2 version 0.4.<br>  <br>  @ lower Lower bound.<br>  @ upper Upper bound.</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="IdrisGL.Random.randomPick"><code><a class="type" href="IdrisGL.Random.html#IdrisGL.Random.randomPick"><span class="name function">randomPick</span></a>&ensp;:&ensp;<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Types.Maybe"><span class="name type">Maybe</span></span>&ensp;<span class="boundvar">a</span></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd></dl></div><footer>Produced by Idris 2 version 0.7.0-c5f31c9d2</footer></body></html>

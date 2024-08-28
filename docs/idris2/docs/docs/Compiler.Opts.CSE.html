@@ -1,0 +1,91 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Compiler.Opts.CSE</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Compiler.Opts.CSE
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Compiler.Opts.CSE</h1><span style="float:right">(<a href="Compiler.Opts.CSE.src.html">source</a>)</span><pre>This module provides a simple common subexpression elimination (CSE)
+algorithm. The main goal right now is to move duplicate
+expressions introduced during autosearch (which includes
+interface resolution) to the top level.
+
+As such, the functionality provided by this module should
+be considered a form of whole program optimization.
+To keep things simple, it operates only on closed terms right
+now, which are - in case of several occurences - introduced
+as new zero-argument toplevel functions.
+
+The procedure is very simple: In an analysis step, we
+iterate over all toplevel definitions once, trying to
+convert every subexpression to a closed one (no free
+variables). Closed terms are then stored in a `SortedMap`
+together with their size and count. In order to only use
+linear space w.r.t. term size, we start this analysis at the
+leaves and substitute closed terms with the machine generated
+names before analyzing parent terms.
+
+In a second step, we compare the count of each machine
+generated name with the count of its parent expression.
+If they are the same, the name is dropped and replaces with
+a CSE optimized version of the original expression, otherwise
+the name is kept and a new zero argumet function of the
+given name is added to the toplevel, thus eliminating the
+duplicate expressions.
+</pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="Compiler.Opts.CSE.UsageMap"><code><a class="type" href="Compiler.Opts.CSE.html#Compiler.Opts.CSE.UsageMap"><span class="name function">UsageMap</span></a>&ensp;:&ensp;<span class="name type">Type</span></code></dt><dd><pre>  Maping from a pairing of closed terms together with<br>  their size (for efficiency) to the number of<br>  occurences in toplevel definitions and flag for<br>  whether it was encountered in delayed subexpression.</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Compiler.Opts.CSE.Count"><code><span class="keyword">data</span>&ensp;<a class="type" href="Compiler.Opts.CSE.html#Compiler.Opts.CSE.Count"><span class="name type">Count</span></a>&ensp;:&ensp;<span class="name type">Type</span></code></dt><dd><pre>  Number of appearances of a closed expression.<br>  <br>   `Once` : The expression occurs exactly once.<br>   `Many` : The expression occurs more than once.<br>   `C n`  : The expression has been counted `n` times<br>            but we will have to compare this value<br>            with the number of occurences of its parent<br>            expression to decide whether it occured<br>            only once or several times.<br>  </pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span><br>  <b>Constructors</b>:<br><dl class="decls">  <dt id="Compiler.Opts.CSE.Once"><code><a class="type" href="Compiler.Opts.CSE.html#Compiler.Opts.CSE.Once"><span class="name constructor">Once</span></a>&ensp;:&ensp;<a class="type" href="Compiler.Opts.CSE.html#Compiler.Opts.CSE.Count"><span class="name type">Count</span></a></code></dt>  <dt id="Compiler.Opts.CSE.Many"><code><a class="type" href="Compiler.Opts.CSE.html#Compiler.Opts.CSE.Many"><span class="name constructor">Many</span></a>&ensp;:&ensp;<a class="type" href="Compiler.Opts.CSE.html#Compiler.Opts.CSE.Count"><span class="name type">Count</span></a></code></dt>  <dt id="Compiler.Opts.CSE.C"><code><a class="type" href="Compiler.Opts.CSE.html#Compiler.Opts.CSE.C"><span class="name constructor">C</span></a>&ensp;:&ensp;<span class="name type">Integer</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Compiler.Opts.CSE.html#Compiler.Opts.CSE.Count"><span class="name type">Count</span></a></code></dt></dl><br>  <b>Hint</b>:&ensp;<dl class="decls"><dt id="$resolved19654"><code><span class="type resolved" title="Prelude.Show.Show"><span class="name type">Show</span></span>&ensp;<a class="type" href="Compiler.Opts.CSE.html#Compiler.Opts.CSE.Count"><span class="name type">Count</span></a></code></dt></dl></dd><dt id="Compiler.Opts.CSE.ReplaceMap"><code><a class="type" href="Compiler.Opts.CSE.html#Compiler.Opts.CSE.ReplaceMap"><span class="name function">ReplaceMap</span></a>&ensp;:&ensp;<span class="name type">Type</span></code></dt><dd><pre>  After common subexpression analysis we get a mapping<br>  from `Name`s to the closed expressions they replace.<br>  We use this mapping for substituting the names back<br>  to the corresponding expressions, if the expression<br>  appears only in one place or is a subexpression of<br>  some delayed expression.</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Compiler.Opts.CSE.analyze"><code><a class="type" href="Compiler.Opts.CSE.html#Compiler.Opts.CSE.analyze"><span class="name function">analyze</span></a>&ensp;:&ensp;<a class="type" href="Core.Context.Context.html#Core.Context.Context.Ref"><span class="name type">Ref</span></a>&ensp;<a class="type" href="Compiler.Opts.CSE.html#Compiler.Opts.CSE.Sts"><span class="name type">Sts</span></a>&ensp;<a class="type" href="Compiler.Opts.CSE.html#Compiler.Opts.CSE.St"><span class="name type">St</span></a>&ensp;<span class="keyword">=&gt;</span>&ensp;<a class="type" href="Core.CompileExpr.html#Core.CompileExpr.CExp"><span class="name type">CExp</span></a>&ensp;<span class="boundvar">ns</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Core.Core.html#Core.Core.Core"><span class="name type">Core</span></a>&ensp;(<span class="name type">Integer</span>,&ensp;<a class="type" href="Core.CompileExpr.html#Core.CompileExpr.CExp"><span class="name type">CExp</span></a>&ensp;<span class="boundvar">ns</span>)</code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Compiler.Opts.CSE.cse"><code><a class="type" href="Compiler.Opts.CSE.html#Compiler.Opts.CSE.cse"><span class="name function">cse</span></a>&ensp;:&ensp;<a class="type" href="Core.Context.Context.html#Core.Context.Context.Ref"><span class="name type">Ref</span></a>&ensp;<a class="type" href="Core.Context.html#Core.Context.Ctxt"><span class="name type">Ctxt</span></a>&ensp;<a class="type" href="Core.Context.html#Core.Context.Defs"><span class="name type">Defs</span></a>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;<a class="type" href="Core.Name.html#Core.Name.Name"><span class="name type">Name</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Core.CompileExpr.html#Core.CompileExpr.CExp"><span class="name type">CExp</span></a>&ensp;<span class="boundvar">ns</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Core.Core.html#Core.Core.Core"><span class="name type">Core</span></a>&ensp;(<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;(<a class="type" href="Core.Name.html#Core.Name.Name"><span class="name type">Name</span></a>,&ensp;(<a class="type" href="Core.FC.html#Core.FC.FC"><span class="name type">FC</span></a>,&ensp;<a class="type" href="Core.CompileExpr.html#Core.CompileExpr.CDef"><span class="name type">CDef</span></a>)),&ensp;<a class="type" href="Core.CompileExpr.html#Core.CompileExpr.CExp"><span class="name type">CExp</span></a>&ensp;<span class="boundvar">ns</span>)</code></dt><dd><pre>  Runs the CSE alorithm on all provided names and<br>  the given main expression.</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd></dl></div><footer>Produced by Idris 2 version 0.7.0-c5f31c9d2</footer></body></html>

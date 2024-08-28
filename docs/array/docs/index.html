@@ -1,0 +1,173 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>array</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="index">
+<header>
+  <strong>Idris2Doc</strong> : array
+  <nav><a href="index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><h1>Package array - Namespaces</h1><ul class="names"><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Array.Core.html">Data.Array.Core</a>
+    </div>
+    <div class="index-namespace-doc">
+      Core data types and functions for working with immutable and
+mutable (linear) arrays.
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Array.Index.html">Data.Array.Index</a>
+    </div>
+    <div class="index-namespace-doc">
+      This module provides several ways to safely index into an
+array of known size. All conversions between different index
+types are optimized away by the compiler, because they are
+all of the same structure during code generation: An encoding
+of natural numbers which the Idris compiler converts to a
+native integer representation.
+
+The main type for indexing into an array of size `n` is `Fin n`,
+representing a natural number strictly smaller than `n`.
+
+As an alternative, we can use a natural number `k` directly, together
+with a proof of type `LT k n`, showing that `k` is strictly smaller
+than `n`. Such numbers can be converted directly to `Fin n` by means
+of function `Data.Nat.natToFinLT`. This way of indexing is very
+useful for iterating over the whole array from then end: We start
+with `n` itself together with an erased proof of type `LTE n n`, which
+can be generated automatically. By pattern matching on the current
+position, we can safely access all positions in the array until
+we arrive at 0. See the implementation of `foldr` (a private
+function called `foldrI`) in module `Data.Array.Indexed` for an
+example how this is used.
+
+It is only slightly harder to iterate over an array from the
+front. This is where data type `Ix m n` comes into play: It's
+another way of saying that `m <= n` holds, but it works in
+the oposite direction than `LTE`: It's zero constructor `IZ` proofs
+that `n <= n` for all `n`, while its successor constructor
+proofs that from `S k <= n` follows `k <= n`. This means, that
+for a given `k`, a values of type `Ix k n` corresponds to the
+values `n - k`. This allows us to recurse over a natural number
+while keeping an auto-implicit proof of type `Ix k n`, and use
+this proof for indexing into the array.
+See the implementation of `foldl` (a private
+function called `foldlI`) in module `Data.Array.Indexed` for an
+example how this is used.
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Array.Indexed.html">Data.Array.Indexed</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Array.Mutable.html">Data.Array.Mutable</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Array.html">Data.Array</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Buffer.Core.html">Data.Buffer.Core</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Buffer.Indexed.html">Data.Buffer.Indexed</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Buffer.Mutable.html">Data.Buffer.Mutable</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li></ul></div><footer>Produced by Idris 2 version 0.7.0-c5f31c9d2</footer></body></html>

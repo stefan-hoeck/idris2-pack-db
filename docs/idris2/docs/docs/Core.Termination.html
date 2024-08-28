@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Core.Termination</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Core.Termination
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Core.Termination</h1><span style="float:right">(<a href="Core.Termination.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="Core.Termination.checkIfGuarded"><code><a class="type" href="Core.Termination.html#Core.Termination.checkIfGuarded"><span class="name function">checkIfGuarded</span></a>&ensp;:&ensp;<a class="type" href="Core.Context.Context.html#Core.Context.Context.Ref"><span class="name type">Ref</span></a>&ensp;<a class="type" href="Core.Context.html#Core.Context.Ctxt"><span class="name type">Ctxt</span></a>&ensp;<a class="type" href="Core.Context.html#Core.Context.Defs"><span class="name type">Defs</span></a>&ensp;<span class="keyword">=&gt;</span>&ensp;<a class="type" href="Core.FC.html#Core.FC.FC"><span class="name type">FC</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Core.Name.html#Core.Name.Name"><span class="name type">Name</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Core.Core.html#Core.Core.Core"><span class="name type">Core</span></a>&ensp;()</code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Core.Termination.checkTerminating"><code><a class="type" href="Core.Termination.html#Core.Termination.checkTerminating"><span class="name function">checkTerminating</span></a>&ensp;:&ensp;<a class="type" href="Core.Context.Context.html#Core.Context.Context.Ref"><span class="name type">Ref</span></a>&ensp;<a class="type" href="Core.Context.html#Core.Context.Ctxt"><span class="name type">Ctxt</span></a>&ensp;<a class="type" href="Core.Context.html#Core.Context.Defs"><span class="name type">Defs</span></a>&ensp;<span class="keyword">=&gt;</span>&ensp;<a class="type" href="Core.FC.html#Core.FC.FC"><span class="name type">FC</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Core.Name.html#Core.Name.Name"><span class="name type">Name</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Core.Core.html#Core.Core.Core"><span class="name type">Core</span></a>&ensp;<a class="type" href="Core.TT.html#Core.TT.Terminating"><span class="name type">Terminating</span></a></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Core.Termination.checkPositive"><code><a class="type" href="Core.Termination.html#Core.Termination.checkPositive"><span class="name function">checkPositive</span></a>&ensp;:&ensp;<a class="type" href="Core.Context.Context.html#Core.Context.Context.Ref"><span class="name type">Ref</span></a>&ensp;<a class="type" href="Core.Context.html#Core.Context.Ctxt"><span class="name type">Ctxt</span></a>&ensp;<a class="type" href="Core.Context.html#Core.Context.Defs"><span class="name type">Defs</span></a>&ensp;<span class="keyword">=&gt;</span>&ensp;<a class="type" href="Core.FC.html#Core.FC.FC"><span class="name type">FC</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Core.Name.html#Core.Name.Name"><span class="name type">Name</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Core.Core.html#Core.Core.Core"><span class="name type">Core</span></a>&ensp;<a class="type" href="Core.TT.html#Core.TT.Terminating"><span class="name type">Terminating</span></a></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Core.Termination.checkTotal"><code><a class="type" href="Core.Termination.html#Core.Termination.checkTotal"><span class="name function">checkTotal</span></a>&ensp;:&ensp;<a class="type" href="Core.Context.Context.html#Core.Context.Context.Ref"><span class="name type">Ref</span></a>&ensp;<a class="type" href="Core.Context.html#Core.Context.Ctxt"><span class="name type">Ctxt</span></a>&ensp;<a class="type" href="Core.Context.html#Core.Context.Defs"><span class="name type">Defs</span></a>&ensp;<span class="keyword">=&gt;</span>&ensp;<a class="type" href="Core.FC.html#Core.FC.FC"><span class="name type">FC</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Core.Name.html#Core.Name.Name"><span class="name type">Name</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Core.Core.html#Core.Core.Core"><span class="name type">Core</span></a>&ensp;<a class="type" href="Core.TT.html#Core.TT.Terminating"><span class="name type">Terminating</span></a></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd></dl></div><footer>Produced by Idris 2 version 0.7.0-c5f31c9d2</footer></body></html>

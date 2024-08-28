@@ -1,0 +1,80 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>CyBy.Draw.Internal.DoubleBond</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : CyBy.Draw.Internal.DoubleBond
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>CyBy.Draw.Internal.DoubleBond</h1><span style="float:right">(<a href="CyBy.Draw.Internal.DoubleBond.src.html">source</a>)</span><pre>This module containes the logic for properly placing double bonds, especiall
+the pi-part of those bonds. We use a simple heuristic to place the pi-bond:
+
+In case of a double bond with three substituents, the pi bond will be placed
+on the same side of the sigma bond as the lone substituent.
+
+In case of a double bond with four substituents, the dominant cycle
+(if any; see below) will be determined, and the pi-bond will be placed
+within that cycle.
+
+In all other cases, a symmetric double with both lines being displaced
+from the center by the same amount of space, will be displayed.
+
+In order to define the dominant cycle to which a double bond belongs,
+rings will be sorted by number of multiple bonds and then by ring size.
+Six membered rings will always be preferred over other ring sizes.
+</pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="CyBy.Draw.Internal.DoubleBond.parallelLine"><code><a class="type" href="CyBy.Draw.Internal.DoubleBond.html#CyBy.Draw.Internal.DoubleBond.parallelLine"><span class="name function">parallelLine</span></a>&ensp;:&ensp;<span class="name type">Double</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Basics.Bool"><span class="name type">Bool</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Geom.Point.Point"><span class="name type">Point</span></span>&ensp;<span class="type resolved" title="Geom.Point.Id"><span class="name function">Id</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Geom.Point.Point"><span class="name type">Point</span></span>&ensp;<span class="type resolved" title="Geom.Point.Id"><span class="name function">Id</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="type resolved" title="Geom.Point.Point"><span class="name type">Point</span></span>&ensp;<span class="type resolved" title="Geom.Point.Id"><span class="name function">Id</span></span>,&ensp;<span class="type resolved" title="Geom.Point.Point"><span class="name type">Point</span></span>&ensp;<span class="type resolved" title="Geom.Point.Id"><span class="name function">Id</span></span>)</code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="CyBy.Draw.Internal.DoubleBond.ParallelDistance"><code><a class="type" href="CyBy.Draw.Internal.DoubleBond.html#CyBy.Draw.Internal.DoubleBond.ParallelDistance"><span class="name function">ParallelDistance</span></a>&ensp;:&ensp;<a class="type" href="CyBy.Draw.Internal.CoreDims.html#CyBy.Draw.Internal.CoreDims.CoreDims"><span class="name type">CoreDims</span></a>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="name type">Double</span></code></dt><dd><pre>  Distance between the lines of a double or triple bond.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="CyBy.Draw.Internal.DoubleBond.HalfParallelDistance"><code><a class="type" href="CyBy.Draw.Internal.DoubleBond.html#CyBy.Draw.Internal.DoubleBond.HalfParallelDistance"><span class="name function">HalfParallelDistance</span></a>&ensp;:&ensp;<a class="type" href="CyBy.Draw.Internal.CoreDims.html#CyBy.Draw.Internal.CoreDims.CoreDims"><span class="name type">CoreDims</span></a>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="name type">Double</span></code></dt><dd><pre>  Half the distance between the lines of a double or triple bond.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="CyBy.Draw.Internal.DoubleBond.dblBond"><code><a class="type" href="CyBy.Draw.Internal.DoubleBond.html#CyBy.Draw.Internal.DoubleBond.dblBond"><span class="name function">dblBond</span></a>&ensp;:&ensp;<a class="type" href="CyBy.Draw.Internal.CoreDims.html#CyBy.Draw.Internal.CoreDims.CoreDims"><span class="name type">CoreDims</span></a>&ensp;<span class="keyword">=&gt;</span>&ensp;<a class="type" href="CyBy.Draw.Internal.Graph.html#CyBy.Draw.Internal.Graph.CDIGraph"><span class="name function">CDIGraph</span></a>&ensp;<span class="boundvar">k</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Data.Fin.Fin"><span class="name type">Fin</span></span>&ensp;<span class="boundvar">k</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Data.Fin.Fin"><span class="name type">Fin</span></span>&ensp;<span class="boundvar">k</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Geom.Point.Point"><span class="name type">Point</span></span>&ensp;<span class="type resolved" title="Geom.Point.Id"><span class="name function">Id</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Geom.Point.Point"><span class="name type">Point</span></span>&ensp;<span class="type resolved" title="Geom.Point.Id"><span class="name function">Id</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Geom.Point.Point"><span class="name type">Point</span></span>&ensp;<span class="type resolved" title="Geom.Point.Id"><span class="name function">Id</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Geom.Point.Point"><span class="name type">Point</span></span>&ensp;<span class="type resolved" title="Geom.Point.Id"><span class="name function">Id</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Data.Vect.Vect"><span class="name type">Vect</span></span>&ensp;<span class="name constructor">4</span>&ensp;(<span class="type resolved" title="Geom.Point.Point"><span class="name type">Point</span></span>&ensp;<span class="type resolved" title="Geom.Point.Id"><span class="name function">Id</span></span>)</code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd></dl></div><footer>Produced by Idris 2 version 0.7.0-c5f31c9d2</footer></body></html>

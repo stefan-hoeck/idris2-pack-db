@@ -1,0 +1,323 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <style>
+  .IdrisData {
+  color: darkred
+}
+.IdrisType {
+  color: blue
+}
+.IdrisBound {
+  color: black
+}
+.IdrisFunction {
+  color: darkgreen
+}
+.IdrisKeyword {
+  text-decoration: underline;
+}
+.IdrisComment {
+  color: #b22222
+}
+.IdrisNamespace {
+  font-style: italic;
+  color: black
+}
+.IdrisPostulate {
+  font-weight: bold;
+  color: red
+}
+.IdrisModule {
+  font-style: italic;
+  color: black
+}
+
+  .IdrisLineNumber {
+    text-decoration: none;
+    color: lightgrey;
+    user-select: none;
+  }
+  .IdrisLineNumber:hover {
+    color: darkgray;
+  }
+  .IdrisLineNumber:target {
+    color: gray;
+  }
+  .IdrisHighlight {
+    background-color: yellow;
+  }
+  </style>
+  <script>
+    function initialize() {
+      function handleHash(ev) {
+          if (!location.hash) return
+          let m = location.hash.match(/#(line\d+)(?:-(line\d+))?/)
+          if (m) {
+              let start = document.getElementById(m[1])
+              let end = document.getElementById(m[2])
+              if (start) {
+                  if (end && end.compareDocumentPosition(start) === 4) {
+                      ([start, end] = [end, start])
+                  }
+                  // Only on page load
+                  if (!ev) start.scrollIntoView()
+                  let parent = start.parentElement
+                  let lines = parent.children
+                  let className = ''
+                  for (let n = 0; n < lines.length; n++) {
+                      let el = lines[n]
+                      if (el === start) className = 'IdrisHighlight'
+                      el.className = className
+                      if (el === end || className && !end) className = ''
+                  }
+              }
+          }
+      }
+      let startLine
+      let endLine
+      function handlePointerMove(ev) {
+          if (startLine) {
+              for (let el = document.elementFromPoint(ev.clientX, ev.clientY); el; el = el.parentElement) {
+                  if (el.parentElement === startLine.parentElement) {
+                      if (endLine !== el) {
+                          endLine = el
+                          update()
+                      }
+                      break
+                  }
+              }
+          }
+      }
+      function update(ev) {
+          window.location.hash = startLine === endLine ? startLine.id : startLine.id + '-' + endLine.id
+      }
+      function handlePointerDown(ev) {
+          let target = ev.target
+          if (target.className === 'IdrisLineNumber') {
+              startLine = endLine = target.parentElement
+              window.addEventListener('pointermove', handlePointerMove)
+              update()
+              ev.preventDefault()
+          }
+      }
+      function handlePointerUp(ev) {
+          if (startLine) {
+              update()
+              window.removeEventListener('pointermove', handlePointerMove)
+              startLine = endLine = null
+          }
+      }
+      window.addEventListener('hashchange', handleHash)
+      window.addEventListener('pointerdown', handlePointerDown)
+      window.addEventListener('pointerup', handlePointerUp)
+      handleHash()
+  }
+  </script>
+</head>
+<body onload="initialize()">
+<code class="IdrisCode">
+<div id="line0"><a href="#line0" class="IdrisLineNumber"> &nbsp;&nbsp;0 | </a><span class="IdrisKeyword">module</span>&nbsp;<span class="IdrisModule">Web.MVC.Controller</span></div>
+<div id="line1"><a href="#line1" class="IdrisLineNumber"> &nbsp;&nbsp;1 | </a></div>
+<div id="line2"><a href="#line2" class="IdrisLineNumber"> &nbsp;&nbsp;2 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">Data.Either</span></div>
+<div id="line3"><a href="#line3" class="IdrisLineNumber"> &nbsp;&nbsp;3 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">Data.List.Quantifiers.Extra</span></div>
+<div id="line4"><a href="#line4" class="IdrisLineNumber"> &nbsp;&nbsp;4 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">Monocle</span></div>
+<div id="line5"><a href="#line5" class="IdrisLineNumber"> &nbsp;&nbsp;5 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">Text.HTML.DomID</span></div>
+<div id="line6"><a href="#line6" class="IdrisLineNumber"> &nbsp;&nbsp;6 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">Web.MVC</span></div>
+<div id="line7"><a href="#line7" class="IdrisLineNumber"> &nbsp;&nbsp;7 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisModule">Control.Monad.State</span></div>
+<div id="line8"><a href="#line8" class="IdrisLineNumber"> &nbsp;&nbsp;8 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisModule">Web.MVC.Cmd</span></div>
+<div id="line9"><a href="#line9" class="IdrisLineNumber"> &nbsp;&nbsp;9 | </a></div>
+<div id="line10"><a href="#line10" class="IdrisLineNumber"> &nbsp;10 | </a><span class="IdrisKeyword">%default</span>&nbsp;<span class="IdrisKeyword">total</span></div>
+<div id="line11"><a href="#line11" class="IdrisLineNumber"> &nbsp;11 | </a></div>
+<div id="line12"><a href="#line12" class="IdrisLineNumber"> &nbsp;12 | </a><span class="IdrisComment">--------------------------------------------------------------------------------</span></div>
+<div id="line13"><a href="#line13" class="IdrisLineNumber"> &nbsp;13 | </a><span class="IdrisComment">--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Prog&nbsp;and&nbsp;Controller</span></div>
+<div id="line14"><a href="#line14" class="IdrisLineNumber"> &nbsp;14 | </a><span class="IdrisComment">--------------------------------------------------------------------------------</span></div>
+<div id="line15"><a href="#line15" class="IdrisLineNumber"> &nbsp;15 | </a></div>
+<div id="line16"><a href="#line16" class="IdrisLineNumber"> &nbsp;16 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">infixr</span>&nbsp;<span class="IdrisKeyword">4</span>&nbsp;&lt;$$&gt;</div>
+<div id="line17"><a href="#line17" class="IdrisLineNumber"> &nbsp;17 | </a></div>
+<div id="line18"><a href="#line18" class="IdrisLineNumber"> &nbsp;18 | </a><span class="IdrisComment">|||&nbsp;A&nbsp;`Prog`&nbsp;controls&nbsp;some&nbsp;state&nbsp;of&nbsp;type&nbsp;`s`&nbsp;acting&nbsp;on&nbsp;events&nbsp;of</span></div>
+<div id="line19"><a href="#line19" class="IdrisLineNumber"> &nbsp;19 | </a><span class="IdrisComment">|||&nbsp;type&nbsp;`e`.</span></div>
+<div id="line20"><a href="#line20" class="IdrisLineNumber"> &nbsp;20 | </a><span class="IdrisComment">|||</span></div>
+<div id="line21"><a href="#line21" class="IdrisLineNumber"> &nbsp;21 | </a><span class="IdrisComment">|||&nbsp;Based&nbsp;on&nbsp;an&nbsp;event&nbsp;and&nbsp;the&nbsp;current&nbsp;state,&nbsp;the&nbsp;controller&nbsp;produces&nbsp;a&nbsp;new</span></div>
+<div id="line22"><a href="#line22" class="IdrisLineNumber"> &nbsp;22 | </a><span class="IdrisComment">|||&nbsp;state&nbsp;and&nbsp;a&nbsp;result&nbsp;(typically&nbsp;a&nbsp;command),&nbsp;which&nbsp;usually&nbsp;updates&nbsp;the</span></div>
+<div id="line23"><a href="#line23" class="IdrisLineNumber"> &nbsp;23 | </a><span class="IdrisComment">|||&nbsp;UI&nbsp;in&nbsp;such&nbsp;a&nbsp;way&nbsp;that&nbsp;it&nbsp;can&nbsp;fire&nbsp;more&nbsp;events.</span></div>
+<div id="line24"><a href="#line24" class="IdrisLineNumber"> &nbsp;24 | </a><span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisKeyword">export</span></div>
+<div id="line25"><a href="#line25" class="IdrisLineNumber"> &nbsp;25 | </a><span class="IdrisKeyword">0</span>&nbsp;<span class="IdrisFunction">Prog</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisBound">e</span><span class="IdrisKeyword">,</span><span class="IdrisBound">s</span><span class="IdrisKeyword">,</span><span class="IdrisBound">t</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Type</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Type</span></div>
+<div id="line26"><a href="#line26" class="IdrisLineNumber"> &nbsp;26 | </a><span class="IdrisFunction">Prog</span>&nbsp;<span class="IdrisBound">e</span>&nbsp;<span class="IdrisBound">s</span>&nbsp;<span class="IdrisBound">t</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisBound">e</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisFunction">State</span>&nbsp;<span class="IdrisBound">s</span>&nbsp;<span class="IdrisBound">t</span></div>
+<div id="line27"><a href="#line27" class="IdrisLineNumber"> &nbsp;27 | </a></div>
+<div id="line28"><a href="#line28" class="IdrisLineNumber"> &nbsp;28 | </a><span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisKeyword">export</span></div>
+<div id="line29"><a href="#line29" class="IdrisLineNumber"> &nbsp;29 | </a><span class="IdrisKeyword">0</span>&nbsp;<span class="IdrisFunction">Controller</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisBound">e</span><span class="IdrisKeyword">,</span><span class="IdrisBound">s</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Type</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Type</span></div>
+<div id="line30"><a href="#line30" class="IdrisLineNumber"> &nbsp;30 | </a><span class="IdrisFunction">Controller</span>&nbsp;<span class="IdrisBound">e</span>&nbsp;<span class="IdrisBound">s</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">Prog</span>&nbsp;<span class="IdrisBound">e</span>&nbsp;<span class="IdrisBound">s</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisType">Cmd</span>&nbsp;<span class="IdrisBound">e</span><span class="IdrisKeyword">)</span></div>
+<div id="line31"><a href="#line31" class="IdrisLineNumber"> &nbsp;31 | </a></div>
+<div id="line32"><a href="#line32" class="IdrisLineNumber"> &nbsp;32 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
+<div id="line33"><a href="#line33" class="IdrisLineNumber"> &nbsp;33 | </a><span class="IdrisFunction">(&lt;$$&gt;)</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisBound">x</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisBound">y</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisFunction">State</span>&nbsp;<span class="IdrisBound">s</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisType">Cmd</span>&nbsp;<span class="IdrisBound">x</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisFunction">State</span>&nbsp;<span class="IdrisBound">s</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisType">Cmd</span>&nbsp;<span class="IdrisBound">y</span><span class="IdrisKeyword">)</span></div>
+<div id="line34"><a href="#line34" class="IdrisLineNumber"> &nbsp;34 | </a><span class="IdrisFunction">(&lt;$$&gt;)</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">map</span>&nbsp;<span class="IdrisFunction">.</span>&nbsp;<span class="IdrisFunction">map</span></div>
+<div id="line35"><a href="#line35" class="IdrisLineNumber"> &nbsp;35 | </a></div>
+<div id="line36"><a href="#line36" class="IdrisLineNumber"> &nbsp;36 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
+<div id="line37"><a href="#line37" class="IdrisLineNumber"> &nbsp;37 | </a><span class="IdrisFunction">map2</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisBound">x</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisBound">y</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisFunction">State</span>&nbsp;<span class="IdrisBound">s</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisType">Cmd</span>&nbsp;<span class="IdrisBound">x</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisFunction">State</span>&nbsp;<span class="IdrisBound">s</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisType">Cmd</span>&nbsp;<span class="IdrisBound">y</span><span class="IdrisKeyword">)</span></div>
+<div id="line38"><a href="#line38" class="IdrisLineNumber"> &nbsp;38 | </a><span class="IdrisFunction">map2</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">map</span>&nbsp;<span class="IdrisFunction">.</span>&nbsp;<span class="IdrisFunction">map</span></div>
+<div id="line39"><a href="#line39" class="IdrisLineNumber"> &nbsp;39 | </a></div>
+<div id="line40"><a href="#line40" class="IdrisLineNumber"> &nbsp;40 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
+<div id="line41"><a href="#line41" class="IdrisLineNumber"> &nbsp;41 | </a><span class="IdrisType">Semigroup</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisFunction">State</span>&nbsp;<span class="IdrisBound">s</span>&nbsp;$&nbsp;<span class="IdrisType">Cmd</span>&nbsp;<span class="IdrisBound">e</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisKeyword">where</span>&nbsp;<span class="IdrisBound">x</span>&nbsp;<span class="IdrisFunction">&lt;+&gt;</span>&nbsp;<span class="IdrisBound">y</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisKeyword">[|</span>&nbsp;<span class="IdrisBound">x</span>&nbsp;<span class="IdrisFunction">&lt;+&gt;</span>&nbsp;<span class="IdrisBound">y</span>&nbsp;<span class="IdrisKeyword">|]</span></div>
+<div id="line42"><a href="#line42" class="IdrisLineNumber"> &nbsp;42 | </a></div>
+<div id="line43"><a href="#line43" class="IdrisLineNumber"> &nbsp;43 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
+<div id="line44"><a href="#line44" class="IdrisLineNumber"> &nbsp;44 | </a><span class="IdrisType">Monoid</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisFunction">State</span>&nbsp;<span class="IdrisBound">s</span>&nbsp;$&nbsp;<span class="IdrisType">Cmd</span>&nbsp;<span class="IdrisBound">e</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisKeyword">where</span>&nbsp;<span class="IdrisFunction">neutral</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">pure</span>&nbsp;<span class="IdrisFunction">neutral</span></div>
+<div id="line45"><a href="#line45" class="IdrisLineNumber"> &nbsp;45 | </a></div>
+<div id="line46"><a href="#line46" class="IdrisLineNumber"> &nbsp;46 | </a><span class="IdrisComment">|||&nbsp;On&nbsp;an&nbsp;event,&nbsp;replaces&nbsp;the&nbsp;current&nbsp;state&nbsp;with&nbsp;the&nbsp;event&apos;s</span></div>
+<div id="line47"><a href="#line47" class="IdrisLineNumber"> &nbsp;47 | </a><span class="IdrisComment">|||&nbsp;value&nbsp;without&nbsp;emitting&nbsp;a&nbsp;command.</span></div>
+<div id="line48"><a href="#line48" class="IdrisLineNumber"> &nbsp;48 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
+<div id="line49"><a href="#line49" class="IdrisLineNumber"> &nbsp;49 | </a><span class="IdrisFunction">direct</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Monoid</span>&nbsp;<span class="IdrisBound">t</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisFunction">Prog</span>&nbsp;<span class="IdrisBound">e</span>&nbsp;<span class="IdrisBound">e</span>&nbsp;<span class="IdrisBound">t</span></div>
+<div id="line50"><a href="#line50" class="IdrisLineNumber"> &nbsp;50 | </a><span class="IdrisFunction">direct</span>&nbsp;<span class="IdrisBound">v</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">put</span>&nbsp;<span class="IdrisBound">v</span>&nbsp;<span class="IdrisFunction">$&gt;</span>&nbsp;<span class="IdrisFunction">neutral</span></div>
+<div id="line51"><a href="#line51" class="IdrisLineNumber"> &nbsp;51 | </a></div>
+<div id="line52"><a href="#line52" class="IdrisLineNumber"> &nbsp;52 | </a><span class="IdrisComment">|||&nbsp;Same&nbsp;as&nbsp;`direct`&nbsp;but&nbsp;for&nbsp;optional&nbsp;states.</span></div>
+<div id="line53"><a href="#line53" class="IdrisLineNumber"> &nbsp;53 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
+<div id="line54"><a href="#line54" class="IdrisLineNumber"> &nbsp;54 | </a><span class="IdrisFunction">directM</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Monoid</span>&nbsp;<span class="IdrisBound">t</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisFunction">Prog</span>&nbsp;<span class="IdrisBound">e</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisType">Maybe</span>&nbsp;<span class="IdrisBound">e</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisBound">t</span></div>
+<div id="line55"><a href="#line55" class="IdrisLineNumber"> &nbsp;55 | </a><span class="IdrisFunction">directM</span>&nbsp;<span class="IdrisBound">v</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">put</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisData">Just</span>&nbsp;<span class="IdrisBound">v</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisFunction">$&gt;</span>&nbsp;<span class="IdrisFunction">neutral</span></div>
+<div id="line56"><a href="#line56" class="IdrisLineNumber"> &nbsp;56 | </a></div>
+<div id="line57"><a href="#line57" class="IdrisLineNumber"> &nbsp;57 | </a><span class="IdrisComment">|||&nbsp;A&nbsp;controller&nbsp;that&nbsp;replaces&nbsp;the&nbsp;state&nbsp;with&nbsp;the&nbsp;current&nbsp;event</span></div>
+<div id="line58"><a href="#line58" class="IdrisLineNumber"> &nbsp;58 | </a><span class="IdrisComment">|||&nbsp;and&nbsp;display&nbsp;the&nbsp;new&nbsp;state.</span></div>
+<div id="line59"><a href="#line59" class="IdrisLineNumber"> &nbsp;59 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
+<div id="line60"><a href="#line60" class="IdrisLineNumber"> &nbsp;60 | </a><span class="IdrisFunction">displayEv</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisBound">s</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Cmd</span>&nbsp;<span class="IdrisBound">t</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisFunction">Prog</span>&nbsp;<span class="IdrisBound">s</span>&nbsp;<span class="IdrisBound">s</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisType">Cmd</span>&nbsp;<span class="IdrisBound">t</span><span class="IdrisKeyword">)</span></div>
+<div id="line61"><a href="#line61" class="IdrisLineNumber"> &nbsp;61 | </a><span class="IdrisFunction">displayEv</span>&nbsp;<span class="IdrisBound">disp</span>&nbsp;<span class="IdrisBound">v</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">put</span>&nbsp;<span class="IdrisBound">v</span>&nbsp;<span class="IdrisFunction">$&gt;</span>&nbsp;<span class="IdrisBound">disp</span>&nbsp;<span class="IdrisBound">v</span></div>
+<div id="line62"><a href="#line62" class="IdrisLineNumber"> &nbsp;62 | </a></div>
+<div id="line63"><a href="#line63" class="IdrisLineNumber"> &nbsp;63 | </a><span class="IdrisComment">|||&nbsp;Update&nbsp;the&nbsp;state&nbsp;with&nbsp;the&nbsp;given&nbsp;function,&nbsp;the&nbsp;run&nbsp;a&nbsp;command</span></div>
+<div id="line64"><a href="#line64" class="IdrisLineNumber"> &nbsp;64 | </a><span class="IdrisComment">|||&nbsp;derived&nbsp;from&nbsp;the&nbsp;new&nbsp;state.</span></div>
+<div id="line65"><a href="#line65" class="IdrisLineNumber"> &nbsp;65 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
+<div id="line66"><a href="#line66" class="IdrisLineNumber"> &nbsp;66 | </a><span class="IdrisFunction">updateDisp</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisBound">e</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisBound">s</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisBound">s</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisBound">e</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisBound">s</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Cmd</span>&nbsp;<span class="IdrisBound">t</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisFunction">Prog</span>&nbsp;<span class="IdrisBound">e</span>&nbsp;<span class="IdrisBound">s</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisType">Cmd</span>&nbsp;<span class="IdrisBound">t</span><span class="IdrisKeyword">)</span></div>
+<div id="line67"><a href="#line67" class="IdrisLineNumber"> &nbsp;67 | </a><span class="IdrisFunction">updateDisp</span>&nbsp;<span class="IdrisBound">f</span>&nbsp;<span class="IdrisBound">g</span>&nbsp;<span class="IdrisBound">ev</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">modify</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisBound">f</span>&nbsp;<span class="IdrisBound">ev</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisFunction">&gt;&gt;</span>&nbsp;<span class="IdrisFunction">map</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisBound">g</span>&nbsp;<span class="IdrisBound">ev</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisFunction">get</span></div>
+<div id="line68"><a href="#line68" class="IdrisLineNumber"> &nbsp;68 | </a></div>
+<div id="line69"><a href="#line69" class="IdrisLineNumber"> &nbsp;69 | </a><span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisKeyword">export</span></div>
+<div id="line70"><a href="#line70" class="IdrisLineNumber"> &nbsp;70 | </a><span class="IdrisKeyword">data</span>&nbsp;<span class="IdrisType">Progs</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisBound">evs</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">List</span>&nbsp;<span class="IdrisType">Type</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisBound">sts</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">List</span>&nbsp;<span class="IdrisType">Type</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Type</span>&nbsp;<span class="IdrisKeyword">where</span></div>
+<div id="line71"><a href="#line71" class="IdrisLineNumber"> &nbsp;71 | </a>&nbsp;&nbsp;<span class="IdrisData">Nil</span>&nbsp;&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Progs</span>&nbsp;<span class="IdrisData">Nil</span>&nbsp;<span class="IdrisData">Nil</span></div>
+<div id="line72"><a href="#line72" class="IdrisLineNumber"> &nbsp;72 | </a>&nbsp;&nbsp;<span class="IdrisData">(::)</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisFunction">Prog</span>&nbsp;<span class="IdrisBound">e</span>&nbsp;<span class="IdrisBound">s</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisType">Cmd</span>&nbsp;<span class="IdrisBound">e</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Progs</span>&nbsp;<span class="IdrisBound">es</span>&nbsp;<span class="IdrisBound">ss</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Progs</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisBound">e</span><span class="IdrisData">::</span><span class="IdrisBound">es</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisBound">s</span><span class="IdrisData">::</span><span class="IdrisBound">ss</span><span class="IdrisKeyword">)</span></div>
+<div id="line73"><a href="#line73" class="IdrisLineNumber"> &nbsp;73 | </a></div>
+<div id="line74"><a href="#line74" class="IdrisLineNumber"> &nbsp;74 | </a><span class="IdrisComment">|||&nbsp;A&nbsp;list&nbsp;of&nbsp;controllers&nbsp;can&nbsp;be&nbsp;converted&nbsp;to&nbsp;a&nbsp;controller&nbsp;over</span></div>
+<div id="line75"><a href="#line75" class="IdrisLineNumber"> &nbsp;75 | </a><span class="IdrisComment">|||&nbsp;a&nbsp;heterogeneous&nbsp;sum&nbsp;as&nbsp;the&nbsp;event&nbsp;type&nbsp;and&nbsp;a&nbsp;heterogeneous&nbsp;list</span></div>
+<div id="line76"><a href="#line76" class="IdrisLineNumber"> &nbsp;76 | </a><span class="IdrisComment">|||&nbsp;as&nbsp;the&nbsp;state&nbsp;type.</span></div>
+<div id="line77"><a href="#line77" class="IdrisLineNumber"> &nbsp;77 | </a><span class="IdrisKeyword">export</span></div>
+<div id="line78"><a href="#line78" class="IdrisLineNumber"> &nbsp;78 | </a><span class="IdrisFunction">progs</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Progs</span>&nbsp;<span class="IdrisBound">es</span>&nbsp;<span class="IdrisBound">ss</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisFunction">Controller</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisFunction">HSum</span>&nbsp;<span class="IdrisBound">es</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisFunction">HList</span>&nbsp;<span class="IdrisBound">ss</span><span class="IdrisKeyword">)</span></div>
+<div id="line79"><a href="#line79" class="IdrisLineNumber"> &nbsp;79 | </a><span class="IdrisFunction">progs</span>&nbsp;<span class="IdrisData">[]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="IdrisBound">ev</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">absurd</span>&nbsp;<span class="IdrisBound">ev</span></div>
+<div id="line80"><a href="#line80" class="IdrisLineNumber"> &nbsp;80 | </a><span class="IdrisFunction">progs</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisBound">c</span><span class="IdrisData">::</span><span class="IdrisBound">cs</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisData">Here</span>&nbsp;<span class="IdrisBound">x</span><span class="IdrisKeyword">)</span>&nbsp;&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisData">Here</span>&nbsp;&nbsp;<span class="IdrisFunction">&lt;$$&gt;</span>&nbsp;<span class="IdrisFunction">stL</span>&nbsp;<span class="IdrisFunction">allHead</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisBound">c</span>&nbsp;<span class="IdrisBound">x</span><span class="IdrisKeyword">)</span></div>
+<div id="line81"><a href="#line81" class="IdrisLineNumber"> &nbsp;81 | </a><span class="IdrisFunction">progs</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisBound">c</span><span class="IdrisData">::</span><span class="IdrisBound">cs</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisData">There</span>&nbsp;<span class="IdrisBound">x</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisData">There</span>&nbsp;<span class="IdrisFunction">&lt;$$&gt;</span>&nbsp;<span class="IdrisFunction">stL</span>&nbsp;<span class="IdrisFunction">allTail</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisFunction">progs</span>&nbsp;<span class="IdrisBound">cs</span>&nbsp;<span class="IdrisBound">x</span><span class="IdrisKeyword">)</span></div>
+<div id="line82"><a href="#line82" class="IdrisLineNumber"> &nbsp;82 | </a></div>
+<div id="line83"><a href="#line83" class="IdrisLineNumber"> &nbsp;83 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">covering</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
+<div id="line84"><a href="#line84" class="IdrisLineNumber"> &nbsp;84 | </a><span class="IdrisFunction">run</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisFunction">Prog</span>&nbsp;<span class="IdrisBound">e</span>&nbsp;<span class="IdrisBound">s</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisType">Cmd</span>&nbsp;<span class="IdrisBound">e</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisBound">initEv</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisBound">e</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisBound">initST</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisBound">s</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">IO</span>&nbsp;<span class="IdrisType">()</span></div>
+<div id="line85"><a href="#line85" class="IdrisLineNumber"> &nbsp;85 | </a><span class="IdrisFunction">run</span>&nbsp;<span class="IdrisBound">f</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">runController</span>&nbsp;<span class="IdrisKeyword">(\</span><span class="IdrisBound">ev</span><span class="IdrisKeyword">,</span><span class="IdrisBound">st</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisFunction">runState</span>&nbsp;<span class="IdrisBound">st</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisBound">f</span>&nbsp;<span class="IdrisBound">ev</span><span class="IdrisKeyword">))</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisFunction">putStrLn</span>&nbsp;<span class="IdrisFunction">.</span>&nbsp;<span class="IdrisFunction">dispErr</span><span class="IdrisKeyword">)</span></div>
+<div id="line86"><a href="#line86" class="IdrisLineNumber"> &nbsp;86 | </a></div>
+<div id="line87"><a href="#line87" class="IdrisLineNumber"> &nbsp;87 | </a><span class="IdrisComment">--------------------------------------------------------------------------------</span></div>
+<div id="line88"><a href="#line88" class="IdrisLineNumber"> &nbsp;88 | </a><span class="IdrisComment">--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Editor</span></div>
+<div id="line89"><a href="#line89" class="IdrisLineNumber"> &nbsp;89 | </a><span class="IdrisComment">--------------------------------------------------------------------------------</span></div>
+<div id="line90"><a href="#line90" class="IdrisLineNumber"> &nbsp;90 | </a></div>
+<div id="line91"><a href="#line91" class="IdrisLineNumber"> &nbsp;91 | </a><span class="IdrisComment">|||&nbsp;An&nbsp;`Editor`&nbsp;describes&nbsp;how&nbsp;to&nbsp;&quot;pop-up&quot;&nbsp;new&nbsp;interactive&nbsp;DOM&nbsp;elements&nbsp;that</span></div>
+<div id="line92"><a href="#line92" class="IdrisLineNumber"> &nbsp;92 | </a><span class="IdrisComment">|||&nbsp;typically&nbsp;serve&nbsp;as&nbsp;a&nbsp;form&nbsp;of&nbsp;(validated)&nbsp;user&nbsp;input.&nbsp;It&nbsp;consists&nbsp;of&nbsp;a</span></div>
+<div id="line93"><a href="#line93" class="IdrisLineNumber"> &nbsp;93 | </a><span class="IdrisComment">|||&nbsp;`Controller`&nbsp;for&nbsp;the&nbsp;interactive&nbsp;element(s),&nbsp;but&nbsp;also&nbsp;describes&nbsp;an&nbsp;initial</span></div>
+<div id="line94"><a href="#line94" class="IdrisLineNumber"> &nbsp;94 | </a><span class="IdrisComment">|||&nbsp;view&nbsp;to&nbsp;display&nbsp;and&nbsp;command&nbsp;to&nbsp;emit,&nbsp;based&nbsp;on&nbsp;the&nbsp;current&nbsp;state.</span></div>
+<div id="line95"><a href="#line95" class="IdrisLineNumber"> &nbsp;95 | </a><span class="IdrisComment">|||</span></div>
+<div id="line96"><a href="#line96" class="IdrisLineNumber"> &nbsp;96 | </a><span class="IdrisComment">|||&nbsp;An&nbsp;editor&nbsp;and&nbsp;its&nbsp;corresponding&nbsp;widgets&nbsp;can&nbsp;be&nbsp;something&nbsp;simple&nbsp;like&nbsp;a</span></div>
+<div id="line97"><a href="#line97" class="IdrisLineNumber"> &nbsp;97 | </a><span class="IdrisComment">|||&nbsp;text&nbsp;input&nbsp;field&nbsp;or&nbsp;a&nbsp;`&lt;select&gt;`&nbsp;element,&nbsp;or&nbsp;it&nbsp;can&nbsp;be&nbsp;highly&nbsp;complex</span></div>
+<div id="line98"><a href="#line98" class="IdrisLineNumber"> &nbsp;98 | </a><span class="IdrisComment">|||&nbsp;like&nbsp;a&nbsp;canvas&nbsp;and&nbsp;a&nbsp;group&nbsp;of&nbsp;DOM&nbsp;elements&nbsp;for&nbsp;editing&nbsp;molecules.</span></div>
+<div id="line99"><a href="#line99" class="IdrisLineNumber"> &nbsp;99 | </a><span class="IdrisComment">|||</span></div>
+<div id="line100"><a href="#line100" class="IdrisLineNumber"> 100 | </a><span class="IdrisComment">|||&nbsp;Since&nbsp;an&nbsp;`Editor`&nbsp;describes&nbsp;a&nbsp;set&nbsp;of&nbsp;DOM&nbsp;elements&nbsp;that&nbsp;can&nbsp;potentially</span></div>
+<div id="line101"><a href="#line101" class="IdrisLineNumber"> 101 | </a><span class="IdrisComment">|||&nbsp;appear&nbsp;several&nbsp;times&nbsp;in&nbsp;a&nbsp;web&nbsp;page&nbsp;(for&nbsp;instance,&nbsp;when&nbsp;editing&nbsp;a&nbsp;list&nbsp;of</span></div>
+<div id="line102"><a href="#line102" class="IdrisLineNumber"> 102 | </a><span class="IdrisComment">|||&nbsp;values),&nbsp;its&nbsp;functions&nbsp;take&nbsp;a&nbsp;`DomID`&nbsp;as&nbsp;additional&nbsp;input,&nbsp;to&nbsp;distinguish</span></div>
+<div id="line103"><a href="#line103" class="IdrisLineNumber"> 103 | </a><span class="IdrisComment">|||&nbsp;between&nbsp;the&nbsp;different&nbsp;versions&nbsp;of&nbsp;the&nbsp;widget&nbsp;that&nbsp;are&nbsp;around.</span></div>
+<div id="line104"><a href="#line104" class="IdrisLineNumber"> 104 | </a><span class="IdrisComment">|||</span></div>
+<div id="line105"><a href="#line105" class="IdrisLineNumber"> 105 | </a><span class="IdrisComment">|||&nbsp;@i&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;ID&nbsp;type&nbsp;used&nbsp;to&nbsp;identify&nbsp;DOM&nbsp;elements</span></div>
+<div id="line106"><a href="#line106" class="IdrisLineNumber"> 106 | </a><span class="IdrisComment">|||</span></div>
+<div id="line107"><a href="#line107" class="IdrisLineNumber"> 107 | </a><span class="IdrisComment">|||&nbsp;@st&nbsp;&nbsp;:&nbsp;The&nbsp;type&nbsp;used&nbsp;to&nbsp;internally&nbsp;store&nbsp;the&nbsp;current&nbsp;widget&nbsp;state</span></div>
+<div id="line108"><a href="#line108" class="IdrisLineNumber"> 108 | </a><span class="IdrisComment">|||</span></div>
+<div id="line109"><a href="#line109" class="IdrisLineNumber"> 109 | </a><span class="IdrisComment">|||&nbsp;@ev&nbsp;&nbsp;:&nbsp;The&nbsp;event&nbsp;type&nbsp;the&nbsp;widget&nbsp;fires.</span></div>
+<div id="line110"><a href="#line110" class="IdrisLineNumber"> 110 | </a><span class="IdrisComment">|||</span></div>
+<div id="line111"><a href="#line111" class="IdrisLineNumber"> 111 | </a><span class="IdrisComment">|||&nbsp;@new&nbsp;:&nbsp;The&nbsp;type&nbsp;of&nbsp;data&nbsp;we&nbsp;can&nbsp;extract&nbsp;from&nbsp;the&nbsp;widget&apos;s&nbsp;internal&nbsp;state.</span></div>
+<div id="line112"><a href="#line112" class="IdrisLineNumber"> 112 | </a><span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisKeyword">export</span></div>
+<div id="line113"><a href="#line113" class="IdrisLineNumber"> 113 | </a><span class="IdrisKeyword">record</span>&nbsp;<span class="IdrisType">Editor</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisBound">i</span><span class="IdrisKeyword">,</span><span class="IdrisBound">st</span><span class="IdrisKeyword">,</span><span class="IdrisBound">ev</span><span class="IdrisKeyword">,</span><span class="IdrisBound">new</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Type</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisKeyword">where</span></div>
+<div id="line114"><a href="#line114" class="IdrisLineNumber"> 114 | </a>&nbsp;&nbsp;<span class="IdrisKeyword">constructor</span>&nbsp;<span class="IdrisData">E</span></div>
+<div id="line115"><a href="#line115" class="IdrisLineNumber"> 115 | </a>&nbsp;&nbsp;<span class="IdrisComment">|||&nbsp;Update&nbsp;the&nbsp;inner&nbsp;state&nbsp;based&nbsp;on&nbsp;the&nbsp;current&nbsp;event.</span></div>
+<div id="line116"><a href="#line116" class="IdrisLineNumber"> 116 | </a>&nbsp;&nbsp;<span class="IdrisFunction">ctrl</span>&nbsp;&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisBound">i</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisFunction">Controller</span>&nbsp;<span class="IdrisBound">ev</span>&nbsp;<span class="IdrisBound">st</span></div>
+<div id="line117"><a href="#line117" class="IdrisLineNumber"> 117 | </a></div>
+<div id="line118"><a href="#line118" class="IdrisLineNumber"> 118 | </a>&nbsp;&nbsp;<span class="IdrisComment">|||&nbsp;Create&nbsp;a&nbsp;widget&nbsp;from&nbsp;a&nbsp;unique&nbsp;identifier&nbsp;and&nbsp;the&nbsp;initial&nbsp;state.</span></div>
+<div id="line119"><a href="#line119" class="IdrisLineNumber"> 119 | </a>&nbsp;&nbsp;<span class="IdrisFunction">view</span>&nbsp;&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisBound">i</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisBound">st</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Node</span>&nbsp;<span class="IdrisBound">ev</span></div>
+<div id="line120"><a href="#line120" class="IdrisLineNumber"> 120 | </a></div>
+<div id="line121"><a href="#line121" class="IdrisLineNumber"> 121 | </a>&nbsp;&nbsp;<span class="IdrisComment">|||&nbsp;The&nbsp;initial&nbsp;command&nbsp;use&nbsp;to&nbsp;properly&nbsp;setup&nbsp;the&nbsp;view.&nbsp;This&nbsp;is&nbsp;used</span></div>
+<div id="line122"><a href="#line122" class="IdrisLineNumber"> 122 | </a><span class="IdrisComment">&nbsp;&nbsp;|||&nbsp;for&nbsp;initial&nbsp;validation&nbsp;or&nbsp;for&nbsp;drawing&nbsp;molecules&nbsp;to&nbsp;the&nbsp;canvas&nbsp;when</span></div>
+<div id="line123"><a href="#line123" class="IdrisLineNumber"> 123 | </a><span class="IdrisComment">&nbsp;&nbsp;|||&nbsp;editing&nbsp;starts.&nbsp;It&nbsp;is&nbsp;invoked&nbsp;after&nbsp;setting&nbsp;up&nbsp;the&nbsp;view.</span></div>
+<div id="line124"><a href="#line124" class="IdrisLineNumber"> 124 | </a>&nbsp;&nbsp;<span class="IdrisFunction">init</span>&nbsp;&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisBound">i</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisBound">st</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Cmd</span>&nbsp;<span class="IdrisBound">ev</span></div>
+<div id="line125"><a href="#line125" class="IdrisLineNumber"> 125 | </a></div>
+<div id="line126"><a href="#line126" class="IdrisLineNumber"> 126 | </a>&nbsp;&nbsp;<span class="IdrisComment">|||&nbsp;Try&nbsp;to&nbsp;convert&nbsp;the&nbsp;current&nbsp;state&nbsp;to&nbsp;a&nbsp;value&nbsp;of&nbsp;type&nbsp;`new`&nbsp;we&nbsp;can</span></div>
+<div id="line127"><a href="#line127" class="IdrisLineNumber"> 127 | </a><span class="IdrisComment">&nbsp;&nbsp;|||&nbsp;send&nbsp;to&nbsp;the&nbsp;server.&nbsp;This&nbsp;implements&nbsp;client-side&nbsp;validation,&nbsp;therefore,</span></div>
+<div id="line128"><a href="#line128" class="IdrisLineNumber"> 128 | </a><span class="IdrisComment">&nbsp;&nbsp;|||&nbsp;it&nbsp;returns&nbsp;an&nbsp;`Either`.</span></div>
+<div id="line129"><a href="#line129" class="IdrisLineNumber"> 129 | </a>&nbsp;&nbsp;<span class="IdrisFunction">stToNew</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisBound">st</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Either</span>&nbsp;<span class="IdrisType">String</span>&nbsp;<span class="IdrisBound">new</span></div>
+<div id="line130"><a href="#line130" class="IdrisLineNumber"> 130 | </a></div>
+<div id="line131"><a href="#line131" class="IdrisLineNumber"> 131 | </a>&nbsp;&nbsp;<span class="IdrisComment">|||&nbsp;Create&nbsp;an&nbsp;initial&nbsp;state&nbsp;from&nbsp;an&nbsp;optional&nbsp;value&nbsp;of&nbsp;type&nbsp;`new`</span></div>
+<div id="line132"><a href="#line132" class="IdrisLineNumber"> 132 | </a>&nbsp;&nbsp;<span class="IdrisFunction">toState</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Maybe</span>&nbsp;<span class="IdrisBound">new</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisBound">st</span></div>
+<div id="line133"><a href="#line133" class="IdrisLineNumber"> 133 | </a></div>
+<div id="line134"><a href="#line134" class="IdrisLineNumber"> 134 | </a><span class="IdrisComment">|||&nbsp;View&nbsp;an&nbsp;editor&nbsp;through&nbsp;an&nbsp;isomorphism.</span></div>
+<div id="line135"><a href="#line135" class="IdrisLineNumber"> 135 | </a><span class="IdrisKeyword">export</span></div>
+<div id="line136"><a href="#line136" class="IdrisLineNumber"> 136 | </a><span class="IdrisFunction">newIso</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisFunction">Iso&apos;</span>&nbsp;<span class="IdrisBound">n1</span>&nbsp;<span class="IdrisBound">n2</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Editor</span>&nbsp;<span class="IdrisBound">i</span>&nbsp;<span class="IdrisBound">st</span>&nbsp;<span class="IdrisBound">ev</span>&nbsp;<span class="IdrisBound">n1</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Editor</span>&nbsp;<span class="IdrisBound">i</span>&nbsp;<span class="IdrisBound">st</span>&nbsp;<span class="IdrisBound">ev</span>&nbsp;<span class="IdrisBound">n2</span></div>
+<div id="line137"><a href="#line137" class="IdrisLineNumber"> 137 | </a><span class="IdrisFunction">newIso</span>&nbsp;<span class="IdrisBound">i</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisKeyword">{</span><span class="IdrisFunction">stToNew</span>&nbsp;<span class="IdrisKeyword">$=</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisFunction">map</span>&nbsp;<span class="IdrisBound">i</span><span class="IdrisFunction">.get_</span>&nbsp;<span class="IdrisFunction">.</span><span class="IdrisKeyword">),</span>&nbsp;<span class="IdrisFunction">toState</span>&nbsp;<span class="IdrisKeyword">$=</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisFunction">.</span>&nbsp;<span class="IdrisFunction">map</span>&nbsp;<span class="IdrisBound">i</span><span class="IdrisFunction">.reverseGet</span><span class="IdrisKeyword">)}</span></div>
+<div id="line138"><a href="#line138" class="IdrisLineNumber"> 138 | </a></div>
+<div id="line139"><a href="#line139" class="IdrisLineNumber"> 139 | </a><span class="IdrisComment">|||&nbsp;Utility&nbsp;for&nbsp;editors&nbsp;without&nbsp;initial&nbsp;command.</span></div>
+<div id="line140"><a href="#line140" class="IdrisLineNumber"> 140 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
+<div id="line141"><a href="#line141" class="IdrisLineNumber"> 141 | </a><span class="IdrisFunction">noInit</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisBound">i</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisBound">s</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Cmd</span>&nbsp;<span class="IdrisBound">e</span></div>
+<div id="line142"><a href="#line142" class="IdrisLineNumber"> 142 | </a><span class="IdrisFunction">noInit</span>&nbsp;<span class="IdrisKeyword">_</span>&nbsp;<span class="IdrisKeyword">_</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">neutral</span></div>
+<div id="line143"><a href="#line143" class="IdrisLineNumber"> 143 | </a></div>
+<div id="line144"><a href="#line144" class="IdrisLineNumber"> 144 | </a><span class="IdrisComment">|||&nbsp;Tries&nbsp;to&nbsp;convert&nbsp;the&nbsp;current&nbsp;(optional)&nbsp;state&nbsp;of&nbsp;an&nbsp;editor&nbsp;to</span></div>
+<div id="line145"><a href="#line145" class="IdrisLineNumber"> 145 | </a><span class="IdrisComment">|||&nbsp;an&nbsp;updated&nbsp;value.</span></div>
+<div id="line146"><a href="#line146" class="IdrisLineNumber"> 146 | </a><span class="IdrisKeyword">export</span></div>
+<div id="line147"><a href="#line147" class="IdrisLineNumber"> 147 | </a><span class="IdrisFunction">toNewM</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Editor</span>&nbsp;<span class="IdrisBound">i</span>&nbsp;<span class="IdrisBound">st</span>&nbsp;<span class="IdrisBound">ev</span>&nbsp;<span class="IdrisBound">new</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Maybe</span>&nbsp;<span class="IdrisBound">st</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Maybe</span>&nbsp;<span class="IdrisBound">new</span></div>
+<div id="line148"><a href="#line148" class="IdrisLineNumber"> 148 | </a><span class="IdrisFunction">toNewM</span>&nbsp;<span class="IdrisBound">ed</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisFunction">&gt;&gt;=</span>&nbsp;<span class="IdrisFunction">eitherToMaybe</span>&nbsp;<span class="IdrisFunction">.</span>&nbsp;<span class="IdrisBound">ed</span><span class="IdrisFunction">.stToNew</span><span class="IdrisKeyword">)</span></div>
+<div id="line149"><a href="#line149" class="IdrisLineNumber"> 149 | </a></div>
+<div id="line150"><a href="#line150" class="IdrisLineNumber"> 150 | </a><span class="IdrisComment">|||&nbsp;Views&nbsp;the&nbsp;`new`&nbsp;values&nbsp;of&nbsp;an&nbsp;editor&nbsp;through&nbsp;a&nbsp;prism.</span></div>
+<div id="line151"><a href="#line151" class="IdrisLineNumber"> 151 | </a><span class="IdrisKeyword">export</span></div>
+<div id="line152"><a href="#line152" class="IdrisLineNumber"> 152 | </a><span class="IdrisFunction">newP</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisFunction">Prism&apos;</span>&nbsp;<span class="IdrisBound">t</span>&nbsp;<span class="IdrisBound">s</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Editor</span>&nbsp;<span class="IdrisBound">i</span>&nbsp;<span class="IdrisBound">st</span>&nbsp;<span class="IdrisBound">ev</span>&nbsp;<span class="IdrisBound">s</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Editor</span>&nbsp;<span class="IdrisBound">i</span>&nbsp;<span class="IdrisBound">st</span>&nbsp;<span class="IdrisBound">ev</span>&nbsp;<span class="IdrisBound">t</span></div>
+<div id="line153"><a href="#line153" class="IdrisLineNumber"> 153 | </a><span class="IdrisFunction">newP</span>&nbsp;<span class="IdrisBound">p</span>&nbsp;<span class="IdrisBound">ed</span>&nbsp;<span class="IdrisKeyword">=</span></div>
+<div id="line154"><a href="#line154" class="IdrisLineNumber"> 154 | </a>&nbsp;&nbsp;<span class="IdrisKeyword">{</span>&nbsp;<span class="IdrisFunction">stToNew</span>&nbsp;<span class="IdrisKeyword">:=</span>&nbsp;<span class="IdrisFunction">map</span>&nbsp;<span class="IdrisBound">p</span><span class="IdrisFunction">.reverseGet</span>&nbsp;<span class="IdrisFunction">.</span>&nbsp;<span class="IdrisBound">ed</span><span class="IdrisFunction">.stToNew</span></div>
+<div id="line155"><a href="#line155" class="IdrisLineNumber"> 155 | </a>&nbsp;&nbsp;<span class="IdrisKeyword">,</span>&nbsp;<span class="IdrisFunction">toState</span>&nbsp;<span class="IdrisKeyword">:=</span>&nbsp;<span class="IdrisKeyword">\</span><span class="IdrisBound">x</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisBound">ed</span><span class="IdrisFunction">.toState</span>&nbsp;$&nbsp;<span class="IdrisBound">x</span>&nbsp;<span class="IdrisFunction">&gt;&gt;=</span>&nbsp;<span class="IdrisFunction">first</span>&nbsp;<span class="IdrisBound">p</span></div>
+<div id="line156"><a href="#line156" class="IdrisLineNumber"> 156 | </a>&nbsp;&nbsp;<span class="IdrisKeyword">}</span>&nbsp;<span class="IdrisBound">ed</span></div>
+<div id="line157"><a href="#line157" class="IdrisLineNumber"> 157 | </a></div>
+<div id="line158"><a href="#line158" class="IdrisLineNumber"> 158 | </a><span class="IdrisComment">|||&nbsp;A&nbsp;dummy&nbsp;`Editor`&nbsp;for&nbsp;uneditable&nbsp;values.</span></div>
+<div id="line159"><a href="#line159" class="IdrisLineNumber"> 159 | </a><span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisKeyword">export</span></div>
+<div id="line160"><a href="#line160" class="IdrisLineNumber"> 160 | </a><span class="IdrisFunction">dummy</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisBound">n</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Editor</span>&nbsp;<span class="IdrisBound">i</span>&nbsp;<span class="IdrisType">()</span>&nbsp;<span class="IdrisType">Void</span>&nbsp;<span class="IdrisBound">n</span></div>
+<div id="line161"><a href="#line161" class="IdrisLineNumber"> 161 | </a><span class="IdrisFunction">dummy</span>&nbsp;<span class="IdrisBound">v</span>&nbsp;<span class="IdrisKeyword">=</span></div>
+<div id="line162"><a href="#line162" class="IdrisLineNumber"> 162 | </a>&nbsp;&nbsp;<span class="IdrisData">E</span>&nbsp;<span class="IdrisKeyword">(\_,_</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisFunction">neutral</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisKeyword">(\_,_</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisData">Empty</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisKeyword">(\_,_</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisFunction">neutral</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisKeyword">(\_</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisData">Right</span>&nbsp;<span class="IdrisBound">v</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisKeyword">(\_</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisData">()</span><span class="IdrisKeyword">)</span></div>
+<div id="line163"><a href="#line163" class="IdrisLineNumber"> 163 | </a></div>
+<div id="line164"><a href="#line164" class="IdrisLineNumber"> 164 | </a><span class="IdrisComment">--------------------------------------------------------------------------------</span></div>
+<div id="line165"><a href="#line165" class="IdrisLineNumber"> 165 | </a><span class="IdrisComment">--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Utilities</span></div>
+<div id="line166"><a href="#line166" class="IdrisLineNumber"> 166 | </a><span class="IdrisComment">--------------------------------------------------------------------------------</span></div>
+<div id="line167"><a href="#line167" class="IdrisLineNumber"> 167 | </a></div>
+<div id="line168"><a href="#line168" class="IdrisLineNumber"> 168 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
+<div id="line169"><a href="#line169" class="IdrisLineNumber"> 169 | </a><span class="IdrisFunction">elemChildren</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Cast</span>&nbsp;<span class="IdrisBound">t</span>&nbsp;<span class="IdrisType">DomID</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisBound">t</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">List</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisType">Node</span>&nbsp;<span class="IdrisBound">e</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Cmd</span>&nbsp;<span class="IdrisBound">e</span></div>
+<div id="line170"><a href="#line170" class="IdrisLineNumber"> 170 | </a><span class="IdrisFunction">elemChildren</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">children</span>&nbsp;<span class="IdrisFunction">.</span>&nbsp;<span class="IdrisFunction">elemRef</span></div>
+<div id="line171"><a href="#line171" class="IdrisLineNumber"> 171 | </a></div>
+<div id="line172"><a href="#line172" class="IdrisLineNumber"> 172 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
+<div id="line173"><a href="#line173" class="IdrisLineNumber"> 173 | </a><span class="IdrisFunction">elemChild</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Cast</span>&nbsp;<span class="IdrisBound">t</span>&nbsp;<span class="IdrisType">DomID</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisBound">t</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Node</span>&nbsp;<span class="IdrisBound">e</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Cmd</span>&nbsp;<span class="IdrisBound">e</span></div>
+<div id="line174"><a href="#line174" class="IdrisLineNumber"> 174 | </a><span class="IdrisFunction">elemChild</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">child</span>&nbsp;<span class="IdrisFunction">.</span>&nbsp;<span class="IdrisFunction">elemRef</span></div>
+<div id="line175"><a href="#line175" class="IdrisLineNumber"> 175 | </a></div>
+<div id="line176"><a href="#line176" class="IdrisLineNumber"> 176 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
+<div id="line177"><a href="#line177" class="IdrisLineNumber"> 177 | </a><span class="IdrisFunction">elemAppend</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Cast</span>&nbsp;<span class="IdrisBound">t</span>&nbsp;<span class="IdrisType">DomID</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisBound">t</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Node</span>&nbsp;<span class="IdrisBound">e</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Cmd</span>&nbsp;<span class="IdrisBound">e</span></div>
+<div id="line178"><a href="#line178" class="IdrisLineNumber"> 178 | </a><span class="IdrisFunction">elemAppend</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">append</span>&nbsp;<span class="IdrisFunction">.</span>&nbsp;<span class="IdrisFunction">elemRef</span></div>
+<div id="line179"><a href="#line179" class="IdrisLineNumber"> 179 | </a></div>
+<div id="line180"><a href="#line180" class="IdrisLineNumber"> 180 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
+<div id="line181"><a href="#line181" class="IdrisLineNumber"> 181 | </a><span class="IdrisFunction">elemPrepend</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Cast</span>&nbsp;<span class="IdrisBound">t</span>&nbsp;<span class="IdrisType">DomID</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisBound">t</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Node</span>&nbsp;<span class="IdrisBound">e</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Cmd</span>&nbsp;<span class="IdrisBound">e</span></div>
+<div id="line182"><a href="#line182" class="IdrisLineNumber"> 182 | </a><span class="IdrisFunction">elemPrepend</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">prepend</span>&nbsp;<span class="IdrisFunction">.</span>&nbsp;<span class="IdrisFunction">elemRef</span></div>
+<div id="line183"><a href="#line183" class="IdrisLineNumber"> 183 | </a></div>
+<div id="line184"><a href="#line184" class="IdrisLineNumber"> 184 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
+<div id="line185"><a href="#line185" class="IdrisLineNumber"> 185 | </a><span class="IdrisFunction">clearElem</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Cast</span>&nbsp;<span class="IdrisBound">t</span>&nbsp;<span class="IdrisType">DomID</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisBound">t</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Cmd</span>&nbsp;<span class="IdrisBound">e</span></div>
+<div id="line186"><a href="#line186" class="IdrisLineNumber"> 186 | </a><span class="IdrisFunction">clearElem</span>&nbsp;<span class="IdrisBound">v</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">elemChildren</span>&nbsp;<span class="IdrisBound">v</span>&nbsp;<span class="IdrisData">[]</span></div>
+<div id="line187"><a href="#line187" class="IdrisLineNumber"> 187 | </a></div>
+<div id="line188"><a href="#line188" class="IdrisLineNumber"> 188 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
+<div id="line189"><a href="#line189" class="IdrisLineNumber"> 189 | </a><span class="IdrisFunction">removeElem</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Cast</span>&nbsp;<span class="IdrisBound">t</span>&nbsp;<span class="IdrisType">DomID</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisBound">t</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Cmd</span>&nbsp;<span class="IdrisBound">e</span></div>
+<div id="line190"><a href="#line190" class="IdrisLineNumber"> 190 | </a><span class="IdrisFunction">removeElem</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">remove</span>&nbsp;<span class="IdrisFunction">.</span>&nbsp;<span class="IdrisFunction">elemRef</span></div>
+<div id="line191"><a href="#line191" class="IdrisLineNumber"> 191 | </a></div>
+<div id="line192"><a href="#line192" class="IdrisLineNumber"> 192 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
+<div id="line193"><a href="#line193" class="IdrisLineNumber"> 193 | </a><span class="IdrisFunction">replaceElem</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Cast</span>&nbsp;<span class="IdrisBound">t</span>&nbsp;<span class="IdrisType">DomID</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisBound">t</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Node</span>&nbsp;<span class="IdrisBound">e</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Cmd</span>&nbsp;<span class="IdrisBound">e</span></div>
+<div id="line194"><a href="#line194" class="IdrisLineNumber"> 194 | </a><span class="IdrisFunction">replaceElem</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">replace</span>&nbsp;<span class="IdrisFunction">.</span>&nbsp;<span class="IdrisFunction">elemRef</span></div>
+<div id="line195"><a href="#line195" class="IdrisLineNumber"> 195 | </a></div>
+<div id="line196"><a href="#line196" class="IdrisLineNumber"> 196 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
+<div id="line197"><a href="#line197" class="IdrisLineNumber"> 197 | </a><span class="IdrisFunction">btnAttr</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Cast</span>&nbsp;<span class="IdrisBound">t</span>&nbsp;<span class="IdrisType">DomID</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisBound">t</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Attribute</span>&nbsp;<span class="IdrisData">Tag.Button</span>&nbsp;<span class="IdrisBound">e</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Cmd</span>&nbsp;<span class="IdrisBound">e</span></div>
+<div id="line198"><a href="#line198" class="IdrisLineNumber"> 198 | </a><span class="IdrisFunction">btnAttr</span>&nbsp;<span class="IdrisBound">v</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">attr</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisFunction">btnRef</span>&nbsp;<span class="IdrisBound">v</span><span class="IdrisKeyword">)</span></div>
+<div id="line199"><a href="#line199" class="IdrisLineNumber"> 199 | </a></div>
+</code>
+</body>
+</html>

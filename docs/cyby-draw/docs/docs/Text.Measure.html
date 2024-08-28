@@ -1,0 +1,101 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Text.Measure</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Text.Measure
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Text.Measure</h1><span style="float:right">(<a href="Text.Measure.src.html">source</a>)</span><pre>Measuring the visible bounds of text is incredibly hard
+and tons of material have been written about this.
+
+In this module, we take a pragmatic approach that produces
+reasonable results without having to load and parse font files.
+The drawback of this: The steps described below have to be repeated
+for every new font we&apos;d like to support.
+
+A detailed introduction to typography and how fonts are specified
+can be found [here](https://learn.microsoft.com/en-us/typography/opentype/spec/otff).
+
+In general, we need to know the height and width of a piece of printed text
+to properly align it with the rest of the drawing.
+
+Text height:
+  there are different types of &quot;height&quot; when it comes to text, and I won&apos;t go
+  into the details here. Suffice to say that we are interested in vertically aligning
+  atom labels, charges, implicit hydrogen count and mass numbers in a
+  way that feels natural. For this, wir are mostly interested in &quot;capHeight&quot; of
+  a font: The height of capital letters (without descenders). This, together
+  with the Em-square size can be read from font files.
+
+Text width:
+  While computing the height of a piece of text is non-trivial, computing its
+  width is insane. Every glyph has its own specific width, sometimes depending
+  on its neighbouring glyphs (see ligatures and kerning). Fortunately, there
+  is a quite simple method to get good approximations without being overly
+  complicated. It is described on [stackoverflow](https://stackoverflow.com/questions/16007743/roughly-approximate-the-width-of-a-string-of-text-in-python)
+  We use Python (because it has support for almost everything) to parse
+  the true type font file we are interested in and generate a dictionary
+  of the glyphs and their widths we are interested in. Using this to compute
+  the width of a piece of text at a given font size is efficient and simple
+  but not perfectly exact because it ignores kerning. It also requires large
+  dictionaries if we want to support lots of unicode characters.
+
+Note: The Python script used to extract the glyph widths can be found in the
+      `resources` directory.
+</pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="Text.Measure.TextDims"><code><span class="keyword">record</span>&ensp;<a class="type" href="Text.Measure.html#Text.Measure.TextDims"><span class="name type">TextDims</span></a>&ensp;:&ensp;<span class="name type">Type</span></code></dt><dd><pre>  Metrics of a piece of text.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span><br>  <b>Constructor</b>:&ensp;<dl class="decls"><dt id="Text.Measure.TD"><code><a class="type" href="Text.Measure.html#Text.Measure.TD"><span class="name constructor">TD</span></a>&ensp;:&ensp;<span class="name type">Double</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Double</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Double</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Text.Measure.html#Text.Measure.TextDims"><span class="name type">TextDims</span></a></code></dt></dl><br>  <b>Projections</b>:<br><dl class="decls">  <dt id="Text.Measure.TextDims.(.capHeight)"><code><span class="type resolved" title="Text.Measure.TextDims.(.capHeight)"><span class="name function">.capHeight</span></span>&ensp;:&ensp;<a class="type" href="Text.Measure.html#Text.Measure.TextDims"><span class="name type">TextDims</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Double</span></code></dt>  <dt id="Text.Measure.TextDims.(.lineHeight)"><code><span class="type resolved" title="Text.Measure.TextDims.(.lineHeight)"><span class="name function">.lineHeight</span></span>&ensp;:&ensp;<a class="type" href="Text.Measure.html#Text.Measure.TextDims"><span class="name type">TextDims</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Double</span></code></dt>  <dt id="Text.Measure.TextDims.(.txtWidth)"><code><span class="type resolved" title="Text.Measure.TextDims.(.txtWidth)"><span class="name function">.txtWidth</span></span>&ensp;:&ensp;<a class="type" href="Text.Measure.html#Text.Measure.TextDims"><span class="name type">TextDims</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Double</span></code></dt></dl></dd><dt id="Text.Measure.TextDims.(.lineHeight)"><code><span class="type resolved" title="Text.Measure.TextDims.(.lineHeight)"><span class="name function">.lineHeight</span></span>&ensp;:&ensp;<a class="type" href="Text.Measure.html#Text.Measure.TextDims"><span class="name type">TextDims</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Double</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Text.Measure.TextDims.lineHeight"><code><span class="type resolved" title="Text.Measure.TextDims.lineHeight"><span class="name function">lineHeight</span></span>&ensp;:&ensp;<a class="type" href="Text.Measure.html#Text.Measure.TextDims"><span class="name type">TextDims</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Double</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Text.Measure.TextDims.(.capHeight)"><code><span class="type resolved" title="Text.Measure.TextDims.(.capHeight)"><span class="name function">.capHeight</span></span>&ensp;:&ensp;<a class="type" href="Text.Measure.html#Text.Measure.TextDims"><span class="name type">TextDims</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Double</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Text.Measure.TextDims.capHeight"><code><span class="type resolved" title="Text.Measure.TextDims.capHeight"><span class="name function">capHeight</span></span>&ensp;:&ensp;<a class="type" href="Text.Measure.html#Text.Measure.TextDims"><span class="name type">TextDims</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Double</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Text.Measure.TextDims.(.txtWidth)"><code><span class="type resolved" title="Text.Measure.TextDims.(.txtWidth)"><span class="name function">.txtWidth</span></span>&ensp;:&ensp;<a class="type" href="Text.Measure.html#Text.Measure.TextDims"><span class="name type">TextDims</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Double</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Text.Measure.TextDims.txtWidth"><code><span class="type resolved" title="Text.Measure.TextDims.txtWidth"><span class="name function">txtWidth</span></span>&ensp;:&ensp;<a class="type" href="Text.Measure.html#Text.Measure.TextDims"><span class="name type">TextDims</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Double</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Text.Measure.Measure"><code><span class="keyword">record</span>&ensp;<a class="type" href="Text.Measure.html#Text.Measure.Measure"><span class="name type">Measure</span></a>&ensp;:&ensp;<span class="name type">Type</span></code></dt><dd><pre>  Utility for measuring text metrics.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span><br>  <b>Constructor</b>:&ensp;<dl class="decls"><dt id="Text.Measure.M"><code><a class="type" href="Text.Measure.html#Text.Measure.M"><span class="name constructor">M</span></a>&ensp;:&ensp;(<span class="type resolved" title="Prelude.Types.Nat"><span class="name type">Nat</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Text.Measure.html#Text.Measure.TextDims"><span class="name type">TextDims</span></a>)&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Text.Measure.html#Text.Measure.Measure"><span class="name type">Measure</span></a></code></dt></dl><br>  <b>Projection</b>:&ensp;<dl class="decls"><dt id="Text.Measure.Measure.(.measure)"><code><span class="type resolved" title="Text.Measure.Measure.(.measure)"><span class="name function">.measure</span></span>&ensp;:&ensp;<a class="type" href="Text.Measure.html#Text.Measure.Measure"><span class="name type">Measure</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Types.Nat"><span class="name type">Nat</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Text.Measure.html#Text.Measure.TextDims"><span class="name type">TextDims</span></a></code></dt></dl></dd><dt id="Text.Measure.Measure.(.measure)"><code><span class="type resolved" title="Text.Measure.Measure.(.measure)"><span class="name function">.measure</span></span>&ensp;:&ensp;<a class="type" href="Text.Measure.html#Text.Measure.Measure"><span class="name type">Measure</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Types.Nat"><span class="name type">Nat</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Text.Measure.html#Text.Measure.TextDims"><span class="name type">TextDims</span></a></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Text.Measure.Measure.measure"><code><span class="type resolved" title="Text.Measure.Measure.measure"><span class="name function">measure</span></span>&ensp;:&ensp;<a class="type" href="Text.Measure.html#Text.Measure.Measure"><span class="name type">Measure</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Types.Nat"><span class="name type">Nat</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Text.Measure.html#Text.Measure.TextDims"><span class="name type">TextDims</span></a></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Text.Measure.defaultMeasure"><code><a class="type" href="Text.Measure.html#Text.Measure.defaultMeasure"><span class="name function">defaultMeasure</span></a>&ensp;:&ensp;<a class="type" href="Text.Measure.html#Text.Measure.Measure"><span class="name type">Measure</span></a></code></dt><dd><pre>  This is a primitive but efficient implementation of `Measure`, which<br>  is described in the module docs. A more exact implementation could<br>  make use of a browser canvas and use text metrics from the DOM, but<br>  this is not available when we are not drawing molecules in the browser.<br>  <br>  This implementation assumes a typical roman font similar to Arial.<br>  It is based on the metrics of &quot;Liberation Sans&quot;, which should have the<br>  same layout as Arial or Helvetica.<br>  <br>  About magic numbers: 2048 is the Em square size, 1409 the cap height,<br>  307 the line height. These have to be multiplied with the font size.<br>  Text widths are approxiamted by summing up glyph width stored in a<br>  dictionary.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd></dl></div><footer>Produced by Idris 2 version 0.7.0-c5f31c9d2</footer></body></html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Data.Graph.Indexed.Ring.Util</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Data.Graph.Indexed.Ring.Util
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Data.Graph.Indexed.Ring.Util</h1><span style="float:right">(<a href="Data.Graph.Indexed.Ring.Util.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="Data.Graph.Indexed.Ring.Util.EdgeSet"><code><span class="keyword">0</span>&ensp;<a class="type" href="Data.Graph.Indexed.Ring.Util.html#Data.Graph.Indexed.Ring.Util.EdgeSet"><span class="name function">EdgeSet</span></a>&ensp;:&ensp;<span class="type resolved" title="Prelude.Types.Nat"><span class="name type">Nat</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd><pre>  A set of unlabeled edges of order `k`</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Data.Graph.Indexed.Ring.Util.addEdge"><code><a class="type" href="Data.Graph.Indexed.Ring.Util.html#Data.Graph.Indexed.Ring.Util.addEdge"><span class="name function">addEdge</span></a>&ensp;:&ensp;<a class="type" href="Data.Graph.Indexed.Ring.Util.html#Data.Graph.Indexed.Ring.Util.EdgeSet"><span class="name function">EdgeSet</span></a>&ensp;<span class="boundvar">k</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Data.Fin.Fin"><span class="name type">Fin</span></span>&ensp;<span class="boundvar">k</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Data.Fin.Fin"><span class="name type">Fin</span></span>&ensp;<span class="boundvar">k</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Graph.Indexed.Ring.Util.html#Data.Graph.Indexed.Ring.Util.EdgeSet"><span class="name function">EdgeSet</span></a>&ensp;<span class="boundvar">k</span></code></dt><dd><pre>  Adds an unlabeled edge to an edge set.<br>  <br>  The edge set is returned unmodified, if the two nodes are<br>  identical.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Data.Graph.Indexed.Ring.Util.addNatEdge"><code><a class="type" href="Data.Graph.Indexed.Ring.Util.html#Data.Graph.Indexed.Ring.Util.addNatEdge"><span class="name function">addNatEdge</span></a>&ensp;:&ensp;<a class="type" href="Data.Graph.Indexed.Ring.Util.html#Data.Graph.Indexed.Ring.Util.EdgeSet"><span class="name function">EdgeSet</span></a>&ensp;<span class="boundvar">k</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Types.Nat"><span class="name type">Nat</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Types.Nat"><span class="name type">Nat</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Graph.Indexed.Ring.Util.html#Data.Graph.Indexed.Ring.Util.EdgeSet"><span class="name function">EdgeSet</span></a>&ensp;<span class="boundvar">k</span></code></dt><dd><pre>  Adds an unlabeled edge to an edge set.<br>  <br>  The edge set is returned unmodified, if the two natural numbers<br>  are not valid distinct nodes of order `k`.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Data.Graph.Indexed.Ring.Util.toEdgeSet"><code><a class="type" href="Data.Graph.Indexed.Ring.Util.html#Data.Graph.Indexed.Ring.Util.toEdgeSet"><span class="name function">toEdgeSet</span></a>&ensp;:&ensp;<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;(<span class="type resolved" title="Prelude.Types.Nat"><span class="name type">Nat</span></span>,&ensp;<span class="type resolved" title="Prelude.Types.Nat"><span class="name type">Nat</span></span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Graph.Indexed.Ring.Util.html#Data.Graph.Indexed.Ring.Util.EdgeSet"><span class="name function">EdgeSet</span></a>&ensp;<span class="boundvar">k</span></code></dt><dd><pre>  Converts a list of pairs of natural number to an edge set of<br>  order `k`. Invalid pairs of nodes are silently dropped.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Data.Graph.Indexed.Ring.Util.inThreeMemberedRing"><code><a class="type" href="Data.Graph.Indexed.Ring.Util.html#Data.Graph.Indexed.Ring.Util.inThreeMemberedRing"><span class="name function">inThreeMemberedRing</span></a>&ensp;:&ensp;<a class="type" href="Data.Graph.Indexed.Types.html#Data.Graph.Indexed.Types.IGraph"><span class="name type">IGraph</span></a>&ensp;<span class="boundvar">k</span>&ensp;<span class="boundvar">e</span>&ensp;<span class="boundvar">n</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Data.Fin.Fin"><span class="name type">Fin</span></span>&ensp;<span class="boundvar">k</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Basics.Bool"><span class="name type">Bool</span></span></code></dt><dd><pre>  True, if the given node is a member of a three-membered cycle.<br>  <br>  For sparse graphs, this check can be performed in linear time without<br>  performing a proper ring detection, just be checking if two of the<br>  neighbours of the given node are adjacent.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd></dl></div><footer>Produced by Idris 2 version 0.7.0-c5f31c9d2</footer></body></html>

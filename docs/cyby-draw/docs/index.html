@@ -1,0 +1,281 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>cyby-draw</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="index">
+<header>
+  <strong>Idris2Doc</strong> : cyby-draw
+  <nav><a href="index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><h1>Package cyby-draw - Namespaces</h1><ul class="names"><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/CyBy.Draw.html">CyBy.Draw</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/CyBy.Draw.Internal.Abbreviations.html">CyBy.Draw.Internal.Abbreviations</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/CyBy.Draw.Internal.Atom.html">CyBy.Draw.Internal.Atom</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/CyBy.Draw.Internal.CoreDims.html">CyBy.Draw.Internal.CoreDims</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/CyBy.Draw.Internal.DoubleBond.html">CyBy.Draw.Internal.DoubleBond</a>
+    </div>
+    <div class="index-namespace-doc">
+      This module containes the logic for properly placing double bonds, especiall
+the pi-part of those bonds. We use a simple heuristic to place the pi-bond:
+
+In case of a double bond with three substituents, the pi bond will be placed
+on the same side of the sigma bond as the lone substituent.
+
+In case of a double bond with four substituents, the dominant cycle
+(if any; see below) will be determined, and the pi-bond will be placed
+within that cycle.
+
+In all other cases, a symmetric double with both lines being displaced
+from the center by the same amount of space, will be displayed.
+
+In order to define the dominant cycle to which a double bond belongs,
+rings will be sorted by number of multiple bonds and then by ring size.
+Six membered rings will always be preferred over other ring sizes.
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/CyBy.Draw.Internal.Color.html">CyBy.Draw.Internal.Color</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/CyBy.Draw.Internal.Graph.html">CyBy.Draw.Internal.Graph</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/CyBy.Draw.Internal.Label.html">CyBy.Draw.Internal.Label</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/CyBy.Draw.Internal.Ring.html">CyBy.Draw.Internal.Ring</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/CyBy.Draw.Internal.Role.html">CyBy.Draw.Internal.Role</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/CyBy.Draw.Internal.Settings.html">CyBy.Draw.Internal.Settings</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/CyBy.Draw.Internal.Wedge.html">CyBy.Draw.Internal.Wedge</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/CyBy.Draw.Draw.html">CyBy.Draw.Draw</a>
+    </div>
+    <div class="index-namespace-doc">
+      Drawing Utilities
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/CyBy.Draw.Event.html">CyBy.Draw.Event</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/CyBy.Draw.MoleculeCanvas.html">CyBy.Draw.MoleculeCanvas</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/CyBy.Draw.PeriodicTableCanvas.html">CyBy.Draw.PeriodicTableCanvas</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/CyBy.Draw.Residue.html">CyBy.Draw.Residue</a>
+    </div>
+    <div class="index-namespace-doc">
+      Corresponds to residues found in `ChemDoodle.RESIDUE`
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Text.Measure.html">Text.Measure</a>
+    </div>
+    <div class="index-namespace-doc">
+      Measuring the visible bounds of text is incredibly hard
+and tons of material have been written about this.
+
+In this module, we take a pragmatic approach that produces
+reasonable results without having to load and parse font files.
+The drawback of this: The steps described below have to be repeated
+for every new font we'd like to support.
+
+A detailed introduction to typography and how fonts are specified
+can be found [here](https://learn.microsoft.com/en-us/typography/opentype/spec/otff).
+
+In general, we need to know the height and width of a piece of printed text
+to properly align it with the rest of the drawing.
+
+Text height:
+  there are different types of "height" when it comes to text, and I won't go
+  into the details here. Suffice to say that we are interested in vertically aligning
+  atom labels, charges, implicit hydrogen count and mass numbers in a
+  way that feels natural. For this, wir are mostly interested in "capHeight" of
+  a font: The height of capital letters (without descenders). This, together
+  with the Em-square size can be read from font files.
+
+Text width:
+  While computing the height of a piece of text is non-trivial, computing its
+  width is insane. Every glyph has its own specific width, sometimes depending
+  on its neighbouring glyphs (see ligatures and kerning). Fortunately, there
+  is a quite simple method to get good approximations without being overly
+  complicated. It is described on [stackoverflow](https://stackoverflow.com/questions/16007743/roughly-approximate-the-width-of-a-string-of-text-in-python)
+  We use Python (because it has support for almost everything) to parse
+  the true type font file we are interested in and generate a dictionary
+  of the glyphs and their widths we are interested in. Using this to compute
+  the width of a piece of text at a given font size is efficient and simple
+  but not perfectly exact because it ignores kerning. It also requires large
+  dictionaries if we want to support lots of unicode characters.
+
+Note: The Python script used to extract the glyph widths can be found in the
+      `resources` directory.
+
+    </div>
+  </div>
+</li></ul></div><footer>Produced by Idris 2 version 0.7.0-c5f31c9d2</footer></body></html>

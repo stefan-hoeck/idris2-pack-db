@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Control.Eff.Reader</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Control.Eff.Reader
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Control.Eff.Reader</h1><span style="float:right">(<a href="Control.Eff.Reader.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="Control.Eff.Reader.ReaderL"><code><span class="keyword">data</span>&ensp;<a class="type" href="Control.Eff.Reader.html#Control.Eff.Reader.ReaderL"><span class="name type">ReaderL</span></a>&ensp;:&ensp;<span class="boundvar">k</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span><br>  <b>Constructor</b>:&ensp;<dl class="decls"><dt id="Control.Eff.Reader.Ask"><code><a class="type" href="Control.Eff.Reader.html#Control.Eff.Reader.Ask"><span class="name constructor">Ask</span></a>&ensp;:&ensp;<a class="type" href="Control.Eff.Reader.html#Control.Eff.Reader.ReaderL"><span class="name type">ReaderL</span></a>&ensp;<span class="boundvar">lbl</span>&ensp;<span class="boundvar">env</span>&ensp;<span class="boundvar">env</span></code></dt></dl></dd><dt id="Control.Eff.Reader.Reader"><code><a class="type" href="Control.Eff.Reader.html#Control.Eff.Reader.Reader"><span class="name function">Reader</span></a>&ensp;:&ensp;<span class="name type">Type</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Control.Eff.Reader.askAt"><code><a class="type" href="Control.Eff.Reader.html#Control.Eff.Reader.askAt"><span class="name function">askAt</span></a>&ensp;:&ensp;(<span class="keyword">0</span>&ensp;<span class="boundvar">lbl</span>&ensp;:&ensp;<span class="boundvar">k</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Subset.html#Data.Subset.Has"><span class="name type">Has</span></a>&ensp;(<a class="type" href="Control.Eff.Reader.html#Control.Eff.Reader.ReaderL"><span class="name type">ReaderL</span></a>&ensp;<span class="boundvar">lbl</span>&ensp;<span class="boundvar">env</span>)&ensp;<span class="boundvar">fs</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<a class="type" href="Control.Eff.Internal.html#Control.Eff.Internal.Eff"><span class="name function">Eff</span></a>&ensp;<span class="boundvar">fs</span>&ensp;<span class="boundvar">env</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Control.Eff.Reader.ask"><code><a class="type" href="Control.Eff.Reader.html#Control.Eff.Reader.ask"><span class="name function">ask</span></a>&ensp;:&ensp;<a class="type" href="Data.Subset.html#Data.Subset.Has"><span class="name type">Has</span></a>&ensp;(<a class="type" href="Control.Eff.Reader.html#Control.Eff.Reader.Reader"><span class="name function">Reader</span></a>&ensp;<span class="boundvar">env</span>)&ensp;<span class="boundvar">fs</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<a class="type" href="Control.Eff.Internal.html#Control.Eff.Internal.Eff"><span class="name function">Eff</span></a>&ensp;<span class="boundvar">fs</span>&ensp;<span class="boundvar">env</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Control.Eff.Reader.asksAt"><code><a class="type" href="Control.Eff.Reader.html#Control.Eff.Reader.asksAt"><span class="name function">asksAt</span></a>&ensp;:&ensp;(<span class="keyword">0</span>&ensp;<span class="boundvar">lbl</span>&ensp;:&ensp;<span class="boundvar">k</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Subset.html#Data.Subset.Has"><span class="name type">Has</span></a>&ensp;(<a class="type" href="Control.Eff.Reader.html#Control.Eff.Reader.ReaderL"><span class="name type">ReaderL</span></a>&ensp;<span class="boundvar">lbl</span>&ensp;<span class="boundvar">env</span>)&ensp;<span class="boundvar">fs</span>&ensp;<span class="keyword">=&gt;</span>&ensp;(<span class="boundvar">env</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">a</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Control.Eff.Internal.html#Control.Eff.Internal.Eff"><span class="name function">Eff</span></a>&ensp;<span class="boundvar">fs</span>&ensp;<span class="boundvar">a</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Control.Eff.Reader.asks"><code><a class="type" href="Control.Eff.Reader.html#Control.Eff.Reader.asks"><span class="name function">asks</span></a>&ensp;:&ensp;<a class="type" href="Data.Subset.html#Data.Subset.Has"><span class="name type">Has</span></a>&ensp;(<a class="type" href="Control.Eff.Reader.html#Control.Eff.Reader.Reader"><span class="name function">Reader</span></a>&ensp;<span class="boundvar">env</span>)&ensp;<span class="boundvar">fs</span>&ensp;<span class="keyword">=&gt;</span>&ensp;(<span class="boundvar">env</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">a</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Control.Eff.Internal.html#Control.Eff.Internal.Eff"><span class="name function">Eff</span></a>&ensp;<span class="boundvar">fs</span>&ensp;<span class="boundvar">a</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Control.Eff.Reader.handleReader"><code><a class="type" href="Control.Eff.Reader.html#Control.Eff.Reader.handleReader"><span class="name function">handleReader</span></a>&ensp;:&ensp;{<span class="keyword">0</span>&ensp;<span class="boundvar">m</span>&ensp;:&ensp;<span class="name type">Type</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span>}&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">m</span>&ensp;<span class="boundvar">env</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Control.Eff.Reader.html#Control.Eff.Reader.ReaderL"><span class="name type">ReaderL</span></a>&ensp;<span class="boundvar">lbl</span>&ensp;<span class="boundvar">env</span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">m</span>&ensp;<span class="boundvar">a</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Control.Eff.Reader.runReaderAt"><code><a class="type" href="Control.Eff.Reader.html#Control.Eff.Reader.runReaderAt"><span class="name function">runReaderAt</span></a>&ensp;:&ensp;(<span class="keyword">0</span>&ensp;<span class="boundvar">lbl</span>&ensp;:&ensp;<span class="boundvar">k</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;{<span class="keyword">auto</span>&ensp;<span class="boundvar">{conArg:2105}</span>&ensp;:&ensp;<a class="type" href="Data.Subset.html#Data.Subset.Has"><span class="name type">Has</span></a>&ensp;(<a class="type" href="Control.Eff.Reader.html#Control.Eff.Reader.ReaderL"><span class="name type">ReaderL</span></a>&ensp;<span class="boundvar">lbl</span>&ensp;<span class="boundvar">env</span>)&ensp;<span class="boundvar">fs</span>}&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">env</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Control.Eff.Internal.html#Control.Eff.Internal.Eff"><span class="name function">Eff</span></a>&ensp;<span class="boundvar">fs</span>&ensp;<span class="boundvar">t</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Control.Eff.Internal.html#Control.Eff.Internal.Eff"><span class="name function">Eff</span></a>&ensp;(<span class="boundvar">fs</span>&ensp;<a class="type" href="Data.Subset.html#Data.Subset.(-)"><span class="name function">-</span></a>&ensp;<a class="type" href="Control.Eff.Reader.html#Control.Eff.Reader.ReaderL"><span class="name type">ReaderL</span></a>&ensp;<span class="boundvar">lbl</span>&ensp;<span class="boundvar">env</span>)&ensp;<span class="boundvar">t</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Control.Eff.Reader.runReader"><code><a class="type" href="Control.Eff.Reader.html#Control.Eff.Reader.runReader"><span class="name function">runReader</span></a>&ensp;:&ensp;{<span class="keyword">auto</span>&ensp;<span class="boundvar">{conArg:2174}</span>&ensp;:&ensp;<a class="type" href="Data.Subset.html#Data.Subset.Has"><span class="name type">Has</span></a>&ensp;(<a class="type" href="Control.Eff.Reader.html#Control.Eff.Reader.Reader"><span class="name function">Reader</span></a>&ensp;<span class="boundvar">env</span>)&ensp;<span class="boundvar">fs</span>}&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">env</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Control.Eff.Internal.html#Control.Eff.Internal.Eff"><span class="name function">Eff</span></a>&ensp;<span class="boundvar">fs</span>&ensp;<span class="boundvar">t</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Control.Eff.Internal.html#Control.Eff.Internal.Eff"><span class="name function">Eff</span></a>&ensp;(<span class="boundvar">fs</span>&ensp;<a class="type" href="Data.Subset.html#Data.Subset.(-)"><span class="name function">-</span></a>&ensp;<a class="type" href="Control.Eff.Reader.html#Control.Eff.Reader.Reader"><span class="name function">Reader</span></a>&ensp;<span class="boundvar">env</span>)&ensp;<span class="boundvar">t</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd></dl></div><footer>Produced by Idris 2 version 0.7.0-c5f31c9d2</footer></body></html>

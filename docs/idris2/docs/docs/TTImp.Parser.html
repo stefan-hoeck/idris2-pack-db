@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>TTImp.Parser</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : TTImp.Parser
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>TTImp.Parser</h1><span style="float:right">(<a href="TTImp.Parser.src.html">source</a>)</span><pre></pre></div><h2>Reexports</h2><code><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Libraries.Text.Parser</code><h2>Definitions</h2><dl class="decls"><dt id="TTImp.Parser.collectDefs"><code><a class="type" href="TTImp.Parser.html#TTImp.Parser.collectDefs"><span class="name function">collectDefs</span></a>&ensp;:&ensp;<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;<a class="type" href="TTImp.TTImp.html#TTImp.TTImp.ImpDecl"><span class="name function">ImpDecl</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;<a class="type" href="TTImp.TTImp.html#TTImp.TTImp.ImpDecl"><span class="name function">ImpDecl</span></a></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="TTImp.Parser.expr"><code><a class="type" href="TTImp.Parser.html#TTImp.Parser.expr"><span class="name function">expr</span></a>&ensp;:&ensp;<a class="type" href="Core.FC.html#Core.FC.OriginDesc"><span class="name type">OriginDesc</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Parser.Rule.Source.html#Parser.Rule.Source.IndentInfo"><span class="name function">IndentInfo</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Parser.Rule.Source.html#Parser.Rule.Source.Rule"><span class="name function">Rule</span></a>&ensp;<a class="type" href="TTImp.TTImp.html#TTImp.TTImp.RawImp"><span class="name function">RawImp</span></a></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="TTImp.Parser.prog"><code><a class="type" href="TTImp.Parser.html#TTImp.Parser.prog"><span class="name function">prog</span></a>&ensp;:&ensp;<a class="type" href="Core.FC.html#Core.FC.OriginDesc"><span class="name type">OriginDesc</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Parser.Rule.Source.html#Parser.Rule.Source.Rule"><span class="name function">Rule</span></a>&ensp;(<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;<a class="type" href="TTImp.TTImp.html#TTImp.TTImp.ImpDecl"><span class="name function">ImpDecl</span></a>)</code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="TTImp.Parser.command"><code><a class="type" href="TTImp.Parser.html#TTImp.Parser.command"><span class="name function">command</span></a>&ensp;:&ensp;<a class="type" href="Parser.Rule.Source.html#Parser.Rule.Source.Rule"><span class="name function">Rule</span></a>&ensp;<a class="type" href="TTImp.TTImp.html#TTImp.TTImp.ImpREPL"><span class="name type">ImpREPL</span></a></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd></dl></div><footer>Produced by Idris 2 version 0.7.0-c5f31c9d2</footer></body></html>

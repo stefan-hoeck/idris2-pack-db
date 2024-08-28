@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Postgres.Notification</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Postgres.Notification
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Postgres.Notification</h1><span style="float:right">(<a href="Postgres.Notification.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="Postgres.Notification.Notification"><code><span class="keyword">record</span>&ensp;<a class="type" href="Postgres.Notification.html#Postgres.Notification.Notification"><span class="name type">Notification</span></a>&ensp;:&ensp;<span class="name type">Type</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span><br>  <b>Constructor</b>:&ensp;<dl class="decls"><dt id="Postgres.Notification.MkNotification"><code><a class="type" href="Postgres.Notification.html#Postgres.Notification.MkNotification"><span class="name constructor">MkNotification</span></a>&ensp;:&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Postgres.Notification.html#Postgres.Notification.Notification"><span class="name type">Notification</span></a></code></dt></dl><br>  <b>Projections</b>:<br><dl class="decls">  <dt id="Postgres.Notification.Notification.(.channel)"><code><span class="type resolved" title="Postgres.Notification.Notification.(.channel)"><span class="name function">.channel</span></span>&ensp;:&ensp;<a class="type" href="Postgres.Notification.html#Postgres.Notification.Notification"><span class="name type">Notification</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">String</span></code></dt>  <dt id="Postgres.Notification.Notification.(.payload)"><code><span class="type resolved" title="Postgres.Notification.Notification.(.payload)"><span class="name function">.payload</span></span>&ensp;:&ensp;<a class="type" href="Postgres.Notification.html#Postgres.Notification.Notification"><span class="name type">Notification</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">String</span></code></dt></dl></dd><dt id="Postgres.Notification.Notification.(.channel)"><code><span class="type resolved" title="Postgres.Notification.Notification.(.channel)"><span class="name function">.channel</span></span>&ensp;:&ensp;<a class="type" href="Postgres.Notification.html#Postgres.Notification.Notification"><span class="name type">Notification</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">String</span></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Postgres.Notification.Notification.channel"><code><span class="type resolved" title="Postgres.Notification.Notification.channel"><span class="name function">channel</span></span>&ensp;:&ensp;<a class="type" href="Postgres.Notification.html#Postgres.Notification.Notification"><span class="name type">Notification</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">String</span></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Postgres.Notification.Notification.(.payload)"><code><span class="type resolved" title="Postgres.Notification.Notification.(.payload)"><span class="name function">.payload</span></span>&ensp;:&ensp;<a class="type" href="Postgres.Notification.html#Postgres.Notification.Notification"><span class="name type">Notification</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">String</span></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Postgres.Notification.Notification.payload"><code><span class="type resolved" title="Postgres.Notification.Notification.payload"><span class="name function">payload</span></span>&ensp;:&ensp;<a class="type" href="Postgres.Notification.html#Postgres.Notification.Notification"><span class="name type">Notification</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">String</span></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Postgres.Notification.pgListen"><code><a class="type" href="Postgres.Notification.html#Postgres.Notification.pgListen"><span class="name function">pgListen</span></a>&ensp;:&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Postgres.Data.Conn.html#Postgres.Data.Conn.Conn"><span class="name type">Conn</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="PrimIO.IO"><span class="name type">IO</span></span>&ensp;<a class="type" href="Postgres.Data.ResultStatus.html#Postgres.Data.ResultStatus.ResultStatus"><span class="name type">ResultStatus</span></a></code></dt><dd><pre>  Start listening for notifications on the given channel.</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Postgres.Notification.pgNextNotification"><code><a class="type" href="Postgres.Notification.html#Postgres.Notification.pgNextNotification"><span class="name function">pgNextNotification</span></a>&ensp;:&ensp;<a class="type" href="Postgres.Data.Conn.html#Postgres.Data.Conn.Conn"><span class="name type">Conn</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="PrimIO.IO"><span class="name type">IO</span></span>&ensp;(<span class="type resolved" title="Prelude.Types.Maybe"><span class="name type">Maybe</span></span>&ensp;<a class="type" href="Postgres.Notification.html#Postgres.Notification.Notification"><span class="name type">Notification</span></a>)</code></dt><dd><pre>  Gets the next notification _of those sitting around locally_.<br>  Returns `Nothing` if there are no notifications.<br>  <br>  See `libpq` documentation on `PQnotifies` for details on the<br>  distinction between retrieving notifications from the server and<br>  getting the next notification that has already been retrieved.<br>  <br>  NOTE: This function _does_ consume input to make sure no notification<br>   sent by the server but not processed by the client yet gets<br>   missed.</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Postgres.Notification.pgNotificationStream"><code><a class="type" href="Postgres.Notification.html#Postgres.Notification.pgNotificationStream"><span class="name function">pgNotificationStream</span></a>&ensp;:&ensp;<a class="type" href="Postgres.Data.Conn.html#Postgres.Data.Conn.Conn"><span class="name type">Conn</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Types.Stream.Stream"><span class="name type">Stream</span></span>&ensp;(<span class="type resolved" title="PrimIO.IO"><span class="name type">IO</span></span>&ensp;<a class="type" href="Postgres.Notification.html#Postgres.Notification.Notification"><span class="name type">Notification</span></a>)</code></dt><dd><pre>  Produce a potentially infinite stream of notifications.<br>  Unlike `pgNextNotificaiton`, this will wait for the server<br>  to deliver a notification.<br>  <br>  This _is_ an infinite sequence with a blocking wait for the<br>  next notification so it is of somewhat limited utility<br>  compared to checking for new notifications at a natural point<br>  in your programs existing logic loop unless your entire loop<br>  is dictated by notification arrival anyway.</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd></dl></div><footer>Produced by Idris 2 version 0.7.0-c5f31c9d2</footer></body></html>

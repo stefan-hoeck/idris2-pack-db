@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Language.Implicits.IfUnsolved</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Language.Implicits.IfUnsolved
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Language.Implicits.IfUnsolved</h1><span style="float:right">(<a href="Language.Implicits.IfUnsolved.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="Language.Implicits.IfUnsolved.IfUnsolved"><code><span class="keyword">interface</span>&ensp;<a class="type" href="Language.Implicits.IfUnsolved.html#Language.Implicits.IfUnsolved.IfUnsolved"><span class="name type">IfUnsolved</span></a>&ensp;:&ensp;<span class="boundvar">ty</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">ty</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd><pre>  Interface for providing default value for an implicit in case of unsolved hole.<br>  <br>  Once you have an implicit argument `e` that in some contexts can be determined by<br>  other arguments and/or return value, and one some contexts cannot, you can add<br>  a constraint `IfUnsolved val e =&gt;` to a function to make `e` be chosen to be `val`<br>  *only in cases* when in either way `e` would be an unsolved hole.<br>  <br>  The `IfUnsolved val e` works nicely even if this parameter is of quantity `0`.</pre><br>  <b>Parameters</b>:&ensp;def,&ensp;a<br><b>Constructor</b>:&ensp;<dl class="decls"><dt id="Language.Implicits.IfUnsolved.MkIfUnsolved"><code><a class="type" href="Language.Implicits.IfUnsolved.html#Language.Implicits.IfUnsolved.MkIfUnsolved"><span class="name constructor">MkIfUnsolved</span></a></code></dt></dl><br><b>Implementation</b>:&ensp;<dl class="decls"><dt id="$resolved355"><code><a class="type" href="Language.Implicits.IfUnsolved.html#Language.Implicits.IfUnsolved.IfUnsolved"><span class="name type">IfUnsolved</span></a>&ensp;<span class="boundvar">def</span>&ensp;<span class="boundvar">x</span></code></dt></dl></dd><dt id="Language.Implicits.IfUnsolved.TheIfUnsolved"><code><a class="type" href="Language.Implicits.IfUnsolved.html#Language.Implicits.IfUnsolved.TheIfUnsolved"><span class="name function">TheIfUnsolved</span></a>&ensp;:&ensp;<a class="type" href="Language.Implicits.IfUnsolved.html#Language.Implicits.IfUnsolved.IfUnsolved"><span class="name type">IfUnsolved</span></a>&ensp;<span class="boundvar">x</span>&ensp;<span class="boundvar">x</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd></dl></div><footer>Produced by Idris 2 version 0.7.0-c5f31c9d2</footer></body></html>

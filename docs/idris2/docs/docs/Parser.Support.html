@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Parser.Support</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Parser.Support
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Parser.Support</h1><span style="float:right">(<a href="Parser.Support.src.html">source</a>)</span><pre></pre></div><h2>Reexports</h2><code><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Libraries.Text.Lexer.Tokenizer<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Libraries.Text.Lexer<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Libraries.Text.Parser<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Libraries.Text.PrettyPrint.Prettyprinter<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Parser.Support.Escaping</code><h2>Definitions</h2><dl class="decls"><dt id="Parser.Support.fromLitError"><code><a class="type" href="Parser.Support.html#Parser.Support.fromLitError"><span class="name function">fromLitError</span></a>&ensp;:&ensp;<a class="type" href="Core.FC.html#Core.FC.OriginDesc"><span class="name type">OriginDesc</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Libraries.Text.Literate.html#Libraries.Text.Literate.LiterateError"><span class="name type">LiterateError</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Core.Core.html#Core.Core.Error"><span class="name type">Error</span></a></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Parser.Support.fromLexError"><code><a class="type" href="Parser.Support.html#Parser.Support.fromLexError"><span class="name function">fromLexError</span></a>&ensp;:&ensp;<a class="type" href="Core.FC.html#Core.FC.OriginDesc"><span class="name type">OriginDesc</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;(<a class="type" href="Libraries.Text.Lexer.Tokenizer.html#Libraries.Text.Lexer.Tokenizer.StopReason"><span class="name type">StopReason</span></a>,&ensp;(<span class="name type">Int</span>,&ensp;(<span class="name type">Int</span>,&ensp;<span class="name type">String</span>)))&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Core.Core.html#Core.Core.Error"><span class="name type">Error</span></a></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Parser.Support.fromParsingErrors"><code><a class="type" href="Parser.Support.html#Parser.Support.fromParsingErrors"><span class="name function">fromParsingErrors</span></a>&ensp;:&ensp;(<span class="type resolved" title="Prelude.Show.Show"><span class="name type">Show</span></span>&ensp;<span class="boundvar">token</span>,&ensp;<a class="type" href="Libraries.Text.PrettyPrint.Prettyprinter.Doc.html#Libraries.Text.PrettyPrint.Prettyprinter.Doc.Pretty"><span class="name type">Pretty</span></a>&ensp;<span class="boundvar">ann</span>&ensp;<span class="boundvar">token</span>)&ensp;<span class="keyword">=&gt;</span>&ensp;<a class="type" href="Core.FC.html#Core.FC.OriginDesc"><span class="name type">OriginDesc</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Data.List1.List1"><span class="name type">List1</span></span>&ensp;(<a class="type" href="Libraries.Text.Parser.Core.html#Libraries.Text.Parser.Core.ParsingError"><span class="name type">ParsingError</span></a>&ensp;<span class="boundvar">token</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Core.Core.html#Core.Core.Error"><span class="name type">Error</span></a></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Parser.Support.getCharLit"><code><a class="type" href="Parser.Support.html#Parser.Support.getCharLit"><span class="name function">getCharLit</span></a>&ensp;:&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Types.Maybe"><span class="name type">Maybe</span></span>&ensp;<span class="name type">Char</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd></dl></div><footer>Produced by Idris 2 version 0.7.0-c5f31c9d2</footer></body></html>

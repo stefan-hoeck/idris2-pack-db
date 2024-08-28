@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Text.WebIDL.Codegen.Rules</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Text.WebIDL.Codegen.Rules
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Text.WebIDL.Codegen.Rules</h1><span style="float:right">(<a href="Text.WebIDL.Codegen.Rules.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="Text.WebIDL.Codegen.Rules.env"><code><a class="type" href="Text.WebIDL.Codegen.Rules.html#Text.WebIDL.Codegen.Rules.env"><span class="name function">env</span></a>&ensp;:&ensp;<span class="type resolved" title="Prelude.Types.Nat"><span class="name type">Nat</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;<span class="type resolved" title="Text.WebIDL.Types.Definition.Domain"><span class="name type">Domain</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Text.WebIDL.Codegen.Types.html#Text.WebIDL.Codegen.Types.Env"><span class="name type">Env</span></a></code></dt><dd><pre>  Calculate the environment from a list of domains.</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Text.WebIDL.Codegen.Rules.domain"><code><a class="type" href="Text.WebIDL.Codegen.Rules.html#Text.WebIDL.Codegen.Rules.domain"><span class="name function">domain</span></a>&ensp;:&ensp;<a class="type" href="Text.WebIDL.Codegen.Types.html#Text.WebIDL.Codegen.Types.Env"><span class="name type">Env</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Text.WebIDL.Types.Definition.Domain"><span class="name type">Domain</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Text.WebIDL.Codegen.Types.html#Text.WebIDL.Codegen.Types.Codegen"><span class="name function">Codegen</span></a>&ensp;<a class="type" href="Text.WebIDL.Codegen.Types.html#Text.WebIDL.Codegen.Types.CGDomain"><span class="name type">CGDomain</span></a></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd></dl></div><footer>Produced by Idris 2 version 0.7.0-c5f31c9d2</footer></body></html>

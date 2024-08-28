@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Test.Data.Graph.Generators</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Test.Data.Graph.Generators
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Test.Data.Graph.Generators</h1><span style="float:right">(<a href="Test.Data.Graph.Generators.src.html">source</a>)</span><pre></pre></div><h2>Reexports</h2><code><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Chem<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Hedgehog</code><h2>Definitions</h2><dl class="decls"><dt id="Test.Data.Graph.Generators.edge"><code><a class="type" href="Test.Data.Graph.Generators.html#Test.Data.Graph.Generators.edge"><span class="name function">edge</span></a>&ensp;:&ensp;<span class="type resolved" title="Hedgehog.Internal.Gen.Gen"><span class="name type">Gen</span></span>&ensp;<span class="boundvar">e</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Hedgehog.Internal.Gen.Gen"><span class="name type">Gen</span></span>&ensp;(<span class="type resolved" title="Data.Graph.Indexed.Types.Edge"><span class="name type">Edge</span></span>&ensp;(<span class="type resolved" title="Prelude.Types.S"><span class="name constructor">S</span></span>&ensp;(<span class="type resolved" title="Prelude.Types.S"><span class="name constructor">S</span></span>&ensp;<span class="boundvar">k</span>))&ensp;<span class="boundvar">e</span>)</code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Test.Data.Graph.Generators.edges"><code><a class="type" href="Test.Data.Graph.Generators.html#Test.Data.Graph.Generators.edges"><span class="name function">edges</span></a>&ensp;:&ensp;<span class="type resolved" title="Hedgehog.Internal.Range.Range"><span class="name type">Range</span></span>&ensp;<span class="type resolved" title="Prelude.Types.Nat"><span class="name type">Nat</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Hedgehog.Internal.Gen.Gen"><span class="name type">Gen</span></span>&ensp;<span class="boundvar">e</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Hedgehog.Internal.Gen.Gen"><span class="name type">Gen</span></span>&ensp;(<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;(<span class="type resolved" title="Data.Graph.Indexed.Types.Edge"><span class="name type">Edge</span></span>&ensp;<span class="boundvar">k</span>&ensp;<span class="boundvar">e</span>))</code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Test.Data.Graph.Generators.lgraph"><code><a class="type" href="Test.Data.Graph.Generators.html#Test.Data.Graph.Generators.lgraph"><span class="name function">lgraph</span></a>&ensp;:&ensp;<span class="type resolved" title="Hedgehog.Internal.Range.Range"><span class="name type">Range</span></span>&ensp;<span class="type resolved" title="Prelude.Types.Nat"><span class="name type">Nat</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Hedgehog.Internal.Range.Range"><span class="name type">Range</span></span>&ensp;<span class="type resolved" title="Prelude.Types.Nat"><span class="name type">Nat</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Hedgehog.Internal.Gen.Gen"><span class="name type">Gen</span></span>&ensp;<span class="boundvar">e</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Hedgehog.Internal.Gen.Gen"><span class="name type">Gen</span></span>&ensp;<span class="boundvar">n</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Hedgehog.Internal.Gen.Gen"><span class="name type">Gen</span></span>&ensp;(<span class="type resolved" title="Data.Graph.Indexed.Types.Graph"><span class="name type">Graph</span></span>&ensp;<span class="boundvar">e</span>&ensp;<span class="boundvar">n</span>)</code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd></dl></div><footer>Produced by Idris 2 version 0.7.0-c5f31c9d2</footer></body></html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Data.C.Deref</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Data.C.Deref
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Data.C.Deref</h1><span style="float:right">(<a href="Data.C.Deref.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="Data.C.Deref.Deref"><code><span class="keyword">interface</span>&ensp;<a class="type" href="Data.C.Deref.html#Data.C.Deref.Deref"><span class="name type">Deref</span></a>&ensp;:&ensp;<span class="name type">Type</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd>  <b>Parameters</b>:&ensp;a<br><b>Methods</b>:<br><dl class="decls">  <dt id="Data.C.Deref.deref"><code><a class="type" href="Data.C.Deref.html#Data.C.Deref.deref"><span class="name function">deref</span></a>&ensp;:&ensp;<span class="type resolved" title="PrimIO.AnyPtr"><span class="name type">AnyPtr</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="PrimIO.IO"><span class="name type">IO</span></span>&ensp;<span class="boundvar">a</span></code></dt></dl><br><b>Implementations</b>:<br><dl class="decls">  <dt id="$resolved5777"><code><a class="type" href="Data.C.Deref.html#Data.C.Deref.Deref"><span class="name type">Deref</span></a>&ensp;<span class="name type">Bits8</span></code></dt>  <dt id="$resolved5780"><code><a class="type" href="Data.C.Deref.html#Data.C.Deref.Deref"><span class="name type">Deref</span></a>&ensp;<span class="name type">Bits16</span></code></dt>  <dt id="$resolved5779"><code><a class="type" href="Data.C.Deref.html#Data.C.Deref.Deref"><span class="name type">Deref</span></a>&ensp;<span class="name type">Bits32</span></code></dt>  <dt id="$resolved5778"><code><a class="type" href="Data.C.Deref.html#Data.C.Deref.Deref"><span class="name type">Deref</span></a>&ensp;<span class="name type">Bits64</span></code></dt>  <dt id="$resolved5773"><code><a class="type" href="Data.C.Deref.html#Data.C.Deref.Deref"><span class="name type">Deref</span></a>&ensp;<span class="name type">Int8</span></code></dt>  <dt id="$resolved5776"><code><a class="type" href="Data.C.Deref.html#Data.C.Deref.Deref"><span class="name type">Deref</span></a>&ensp;<span class="name type">Int16</span></code></dt>  <dt id="$resolved5775"><code><a class="type" href="Data.C.Deref.html#Data.C.Deref.Deref"><span class="name type">Deref</span></a>&ensp;<span class="name type">Int32</span></code></dt>  <dt id="$resolved5774"><code><a class="type" href="Data.C.Deref.html#Data.C.Deref.Deref"><span class="name type">Deref</span></a>&ensp;<span class="name type">Int64</span></code></dt></dl></dd><dt id="Data.C.Deref.deref"><code><a class="type" href="Data.C.Deref.html#Data.C.Deref.deref"><span class="name function">deref</span></a>&ensp;:&ensp;<a class="type" href="Data.C.Deref.html#Data.C.Deref.Deref"><span class="name type">Deref</span></a>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="type resolved" title="PrimIO.AnyPtr"><span class="name type">AnyPtr</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="PrimIO.IO"><span class="name type">IO</span></span>&ensp;<span class="boundvar">a</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Data.C.Deref.SetPtr"><code><span class="keyword">interface</span>&ensp;<a class="type" href="Data.C.Deref.html#Data.C.Deref.SetPtr"><span class="name type">SetPtr</span></a>&ensp;:&ensp;<span class="name type">Type</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd>  <b>Parameters</b>:&ensp;a<br><b>Methods</b>:<br><dl class="decls">  <dt id="Data.C.Deref.setPtr"><code><a class="type" href="Data.C.Deref.html#Data.C.Deref.setPtr"><span class="name function">setPtr</span></a>&ensp;:&ensp;<span class="type resolved" title="PrimIO.AnyPtr"><span class="name type">AnyPtr</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="PrimIO.IO"><span class="name type">IO</span></span>&ensp;()</code></dt></dl><br><b>Implementations</b>:<br><dl class="decls">  <dt id="$resolved5769"><code><a class="type" href="Data.C.Deref.html#Data.C.Deref.SetPtr"><span class="name type">SetPtr</span></a>&ensp;<span class="name type">Bits8</span></code></dt>  <dt id="$resolved5772"><code><a class="type" href="Data.C.Deref.html#Data.C.Deref.SetPtr"><span class="name type">SetPtr</span></a>&ensp;<span class="name type">Bits16</span></code></dt>  <dt id="$resolved5771"><code><a class="type" href="Data.C.Deref.html#Data.C.Deref.SetPtr"><span class="name type">SetPtr</span></a>&ensp;<span class="name type">Bits32</span></code></dt>  <dt id="$resolved5770"><code><a class="type" href="Data.C.Deref.html#Data.C.Deref.SetPtr"><span class="name type">SetPtr</span></a>&ensp;<span class="name type">Bits64</span></code></dt>  <dt id="$resolved5765"><code><a class="type" href="Data.C.Deref.html#Data.C.Deref.SetPtr"><span class="name type">SetPtr</span></a>&ensp;<span class="name type">Int8</span></code></dt>  <dt id="$resolved5768"><code><a class="type" href="Data.C.Deref.html#Data.C.Deref.SetPtr"><span class="name type">SetPtr</span></a>&ensp;<span class="name type">Int16</span></code></dt>  <dt id="$resolved5767"><code><a class="type" href="Data.C.Deref.html#Data.C.Deref.SetPtr"><span class="name type">SetPtr</span></a>&ensp;<span class="name type">Int32</span></code></dt>  <dt id="$resolved5766"><code><a class="type" href="Data.C.Deref.html#Data.C.Deref.SetPtr"><span class="name type">SetPtr</span></a>&ensp;<span class="name type">Int64</span></code></dt></dl></dd><dt id="Data.C.Deref.setPtr"><code><a class="type" href="Data.C.Deref.html#Data.C.Deref.setPtr"><span class="name function">setPtr</span></a>&ensp;:&ensp;<a class="type" href="Data.C.Deref.html#Data.C.Deref.SetPtr"><span class="name type">SetPtr</span></a>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="type resolved" title="PrimIO.AnyPtr"><span class="name type">AnyPtr</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="PrimIO.IO"><span class="name type">IO</span></span>&ensp;()</code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd></dl></div><footer>Produced by Idris 2 version 0.7.0-c5f31c9d2</footer></body></html>

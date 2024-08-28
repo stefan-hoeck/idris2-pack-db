@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Data.C.Struct</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Data.C.Struct
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Data.C.Struct</h1><span style="float:right">(<a href="Data.C.Struct.src.html">source</a>)</span><pre></pre></div><h2>Reexports</h2><code><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Data.List.Quantifiers<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;System.FFI</code><h2>Definitions</h2><dl class="decls"><dt id="Data.C.Struct.IO.getFieldIO"><code><span class="type resolved" title="Data.C.Struct.IO.getFieldIO"><span class="name function">getFieldIO</span></span>&ensp;:&ensp;<span class="type resolved" title="System.FFI.Struct"><span class="name type">Struct</span></span>&ensp;<span class="boundvar">s</span>&ensp;<span class="boundvar">fs</span>&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="boundvar">nm</span>&ensp;:&ensp;<span class="name type">String</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="System.FFI.FieldType"><span class="name type">FieldType</span></span>&ensp;<span class="boundvar">nm</span>&ensp;<span class="boundvar">t</span>&ensp;<span class="boundvar">fs</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="type resolved" title="PrimIO.IO"><span class="name type">IO</span></span>&ensp;<span class="boundvar">t</span></code></dt><dd><pre>  Retrieve the value of the specified field in the given `Struct`.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Data.C.Struct.IO.setFieldIO"><code><span class="type resolved" title="Data.C.Struct.IO.setFieldIO"><span class="name function">setFieldIO</span></span>&ensp;:&ensp;<span class="type resolved" title="System.FFI.Struct"><span class="name type">Struct</span></span>&ensp;<span class="boundvar">s</span>&ensp;<span class="boundvar">fs</span>&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="boundvar">nm</span>&ensp;:&ensp;<span class="name type">String</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="System.FFI.FieldType"><span class="name type">FieldType</span></span>&ensp;<span class="boundvar">nm</span>&ensp;<span class="boundvar">t</span>&ensp;<span class="boundvar">fs</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="boundvar">t</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="PrimIO.IO"><span class="name type">IO</span></span>&ensp;()</code></dt><dd><pre>  Set the value of the specified field in the given `Struct`.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Data.C.Struct.Linear.getField1"><code><span class="type resolved" title="Data.C.Struct.Linear.getField1"><span class="name function">getField1</span></span>&ensp;:&ensp;(<span class="boundvar">r</span>&ensp;:&ensp;<span class="type resolved" title="System.FFI.Struct"><span class="name type">Struct</span></span>&ensp;<span class="boundvar">s</span>&ensp;<span class="boundvar">fs</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="boundvar">nm</span>&ensp;:&ensp;<span class="name type">String</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="System.FFI.FieldType"><span class="name type">FieldType</span></span>&ensp;<span class="boundvar">nm</span>&ensp;<span class="boundvar">t</span>&ensp;<span class="boundvar">fs</span>&ensp;<span class="keyword">=&gt;</span>&ensp;{<span class="keyword">auto</span>&ensp;<span class="keyword">0</span>&ensp;<span class="boundvar">_</span>&ensp;:&ensp;<span class="type resolved" title="Data.Linear.Token.Res"><span class="name type">Res</span></span>&ensp;<span class="boundvar">r</span>&ensp;<span class="boundvar">rs</span>}&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Data.Linear.Token.F1"><span class="name function">F1</span></span>&ensp;<span class="boundvar">rs</span>&ensp;<span class="boundvar">t</span></code></dt><dd><pre>  Retrieve the value of the specified field in the given `Struct`.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Data.C.Struct.Linear.setField1"><code><span class="type resolved" title="Data.C.Struct.Linear.setField1"><span class="name function">setField1</span></span>&ensp;:&ensp;(<span class="boundvar">r</span>&ensp;:&ensp;<span class="type resolved" title="System.FFI.Struct"><span class="name type">Struct</span></span>&ensp;<span class="boundvar">s</span>&ensp;<span class="boundvar">fs</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="boundvar">nm</span>&ensp;:&ensp;<span class="name type">String</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="System.FFI.FieldType"><span class="name type">FieldType</span></span>&ensp;<span class="boundvar">nm</span>&ensp;<span class="boundvar">t</span>&ensp;<span class="boundvar">fs</span>&ensp;<span class="keyword">=&gt;</span>&ensp;{<span class="keyword">auto</span>&ensp;<span class="keyword">0</span>&ensp;<span class="boundvar">_</span>&ensp;:&ensp;<span class="type resolved" title="Data.Linear.Token.Res"><span class="name type">Res</span></span>&ensp;<span class="boundvar">r</span>&ensp;<span class="boundvar">rs</span>}&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">t</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Data.Linear.Token.F1&apos;"><span class="name function">F1&apos;</span></span>&ensp;<span class="boundvar">rs</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd></dl></div><footer>Produced by Idris 2 version 0.7.0-c5f31c9d2</footer></body></html>

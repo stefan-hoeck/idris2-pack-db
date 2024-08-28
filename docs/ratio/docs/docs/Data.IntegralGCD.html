@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Data.IntegralGCD</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Data.IntegralGCD
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Data.IntegralGCD</h1><span style="float:right">(<a href="Data.IntegralGCD.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="Data.IntegralGCD.IntegralGCD"><code><span class="keyword">interface</span>&ensp;<a class="type" href="Data.IntegralGCD.html#Data.IntegralGCD.IntegralGCD"><span class="name type">IntegralGCD</span></a>&ensp;:&ensp;<span class="name type">Type</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd><pre>  An interface for integer types that it is possible to take the GCD<br>  (greatest common denominator) of.<br>  <br>  This interface exists for totality purposes: Euclid&apos;s algorithm is<br>  possible to implement for any type that satisfies `Integral`, but it<br>  is not provably total unless that implementation satisfies some properties.<br>  <br>  Implementing this interface asserts to the compiler that Euclid&apos;s algorithm<br>  is total on this type.</pre><br>  <b>Parameters</b>:&ensp;a<br><b>Constraints</b>:&ensp;Eq&ensp;a,&ensp;Integral&ensp;a<br><b>Methods</b>:<br><dl class="decls">  <dt id="Data.IntegralGCD.gcd"><code><a class="type" href="Data.IntegralGCD.html#Data.IntegralGCD.gcd"><span class="name function">gcd</span></a>&ensp;:&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">a</span></code></dt></dl><br><b>Implementations</b>:<br><dl class="decls">  <dt id="$resolved464"><code><a class="type" href="Data.IntegralGCD.html#Data.IntegralGCD.IntegralGCD"><span class="name type">IntegralGCD</span></a>&ensp;<span class="name type">Integer</span></code></dt>  <dt id="$resolved469"><code><a class="type" href="Data.IntegralGCD.html#Data.IntegralGCD.IntegralGCD"><span class="name type">IntegralGCD</span></a>&ensp;<span class="name type">Int</span></code></dt>  <dt id="$resolved465"><code><a class="type" href="Data.IntegralGCD.html#Data.IntegralGCD.IntegralGCD"><span class="name type">IntegralGCD</span></a>&ensp;<span class="name type">Int8</span></code></dt>  <dt id="$resolved468"><code><a class="type" href="Data.IntegralGCD.html#Data.IntegralGCD.IntegralGCD"><span class="name type">IntegralGCD</span></a>&ensp;<span class="name type">Int16</span></code></dt>  <dt id="$resolved467"><code><a class="type" href="Data.IntegralGCD.html#Data.IntegralGCD.IntegralGCD"><span class="name type">IntegralGCD</span></a>&ensp;<span class="name type">Int32</span></code></dt>  <dt id="$resolved466"><code><a class="type" href="Data.IntegralGCD.html#Data.IntegralGCD.IntegralGCD"><span class="name type">IntegralGCD</span></a>&ensp;<span class="name type">Int64</span></code></dt>  <dt id="$resolved470"><code><a class="type" href="Data.IntegralGCD.html#Data.IntegralGCD.IntegralGCD"><span class="name type">IntegralGCD</span></a>&ensp;<span class="name type">Bits8</span></code></dt>  <dt id="$resolved473"><code><a class="type" href="Data.IntegralGCD.html#Data.IntegralGCD.IntegralGCD"><span class="name type">IntegralGCD</span></a>&ensp;<span class="name type">Bits16</span></code></dt>  <dt id="$resolved472"><code><a class="type" href="Data.IntegralGCD.html#Data.IntegralGCD.IntegralGCD"><span class="name type">IntegralGCD</span></a>&ensp;<span class="name type">Bits32</span></code></dt>  <dt id="$resolved471"><code><a class="type" href="Data.IntegralGCD.html#Data.IntegralGCD.IntegralGCD"><span class="name type">IntegralGCD</span></a>&ensp;<span class="name type">Bits64</span></code></dt></dl></dd><dt id="Data.IntegralGCD.gcd"><code><a class="type" href="Data.IntegralGCD.html#Data.IntegralGCD.gcd"><span class="name function">gcd</span></a>&ensp;:&ensp;<a class="type" href="Data.IntegralGCD.html#Data.IntegralGCD.IntegralGCD"><span class="name type">IntegralGCD</span></a>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">a</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd></dl></div><footer>Produced by Idris 2 version 0.7.0-c5f31c9d2</footer></body></html>

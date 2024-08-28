@@ -1,0 +1,224 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>deptycheck</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="index">
+<header>
+  <strong>Idris2Doc</strong> : deptycheck
+  <nav><a href="index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><h1>Package deptycheck - Namespaces</h1><ul class="names"><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Deriving.DepTyCheck.html">Deriving.DepTyCheck</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Deriving.DepTyCheck.Gen.html">Deriving.DepTyCheck.Gen</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Deriving.DepTyCheck.Gen.Derive.html">Deriving.DepTyCheck.Gen.Derive</a>
+    </div>
+    <div class="index-namespace-doc">
+      Interfaces for using a derivator
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Deriving.DepTyCheck.Gen.Entry.html">Deriving.DepTyCheck.Gen.Entry</a>
+    </div>
+    <div class="index-namespace-doc">
+      Derivation interface for an end-point user
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Deriving.DepTyCheck.Gen.Core.html">Deriving.DepTyCheck.Gen.Core</a>
+    </div>
+    <div class="index-namespace-doc">
+      Main implementation of the derivator core interface
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Deriving.DepTyCheck.Gen.Core.ConsDerive.html">Deriving.DepTyCheck.Gen.Core.ConsDerive</a>
+    </div>
+    <div class="index-namespace-doc">
+      Several tactics for derivation of particular generators for a constructor regarding to how they use externals
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Deriving.DepTyCheck.Gen.Core.ConsEntry.html">Deriving.DepTyCheck.Gen.Core.ConsEntry</a>
+    </div>
+    <div class="index-namespace-doc">
+      Derivation of the outer layer of a constructor-generating function, performing GADT indices check of given arguments.
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Deriving.DepTyCheck.Gen.Core.Util.html">Deriving.DepTyCheck.Gen.Core.Util</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Deriving.DepTyCheck.Gen.Checked.html">Deriving.DepTyCheck.Gen.Checked</a>
+    </div>
+    <div class="index-namespace-doc">
+      A bridge between a single act of derivation and a user derivation task
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Deriving.DepTyCheck.Util.Logging.html">Deriving.DepTyCheck.Util.Logging</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Deriving.DepTyCheck.Util.Reflection.html">Deriving.DepTyCheck.Util.Reflection</a>
+    </div>
+    <div class="index-namespace-doc">
+      `Language.Reflection`-related utilities
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Language.Reflection.Compat.html">Language.Reflection.Compat</a>
+    </div>
+    <div class="index-namespace-doc">
+      This module contains copies of the pre-overhaul definitions of the `elab-util` library and/or code derived from these copies
+(the overhaul is this one: https://github.com/stefan-hoeck/idris2-elab-util/pull/56).
+This is done due to be able to migrate to the newer `elab-util` slowly, using both old and new definitions.
+
+This copying is done with the permission of Stefan Höck, the author and copyright holder of the `elab-util` library.
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Test.DepTyCheck.Gen.html">Test.DepTyCheck.Gen</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Test.DepTyCheck.Gen.Coverage.html">Test.DepTyCheck.Gen.Coverage</a>
+    </div>
+    <div class="index-namespace-doc">
+      Definitions and functions for working with model coverage of a bunch of generated values.
+
+Model coverage means a coverage in terms of the original data structure that is being generated,
+e.g. involved types and their constructors.
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Test.DepTyCheck.Gen.Emptiness.html">Test.DepTyCheck.Gen.Emptiness</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Test.DepTyCheck.Gen.Labels.html">Test.DepTyCheck.Gen.Labels</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li></ul></div><footer>Produced by Idris 2 version 0.7.0-c5f31c9d2</footer></body></html>

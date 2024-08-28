@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Text.Show.PrettyVal</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Text.Show.PrettyVal
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Text.Show.PrettyVal</h1><span style="float:right">(<a href="Text.Show.PrettyVal.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="Text.Show.PrettyVal.PrettyVal"><code><span class="keyword">interface</span>&ensp;<a class="type" href="Text.Show.PrettyVal.html#Text.Show.PrettyVal.PrettyVal"><span class="name type">PrettyVal</span></a>&ensp;:&ensp;<span class="name type">Type</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd><pre>  A class for types that may be reified into a value.<br>  Instances of this class may be derived automatically,<br>  for datatypes that support `Generics`.</pre><br>  <b>Parameters</b>:&ensp;a<br><b>Constructor</b>:&ensp;<dl class="decls"><dt id="Text.Show.PrettyVal.MkPrettyVal"><code><a class="type" href="Text.Show.PrettyVal.html#Text.Show.PrettyVal.MkPrettyVal"><span class="name constructor">MkPrettyVal</span></a></code></dt></dl><br><b>Methods</b>:<br><dl class="decls">  <dt id="Text.Show.PrettyVal.prettyVal"><code><a class="type" href="Text.Show.PrettyVal.html#Text.Show.PrettyVal.prettyVal"><span class="name function">prettyVal</span></a>&ensp;:&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Text.Show.Value.Value"><span class="name type">Value</span></span></code></dt></dl><br><b>Implementations</b>:<br><dl class="decls">  <dt id="$resolved7273"><code><a class="type" href="Text.Show.PrettyVal.html#Text.Show.PrettyVal.PrettyVal"><span class="name type">PrettyVal</span></a>&ensp;<span class="type resolved" title="Builtin.Void"><span class="name type">Void</span></span></code></dt>  <dt id="$resolved7274"><code><a class="type" href="Text.Show.PrettyVal.html#Text.Show.PrettyVal.PrettyVal"><span class="name type">PrettyVal</span></a>&ensp;<span class="type resolved" title="Text.Show.Value.Value"><span class="name type">Value</span></span></code></dt>  <dt id="$resolved7289"><code><a class="type" href="Text.Show.PrettyVal.html#Text.Show.PrettyVal.PrettyVal"><span class="name type">PrettyVal</span></a>&ensp;()</code></dt>  <dt id="$resolved7285"><code><a class="type" href="Text.Show.PrettyVal.html#Text.Show.PrettyVal.PrettyVal"><span class="name type">PrettyVal</span></a>&ensp;<span class="name type">Bits8</span></code></dt>  <dt id="$resolved7288"><code><a class="type" href="Text.Show.PrettyVal.html#Text.Show.PrettyVal.PrettyVal"><span class="name type">PrettyVal</span></a>&ensp;<span class="name type">Bits16</span></code></dt>  <dt id="$resolved7287"><code><a class="type" href="Text.Show.PrettyVal.html#Text.Show.PrettyVal.PrettyVal"><span class="name type">PrettyVal</span></a>&ensp;<span class="name type">Bits32</span></code></dt>  <dt id="$resolved7286"><code><a class="type" href="Text.Show.PrettyVal.html#Text.Show.PrettyVal.PrettyVal"><span class="name type">PrettyVal</span></a>&ensp;<span class="name type">Bits64</span></code></dt>  <dt id="$resolved7276"><code><a class="type" href="Text.Show.PrettyVal.html#Text.Show.PrettyVal.PrettyVal"><span class="name type">PrettyVal</span></a>&ensp;<span class="type resolved" title="Prelude.Types.Nat"><span class="name type">Nat</span></span></code></dt>  <dt id="$resolved7282"><code><a class="type" href="Text.Show.PrettyVal.html#Text.Show.PrettyVal.PrettyVal"><span class="name type">PrettyVal</span></a>&ensp;<span class="name type">Int</span></code></dt>  <dt id="$resolved7278"><code><a class="type" href="Text.Show.PrettyVal.html#Text.Show.PrettyVal.PrettyVal"><span class="name type">PrettyVal</span></a>&ensp;<span class="name type">Int8</span></code></dt>  <dt id="$resolved7281"><code><a class="type" href="Text.Show.PrettyVal.html#Text.Show.PrettyVal.PrettyVal"><span class="name type">PrettyVal</span></a>&ensp;<span class="name type">Int16</span></code></dt>  <dt id="$resolved7280"><code><a class="type" href="Text.Show.PrettyVal.html#Text.Show.PrettyVal.PrettyVal"><span class="name type">PrettyVal</span></a>&ensp;<span class="name type">Int32</span></code></dt>  <dt id="$resolved7279"><code><a class="type" href="Text.Show.PrettyVal.html#Text.Show.PrettyVal.PrettyVal"><span class="name type">PrettyVal</span></a>&ensp;<span class="name type">Int64</span></code></dt>  <dt id="$resolved7277"><code><a class="type" href="Text.Show.PrettyVal.html#Text.Show.PrettyVal.PrettyVal"><span class="name type">PrettyVal</span></a>&ensp;<span class="name type">Integer</span></code></dt>  <dt id="$resolved7283"><code><a class="type" href="Text.Show.PrettyVal.html#Text.Show.PrettyVal.PrettyVal"><span class="name type">PrettyVal</span></a>&ensp;<span class="name type">Double</span></code></dt>  <dt id="$resolved7284"><code><a class="type" href="Text.Show.PrettyVal.html#Text.Show.PrettyVal.PrettyVal"><span class="name type">PrettyVal</span></a>&ensp;<span class="name type">Char</span></code></dt>  <dt id="$resolved7275"><code><a class="type" href="Text.Show.PrettyVal.html#Text.Show.PrettyVal.PrettyVal"><span class="name type">PrettyVal</span></a>&ensp;<span class="name type">String</span></code></dt>  <dt id="$resolved7291"><code><a class="type" href="Text.Show.PrettyVal.html#Text.Show.PrettyVal.PrettyVal"><span class="name type">PrettyVal</span></a>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<a class="type" href="Text.Show.PrettyVal.html#Text.Show.PrettyVal.PrettyVal"><span class="name type">PrettyVal</span></a>&ensp;(<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;<span class="boundvar">a</span>)</code></dt>  <dt id="$resolved7292"><code><a class="type" href="Text.Show.PrettyVal.html#Text.Show.PrettyVal.PrettyVal"><span class="name type">PrettyVal</span></a>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<a class="type" href="Text.Show.PrettyVal.html#Text.Show.PrettyVal.PrettyVal"><span class="name type">PrettyVal</span></a>&ensp;(<span class="type resolved" title="Data.Vect.Vect"><span class="name type">Vect</span></span>&ensp;<span class="boundvar">n</span>&ensp;<span class="boundvar">a</span>)</code></dt>  <dt id="$resolved7290"><code>(<a class="type" href="Text.Show.PrettyVal.html#Text.Show.PrettyVal.PrettyVal"><span class="name type">PrettyVal</span></a>&ensp;<span class="boundvar">a</span>,&ensp;<a class="type" href="Text.Show.PrettyVal.html#Text.Show.PrettyVal.PrettyVal"><span class="name type">PrettyVal</span></a>&ensp;<span class="boundvar">b</span>)&ensp;<span class="keyword">=&gt;</span>&ensp;<a class="type" href="Text.Show.PrettyVal.html#Text.Show.PrettyVal.PrettyVal"><span class="name type">PrettyVal</span></a>&ensp;(<span class="boundvar">a</span>,&ensp;<span class="boundvar">b</span>)</code></dt>  <dt id="$resolved7031"><code><a class="type" href="Text.Show.PrettyVal.html#Text.Show.PrettyVal.PrettyVal"><span class="name type">PrettyVal</span></a>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<a class="type" href="Text.Show.PrettyVal.html#Text.Show.PrettyVal.PrettyVal"><span class="name type">PrettyVal</span></a>&ensp;(<a class="type" href="Text.Show.Pretty.html#Text.Show.Pretty.PreProc"><span class="name type">PreProc</span></a>&ensp;<span class="boundvar">a</span>)</code></dt></dl></dd><dt id="Text.Show.PrettyVal.prettyVal"><code><a class="type" href="Text.Show.PrettyVal.html#Text.Show.PrettyVal.prettyVal"><span class="name function">prettyVal</span></a>&ensp;:&ensp;<a class="type" href="Text.Show.PrettyVal.html#Text.Show.PrettyVal.PrettyVal"><span class="name type">PrettyVal</span></a>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Text.Show.Value.Value"><span class="name type">Value</span></span></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd></dl></div><footer>Produced by Idris 2 version 0.7.0-c5f31c9d2</footer></body></html>

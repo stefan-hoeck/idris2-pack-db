@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Profile.Statistics</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Profile.Statistics
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Profile.Statistics</h1><span style="float:right">(<a href="Profile.Statistics.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="Profile.Statistics.mean"><code><a class="type" href="Profile.Statistics.html#Profile.Statistics.mean"><span class="name function">mean</span></a>&ensp;:&ensp;<span class="type resolved" title="Data.Vect.Vect"><span class="name type">Vect</span></span>&ensp;(<span class="type resolved" title="Prelude.Types.S"><span class="name constructor">S</span></span>&ensp;<span class="boundvar">n</span>)&ensp;(<a class="type" href="Profile.Types.html#Profile.Types.Scalar"><span class="name type">Scalar</span></a>&ensp;<span class="boundvar">u</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Profile.Types.html#Profile.Types.Scalar"><span class="name type">Scalar</span></a>&ensp;<span class="boundvar">u</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Profile.Statistics.Stats"><code><span class="keyword">record</span>&ensp;<a class="type" href="Profile.Statistics.html#Profile.Statistics.Stats"><span class="name type">Stats</span></a>&ensp;:&ensp;<span class="name type">Type</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span><br>  <b>Constructor</b>:&ensp;<dl class="decls"><dt id="Profile.Statistics.MkStats"><code><a class="type" href="Profile.Statistics.html#Profile.Statistics.MkStats"><span class="name constructor">MkStats</span></a>&ensp;:&ensp;<a class="type" href="Profile.Types.html#Profile.Types.AttoSecondsPerRun"><span class="name function">AttoSecondsPerRun</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Profile.Types.html#Profile.Types.AttoSecondsPerRun"><span class="name function">AttoSecondsPerRun</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Double</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Profile.Statistics.html#Profile.Statistics.Stats"><span class="name type">Stats</span></a></code></dt></dl><br>  <b>Projections</b>:<br><dl class="decls">  <dt id="Profile.Statistics.Stats.(.mean)"><code><span class="type resolved" title="Profile.Statistics.Stats.(.mean)"><span class="name function">.mean</span></span>&ensp;:&ensp;<a class="type" href="Profile.Statistics.html#Profile.Statistics.Stats"><span class="name type">Stats</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Profile.Types.html#Profile.Types.AttoSecondsPerRun"><span class="name function">AttoSecondsPerRun</span></a></code></dt>  <dt id="Profile.Statistics.Stats.(.r2)"><code><span class="type resolved" title="Profile.Statistics.Stats.(.r2)"><span class="name function">.r2</span></span>&ensp;:&ensp;<a class="type" href="Profile.Statistics.html#Profile.Statistics.Stats"><span class="name type">Stats</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Double</span></code></dt>  <dt id="Profile.Statistics.Stats.(.slope)"><code><span class="type resolved" title="Profile.Statistics.Stats.(.slope)"><span class="name function">.slope</span></span>&ensp;:&ensp;<a class="type" href="Profile.Statistics.html#Profile.Statistics.Stats"><span class="name type">Stats</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Profile.Types.html#Profile.Types.AttoSecondsPerRun"><span class="name function">AttoSecondsPerRun</span></a></code></dt></dl></dd><dt id="Profile.Statistics.Stats.(.slope)"><code><span class="type resolved" title="Profile.Statistics.Stats.(.slope)"><span class="name function">.slope</span></span>&ensp;:&ensp;<a class="type" href="Profile.Statistics.html#Profile.Statistics.Stats"><span class="name type">Stats</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Profile.Types.html#Profile.Types.AttoSecondsPerRun"><span class="name function">AttoSecondsPerRun</span></a></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Profile.Statistics.Stats.slope"><code><span class="type resolved" title="Profile.Statistics.Stats.slope"><span class="name function">slope</span></span>&ensp;:&ensp;<a class="type" href="Profile.Statistics.html#Profile.Statistics.Stats"><span class="name type">Stats</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Profile.Types.html#Profile.Types.AttoSecondsPerRun"><span class="name function">AttoSecondsPerRun</span></a></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Profile.Statistics.Stats.(.mean)"><code><span class="type resolved" title="Profile.Statistics.Stats.(.mean)"><span class="name function">.mean</span></span>&ensp;:&ensp;<a class="type" href="Profile.Statistics.html#Profile.Statistics.Stats"><span class="name type">Stats</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Profile.Types.html#Profile.Types.AttoSecondsPerRun"><span class="name function">AttoSecondsPerRun</span></a></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Profile.Statistics.Stats.mean"><code><span class="type resolved" title="Profile.Statistics.Stats.mean"><span class="name function">mean</span></span>&ensp;:&ensp;<a class="type" href="Profile.Statistics.html#Profile.Statistics.Stats"><span class="name type">Stats</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Profile.Types.html#Profile.Types.AttoSecondsPerRun"><span class="name function">AttoSecondsPerRun</span></a></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Profile.Statistics.Stats.(.r2)"><code><span class="type resolved" title="Profile.Statistics.Stats.(.r2)"><span class="name function">.r2</span></span>&ensp;:&ensp;<a class="type" href="Profile.Statistics.html#Profile.Statistics.Stats"><span class="name type">Stats</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Double</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Profile.Statistics.Stats.r2"><code><span class="type resolved" title="Profile.Statistics.Stats.r2"><span class="name function">r2</span></span>&ensp;:&ensp;<a class="type" href="Profile.Statistics.html#Profile.Statistics.Stats"><span class="name type">Stats</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Double</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Profile.Statistics.regr"><code><a class="type" href="Profile.Statistics.html#Profile.Statistics.regr"><span class="name function">regr</span></a>&ensp;:&ensp;<span class="type resolved" title="Data.Vect.Vect"><span class="name type">Vect</span></span>&ensp;(<span class="type resolved" title="Prelude.Types.S"><span class="name constructor">S</span></span>&ensp;<span class="boundvar">n</span>)&ensp;<a class="type" href="Profile.Types.html#Profile.Types.Measured"><span class="name type">Measured</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Profile.Statistics.html#Profile.Statistics.Stats"><span class="name type">Stats</span></a></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd></dl></div><footer>Produced by Idris 2 version 0.7.0-c5f31c9d2</footer></body></html>
