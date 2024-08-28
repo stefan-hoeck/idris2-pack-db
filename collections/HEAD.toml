@@ -974,6 +974,12 @@ url = "https://git.sr.ht/~janus/racket-tcp"
 commit = "master"
 ipkg = "racket-tcp.ipkg"
 
+[db.rtlsdr]
+type = "github"
+url = "https://github.com/victoredwardocallaghan/idris2-rtlsdr"
+commit = "master"
+ipkg = "rtlsdr.ipkg"
+
 [db.web-server-racket]
 type = "github"
 url = "https://git.sr.ht/~janus/web-server-racket"

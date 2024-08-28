@@ -8,7 +8,9 @@ for Idris2.
 
 In order to add your own package, make sure it builds with HEAD
 of the main branch of the Idris2 project and submit a PR with
-the package's description added to `collections/HEAD.toml`.
+the package's description added to `collections/HEAD.toml` and
+make sure the necessary libraries are installed by adjusting
+all three workflows under .github/workflows.
 
 If it builds with Idris without failure, it will be included
 in the next nightly release of the package collection. Nightly releases
