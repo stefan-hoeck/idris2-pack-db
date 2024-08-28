@@ -106,3 +106,37 @@ jobs:
           branch: ${{ github.ref }}
       - name: Fail if missing
         run: test -f "$HOME/output/testdb.toml"
+
+  upload_docs:
+    name: Upload generated API docs
+    runs-on: ubuntu-latest
+    needs:
+      - check_db
+    steps:
+      - name: Checkout pack-db
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+          ref: 'docs'
+      - name: Get generated files
+        uses: actions/download-artifact@master
+        with:
+          name: freshly-generated-status
+          path: ~/output/
+      - name: Add files
+        run: |
+          cp -a ~/output/docs/* docs
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add docs
+      - name: Git commit
+        run: git commit -m "[ docs ] CI docs generation" -m "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+      - name: Push changes
+        if: always()
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: 'docs'
+      - name: Fail if missing
+        run: test -f "$HOME/output/testdb.toml"
