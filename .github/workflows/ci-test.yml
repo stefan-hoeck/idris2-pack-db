@@ -110,10 +110,10 @@ jobs:
     steps:
       - name: Checkout pack-db
         uses: actions/checkout@v4
-        ref: 'docs'
         with:
           persist-credentials: false
           fetch-depth: 0
+          ref: 'docs'
       - name: Get generated files
         uses: actions/download-artifact@master
         with:
