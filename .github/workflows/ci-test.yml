@@ -60,7 +60,7 @@ jobs:
       - name: Re-Install pack-admin
         run: pack --no-prompt install-app pack-admin
       - name: Check Collection
-        run: pack-admin --no-prompt check-collection "$HOME/output/"
+        run: pack-admin --no-prompt --skip-tests --with-docs --use-katla check-collection "$HOME/output/"
       - name: Save generated files
         uses: actions/upload-artifact@master
         with:
@@ -92,13 +92,17 @@ jobs:
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add .test/*
-      - name: Git commit
-        run: git commit -m "[ test ] CI test" -m "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
-      - name: Push changes
+          git commit -m "[ test ] CI test" -m "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+          git push origin main
+      - name: Update docs
         if: always()
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
+        run: |
+          git checkout docs
+          cp -a ~/output/docs/* docs
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add docs
+          git commit -m "[ test ] CI test" -m "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+          git push origin docs
       - name: Fail if missing
         run: test -f "$HOME/output/testdb.toml"
