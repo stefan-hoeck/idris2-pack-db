@@ -121,7 +121,7 @@
 <div id="line0"><a href="#line0" class="IdrisLineNumber"> &nbsp;0 | </a><span class="IdrisKeyword">module</span>&nbsp;<span class="IdrisModule">System.Linux.Process</span></div>
 <div id="line1"><a href="#line1" class="IdrisLineNumber"> &nbsp;1 | </a></div>
 <div id="line2"><a href="#line2" class="IdrisLineNumber"> &nbsp;2 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">Data.C.Integer</span></div>
-<div id="line3"><a href="#line3" class="IdrisLineNumber"> &nbsp;3 | </a></div>
+<div id="line3"><a href="#line3" class="IdrisLineNumber"> &nbsp;3 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">System.Linux.Error</span></div>
 <div id="line4"><a href="#line4" class="IdrisLineNumber"> &nbsp;4 | </a></div>
 <div id="line5"><a href="#line5" class="IdrisLineNumber"> &nbsp;5 | </a><span class="IdrisKeyword">%default</span>&nbsp;<span class="IdrisKeyword">total</span></div>
 <div id="line6"><a href="#line6" class="IdrisLineNumber"> &nbsp;6 | </a></div>
@@ -135,20 +135,84 @@
 <div id="line14"><a href="#line14" class="IdrisLineNumber"> 14 | </a><span class="IdrisKeyword">%foreign</span>&nbsp;<span class="IdrisData">&quot;C:getppid,&nbsp;linux-idris&quot;</span></div>
 <div id="line15"><a href="#line15" class="IdrisLineNumber"> 15 | </a><span class="IdrisFunction">prim__getppid</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisFunction">PrimIO</span>&nbsp;<span class="IdrisFunction">PidT</span></div>
 <div id="line16"><a href="#line16" class="IdrisLineNumber"> 16 | </a></div>
-<div id="line17"><a href="#line17" class="IdrisLineNumber"> 17 | </a><span class="IdrisComment">--------------------------------------------------------------------------------</span></div>
-<div id="line18"><a href="#line18" class="IdrisLineNumber"> 18 | </a><span class="IdrisComment">--&nbsp;API</span></div>
-<div id="line19"><a href="#line19" class="IdrisLineNumber"> 19 | </a><span class="IdrisComment">--------------------------------------------------------------------------------</span></div>
-<div id="line20"><a href="#line20" class="IdrisLineNumber"> 20 | </a></div>
-<div id="line21"><a href="#line21" class="IdrisLineNumber"> 21 | </a><span class="IdrisComment">|||&nbsp;Returns&nbsp;the&nbsp;process&nbsp;ID&nbsp;of&nbsp;the&nbsp;current&nbsp;process</span></div>
-<div id="line22"><a href="#line22" class="IdrisLineNumber"> 22 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
-<div id="line23"><a href="#line23" class="IdrisLineNumber"> 23 | </a><span class="IdrisFunction">getpid</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HasIO</span>&nbsp;<span class="IdrisBound">io</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisBound">io</span>&nbsp;<span class="IdrisFunction">PidT</span></div>
-<div id="line24"><a href="#line24" class="IdrisLineNumber"> 24 | </a><span class="IdrisFunction">getpid</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">primIO</span>&nbsp;<span class="IdrisFunction">prim__getpid</span></div>
+<div id="line17"><a href="#line17" class="IdrisLineNumber"> 17 | </a><span class="IdrisKeyword">%foreign</span>&nbsp;<span class="IdrisData">&quot;C:getuid,&nbsp;linux-idris&quot;</span></div>
+<div id="line18"><a href="#line18" class="IdrisLineNumber"> 18 | </a><span class="IdrisFunction">prim__getuid</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisFunction">PrimIO</span>&nbsp;<span class="IdrisFunction">UidT</span></div>
+<div id="line19"><a href="#line19" class="IdrisLineNumber"> 19 | </a></div>
+<div id="line20"><a href="#line20" class="IdrisLineNumber"> 20 | </a><span class="IdrisKeyword">%foreign</span>&nbsp;<span class="IdrisData">&quot;C:geteuid,&nbsp;linux-idris&quot;</span></div>
+<div id="line21"><a href="#line21" class="IdrisLineNumber"> 21 | </a><span class="IdrisFunction">prim__geteuid</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisFunction">PrimIO</span>&nbsp;<span class="IdrisFunction">UidT</span></div>
+<div id="line22"><a href="#line22" class="IdrisLineNumber"> 22 | </a></div>
+<div id="line23"><a href="#line23" class="IdrisLineNumber"> 23 | </a><span class="IdrisKeyword">%foreign</span>&nbsp;<span class="IdrisData">&quot;C:getgid,&nbsp;linux-idris&quot;</span></div>
+<div id="line24"><a href="#line24" class="IdrisLineNumber"> 24 | </a><span class="IdrisFunction">prim__getgid</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisFunction">PrimIO</span>&nbsp;<span class="IdrisFunction">GidT</span></div>
 <div id="line25"><a href="#line25" class="IdrisLineNumber"> 25 | </a></div>
-<div id="line26"><a href="#line26" class="IdrisLineNumber"> 26 | </a><span class="IdrisComment">|||&nbsp;Returns&nbsp;the&nbsp;process&nbsp;ID&nbsp;of&nbsp;the&nbsp;current&nbsp;process&apos;&nbsp;parent&nbsp;process</span></div>
-<div id="line27"><a href="#line27" class="IdrisLineNumber"> 27 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
-<div id="line28"><a href="#line28" class="IdrisLineNumber"> 28 | </a><span class="IdrisFunction">getppid</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HasIO</span>&nbsp;<span class="IdrisBound">io</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisBound">io</span>&nbsp;<span class="IdrisFunction">PidT</span></div>
-<div id="line29"><a href="#line29" class="IdrisLineNumber"> 29 | </a><span class="IdrisFunction">getppid</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">primIO</span>&nbsp;<span class="IdrisFunction">prim__getppid</span></div>
-<div id="line30"><a href="#line30" class="IdrisLineNumber"> 30 | </a></div>
+<div id="line26"><a href="#line26" class="IdrisLineNumber"> 26 | </a><span class="IdrisKeyword">%foreign</span>&nbsp;<span class="IdrisData">&quot;C:getegid,&nbsp;linux-idris&quot;</span></div>
+<div id="line27"><a href="#line27" class="IdrisLineNumber"> 27 | </a><span class="IdrisFunction">prim__getegid</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisFunction">PrimIO</span>&nbsp;<span class="IdrisFunction">GidT</span></div>
+<div id="line28"><a href="#line28" class="IdrisLineNumber"> 28 | </a></div>
+<div id="line29"><a href="#line29" class="IdrisLineNumber"> 29 | </a><span class="IdrisKeyword">%foreign</span>&nbsp;<span class="IdrisData">&quot;C:li_setuid,&nbsp;linux-idris&quot;</span></div>
+<div id="line30"><a href="#line30" class="IdrisLineNumber"> 30 | </a><span class="IdrisFunction">prim__setuid</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisFunction">UidT</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisFunction">PrimIO</span>&nbsp;<span class="IdrisFunction">CInt</span></div>
+<div id="line31"><a href="#line31" class="IdrisLineNumber"> 31 | </a></div>
+<div id="line32"><a href="#line32" class="IdrisLineNumber"> 32 | </a><span class="IdrisKeyword">%foreign</span>&nbsp;<span class="IdrisData">&quot;C:li_seteuid,&nbsp;linux-idris&quot;</span></div>
+<div id="line33"><a href="#line33" class="IdrisLineNumber"> 33 | </a><span class="IdrisFunction">prim__seteuid</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisFunction">UidT</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisFunction">PrimIO</span>&nbsp;<span class="IdrisFunction">CInt</span></div>
+<div id="line34"><a href="#line34" class="IdrisLineNumber"> 34 | </a></div>
+<div id="line35"><a href="#line35" class="IdrisLineNumber"> 35 | </a><span class="IdrisKeyword">%foreign</span>&nbsp;<span class="IdrisData">&quot;C:li_setgid,&nbsp;linux-idris&quot;</span></div>
+<div id="line36"><a href="#line36" class="IdrisLineNumber"> 36 | </a><span class="IdrisFunction">prim__setgid</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisFunction">GidT</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisFunction">PrimIO</span>&nbsp;<span class="IdrisFunction">CInt</span></div>
+<div id="line37"><a href="#line37" class="IdrisLineNumber"> 37 | </a></div>
+<div id="line38"><a href="#line38" class="IdrisLineNumber"> 38 | </a><span class="IdrisKeyword">%foreign</span>&nbsp;<span class="IdrisData">&quot;C:li_setegid,&nbsp;linux-idris&quot;</span></div>
+<div id="line39"><a href="#line39" class="IdrisLineNumber"> 39 | </a><span class="IdrisFunction">prim__setegid</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisFunction">GidT</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisFunction">PrimIO</span>&nbsp;<span class="IdrisFunction">CInt</span></div>
+<div id="line40"><a href="#line40" class="IdrisLineNumber"> 40 | </a></div>
+<div id="line41"><a href="#line41" class="IdrisLineNumber"> 41 | </a><span class="IdrisComment">--------------------------------------------------------------------------------</span></div>
+<div id="line42"><a href="#line42" class="IdrisLineNumber"> 42 | </a><span class="IdrisComment">--&nbsp;API</span></div>
+<div id="line43"><a href="#line43" class="IdrisLineNumber"> 43 | </a><span class="IdrisComment">--------------------------------------------------------------------------------</span></div>
+<div id="line44"><a href="#line44" class="IdrisLineNumber"> 44 | </a></div>
+<div id="line45"><a href="#line45" class="IdrisLineNumber"> 45 | </a><span class="IdrisComment">|||&nbsp;Returns&nbsp;the&nbsp;process&nbsp;ID&nbsp;of&nbsp;the&nbsp;current&nbsp;process</span></div>
+<div id="line46"><a href="#line46" class="IdrisLineNumber"> 46 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
+<div id="line47"><a href="#line47" class="IdrisLineNumber"> 47 | </a><span class="IdrisFunction">getpid</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HasIO</span>&nbsp;<span class="IdrisBound">io</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisBound">io</span>&nbsp;<span class="IdrisFunction">PidT</span></div>
+<div id="line48"><a href="#line48" class="IdrisLineNumber"> 48 | </a><span class="IdrisFunction">getpid</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">primIO</span>&nbsp;<span class="IdrisFunction">prim__getpid</span></div>
+<div id="line49"><a href="#line49" class="IdrisLineNumber"> 49 | </a></div>
+<div id="line50"><a href="#line50" class="IdrisLineNumber"> 50 | </a><span class="IdrisComment">|||&nbsp;Returns&nbsp;the&nbsp;process&nbsp;ID&nbsp;of&nbsp;the&nbsp;current&nbsp;process&apos;&nbsp;parent&nbsp;process</span></div>
+<div id="line51"><a href="#line51" class="IdrisLineNumber"> 51 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
+<div id="line52"><a href="#line52" class="IdrisLineNumber"> 52 | </a><span class="IdrisFunction">getppid</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HasIO</span>&nbsp;<span class="IdrisBound">io</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisBound">io</span>&nbsp;<span class="IdrisFunction">PidT</span></div>
+<div id="line53"><a href="#line53" class="IdrisLineNumber"> 53 | </a><span class="IdrisFunction">getppid</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">primIO</span>&nbsp;<span class="IdrisFunction">prim__getppid</span></div>
+<div id="line54"><a href="#line54" class="IdrisLineNumber"> 54 | </a></div>
+<div id="line55"><a href="#line55" class="IdrisLineNumber"> 55 | </a><span class="IdrisComment">|||&nbsp;Returns&nbsp;the&nbsp;real&nbsp;user&nbsp;ID&nbsp;of&nbsp;the&nbsp;current&nbsp;process</span></div>
+<div id="line56"><a href="#line56" class="IdrisLineNumber"> 56 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
+<div id="line57"><a href="#line57" class="IdrisLineNumber"> 57 | </a><span class="IdrisFunction">getuid</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HasIO</span>&nbsp;<span class="IdrisBound">io</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisBound">io</span>&nbsp;<span class="IdrisFunction">UidT</span></div>
+<div id="line58"><a href="#line58" class="IdrisLineNumber"> 58 | </a><span class="IdrisFunction">getuid</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">primIO</span>&nbsp;<span class="IdrisFunction">prim__getuid</span></div>
+<div id="line59"><a href="#line59" class="IdrisLineNumber"> 59 | </a></div>
+<div id="line60"><a href="#line60" class="IdrisLineNumber"> 60 | </a><span class="IdrisComment">|||&nbsp;Returns&nbsp;the&nbsp;effective&nbsp;user&nbsp;ID&nbsp;of&nbsp;the&nbsp;current&nbsp;process</span></div>
+<div id="line61"><a href="#line61" class="IdrisLineNumber"> 61 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
+<div id="line62"><a href="#line62" class="IdrisLineNumber"> 62 | </a><span class="IdrisFunction">geteuid</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HasIO</span>&nbsp;<span class="IdrisBound">io</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisBound">io</span>&nbsp;<span class="IdrisFunction">UidT</span></div>
+<div id="line63"><a href="#line63" class="IdrisLineNumber"> 63 | </a><span class="IdrisFunction">geteuid</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">primIO</span>&nbsp;<span class="IdrisFunction">prim__geteuid</span></div>
+<div id="line64"><a href="#line64" class="IdrisLineNumber"> 64 | </a></div>
+<div id="line65"><a href="#line65" class="IdrisLineNumber"> 65 | </a><span class="IdrisComment">|||&nbsp;Returns&nbsp;the&nbsp;real&nbsp;group&nbsp;ID&nbsp;of&nbsp;the&nbsp;current&nbsp;process</span></div>
+<div id="line66"><a href="#line66" class="IdrisLineNumber"> 66 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
+<div id="line67"><a href="#line67" class="IdrisLineNumber"> 67 | </a><span class="IdrisFunction">getgid</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HasIO</span>&nbsp;<span class="IdrisBound">io</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisBound">io</span>&nbsp;<span class="IdrisFunction">GidT</span></div>
+<div id="line68"><a href="#line68" class="IdrisLineNumber"> 68 | </a><span class="IdrisFunction">getgid</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">primIO</span>&nbsp;<span class="IdrisFunction">prim__getgid</span></div>
+<div id="line69"><a href="#line69" class="IdrisLineNumber"> 69 | </a></div>
+<div id="line70"><a href="#line70" class="IdrisLineNumber"> 70 | </a><span class="IdrisComment">|||&nbsp;Returns&nbsp;the&nbsp;effective&nbsp;group&nbsp;ID&nbsp;of&nbsp;the&nbsp;current&nbsp;process</span></div>
+<div id="line71"><a href="#line71" class="IdrisLineNumber"> 71 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
+<div id="line72"><a href="#line72" class="IdrisLineNumber"> 72 | </a><span class="IdrisFunction">getegid</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HasIO</span>&nbsp;<span class="IdrisBound">io</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisBound">io</span>&nbsp;<span class="IdrisFunction">GidT</span></div>
+<div id="line73"><a href="#line73" class="IdrisLineNumber"> 73 | </a><span class="IdrisFunction">getegid</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">primIO</span>&nbsp;<span class="IdrisFunction">prim__getegid</span></div>
+<div id="line74"><a href="#line74" class="IdrisLineNumber"> 74 | </a></div>
+<div id="line75"><a href="#line75" class="IdrisLineNumber"> 75 | </a><span class="IdrisComment">|||&nbsp;Tries&nbsp;to&nbsp;set&nbsp;the&nbsp;real&nbsp;user&nbsp;ID&nbsp;of&nbsp;the&nbsp;current&nbsp;process</span></div>
+<div id="line76"><a href="#line76" class="IdrisLineNumber"> 76 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
+<div id="line77"><a href="#line77" class="IdrisLineNumber"> 77 | </a><span class="IdrisFunction">setuid</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisFunction">UidT</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">IO</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisType">Either</span>&nbsp;<span class="IdrisType">Error</span>&nbsp;<span class="IdrisType">()</span><span class="IdrisKeyword">)</span></div>
+<div id="line78"><a href="#line78" class="IdrisLineNumber"> 78 | </a><span class="IdrisFunction">setuid</span>&nbsp;<span class="IdrisBound">uid</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">toUnit</span>&nbsp;<span class="IdrisFunction">id</span>&nbsp;$&nbsp;<span class="IdrisFunction">prim__setuid</span>&nbsp;<span class="IdrisBound">uid</span></div>
+<div id="line79"><a href="#line79" class="IdrisLineNumber"> 79 | </a></div>
+<div id="line80"><a href="#line80" class="IdrisLineNumber"> 80 | </a><span class="IdrisComment">|||&nbsp;Tries&nbsp;to&nbsp;set&nbsp;the&nbsp;effective&nbsp;user&nbsp;ID&nbsp;of&nbsp;the&nbsp;current&nbsp;process</span></div>
+<div id="line81"><a href="#line81" class="IdrisLineNumber"> 81 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
+<div id="line82"><a href="#line82" class="IdrisLineNumber"> 82 | </a><span class="IdrisFunction">seteuid</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisFunction">UidT</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">IO</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisType">Either</span>&nbsp;<span class="IdrisType">Error</span>&nbsp;<span class="IdrisType">()</span><span class="IdrisKeyword">)</span></div>
+<div id="line83"><a href="#line83" class="IdrisLineNumber"> 83 | </a><span class="IdrisFunction">seteuid</span>&nbsp;<span class="IdrisBound">uid</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">toUnit</span>&nbsp;<span class="IdrisFunction">id</span>&nbsp;$&nbsp;<span class="IdrisFunction">prim__seteuid</span>&nbsp;<span class="IdrisBound">uid</span></div>
+<div id="line84"><a href="#line84" class="IdrisLineNumber"> 84 | </a></div>
+<div id="line85"><a href="#line85" class="IdrisLineNumber"> 85 | </a><span class="IdrisComment">|||&nbsp;Tries&nbsp;to&nbsp;set&nbsp;the&nbsp;real&nbsp;group&nbsp;ID&nbsp;of&nbsp;the&nbsp;current&nbsp;process</span></div>
+<div id="line86"><a href="#line86" class="IdrisLineNumber"> 86 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
+<div id="line87"><a href="#line87" class="IdrisLineNumber"> 87 | </a><span class="IdrisFunction">setgid</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisFunction">GidT</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">IO</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisType">Either</span>&nbsp;<span class="IdrisType">Error</span>&nbsp;<span class="IdrisType">()</span><span class="IdrisKeyword">)</span></div>
+<div id="line88"><a href="#line88" class="IdrisLineNumber"> 88 | </a><span class="IdrisFunction">setgid</span>&nbsp;<span class="IdrisBound">gid</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">toUnit</span>&nbsp;<span class="IdrisFunction">id</span>&nbsp;$&nbsp;<span class="IdrisFunction">prim__setgid</span>&nbsp;<span class="IdrisBound">gid</span></div>
+<div id="line89"><a href="#line89" class="IdrisLineNumber"> 89 | </a></div>
+<div id="line90"><a href="#line90" class="IdrisLineNumber"> 90 | </a><span class="IdrisComment">|||&nbsp;Tries&nbsp;to&nbsp;set&nbsp;the&nbsp;effective&nbsp;group&nbsp;ID&nbsp;of&nbsp;the&nbsp;current&nbsp;process</span></div>
+<div id="line91"><a href="#line91" class="IdrisLineNumber"> 91 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
+<div id="line92"><a href="#line92" class="IdrisLineNumber"> 92 | </a><span class="IdrisFunction">setegid</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisFunction">GidT</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">IO</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisType">Either</span>&nbsp;<span class="IdrisType">Error</span>&nbsp;<span class="IdrisType">()</span><span class="IdrisKeyword">)</span></div>
+<div id="line93"><a href="#line93" class="IdrisLineNumber"> 93 | </a><span class="IdrisFunction">setegid</span>&nbsp;<span class="IdrisBound">gid</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">toUnit</span>&nbsp;<span class="IdrisFunction">id</span>&nbsp;$&nbsp;<span class="IdrisFunction">prim__setegid</span>&nbsp;<span class="IdrisBound">gid</span></div>
+<div id="line94"><a href="#line94" class="IdrisLineNumber"> 94 | </a></div>
 </code>
 </body>
 </html>
