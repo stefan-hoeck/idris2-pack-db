@@ -410,11 +410,10 @@ commit = "main"
 ipkg   = "lens.ipkg"
 
 [db.linux]
-type = "github"
-url  = "https://github.com/stefan-hoeck/idris2-linux"
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-linux"
 commit = "main"
-ipkg = "linux.ipkg"
-test = "test/test.ipkg"
+ipkg   = "linux/linux.ipkg"
 
 [db.idris2-lsp]
 type        = "github"
@@ -545,6 +544,12 @@ url    = "https://github.com/buzden/idris2-positive-nat"
 commit = "master"
 ipkg   = "positive-nat.ipkg"
 test   = "tests/tests.ipkg"
+
+[db.posix]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-linux"
+commit = "main"
+ipkg   = "posix/posix.ipkg"
 
 [db.prettier]
 type   = "github"
