@@ -1,0 +1,183 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <style>
+  .IdrisData {
+  color: darkred
+}
+.IdrisType {
+  color: blue
+}
+.IdrisBound {
+  color: black
+}
+.IdrisFunction {
+  color: darkgreen
+}
+.IdrisKeyword {
+  text-decoration: underline;
+}
+.IdrisComment {
+  color: #b22222
+}
+.IdrisNamespace {
+  font-style: italic;
+  color: black
+}
+.IdrisPostulate {
+  font-weight: bold;
+  color: red
+}
+.IdrisModule {
+  font-style: italic;
+  color: black
+}
+
+  .IdrisLineNumber {
+    text-decoration: none;
+    color: lightgrey;
+    user-select: none;
+  }
+  .IdrisLineNumber:hover {
+    color: darkgray;
+  }
+  .IdrisLineNumber:target {
+    color: gray;
+  }
+  .IdrisHighlight {
+    background-color: yellow;
+  }
+  </style>
+  <script>
+    function initialize() {
+      function handleHash(ev) {
+          if (!location.hash) return
+          let m = location.hash.match(/#(line\d+)(?:-(line\d+))?/)
+          if (m) {
+              let start = document.getElementById(m[1])
+              let end = document.getElementById(m[2])
+              if (start) {
+                  if (end && end.compareDocumentPosition(start) === 4) {
+                      ([start, end] = [end, start])
+                  }
+                  // Only on page load
+                  if (!ev) start.scrollIntoView()
+                  let parent = start.parentElement
+                  let lines = parent.children
+                  let className = ''
+                  for (let n = 0; n < lines.length; n++) {
+                      let el = lines[n]
+                      if (el === start) className = 'IdrisHighlight'
+                      el.className = className
+                      if (el === end || className && !end) className = ''
+                  }
+              }
+          }
+      }
+      let startLine
+      let endLine
+      function handlePointerMove(ev) {
+          if (startLine) {
+              for (let el = document.elementFromPoint(ev.clientX, ev.clientY); el; el = el.parentElement) {
+                  if (el.parentElement === startLine.parentElement) {
+                      if (endLine !== el) {
+                          endLine = el
+                          update()
+                      }
+                      break
+                  }
+              }
+          }
+      }
+      function update(ev) {
+          window.location.hash = startLine === endLine ? startLine.id : startLine.id + '-' + endLine.id
+      }
+      function handlePointerDown(ev) {
+          let target = ev.target
+          if (target.className === 'IdrisLineNumber') {
+              startLine = endLine = target.parentElement
+              window.addEventListener('pointermove', handlePointerMove)
+              update()
+              ev.preventDefault()
+          }
+      }
+      function handlePointerUp(ev) {
+          if (startLine) {
+              update()
+              window.removeEventListener('pointermove', handlePointerMove)
+              startLine = endLine = null
+          }
+      }
+      window.addEventListener('hashchange', handleHash)
+      window.addEventListener('pointerdown', handlePointerDown)
+      window.addEventListener('pointerup', handlePointerUp)
+      handleHash()
+  }
+  </script>
+</head>
+<body onload="initialize()">
+<code class="IdrisCode">
+<div id="line0"><a href="#line0" class="IdrisLineNumber"> &nbsp;0 | </a><span class="IdrisKeyword">module</span>&nbsp;<span class="IdrisModule">Data.Compress.CRC</span></div>
+<div id="line1"><a href="#line1" class="IdrisLineNumber"> &nbsp;1 | </a></div>
+<div id="line2"><a href="#line2" class="IdrisLineNumber"> &nbsp;2 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">Data.Compress.Utils.ConstantTable</span></div>
+<div id="line3"><a href="#line3" class="IdrisLineNumber"> &nbsp;3 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">Data.Vect</span></div>
+<div id="line4"><a href="#line4" class="IdrisLineNumber"> &nbsp;4 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">Data.Bits</span></div>
+<div id="line5"><a href="#line5" class="IdrisLineNumber"> &nbsp;5 | </a></div>
+<div id="line6"><a href="#line6" class="IdrisLineNumber"> &nbsp;6 | </a><span class="IdrisFunction">crc_table</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">ConstantTable</span>&nbsp;<span class="IdrisData">256</span>&nbsp;<span class="IdrisType">Bits32</span></div>
+<div id="line7"><a href="#line7" class="IdrisLineNumber"> &nbsp;7 | </a><span class="IdrisFunction">crc_table</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">from_vect</span></div>
+<div id="line8"><a href="#line8" class="IdrisLineNumber"> &nbsp;8 | </a>&nbsp;&nbsp;<span class="IdrisData">[</span>&nbsp;<span class="IdrisData">0x00000000,</span>&nbsp;<span class="IdrisData">0x77073096,</span>&nbsp;<span class="IdrisData">0xee0e612c,</span>&nbsp;<span class="IdrisData">0x990951ba,</span>&nbsp;<span class="IdrisData">0x076dc419,</span>&nbsp;<span class="IdrisData">0x706af48f</span></div>
+<div id="line9"><a href="#line9" class="IdrisLineNumber"> &nbsp;9 | </a>&nbsp;&nbsp;<span class="IdrisData">,</span>&nbsp;<span class="IdrisData">0xe963a535,</span>&nbsp;<span class="IdrisData">0x9e6495a3,</span>&nbsp;<span class="IdrisData">0x0edb8832,</span>&nbsp;<span class="IdrisData">0x79dcb8a4,</span>&nbsp;<span class="IdrisData">0xe0d5e91e,</span>&nbsp;<span class="IdrisData">0x97d2d988</span></div>
+<div id="line10"><a href="#line10" class="IdrisLineNumber"> 10 | </a>&nbsp;&nbsp;<span class="IdrisData">,</span>&nbsp;<span class="IdrisData">0x09b64c2b,</span>&nbsp;<span class="IdrisData">0x7eb17cbd,</span>&nbsp;<span class="IdrisData">0xe7b82d07,</span>&nbsp;<span class="IdrisData">0x90bf1d91,</span>&nbsp;<span class="IdrisData">0x1db71064,</span>&nbsp;<span class="IdrisData">0x6ab020f2</span></div>
+<div id="line11"><a href="#line11" class="IdrisLineNumber"> 11 | </a>&nbsp;&nbsp;<span class="IdrisData">,</span>&nbsp;<span class="IdrisData">0xf3b97148,</span>&nbsp;<span class="IdrisData">0x84be41de,</span>&nbsp;<span class="IdrisData">0x1adad47d,</span>&nbsp;<span class="IdrisData">0x6ddde4eb,</span>&nbsp;<span class="IdrisData">0xf4d4b551,</span>&nbsp;<span class="IdrisData">0x83d385c7</span></div>
+<div id="line12"><a href="#line12" class="IdrisLineNumber"> 12 | </a>&nbsp;&nbsp;<span class="IdrisData">,</span>&nbsp;<span class="IdrisData">0x136c9856,</span>&nbsp;<span class="IdrisData">0x646ba8c0,</span>&nbsp;<span class="IdrisData">0xfd62f97a,</span>&nbsp;<span class="IdrisData">0x8a65c9ec,</span>&nbsp;<span class="IdrisData">0x14015c4f,</span>&nbsp;<span class="IdrisData">0x63066cd9</span></div>
+<div id="line13"><a href="#line13" class="IdrisLineNumber"> 13 | </a>&nbsp;&nbsp;<span class="IdrisData">,</span>&nbsp;<span class="IdrisData">0xfa0f3d63,</span>&nbsp;<span class="IdrisData">0x8d080df5,</span>&nbsp;<span class="IdrisData">0x3b6e20c8,</span>&nbsp;<span class="IdrisData">0x4c69105e,</span>&nbsp;<span class="IdrisData">0xd56041e4,</span>&nbsp;<span class="IdrisData">0xa2677172</span></div>
+<div id="line14"><a href="#line14" class="IdrisLineNumber"> 14 | </a>&nbsp;&nbsp;<span class="IdrisData">,</span>&nbsp;<span class="IdrisData">0x3c03e4d1,</span>&nbsp;<span class="IdrisData">0x4b04d447,</span>&nbsp;<span class="IdrisData">0xd20d85fd,</span>&nbsp;<span class="IdrisData">0xa50ab56b,</span>&nbsp;<span class="IdrisData">0x35b5a8fa,</span>&nbsp;<span class="IdrisData">0x42b2986c</span></div>
+<div id="line15"><a href="#line15" class="IdrisLineNumber"> 15 | </a>&nbsp;&nbsp;<span class="IdrisData">,</span>&nbsp;<span class="IdrisData">0xdbbbc9d6,</span>&nbsp;<span class="IdrisData">0xacbcf940,</span>&nbsp;<span class="IdrisData">0x32d86ce3,</span>&nbsp;<span class="IdrisData">0x45df5c75,</span>&nbsp;<span class="IdrisData">0xdcd60dcf,</span>&nbsp;<span class="IdrisData">0xabd13d59</span></div>
+<div id="line16"><a href="#line16" class="IdrisLineNumber"> 16 | </a>&nbsp;&nbsp;<span class="IdrisData">,</span>&nbsp;<span class="IdrisData">0x26d930ac,</span>&nbsp;<span class="IdrisData">0x51de003a,</span>&nbsp;<span class="IdrisData">0xc8d75180,</span>&nbsp;<span class="IdrisData">0xbfd06116,</span>&nbsp;<span class="IdrisData">0x21b4f4b5,</span>&nbsp;<span class="IdrisData">0x56b3c423</span></div>
+<div id="line17"><a href="#line17" class="IdrisLineNumber"> 17 | </a>&nbsp;&nbsp;<span class="IdrisData">,</span>&nbsp;<span class="IdrisData">0xcfba9599,</span>&nbsp;<span class="IdrisData">0xb8bda50f,</span>&nbsp;<span class="IdrisData">0x2802b89e,</span>&nbsp;<span class="IdrisData">0x5f058808,</span>&nbsp;<span class="IdrisData">0xc60cd9b2,</span>&nbsp;<span class="IdrisData">0xb10be924</span></div>
+<div id="line18"><a href="#line18" class="IdrisLineNumber"> 18 | </a>&nbsp;&nbsp;<span class="IdrisData">,</span>&nbsp;<span class="IdrisData">0x2f6f7c87,</span>&nbsp;<span class="IdrisData">0x58684c11,</span>&nbsp;<span class="IdrisData">0xc1611dab,</span>&nbsp;<span class="IdrisData">0xb6662d3d,</span>&nbsp;<span class="IdrisData">0x76dc4190,</span>&nbsp;<span class="IdrisData">0x01db7106</span></div>
+<div id="line19"><a href="#line19" class="IdrisLineNumber"> 19 | </a>&nbsp;&nbsp;<span class="IdrisData">,</span>&nbsp;<span class="IdrisData">0x98d220bc,</span>&nbsp;<span class="IdrisData">0xefd5102a,</span>&nbsp;<span class="IdrisData">0x71b18589,</span>&nbsp;<span class="IdrisData">0x06b6b51f,</span>&nbsp;<span class="IdrisData">0x9fbfe4a5,</span>&nbsp;<span class="IdrisData">0xe8b8d433</span></div>
+<div id="line20"><a href="#line20" class="IdrisLineNumber"> 20 | </a>&nbsp;&nbsp;<span class="IdrisData">,</span>&nbsp;<span class="IdrisData">0x7807c9a2,</span>&nbsp;<span class="IdrisData">0x0f00f934,</span>&nbsp;<span class="IdrisData">0x9609a88e,</span>&nbsp;<span class="IdrisData">0xe10e9818,</span>&nbsp;<span class="IdrisData">0x7f6a0dbb,</span>&nbsp;<span class="IdrisData">0x086d3d2d</span></div>
+<div id="line21"><a href="#line21" class="IdrisLineNumber"> 21 | </a>&nbsp;&nbsp;<span class="IdrisData">,</span>&nbsp;<span class="IdrisData">0x91646c97,</span>&nbsp;<span class="IdrisData">0xe6635c01,</span>&nbsp;<span class="IdrisData">0x6b6b51f4,</span>&nbsp;<span class="IdrisData">0x1c6c6162,</span>&nbsp;<span class="IdrisData">0x856530d8,</span>&nbsp;<span class="IdrisData">0xf262004e</span></div>
+<div id="line22"><a href="#line22" class="IdrisLineNumber"> 22 | </a>&nbsp;&nbsp;<span class="IdrisData">,</span>&nbsp;<span class="IdrisData">0x6c0695ed,</span>&nbsp;<span class="IdrisData">0x1b01a57b,</span>&nbsp;<span class="IdrisData">0x8208f4c1,</span>&nbsp;<span class="IdrisData">0xf50fc457,</span>&nbsp;<span class="IdrisData">0x65b0d9c6,</span>&nbsp;<span class="IdrisData">0x12b7e950</span></div>
+<div id="line23"><a href="#line23" class="IdrisLineNumber"> 23 | </a>&nbsp;&nbsp;<span class="IdrisData">,</span>&nbsp;<span class="IdrisData">0x8bbeb8ea,</span>&nbsp;<span class="IdrisData">0xfcb9887c,</span>&nbsp;<span class="IdrisData">0x62dd1ddf,</span>&nbsp;<span class="IdrisData">0x15da2d49,</span>&nbsp;<span class="IdrisData">0x8cd37cf3,</span>&nbsp;<span class="IdrisData">0xfbd44c65</span></div>
+<div id="line24"><a href="#line24" class="IdrisLineNumber"> 24 | </a>&nbsp;&nbsp;<span class="IdrisData">,</span>&nbsp;<span class="IdrisData">0x4db26158,</span>&nbsp;<span class="IdrisData">0x3ab551ce,</span>&nbsp;<span class="IdrisData">0xa3bc0074,</span>&nbsp;<span class="IdrisData">0xd4bb30e2,</span>&nbsp;<span class="IdrisData">0x4adfa541,</span>&nbsp;<span class="IdrisData">0x3dd895d7</span></div>
+<div id="line25"><a href="#line25" class="IdrisLineNumber"> 25 | </a>&nbsp;&nbsp;<span class="IdrisData">,</span>&nbsp;<span class="IdrisData">0xa4d1c46d,</span>&nbsp;<span class="IdrisData">0xd3d6f4fb,</span>&nbsp;<span class="IdrisData">0x4369e96a,</span>&nbsp;<span class="IdrisData">0x346ed9fc,</span>&nbsp;<span class="IdrisData">0xad678846,</span>&nbsp;<span class="IdrisData">0xda60b8d0</span></div>
+<div id="line26"><a href="#line26" class="IdrisLineNumber"> 26 | </a>&nbsp;&nbsp;<span class="IdrisData">,</span>&nbsp;<span class="IdrisData">0x44042d73,</span>&nbsp;<span class="IdrisData">0x33031de5,</span>&nbsp;<span class="IdrisData">0xaa0a4c5f,</span>&nbsp;<span class="IdrisData">0xdd0d7cc9,</span>&nbsp;<span class="IdrisData">0x5005713c,</span>&nbsp;<span class="IdrisData">0x270241aa</span></div>
+<div id="line27"><a href="#line27" class="IdrisLineNumber"> 27 | </a>&nbsp;&nbsp;<span class="IdrisData">,</span>&nbsp;<span class="IdrisData">0xbe0b1010,</span>&nbsp;<span class="IdrisData">0xc90c2086,</span>&nbsp;<span class="IdrisData">0x5768b525,</span>&nbsp;<span class="IdrisData">0x206f85b3,</span>&nbsp;<span class="IdrisData">0xb966d409,</span>&nbsp;<span class="IdrisData">0xce61e49f</span></div>
+<div id="line28"><a href="#line28" class="IdrisLineNumber"> 28 | </a>&nbsp;&nbsp;<span class="IdrisData">,</span>&nbsp;<span class="IdrisData">0x5edef90e,</span>&nbsp;<span class="IdrisData">0x29d9c998,</span>&nbsp;<span class="IdrisData">0xb0d09822,</span>&nbsp;<span class="IdrisData">0xc7d7a8b4,</span>&nbsp;<span class="IdrisData">0x59b33d17,</span>&nbsp;<span class="IdrisData">0x2eb40d81</span></div>
+<div id="line29"><a href="#line29" class="IdrisLineNumber"> 29 | </a>&nbsp;&nbsp;<span class="IdrisData">,</span>&nbsp;<span class="IdrisData">0xb7bd5c3b,</span>&nbsp;<span class="IdrisData">0xc0ba6cad,</span>&nbsp;<span class="IdrisData">0xedb88320,</span>&nbsp;<span class="IdrisData">0x9abfb3b6,</span>&nbsp;<span class="IdrisData">0x03b6e20c,</span>&nbsp;<span class="IdrisData">0x74b1d29a</span></div>
+<div id="line30"><a href="#line30" class="IdrisLineNumber"> 30 | </a>&nbsp;&nbsp;<span class="IdrisData">,</span>&nbsp;<span class="IdrisData">0xead54739,</span>&nbsp;<span class="IdrisData">0x9dd277af,</span>&nbsp;<span class="IdrisData">0x04db2615,</span>&nbsp;<span class="IdrisData">0x73dc1683,</span>&nbsp;<span class="IdrisData">0xe3630b12,</span>&nbsp;<span class="IdrisData">0x94643b84</span></div>
+<div id="line31"><a href="#line31" class="IdrisLineNumber"> 31 | </a>&nbsp;&nbsp;<span class="IdrisData">,</span>&nbsp;<span class="IdrisData">0x0d6d6a3e,</span>&nbsp;<span class="IdrisData">0x7a6a5aa8,</span>&nbsp;<span class="IdrisData">0xe40ecf0b,</span>&nbsp;<span class="IdrisData">0x9309ff9d,</span>&nbsp;<span class="IdrisData">0x0a00ae27,</span>&nbsp;<span class="IdrisData">0x7d079eb1</span></div>
+<div id="line32"><a href="#line32" class="IdrisLineNumber"> 32 | </a>&nbsp;&nbsp;<span class="IdrisData">,</span>&nbsp;<span class="IdrisData">0xf00f9344,</span>&nbsp;<span class="IdrisData">0x8708a3d2,</span>&nbsp;<span class="IdrisData">0x1e01f268,</span>&nbsp;<span class="IdrisData">0x6906c2fe,</span>&nbsp;<span class="IdrisData">0xf762575d,</span>&nbsp;<span class="IdrisData">0x806567cb</span></div>
+<div id="line33"><a href="#line33" class="IdrisLineNumber"> 33 | </a>&nbsp;&nbsp;<span class="IdrisData">,</span>&nbsp;<span class="IdrisData">0x196c3671,</span>&nbsp;<span class="IdrisData">0x6e6b06e7,</span>&nbsp;<span class="IdrisData">0xfed41b76,</span>&nbsp;<span class="IdrisData">0x89d32be0,</span>&nbsp;<span class="IdrisData">0x10da7a5a,</span>&nbsp;<span class="IdrisData">0x67dd4acc</span></div>
+<div id="line34"><a href="#line34" class="IdrisLineNumber"> 34 | </a>&nbsp;&nbsp;<span class="IdrisData">,</span>&nbsp;<span class="IdrisData">0xf9b9df6f,</span>&nbsp;<span class="IdrisData">0x8ebeeff9,</span>&nbsp;<span class="IdrisData">0x17b7be43,</span>&nbsp;<span class="IdrisData">0x60b08ed5,</span>&nbsp;<span class="IdrisData">0xd6d6a3e8,</span>&nbsp;<span class="IdrisData">0xa1d1937e</span></div>
+<div id="line35"><a href="#line35" class="IdrisLineNumber"> 35 | </a>&nbsp;&nbsp;<span class="IdrisData">,</span>&nbsp;<span class="IdrisData">0x38d8c2c4,</span>&nbsp;<span class="IdrisData">0x4fdff252,</span>&nbsp;<span class="IdrisData">0xd1bb67f1,</span>&nbsp;<span class="IdrisData">0xa6bc5767,</span>&nbsp;<span class="IdrisData">0x3fb506dd,</span>&nbsp;<span class="IdrisData">0x48b2364b</span></div>
+<div id="line36"><a href="#line36" class="IdrisLineNumber"> 36 | </a>&nbsp;&nbsp;<span class="IdrisData">,</span>&nbsp;<span class="IdrisData">0xd80d2bda,</span>&nbsp;<span class="IdrisData">0xaf0a1b4c,</span>&nbsp;<span class="IdrisData">0x36034af6,</span>&nbsp;<span class="IdrisData">0x41047a60,</span>&nbsp;<span class="IdrisData">0xdf60efc3,</span>&nbsp;<span class="IdrisData">0xa867df55</span></div>
+<div id="line37"><a href="#line37" class="IdrisLineNumber"> 37 | </a>&nbsp;&nbsp;<span class="IdrisData">,</span>&nbsp;<span class="IdrisData">0x316e8eef,</span>&nbsp;<span class="IdrisData">0x4669be79,</span>&nbsp;<span class="IdrisData">0xcb61b38c,</span>&nbsp;<span class="IdrisData">0xbc66831a,</span>&nbsp;<span class="IdrisData">0x256fd2a0,</span>&nbsp;<span class="IdrisData">0x5268e236</span></div>
+<div id="line38"><a href="#line38" class="IdrisLineNumber"> 38 | </a>&nbsp;&nbsp;<span class="IdrisData">,</span>&nbsp;<span class="IdrisData">0xcc0c7795,</span>&nbsp;<span class="IdrisData">0xbb0b4703,</span>&nbsp;<span class="IdrisData">0x220216b9,</span>&nbsp;<span class="IdrisData">0x5505262f,</span>&nbsp;<span class="IdrisData">0xc5ba3bbe,</span>&nbsp;<span class="IdrisData">0xb2bd0b28</span></div>
+<div id="line39"><a href="#line39" class="IdrisLineNumber"> 39 | </a>&nbsp;&nbsp;<span class="IdrisData">,</span>&nbsp;<span class="IdrisData">0x2bb45a92,</span>&nbsp;<span class="IdrisData">0x5cb36a04,</span>&nbsp;<span class="IdrisData">0xc2d7ffa7,</span>&nbsp;<span class="IdrisData">0xb5d0cf31,</span>&nbsp;<span class="IdrisData">0x2cd99e8b,</span>&nbsp;<span class="IdrisData">0x5bdeae1d</span></div>
+<div id="line40"><a href="#line40" class="IdrisLineNumber"> 40 | </a>&nbsp;&nbsp;<span class="IdrisData">,</span>&nbsp;<span class="IdrisData">0x9b64c2b0,</span>&nbsp;<span class="IdrisData">0xec63f226,</span>&nbsp;<span class="IdrisData">0x756aa39c,</span>&nbsp;<span class="IdrisData">0x026d930a,</span>&nbsp;<span class="IdrisData">0x9c0906a9,</span>&nbsp;<span class="IdrisData">0xeb0e363f</span></div>
+<div id="line41"><a href="#line41" class="IdrisLineNumber"> 41 | </a>&nbsp;&nbsp;<span class="IdrisData">,</span>&nbsp;<span class="IdrisData">0x72076785,</span>&nbsp;<span class="IdrisData">0x05005713,</span>&nbsp;<span class="IdrisData">0x95bf4a82,</span>&nbsp;<span class="IdrisData">0xe2b87a14,</span>&nbsp;<span class="IdrisData">0x7bb12bae,</span>&nbsp;<span class="IdrisData">0x0cb61b38</span></div>
+<div id="line42"><a href="#line42" class="IdrisLineNumber"> 42 | </a>&nbsp;&nbsp;<span class="IdrisData">,</span>&nbsp;<span class="IdrisData">0x92d28e9b,</span>&nbsp;<span class="IdrisData">0xe5d5be0d,</span>&nbsp;<span class="IdrisData">0x7cdcefb7,</span>&nbsp;<span class="IdrisData">0x0bdbdf21,</span>&nbsp;<span class="IdrisData">0x86d3d2d4,</span>&nbsp;<span class="IdrisData">0xf1d4e242</span></div>
+<div id="line43"><a href="#line43" class="IdrisLineNumber"> 43 | </a>&nbsp;&nbsp;<span class="IdrisData">,</span>&nbsp;<span class="IdrisData">0x68ddb3f8,</span>&nbsp;<span class="IdrisData">0x1fda836e,</span>&nbsp;<span class="IdrisData">0x81be16cd,</span>&nbsp;<span class="IdrisData">0xf6b9265b,</span>&nbsp;<span class="IdrisData">0x6fb077e1,</span>&nbsp;<span class="IdrisData">0x18b74777</span></div>
+<div id="line44"><a href="#line44" class="IdrisLineNumber"> 44 | </a>&nbsp;&nbsp;<span class="IdrisData">,</span>&nbsp;<span class="IdrisData">0x88085ae6,</span>&nbsp;<span class="IdrisData">0xff0f6a70,</span>&nbsp;<span class="IdrisData">0x66063bca,</span>&nbsp;<span class="IdrisData">0x11010b5c,</span>&nbsp;<span class="IdrisData">0x8f659eff,</span>&nbsp;<span class="IdrisData">0xf862ae69</span></div>
+<div id="line45"><a href="#line45" class="IdrisLineNumber"> 45 | </a>&nbsp;&nbsp;<span class="IdrisData">,</span>&nbsp;<span class="IdrisData">0x616bffd3,</span>&nbsp;<span class="IdrisData">0x166ccf45,</span>&nbsp;<span class="IdrisData">0xa00ae278,</span>&nbsp;<span class="IdrisData">0xd70dd2ee,</span>&nbsp;<span class="IdrisData">0x4e048354,</span>&nbsp;<span class="IdrisData">0x3903b3c2</span></div>
+<div id="line46"><a href="#line46" class="IdrisLineNumber"> 46 | </a>&nbsp;&nbsp;<span class="IdrisData">,</span>&nbsp;<span class="IdrisData">0xa7672661,</span>&nbsp;<span class="IdrisData">0xd06016f7,</span>&nbsp;<span class="IdrisData">0x4969474d,</span>&nbsp;<span class="IdrisData">0x3e6e77db,</span>&nbsp;<span class="IdrisData">0xaed16a4a,</span>&nbsp;<span class="IdrisData">0xd9d65adc</span></div>
+<div id="line47"><a href="#line47" class="IdrisLineNumber"> 47 | </a>&nbsp;&nbsp;<span class="IdrisData">,</span>&nbsp;<span class="IdrisData">0x40df0b66,</span>&nbsp;<span class="IdrisData">0x37d83bf0,</span>&nbsp;<span class="IdrisData">0xa9bcae53,</span>&nbsp;<span class="IdrisData">0xdebb9ec5,</span>&nbsp;<span class="IdrisData">0x47b2cf7f,</span>&nbsp;<span class="IdrisData">0x30b5ffe9</span></div>
+<div id="line48"><a href="#line48" class="IdrisLineNumber"> 48 | </a>&nbsp;&nbsp;<span class="IdrisData">,</span>&nbsp;<span class="IdrisData">0xbdbdf21c,</span>&nbsp;<span class="IdrisData">0xcabac28a,</span>&nbsp;<span class="IdrisData">0x53b39330,</span>&nbsp;<span class="IdrisData">0x24b4a3a6,</span>&nbsp;<span class="IdrisData">0xbad03605,</span>&nbsp;<span class="IdrisData">0xcdd70693</span></div>
+<div id="line49"><a href="#line49" class="IdrisLineNumber"> 49 | </a>&nbsp;&nbsp;<span class="IdrisData">,</span>&nbsp;<span class="IdrisData">0x54de5729,</span>&nbsp;<span class="IdrisData">0x23d967bf,</span>&nbsp;<span class="IdrisData">0xb3667a2e,</span>&nbsp;<span class="IdrisData">0xc4614ab8,</span>&nbsp;<span class="IdrisData">0x5d681b02,</span>&nbsp;<span class="IdrisData">0x2a6f2b94</span></div>
+<div id="line50"><a href="#line50" class="IdrisLineNumber"> 50 | </a>&nbsp;&nbsp;<span class="IdrisData">,</span>&nbsp;<span class="IdrisData">0xb40bbe37,</span>&nbsp;<span class="IdrisData">0xc30c8ea1,</span>&nbsp;<span class="IdrisData">0x5a05df1b,</span>&nbsp;<span class="IdrisData">0x2d02ef8d</span>&nbsp;<span class="IdrisData">]</span></div>
+<div id="line51"><a href="#line51" class="IdrisLineNumber"> 51 | </a></div>
+<div id="line52"><a href="#line52" class="IdrisLineNumber"> 52 | </a><span class="IdrisKeyword">export</span></div>
+<div id="line53"><a href="#line53" class="IdrisLineNumber"> 53 | </a><span class="IdrisFunction">update_crc32</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Bits32</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">List</span>&nbsp;<span class="IdrisType">Bits8</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Bits32</span></div>
+<div id="line54"><a href="#line54" class="IdrisLineNumber"> 54 | </a><span class="IdrisFunction">update_crc32</span>&nbsp;<span class="IdrisBound">crc</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">complement</span>&nbsp;<span class="IdrisFunction">.</span>&nbsp;<span class="IdrisFunction">foldl</span>&nbsp;<span class="IdrisKeyword">(\</span><span class="IdrisBound">crc</span><span class="IdrisKeyword">,</span><span class="IdrisBound">elem</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisFunction">xor</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisFunction">shiftR</span>&nbsp;<span class="IdrisBound">crc</span>&nbsp;<span class="IdrisData">8</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisFunction">index_bits8</span>&nbsp;<span class="IdrisKeyword">((</span><span class="IdrisFunction">xor</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisFunction">cast</span>&nbsp;<span class="IdrisBound">crc</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisBound">elem</span><span class="IdrisKeyword">))</span>&nbsp;<span class="IdrisFunction">crc_table</span><span class="IdrisKeyword">))</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisFunction">complement</span>&nbsp;<span class="IdrisBound">crc</span><span class="IdrisKeyword">)</span></div>
+<div id="line55"><a href="#line55" class="IdrisLineNumber"> 55 | </a></div>
+<div id="line56"><a href="#line56" class="IdrisLineNumber"> 56 | </a><span class="IdrisKeyword">export</span></div>
+<div id="line57"><a href="#line57" class="IdrisLineNumber"> 57 | </a><span class="IdrisFunction">crc32</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">List</span>&nbsp;<span class="IdrisType">Bits8</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Bits32</span></div>
+<div id="line58"><a href="#line58" class="IdrisLineNumber"> 58 | </a><span class="IdrisFunction">crc32</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">update_crc32</span>&nbsp;<span class="IdrisData">0</span></div>
+<div id="line59"><a href="#line59" class="IdrisLineNumber"> 59 | </a></div>
+</code>
+</body>
+</html>

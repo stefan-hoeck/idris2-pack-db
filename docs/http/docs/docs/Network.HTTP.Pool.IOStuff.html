@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Network.HTTP.Pool.IOStuff</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Network.HTTP.Pool.IOStuff
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Network.HTTP.Pool.IOStuff</h1><span style="float:right">(<a href="Network.HTTP.Pool.IOStuff.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="Network.HTTP.Pool.IOStuff.OkOrError"><code><a class="type" href="Network.HTTP.Pool.IOStuff.html#Network.HTTP.Pool.IOStuff.OkOrError"><span class="name function">OkOrError</span></a>&ensp;:&ensp;<span class="name type">Type</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Network.HTTP.Pool.IOStuff.read_line&apos;"><code><a class="type" href="Network.HTTP.Pool.IOStuff.html#Network.HTTP.Pool.IOStuff.read_line&apos;"><span class="name function">read_line&apos;</span></a>&ensp;:&ensp;<span class="type resolved" title="Control.Linear.LIO.LinearIO"><span class="name function">LinearIO</span></span>&ensp;<span class="boundvar">m</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;<span class="name type">Bits8</span>&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="keyword">1</span>&ensp;<span class="boundvar">_</span>&ensp;:&ensp;<span class="type resolved" title="Utils.Handle.Handle&apos;"><span class="name function">Handle&apos;</span></span>&ensp;<span class="boundvar">t_ok</span>&ensp;<span class="boundvar">t_closed</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Control.Linear.LIO.L1"><span class="name function">L1</span></span>&ensp;<span class="boundvar">m</span>&ensp;(<a class="type" href="Network.HTTP.Pool.IOStuff.html#Network.HTTP.Pool.IOStuff.OkOrError"><span class="name function">OkOrError</span></a>&ensp;<span class="boundvar">t_ok</span>&ensp;<span class="boundvar">t_closed</span>)</code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Network.HTTP.Pool.IOStuff.read_line"><code><a class="type" href="Network.HTTP.Pool.IOStuff.html#Network.HTTP.Pool.IOStuff.read_line"><span class="name function">read_line</span></a>&ensp;:&ensp;<span class="type resolved" title="Control.Linear.LIO.LinearIO"><span class="name function">LinearIO</span></span>&ensp;<span class="boundvar">m</span>&ensp;<span class="keyword">=&gt;</span>&ensp;(<span class="keyword">1</span>&ensp;<span class="boundvar">_</span>&ensp;:&ensp;<span class="type resolved" title="Utils.Handle.Handle&apos;"><span class="name function">Handle&apos;</span></span>&ensp;<span class="boundvar">t_ok</span>&ensp;<span class="boundvar">t_closed</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Control.Linear.LIO.L1"><span class="name function">L1</span></span>&ensp;<span class="boundvar">m</span>&ensp;(<a class="type" href="Network.HTTP.Pool.IOStuff.html#Network.HTTP.Pool.IOStuff.OkOrError"><span class="name function">OkOrError</span></a>&ensp;<span class="boundvar">t_ok</span>&ensp;<span class="boundvar">t_closed</span>)</code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Network.HTTP.Pool.IOStuff.read_until_empty_line&apos;"><code><a class="type" href="Network.HTTP.Pool.IOStuff.html#Network.HTTP.Pool.IOStuff.read_until_empty_line&apos;"><span class="name function">read_until_empty_line&apos;</span></a>&ensp;:&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Control.Linear.LIO.LinearIO"><span class="name function">LinearIO</span></span>&ensp;<span class="boundvar">m</span>&ensp;<span class="keyword">=&gt;</span>&ensp;(<span class="keyword">1</span>&ensp;<span class="boundvar">_</span>&ensp;:&ensp;<span class="type resolved" title="Utils.Handle.Handle&apos;"><span class="name function">Handle&apos;</span></span>&ensp;<span class="boundvar">t_ok</span>&ensp;<span class="boundvar">t_closed</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Control.Linear.LIO.L1"><span class="name function">L1</span></span>&ensp;<span class="boundvar">m</span>&ensp;(<a class="type" href="Network.HTTP.Pool.IOStuff.html#Network.HTTP.Pool.IOStuff.OkOrError"><span class="name function">OkOrError</span></a>&ensp;<span class="boundvar">t_ok</span>&ensp;<span class="boundvar">t_closed</span>)</code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Network.HTTP.Pool.IOStuff.read_until_empty_line"><code><a class="type" href="Network.HTTP.Pool.IOStuff.html#Network.HTTP.Pool.IOStuff.read_until_empty_line"><span class="name function">read_until_empty_line</span></a>&ensp;:&ensp;<span class="type resolved" title="Control.Linear.LIO.LinearIO"><span class="name function">LinearIO</span></span>&ensp;<span class="boundvar">m</span>&ensp;<span class="keyword">=&gt;</span>&ensp;(<span class="keyword">1</span>&ensp;<span class="boundvar">_</span>&ensp;:&ensp;<span class="type resolved" title="Utils.Handle.Handle&apos;"><span class="name function">Handle&apos;</span></span>&ensp;<span class="boundvar">t_ok</span>&ensp;<span class="boundvar">t_closed</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Control.Linear.LIO.L1"><span class="name function">L1</span></span>&ensp;<span class="boundvar">m</span>&ensp;(<a class="type" href="Network.HTTP.Pool.IOStuff.html#Network.HTTP.Pool.IOStuff.OkOrError"><span class="name function">OkOrError</span></a>&ensp;<span class="boundvar">t_ok</span>&ensp;<span class="boundvar">t_closed</span>)</code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd></dl></div><footer>Produced by Idris 2 version 0.7.0-5459e1726</footer></body></html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <style>
+  .IdrisData {
+  color: darkred
+}
+.IdrisType {
+  color: blue
+}
+.IdrisBound {
+  color: black
+}
+.IdrisFunction {
+  color: darkgreen
+}
+.IdrisKeyword {
+  text-decoration: underline;
+}
+.IdrisComment {
+  color: #b22222
+}
+.IdrisNamespace {
+  font-style: italic;
+  color: black
+}
+.IdrisPostulate {
+  font-weight: bold;
+  color: red
+}
+.IdrisModule {
+  font-style: italic;
+  color: black
+}
+
+  .IdrisLineNumber {
+    text-decoration: none;
+    color: lightgrey;
+    user-select: none;
+  }
+  .IdrisLineNumber:hover {
+    color: darkgray;
+  }
+  .IdrisLineNumber:target {
+    color: gray;
+  }
+  .IdrisHighlight {
+    background-color: yellow;
+  }
+  </style>
+  <script>
+    function initialize() {
+      function handleHash(ev) {
+          if (!location.hash) return
+          let m = location.hash.match(/#(line\d+)(?:-(line\d+))?/)
+          if (m) {
+              let start = document.getElementById(m[1])
+              let end = document.getElementById(m[2])
+              if (start) {
+                  if (end && end.compareDocumentPosition(start) === 4) {
+                      ([start, end] = [end, start])
+                  }
+                  // Only on page load
+                  if (!ev) start.scrollIntoView()
+                  let parent = start.parentElement
+                  let lines = parent.children
+                  let className = ''
+                  for (let n = 0; n < lines.length; n++) {
+                      let el = lines[n]
+                      if (el === start) className = 'IdrisHighlight'
+                      el.className = className
+                      if (el === end || className && !end) className = ''
+                  }
+              }
+          }
+      }
+      let startLine
+      let endLine
+      function handlePointerMove(ev) {
+          if (startLine) {
+              for (let el = document.elementFromPoint(ev.clientX, ev.clientY); el; el = el.parentElement) {
+                  if (el.parentElement === startLine.parentElement) {
+                      if (endLine !== el) {
+                          endLine = el
+                          update()
+                      }
+                      break
+                  }
+              }
+          }
+      }
+      function update(ev) {
+          window.location.hash = startLine === endLine ? startLine.id : startLine.id + '-' + endLine.id
+      }
+      function handlePointerDown(ev) {
+          let target = ev.target
+          if (target.className === 'IdrisLineNumber') {
+              startLine = endLine = target.parentElement
+              window.addEventListener('pointermove', handlePointerMove)
+              update()
+              ev.preventDefault()
+          }
+      }
+      function handlePointerUp(ev) {
+          if (startLine) {
+              update()
+              window.removeEventListener('pointermove', handlePointerMove)
+              startLine = endLine = null
+          }
+      }
+      window.addEventListener('hashchange', handleHash)
+      window.addEventListener('pointerdown', handlePointerDown)
+      window.addEventListener('pointerup', handlePointerUp)
+      handleHash()
+  }
+  </script>
+</head>
+<body onload="initialize()">
+<code class="IdrisCode">
+<div id="line0"><a href="#line0" class="IdrisLineNumber"> &nbsp;&nbsp;0 | </a><span class="IdrisKeyword">module</span>&nbsp;<span class="IdrisModule">System.Posix.Signal</span></div>
+<div id="line1"><a href="#line1" class="IdrisLineNumber"> &nbsp;&nbsp;1 | </a></div>
+<div id="line2"><a href="#line2" class="IdrisLineNumber"> &nbsp;&nbsp;2 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">System.Callback</span></div>
+<div id="line3"><a href="#line3" class="IdrisLineNumber"> &nbsp;&nbsp;3 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">Data.C.Array</span></div>
+<div id="line4"><a href="#line4" class="IdrisLineNumber"> &nbsp;&nbsp;4 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisModule">Data.C.Integer</span></div>
+<div id="line5"><a href="#line5" class="IdrisLineNumber"> &nbsp;&nbsp;5 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisModule">System.Posix.Errno</span></div>
+<div id="line6"><a href="#line6" class="IdrisLineNumber"> &nbsp;&nbsp;6 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisModule">System.Posix.Signal.Types</span></div>
+<div id="line7"><a href="#line7" class="IdrisLineNumber"> &nbsp;&nbsp;7 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisModule">System.Signal</span></div>
+<div id="line8"><a href="#line8" class="IdrisLineNumber"> &nbsp;&nbsp;8 | </a></div>
+<div id="line9"><a href="#line9" class="IdrisLineNumber"> &nbsp;&nbsp;9 | </a><span class="IdrisKeyword">%default</span>&nbsp;<span class="IdrisKeyword">total</span></div>
+<div id="line10"><a href="#line10" class="IdrisLineNumber"> &nbsp;10 | </a></div>
+<div id="line11"><a href="#line11" class="IdrisLineNumber"> &nbsp;11 | </a><span class="IdrisComment">--------------------------------------------------------------------------------</span></div>
+<div id="line12"><a href="#line12" class="IdrisLineNumber"> &nbsp;12 | </a><span class="IdrisComment">--&nbsp;FFI</span></div>
+<div id="line13"><a href="#line13" class="IdrisLineNumber"> &nbsp;13 | </a><span class="IdrisComment">--------------------------------------------------------------------------------</span></div>
+<div id="line14"><a href="#line14" class="IdrisLineNumber"> &nbsp;14 | </a></div>
+<div id="line15"><a href="#line15" class="IdrisLineNumber"> &nbsp;15 | </a><span class="IdrisKeyword">%foreign</span>&nbsp;<span class="IdrisData">&quot;C:li_kill,&nbsp;posix-idris&quot;</span></div>
+<div id="line16"><a href="#line16" class="IdrisLineNumber"> &nbsp;16 | </a><span class="IdrisFunction">prim__kill</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisFunction">PidT</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisFunction">CInt</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisFunction">PrimIO</span>&nbsp;<span class="IdrisFunction">CInt</span></div>
+<div id="line17"><a href="#line17" class="IdrisLineNumber"> &nbsp;17 | </a></div>
+<div id="line18"><a href="#line18" class="IdrisLineNumber"> &nbsp;18 | </a><span class="IdrisKeyword">%foreign</span>&nbsp;<span class="IdrisData">&quot;C:raise,&nbsp;posix-idris&quot;</span></div>
+<div id="line19"><a href="#line19" class="IdrisLineNumber"> &nbsp;19 | </a><span class="IdrisFunction">prim__raise</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisFunction">CInt</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisFunction">PrimIO</span>&nbsp;<span class="IdrisType">()</span></div>
+<div id="line20"><a href="#line20" class="IdrisLineNumber"> &nbsp;20 | </a></div>
+<div id="line21"><a href="#line21" class="IdrisLineNumber"> &nbsp;21 | </a><span class="IdrisKeyword">%foreign</span>&nbsp;<span class="IdrisData">&quot;C:li_emptysigset,&nbsp;posix-idris&quot;</span></div>
+<div id="line22"><a href="#line22" class="IdrisLineNumber"> &nbsp;22 | </a><span class="IdrisFunction">prim__emptysigset</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisFunction">PrimIO</span>&nbsp;<span class="IdrisType">AnyPtr</span></div>
+<div id="line23"><a href="#line23" class="IdrisLineNumber"> &nbsp;23 | </a></div>
+<div id="line24"><a href="#line24" class="IdrisLineNumber"> &nbsp;24 | </a><span class="IdrisKeyword">%foreign</span>&nbsp;<span class="IdrisData">&quot;C:li_fullsigset,&nbsp;posix-idris&quot;</span></div>
+<div id="line25"><a href="#line25" class="IdrisLineNumber"> &nbsp;25 | </a><span class="IdrisFunction">prim__fullsigset</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisFunction">PrimIO</span>&nbsp;<span class="IdrisType">AnyPtr</span></div>
+<div id="line26"><a href="#line26" class="IdrisLineNumber"> &nbsp;26 | </a></div>
+<div id="line27"><a href="#line27" class="IdrisLineNumber"> &nbsp;27 | </a><span class="IdrisKeyword">%foreign</span>&nbsp;<span class="IdrisData">&quot;C:sigaddset,&nbsp;posix-idris&quot;</span></div>
+<div id="line28"><a href="#line28" class="IdrisLineNumber"> &nbsp;28 | </a><span class="IdrisFunction">prim__sigaddset</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">AnyPtr</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisFunction">CInt</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisFunction">PrimIO</span>&nbsp;<span class="IdrisType">()</span></div>
+<div id="line29"><a href="#line29" class="IdrisLineNumber"> &nbsp;29 | </a></div>
+<div id="line30"><a href="#line30" class="IdrisLineNumber"> &nbsp;30 | </a><span class="IdrisKeyword">%foreign</span>&nbsp;<span class="IdrisData">&quot;C:sigdelset,&nbsp;posix-idris&quot;</span></div>
+<div id="line31"><a href="#line31" class="IdrisLineNumber"> &nbsp;31 | </a><span class="IdrisFunction">prim__sigdelset</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">AnyPtr</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisFunction">CInt</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisFunction">PrimIO</span>&nbsp;<span class="IdrisType">()</span></div>
+<div id="line32"><a href="#line32" class="IdrisLineNumber"> &nbsp;32 | </a></div>
+<div id="line33"><a href="#line33" class="IdrisLineNumber"> &nbsp;33 | </a><span class="IdrisKeyword">%foreign</span>&nbsp;<span class="IdrisData">&quot;C:sigismember,&nbsp;posix-idris&quot;</span></div>
+<div id="line34"><a href="#line34" class="IdrisLineNumber"> &nbsp;34 | </a><span class="IdrisFunction">prim__sigismember</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">AnyPtr</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisFunction">CInt</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisFunction">PrimIO</span>&nbsp;<span class="IdrisFunction">CInt</span></div>
+<div id="line35"><a href="#line35" class="IdrisLineNumber"> &nbsp;35 | </a></div>
+<div id="line36"><a href="#line36" class="IdrisLineNumber"> &nbsp;36 | </a><span class="IdrisKeyword">%foreign</span>&nbsp;<span class="IdrisData">&quot;C:li_sigprocmask1,&nbsp;posix-idris&quot;</span></div>
+<div id="line37"><a href="#line37" class="IdrisLineNumber"> &nbsp;37 | </a><span class="IdrisFunction">prim__sigprocmask1</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Bits8</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">AnyPtr</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisFunction">PrimIO</span>&nbsp;<span class="IdrisType">()</span></div>
+<div id="line38"><a href="#line38" class="IdrisLineNumber"> &nbsp;38 | </a></div>
+<div id="line39"><a href="#line39" class="IdrisLineNumber"> &nbsp;39 | </a><span class="IdrisKeyword">%foreign</span>&nbsp;<span class="IdrisData">&quot;C:li_sigprocmask,&nbsp;posix-idris&quot;</span></div>
+<div id="line40"><a href="#line40" class="IdrisLineNumber"> &nbsp;40 | </a><span class="IdrisFunction">prim__sigprocmask</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Bits8</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">AnyPtr</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisFunction">PrimIO</span>&nbsp;<span class="IdrisType">AnyPtr</span></div>
+<div id="line41"><a href="#line41" class="IdrisLineNumber"> &nbsp;41 | </a></div>
+<div id="line42"><a href="#line42" class="IdrisLineNumber"> &nbsp;42 | </a><span class="IdrisKeyword">%foreign</span>&nbsp;<span class="IdrisData">&quot;C:li_siggetprocmask,&nbsp;posix-idris&quot;</span></div>
+<div id="line43"><a href="#line43" class="IdrisLineNumber"> &nbsp;43 | </a><span class="IdrisFunction">prim__siggetprocmask</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisFunction">PrimIO</span>&nbsp;<span class="IdrisType">AnyPtr</span></div>
+<div id="line44"><a href="#line44" class="IdrisLineNumber"> &nbsp;44 | </a></div>
+<div id="line45"><a href="#line45" class="IdrisLineNumber"> &nbsp;45 | </a><span class="IdrisKeyword">%foreign</span>&nbsp;<span class="IdrisData">&quot;C:li_sigpending,&nbsp;posix-idris&quot;</span></div>
+<div id="line46"><a href="#line46" class="IdrisLineNumber"> &nbsp;46 | </a><span class="IdrisFunction">prim__sigpending</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisFunction">PrimIO</span>&nbsp;<span class="IdrisType">AnyPtr</span></div>
+<div id="line47"><a href="#line47" class="IdrisLineNumber"> &nbsp;47 | </a></div>
+<div id="line48"><a href="#line48" class="IdrisLineNumber"> &nbsp;48 | </a><span class="IdrisKeyword">%foreign</span>&nbsp;<span class="IdrisData">&quot;scheme:(lambda&nbsp;(s&nbsp;f)&nbsp;(register-signal-handler&nbsp;s&nbsp;(lambda&nbsp;(x)&nbsp;((f&nbsp;x)&nbsp;#f))))&quot;</span></div>
+<div id="line49"><a href="#line49" class="IdrisLineNumber"> &nbsp;49 | </a><span class="IdrisFunction">prim__onsignal</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisFunction">CInt</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisFunction">CInt</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisFunction">PrimIO</span>&nbsp;<span class="IdrisType">()</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisFunction">PrimIO</span>&nbsp;<span class="IdrisType">()</span></div>
+<div id="line50"><a href="#line50" class="IdrisLineNumber"> &nbsp;50 | </a></div>
+<div id="line51"><a href="#line51" class="IdrisLineNumber"> &nbsp;51 | </a><span class="IdrisKeyword">%foreign</span>&nbsp;<span class="IdrisData">&quot;C:abort,&nbsp;posix-idris&quot;</span></div>
+<div id="line52"><a href="#line52" class="IdrisLineNumber"> &nbsp;52 | </a><span class="IdrisFunction">prim__abort</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisFunction">PrimIO</span>&nbsp;<span class="IdrisType">()</span></div>
+<div id="line53"><a href="#line53" class="IdrisLineNumber"> &nbsp;53 | </a></div>
+<div id="line54"><a href="#line54" class="IdrisLineNumber"> &nbsp;54 | </a><span class="IdrisComment">--------------------------------------------------------------------------------</span></div>
+<div id="line55"><a href="#line55" class="IdrisLineNumber"> &nbsp;55 | </a><span class="IdrisComment">--&nbsp;Signal&nbsp;Sets</span></div>
+<div id="line56"><a href="#line56" class="IdrisLineNumber"> &nbsp;56 | </a><span class="IdrisComment">--------------------------------------------------------------------------------</span></div>
+<div id="line57"><a href="#line57" class="IdrisLineNumber"> &nbsp;57 | </a></div>
+<div id="line58"><a href="#line58" class="IdrisLineNumber"> &nbsp;58 | </a><span class="IdrisComment">|||&nbsp;Wrapper&nbsp;around&nbsp;a&nbsp;pointer&nbsp;of&nbsp;a&nbsp;signal&nbsp;set&nbsp;(`sigset_t`).</span></div>
+<div id="line59"><a href="#line59" class="IdrisLineNumber"> &nbsp;59 | </a><span class="IdrisKeyword">export</span></div>
+<div id="line60"><a href="#line60" class="IdrisLineNumber"> &nbsp;60 | </a><span class="IdrisKeyword">record</span>&nbsp;<span class="IdrisType">SigsetT</span>&nbsp;<span class="IdrisKeyword">where</span></div>
+<div id="line61"><a href="#line61" class="IdrisLineNumber"> &nbsp;61 | </a>&nbsp;&nbsp;<span class="IdrisKeyword">constructor</span>&nbsp;<span class="IdrisData">S</span></div>
+<div id="line62"><a href="#line62" class="IdrisLineNumber"> &nbsp;62 | </a>&nbsp;&nbsp;<span class="IdrisFunction">ptr</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">AnyPtr</span></div>
+<div id="line63"><a href="#line63" class="IdrisLineNumber"> &nbsp;63 | </a></div>
+<div id="line64"><a href="#line64" class="IdrisLineNumber"> &nbsp;64 | </a><span class="IdrisComment">|||&nbsp;Allocates&nbsp;a&nbsp;`sigset_t`&nbsp;with&nbsp;all&nbsp;signals&nbsp;cleared.</span></div>
+<div id="line65"><a href="#line65" class="IdrisLineNumber"> &nbsp;65 | </a><span class="IdrisComment">|||</span></div>
+<div id="line66"><a href="#line66" class="IdrisLineNumber"> &nbsp;66 | </a><span class="IdrisComment">|||&nbsp;This&nbsp;must&nbsp;be&nbsp;freed&nbsp;with&nbsp;`freeSigset`.</span></div>
+<div id="line67"><a href="#line67" class="IdrisLineNumber"> &nbsp;67 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
+<div id="line68"><a href="#line68" class="IdrisLineNumber"> &nbsp;68 | </a><span class="IdrisFunction">emptySigset</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HasIO</span>&nbsp;<span class="IdrisBound">io</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisBound">io</span>&nbsp;<span class="IdrisType">SigsetT</span></div>
+<div id="line69"><a href="#line69" class="IdrisLineNumber"> &nbsp;69 | </a><span class="IdrisFunction">emptySigset</span>&nbsp;<span class="IdrisKeyword">=</span></div>
+<div id="line70"><a href="#line70" class="IdrisLineNumber"> &nbsp;70 | </a>&nbsp;&nbsp;<span class="IdrisFunction">primIO</span>&nbsp;$&nbsp;<span class="IdrisKeyword">\</span><span class="IdrisBound">w</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisKeyword">let</span>&nbsp;<span class="IdrisData">MkIORes</span>&nbsp;<span class="IdrisBound">p</span>&nbsp;<span class="IdrisBound">w</span>&nbsp;<span class="IdrisKeyword">:=</span>&nbsp;<span class="IdrisFunction">prim__emptysigset</span>&nbsp;<span class="IdrisBound">w</span>&nbsp;<span class="IdrisKeyword">in</span>&nbsp;<span class="IdrisData">MkIORes</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisData">S</span>&nbsp;<span class="IdrisBound">p</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisBound">w</span></div>
+<div id="line71"><a href="#line71" class="IdrisLineNumber"> &nbsp;71 | </a></div>
+<div id="line72"><a href="#line72" class="IdrisLineNumber"> &nbsp;72 | </a><span class="IdrisComment">|||&nbsp;Allocates&nbsp;a&nbsp;`sigset_t`&nbsp;with&nbsp;all&nbsp;signals&nbsp;set.</span></div>
+<div id="line73"><a href="#line73" class="IdrisLineNumber"> &nbsp;73 | </a><span class="IdrisComment">|||</span></div>
+<div id="line74"><a href="#line74" class="IdrisLineNumber"> &nbsp;74 | </a><span class="IdrisComment">|||&nbsp;This&nbsp;must&nbsp;be&nbsp;freed&nbsp;with&nbsp;`freeSigset`.</span></div>
+<div id="line75"><a href="#line75" class="IdrisLineNumber"> &nbsp;75 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
+<div id="line76"><a href="#line76" class="IdrisLineNumber"> &nbsp;76 | </a><span class="IdrisFunction">fullSigset</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HasIO</span>&nbsp;<span class="IdrisBound">io</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisBound">io</span>&nbsp;<span class="IdrisType">SigsetT</span></div>
+<div id="line77"><a href="#line77" class="IdrisLineNumber"> &nbsp;77 | </a><span class="IdrisFunction">fullSigset</span>&nbsp;<span class="IdrisKeyword">=</span></div>
+<div id="line78"><a href="#line78" class="IdrisLineNumber"> &nbsp;78 | </a>&nbsp;&nbsp;<span class="IdrisFunction">primIO</span>&nbsp;$&nbsp;<span class="IdrisKeyword">\</span><span class="IdrisBound">w</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisKeyword">let</span>&nbsp;<span class="IdrisData">MkIORes</span>&nbsp;<span class="IdrisBound">p</span>&nbsp;<span class="IdrisBound">w</span>&nbsp;<span class="IdrisKeyword">:=</span>&nbsp;<span class="IdrisFunction">prim__fullsigset</span>&nbsp;<span class="IdrisBound">w</span>&nbsp;<span class="IdrisKeyword">in</span>&nbsp;<span class="IdrisData">MkIORes</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisData">S</span>&nbsp;<span class="IdrisBound">p</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisBound">w</span></div>
+<div id="line79"><a href="#line79" class="IdrisLineNumber"> &nbsp;79 | </a></div>
+<div id="line80"><a href="#line80" class="IdrisLineNumber"> &nbsp;80 | </a><span class="IdrisComment">|||&nbsp;Frees&nbsp;the&nbsp;allocated&nbsp;pointer&nbsp;of&nbsp;a&nbsp;`sigset_t`.</span></div>
+<div id="line81"><a href="#line81" class="IdrisLineNumber"> &nbsp;81 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
+<div id="line82"><a href="#line82" class="IdrisLineNumber"> &nbsp;82 | </a><span class="IdrisFunction">freeSigset</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HasIO</span>&nbsp;<span class="IdrisBound">io</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisType">SigsetT</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisBound">io</span>&nbsp;<span class="IdrisType">()</span></div>
+<div id="line83"><a href="#line83" class="IdrisLineNumber"> &nbsp;83 | </a><span class="IdrisFunction">freeSigset</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisData">S</span>&nbsp;<span class="IdrisBound">p</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">primIO</span>&nbsp;$&nbsp;<span class="IdrisFunction">prim__free</span>&nbsp;<span class="IdrisBound">p</span></div>
+<div id="line84"><a href="#line84" class="IdrisLineNumber"> &nbsp;84 | </a></div>
+<div id="line85"><a href="#line85" class="IdrisLineNumber"> &nbsp;85 | </a><span class="IdrisComment">|||&nbsp;Adds&nbsp;a&nbsp;signal&nbsp;to&nbsp;a&nbsp;`sigset_t`</span></div>
+<div id="line86"><a href="#line86" class="IdrisLineNumber"> &nbsp;86 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
+<div id="line87"><a href="#line87" class="IdrisLineNumber"> &nbsp;87 | </a><span class="IdrisFunction">sigaddset</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HasIO</span>&nbsp;<span class="IdrisBound">io</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisType">SigsetT</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Signal</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisBound">io</span>&nbsp;<span class="IdrisType">()</span></div>
+<div id="line88"><a href="#line88" class="IdrisLineNumber"> &nbsp;88 | </a><span class="IdrisFunction">sigaddset</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisData">S</span>&nbsp;<span class="IdrisBound">p</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisBound">s</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">primIO</span>&nbsp;$&nbsp;<span class="IdrisFunction">prim__sigaddset</span>&nbsp;<span class="IdrisBound">p</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisFunction">cast</span>&nbsp;$&nbsp;<span class="IdrisFunction">signalCode</span>&nbsp;<span class="IdrisBound">s</span><span class="IdrisKeyword">)</span></div>
+<div id="line89"><a href="#line89" class="IdrisLineNumber"> &nbsp;89 | </a></div>
+<div id="line90"><a href="#line90" class="IdrisLineNumber"> &nbsp;90 | </a><span class="IdrisComment">|||&nbsp;Removes&nbsp;a&nbsp;signal&nbsp;from&nbsp;a&nbsp;`sigset_t`</span></div>
+<div id="line91"><a href="#line91" class="IdrisLineNumber"> &nbsp;91 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
+<div id="line92"><a href="#line92" class="IdrisLineNumber"> &nbsp;92 | </a><span class="IdrisFunction">sigdelset</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HasIO</span>&nbsp;<span class="IdrisBound">io</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisType">SigsetT</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Signal</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisBound">io</span>&nbsp;<span class="IdrisType">()</span></div>
+<div id="line93"><a href="#line93" class="IdrisLineNumber"> &nbsp;93 | </a><span class="IdrisFunction">sigdelset</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisData">S</span>&nbsp;<span class="IdrisBound">p</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisBound">s</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">primIO</span>&nbsp;$&nbsp;<span class="IdrisFunction">prim__sigdelset</span>&nbsp;<span class="IdrisBound">p</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisFunction">cast</span>&nbsp;$&nbsp;<span class="IdrisFunction">signalCode</span>&nbsp;<span class="IdrisBound">s</span><span class="IdrisKeyword">)</span></div>
+<div id="line94"><a href="#line94" class="IdrisLineNumber"> &nbsp;94 | </a></div>
+<div id="line95"><a href="#line95" class="IdrisLineNumber"> &nbsp;95 | </a><span class="IdrisComment">|||&nbsp;Tests&nbsp;if&nbsp;a&nbsp;signal&nbsp;is&nbsp;a&nbsp;member&nbsp;of&nbsp;a&nbsp;`sigset_t`.</span></div>
+<div id="line96"><a href="#line96" class="IdrisLineNumber"> &nbsp;96 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
+<div id="line97"><a href="#line97" class="IdrisLineNumber"> &nbsp;97 | </a><span class="IdrisFunction">sigismember</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HasIO</span>&nbsp;<span class="IdrisBound">io</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisType">SigsetT</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Signal</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisBound">io</span>&nbsp;<span class="IdrisType">Bool</span></div>
+<div id="line98"><a href="#line98" class="IdrisLineNumber"> &nbsp;98 | </a><span class="IdrisFunction">sigismember</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisData">S</span>&nbsp;<span class="IdrisBound">p</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisBound">s</span>&nbsp;<span class="IdrisKeyword">=</span></div>
+<div id="line99"><a href="#line99" class="IdrisLineNumber"> &nbsp;99 | </a>&nbsp;&nbsp;<span class="IdrisFunction">primIO</span>&nbsp;$&nbsp;<span class="IdrisKeyword">\</span><span class="IdrisBound">w</span>&nbsp;<span class="IdrisKeyword">=&gt;</span></div>
+<div id="line100"><a href="#line100" class="IdrisLineNumber"> 100 | </a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="IdrisKeyword">let</span>&nbsp;<span class="IdrisData">MkIORes</span>&nbsp;<span class="IdrisBound">r</span>&nbsp;<span class="IdrisBound">w</span>&nbsp;<span class="IdrisKeyword">:=</span>&nbsp;<span class="IdrisFunction">prim__sigismember</span>&nbsp;<span class="IdrisBound">p</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisFunction">cast</span>&nbsp;$&nbsp;<span class="IdrisFunction">signalCode</span>&nbsp;<span class="IdrisBound">s</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisBound">w</span></div>
+<div id="line101"><a href="#line101" class="IdrisLineNumber"> 101 | </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="IdrisKeyword">in</span>&nbsp;<span class="IdrisKeyword">case</span>&nbsp;<span class="IdrisBound">r</span>&nbsp;<span class="IdrisKeyword">of</span></div>
+<div id="line102"><a href="#line102" class="IdrisLineNumber"> 102 | </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="IdrisData">0</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisData">MkIORes</span>&nbsp;<span class="IdrisData">False</span>&nbsp;<span class="IdrisBound">w</span></div>
+<div id="line103"><a href="#line103" class="IdrisLineNumber"> 103 | </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="IdrisKeyword">_</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisData">MkIORes</span>&nbsp;<span class="IdrisData">True</span>&nbsp;<span class="IdrisBound">w</span></div>
+<div id="line104"><a href="#line104" class="IdrisLineNumber"> 104 | </a></div>
+<div id="line105"><a href="#line105" class="IdrisLineNumber"> 105 | </a></div>
+<div id="line106"><a href="#line106" class="IdrisLineNumber"> 106 | </a><span class="IdrisComment">--------------------------------------------------------------------------------</span></div>
+<div id="line107"><a href="#line107" class="IdrisLineNumber"> 107 | </a><span class="IdrisComment">--&nbsp;API</span></div>
+<div id="line108"><a href="#line108" class="IdrisLineNumber"> 108 | </a><span class="IdrisComment">--------------------------------------------------------------------------------</span></div>
+<div id="line109"><a href="#line109" class="IdrisLineNumber"> 109 | </a></div>
+<div id="line110"><a href="#line110" class="IdrisLineNumber"> 110 | </a><span class="IdrisComment">|||&nbsp;Sends&nbsp;a&nbsp;signal&nbsp;to&nbsp;a&nbsp;running&nbsp;process&nbsp;or&nbsp;a&nbsp;group&nbsp;of&nbsp;processes.</span></div>
+<div id="line111"><a href="#line111" class="IdrisLineNumber"> 111 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
+<div id="line112"><a href="#line112" class="IdrisLineNumber"> 112 | </a><span class="IdrisFunction">kill</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisFunction">PidT</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Signal</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">IO</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisType">Either</span>&nbsp;<span class="IdrisType">Errno</span>&nbsp;<span class="IdrisType">()</span><span class="IdrisKeyword">)</span></div>
+<div id="line113"><a href="#line113" class="IdrisLineNumber"> 113 | </a><span class="IdrisFunction">kill</span>&nbsp;<span class="IdrisBound">p</span>&nbsp;<span class="IdrisBound">s</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">toUnit</span>&nbsp;$&nbsp;<span class="IdrisFunction">prim__kill</span>&nbsp;<span class="IdrisBound">p</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisFunction">cast</span>&nbsp;$&nbsp;<span class="IdrisFunction">signalCode</span>&nbsp;<span class="IdrisBound">s</span><span class="IdrisKeyword">)</span></div>
+<div id="line114"><a href="#line114" class="IdrisLineNumber"> 114 | </a></div>
+<div id="line115"><a href="#line115" class="IdrisLineNumber"> 115 | </a><span class="IdrisComment">|||&nbsp;Sends&nbsp;a&nbsp;signal&nbsp;to&nbsp;the&nbsp;calling&nbsp;thread.</span></div>
+<div id="line116"><a href="#line116" class="IdrisLineNumber"> 116 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
+<div id="line117"><a href="#line117" class="IdrisLineNumber"> 117 | </a><span class="IdrisFunction">raise</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Signal</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">IO</span>&nbsp;<span class="IdrisType">()</span></div>
+<div id="line118"><a href="#line118" class="IdrisLineNumber"> 118 | </a><span class="IdrisFunction">raise</span>&nbsp;<span class="IdrisBound">s</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">fromPrim</span>&nbsp;$&nbsp;<span class="IdrisFunction">prim__raise</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisFunction">cast</span>&nbsp;$&nbsp;<span class="IdrisFunction">signalCode</span>&nbsp;<span class="IdrisBound">s</span><span class="IdrisKeyword">)</span></div>
+<div id="line119"><a href="#line119" class="IdrisLineNumber"> 119 | </a></div>
+<div id="line120"><a href="#line120" class="IdrisLineNumber"> 120 | </a><span class="IdrisComment">|||&nbsp;Adjust&nbsp;the&nbsp;process&nbsp;signal&nbsp;mask&nbsp;according&nbsp;to&nbsp;the&nbsp;given&nbsp;`How`</span></div>
+<div id="line121"><a href="#line121" class="IdrisLineNumber"> 121 | </a><span class="IdrisComment">|||&nbsp;and&nbsp;signal&nbsp;set.</span></div>
+<div id="line122"><a href="#line122" class="IdrisLineNumber"> 122 | </a><span class="IdrisComment">|||</span></div>
+<div id="line123"><a href="#line123" class="IdrisLineNumber"> 123 | </a><span class="IdrisComment">|||&nbsp;Note:&nbsp;This&nbsp;allocates&nbsp;a&nbsp;new&nbsp;`sigset_t`&nbsp;pointer&nbsp;and&nbsp;returns&nbsp;the</span></div>
+<div id="line124"><a href="#line124" class="IdrisLineNumber"> 124 | </a><span class="IdrisComment">|||&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;previously&nbsp;set&nbsp;signal&nbsp;mask.&nbsp;Client&nbsp;code&nbsp;is&nbsp;responsible&nbsp;to</span></div>
+<div id="line125"><a href="#line125" class="IdrisLineNumber"> 125 | </a><span class="IdrisComment">|||&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;free&nbsp;the&nbsp;memory&nbsp;for&nbsp;this&nbsp;once&nbsp;it&nbsp;is&nbsp;no&nbsp;longer&nbsp;used.</span></div>
+<div id="line126"><a href="#line126" class="IdrisLineNumber"> 126 | </a><span class="IdrisComment">|||&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;See&nbsp;also&nbsp;`sigprocmask&apos;`&nbsp;for&nbsp;a&nbsp;version&nbsp;that&nbsp;does&nbsp;not&nbsp;return</span></div>
+<div id="line127"><a href="#line127" class="IdrisLineNumber"> 127 | </a><span class="IdrisComment">|||&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;previous&nbsp;signal&nbsp;mask.</span></div>
+<div id="line128"><a href="#line128" class="IdrisLineNumber"> 128 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
+<div id="line129"><a href="#line129" class="IdrisLineNumber"> 129 | </a><span class="IdrisFunction">sigprocmask</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HasIO</span>&nbsp;<span class="IdrisBound">io</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisType">How</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">SigsetT</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisBound">io</span>&nbsp;<span class="IdrisType">SigsetT</span></div>
+<div id="line130"><a href="#line130" class="IdrisLineNumber"> 130 | </a><span class="IdrisFunction">sigprocmask</span>&nbsp;<span class="IdrisBound">h</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisData">S</span>&nbsp;<span class="IdrisBound">p</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisKeyword">=</span></div>
+<div id="line131"><a href="#line131" class="IdrisLineNumber"> 131 | </a>&nbsp;&nbsp;<span class="IdrisFunction">primIO</span>&nbsp;$&nbsp;<span class="IdrisKeyword">\</span><span class="IdrisBound">w</span>&nbsp;<span class="IdrisKeyword">=&gt;</span></div>
+<div id="line132"><a href="#line132" class="IdrisLineNumber"> 132 | </a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="IdrisKeyword">let</span>&nbsp;<span class="IdrisData">MkIORes</span>&nbsp;<span class="IdrisBound">p2</span>&nbsp;<span class="IdrisBound">w</span>&nbsp;<span class="IdrisKeyword">:=</span>&nbsp;<span class="IdrisFunction">prim__sigprocmask</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisFunction">howCode</span>&nbsp;<span class="IdrisBound">h</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisBound">p</span>&nbsp;<span class="IdrisBound">w</span></div>
+<div id="line133"><a href="#line133" class="IdrisLineNumber"> 133 | </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="IdrisKeyword">in</span>&nbsp;<span class="IdrisData">MkIORes</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisData">S</span>&nbsp;<span class="IdrisBound">p2</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisBound">w</span></div>
+<div id="line134"><a href="#line134" class="IdrisLineNumber"> 134 | </a></div>
+<div id="line135"><a href="#line135" class="IdrisLineNumber"> 135 | </a><span class="IdrisComment">|||&nbsp;Like&nbsp;`sigprocmask`&nbsp;but&nbsp;does&nbsp;not&nbsp;allocate&nbsp;a&nbsp;pointer&nbsp;for&nbsp;the</span></div>
+<div id="line136"><a href="#line136" class="IdrisLineNumber"> 136 | </a><span class="IdrisComment">|||&nbsp;previous&nbsp;`sigset_t`.</span></div>
+<div id="line137"><a href="#line137" class="IdrisLineNumber"> 137 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
+<div id="line138"><a href="#line138" class="IdrisLineNumber"> 138 | </a><span class="IdrisFunction">sigprocmask&apos;</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HasIO</span>&nbsp;<span class="IdrisBound">io</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisType">How</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">SigsetT</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisBound">io</span>&nbsp;<span class="IdrisType">()</span></div>
+<div id="line139"><a href="#line139" class="IdrisLineNumber"> 139 | </a><span class="IdrisFunction">sigprocmask&apos;</span>&nbsp;<span class="IdrisBound">h</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisData">S</span>&nbsp;<span class="IdrisBound">p</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">primIO</span>&nbsp;$&nbsp;<span class="IdrisFunction">prim__sigprocmask1</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisFunction">howCode</span>&nbsp;<span class="IdrisBound">h</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisBound">p</span></div>
+<div id="line140"><a href="#line140" class="IdrisLineNumber"> 140 | </a></div>
+<div id="line141"><a href="#line141" class="IdrisLineNumber"> 141 | </a><span class="IdrisComment">|||&nbsp;Returns&nbsp;the&nbsp;current&nbsp;signal&nbsp;mask&nbsp;of&nbsp;the&nbsp;process.</span></div>
+<div id="line142"><a href="#line142" class="IdrisLineNumber"> 142 | </a><span class="IdrisComment">|||</span></div>
+<div id="line143"><a href="#line143" class="IdrisLineNumber"> 143 | </a><span class="IdrisComment">|||&nbsp;Note:&nbsp;This&nbsp;allocates&nbsp;a&nbsp;new&nbsp;`sigset_t`&nbsp;pointer&nbsp;and&nbsp;returns&nbsp;the</span></div>
+<div id="line144"><a href="#line144" class="IdrisLineNumber"> 144 | </a><span class="IdrisComment">|||&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;previously&nbsp;set&nbsp;signal&nbsp;mask.&nbsp;Client&nbsp;code&nbsp;is&nbsp;responsible&nbsp;to</span></div>
+<div id="line145"><a href="#line145" class="IdrisLineNumber"> 145 | </a><span class="IdrisComment">|||&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;free&nbsp;the&nbsp;memory&nbsp;for&nbsp;this&nbsp;once&nbsp;it&nbsp;is&nbsp;no&nbsp;longer&nbsp;used.</span></div>
+<div id="line146"><a href="#line146" class="IdrisLineNumber"> 146 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
+<div id="line147"><a href="#line147" class="IdrisLineNumber"> 147 | </a><span class="IdrisFunction">siggetprocmask</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HasIO</span>&nbsp;<span class="IdrisBound">io</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisBound">io</span>&nbsp;<span class="IdrisType">SigsetT</span></div>
+<div id="line148"><a href="#line148" class="IdrisLineNumber"> 148 | </a><span class="IdrisFunction">siggetprocmask</span>&nbsp;<span class="IdrisKeyword">=</span></div>
+<div id="line149"><a href="#line149" class="IdrisLineNumber"> 149 | </a>&nbsp;&nbsp;<span class="IdrisFunction">primIO</span>&nbsp;$&nbsp;<span class="IdrisKeyword">\</span><span class="IdrisBound">w</span>&nbsp;<span class="IdrisKeyword">=&gt;</span></div>
+<div id="line150"><a href="#line150" class="IdrisLineNumber"> 150 | </a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="IdrisKeyword">let</span>&nbsp;<span class="IdrisData">MkIORes</span>&nbsp;<span class="IdrisBound">p</span>&nbsp;<span class="IdrisBound">w</span>&nbsp;<span class="IdrisKeyword">:=</span>&nbsp;<span class="IdrisFunction">prim__siggetprocmask</span>&nbsp;<span class="IdrisBound">w</span></div>
+<div id="line151"><a href="#line151" class="IdrisLineNumber"> 151 | </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="IdrisKeyword">in</span>&nbsp;<span class="IdrisData">MkIORes</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisData">S</span>&nbsp;<span class="IdrisBound">p</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisBound">w</span></div>
+<div id="line152"><a href="#line152" class="IdrisLineNumber"> 152 | </a></div>
+<div id="line153"><a href="#line153" class="IdrisLineNumber"> 153 | </a><span class="IdrisComment">|||&nbsp;Returns&nbsp;the&nbsp;set&nbsp;of&nbsp;currently&nbsp;pending&nbsp;signals.</span></div>
+<div id="line154"><a href="#line154" class="IdrisLineNumber"> 154 | </a><span class="IdrisComment">|||</span></div>
+<div id="line155"><a href="#line155" class="IdrisLineNumber"> 155 | </a><span class="IdrisComment">|||&nbsp;Note:&nbsp;This&nbsp;allocates&nbsp;a&nbsp;new&nbsp;`sigset_t`&nbsp;pointer&nbsp;and&nbsp;returns&nbsp;the</span></div>
+<div id="line156"><a href="#line156" class="IdrisLineNumber"> 156 | </a><span class="IdrisComment">|||&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;previously&nbsp;set&nbsp;signal&nbsp;mask.&nbsp;Client&nbsp;code&nbsp;is&nbsp;responsible&nbsp;to</span></div>
+<div id="line157"><a href="#line157" class="IdrisLineNumber"> 157 | </a><span class="IdrisComment">|||&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;free&nbsp;the&nbsp;memory&nbsp;for&nbsp;this&nbsp;once&nbsp;it&nbsp;is&nbsp;no&nbsp;longer&nbsp;used.</span></div>
+<div id="line158"><a href="#line158" class="IdrisLineNumber"> 158 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
+<div id="line159"><a href="#line159" class="IdrisLineNumber"> 159 | </a><span class="IdrisFunction">sigpending</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HasIO</span>&nbsp;<span class="IdrisBound">io</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisBound">io</span>&nbsp;<span class="IdrisType">SigsetT</span></div>
+<div id="line160"><a href="#line160" class="IdrisLineNumber"> 160 | </a><span class="IdrisFunction">sigpending</span>&nbsp;<span class="IdrisKeyword">=</span></div>
+<div id="line161"><a href="#line161" class="IdrisLineNumber"> 161 | </a>&nbsp;&nbsp;<span class="IdrisFunction">primIO</span>&nbsp;$&nbsp;<span class="IdrisKeyword">\</span><span class="IdrisBound">w</span>&nbsp;<span class="IdrisKeyword">=&gt;</span></div>
+<div id="line162"><a href="#line162" class="IdrisLineNumber"> 162 | </a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="IdrisKeyword">let</span>&nbsp;<span class="IdrisData">MkIORes</span>&nbsp;<span class="IdrisBound">p</span>&nbsp;<span class="IdrisBound">w</span>&nbsp;<span class="IdrisKeyword">:=</span>&nbsp;<span class="IdrisFunction">prim__sigpending</span>&nbsp;<span class="IdrisBound">w</span></div>
+<div id="line163"><a href="#line163" class="IdrisLineNumber"> 163 | </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="IdrisKeyword">in</span>&nbsp;<span class="IdrisData">MkIORes</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisData">S</span>&nbsp;<span class="IdrisBound">p</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisBound">w</span></div>
+<div id="line164"><a href="#line164" class="IdrisLineNumber"> 164 | </a></div>
+<div id="line165"><a href="#line165" class="IdrisLineNumber"> 165 | </a><span class="IdrisComment">|||&nbsp;Runs&nbsp;the&nbsp;given&nbsp;callback&nbsp;when&nbsp;the&nbsp;given&nbsp;signal&nbsp;is&nbsp;encountered.</span></div>
+<div id="line166"><a href="#line166" class="IdrisLineNumber"> 166 | </a><span class="IdrisComment">|||</span></div>
+<div id="line167"><a href="#line167" class="IdrisLineNumber"> 167 | </a><span class="IdrisComment">|||&nbsp;Note:&nbsp;This&nbsp;is&nbsp;not&nbsp;strictly&nbsp;a&nbsp;POSIX&nbsp;compatible&nbsp;function&nbsp;and&nbsp;is</span></div>
+<div id="line168"><a href="#line168" class="IdrisLineNumber"> 168 | </a><span class="IdrisComment">|||&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;currently&nbsp;only&nbsp;available&nbsp;on&nbsp;the&nbsp;Scheme&nbsp;backends.&nbsp;It&nbsp;is&nbsp;here</span></div>
+<div id="line169"><a href="#line169" class="IdrisLineNumber"> 169 | </a><span class="IdrisComment">|||&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;two&nbsp;reasons:&nbsp;a)&nbsp;We&nbsp;can&apos;t&nbsp;safely&nbsp;use&nbsp;Scheme&nbsp;function&nbsp;callbacks</span></div>
+<div id="line170"><a href="#line170" class="IdrisLineNumber"> 170 | </a><span class="IdrisComment">|||&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in&nbsp;system&nbsp;interrupts&nbsp;(see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;the&nbsp;Chez&nbsp;FFI)</span></div>
+<div id="line171"><a href="#line171" class="IdrisLineNumber"> 171 | </a><span class="IdrisComment">|||&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;therefore&nbsp;can&apos;t&nbsp;use&nbsp;C&nbsp;functions&nbsp;`signal`&nbsp;and&nbsp;`sigaction`</span></div>
+<div id="line172"><a href="#line172" class="IdrisLineNumber"> 172 | </a><span class="IdrisComment">|||&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;a&nbsp;callback&nbsp;functions&nbsp;calling&nbsp;Scheme&nbsp;code.</span></div>
+<div id="line173"><a href="#line173" class="IdrisLineNumber"> 173 | </a><span class="IdrisComment">|||&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b)&nbsp;It&nbsp;is&nbsp;convenient&nbsp;to&nbsp;be&nbsp;able&nbsp;to&nbsp;define&nbsp;simple&nbsp;asynchronous</span></div>
+<div id="line174"><a href="#line174" class="IdrisLineNumber"> 174 | </a><span class="IdrisComment">|||&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;signal&nbsp;handlers.</span></div>
+<div id="line175"><a href="#line175" class="IdrisLineNumber"> 175 | </a><span class="IdrisKeyword">export</span></div>
+<div id="line176"><a href="#line176" class="IdrisLineNumber"> 176 | </a><span class="IdrisFunction">onsignal</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HasIO</span>&nbsp;<span class="IdrisBound">io</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisType">Signal</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisFunction">CInt</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">IO</span>&nbsp;<span class="IdrisType">()</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisBound">io</span>&nbsp;<span class="IdrisType">()</span></div>
+<div id="line177"><a href="#line177" class="IdrisLineNumber"> 177 | </a><span class="IdrisFunction">onsignal</span>&nbsp;<span class="IdrisBound">s</span>&nbsp;<span class="IdrisBound">act</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">primIO</span>&nbsp;$&nbsp;<span class="IdrisFunction">prim__onsignal</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisFunction">cast</span>&nbsp;$&nbsp;<span class="IdrisFunction">signalCode</span>&nbsp;<span class="IdrisBound">s</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisKeyword">(\</span><span class="IdrisBound">x</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisFunction">toPrim</span>&nbsp;$&nbsp;<span class="IdrisBound">act</span>&nbsp;<span class="IdrisBound">x</span><span class="IdrisKeyword">)</span></div>
+<div id="line178"><a href="#line178" class="IdrisLineNumber"> 178 | </a></div>
+<div id="line179"><a href="#line179" class="IdrisLineNumber"> 179 | </a><span class="IdrisComment">|||&nbsp;Terminates&nbsp;the&nbsp;application&nbsp;by&nbsp;raising&nbsp;`SIGABRT`&nbsp;and&nbsp;dumps&nbsp;core.</span></div>
+<div id="line180"><a href="#line180" class="IdrisLineNumber"> 180 | </a><span class="IdrisComment">|||</span></div>
+<div id="line181"><a href="#line181" class="IdrisLineNumber"> 181 | </a><span class="IdrisComment">|||&nbsp;While&nbsp;`SIGABRT`&nbsp;can&nbsp;be&nbsp;handled&nbsp;with&nbsp;a&nbsp;signal&nbsp;handler,&nbsp;`abort`&nbsp;is</span></div>
+<div id="line182"><a href="#line182" class="IdrisLineNumber"> 182 | </a><span class="IdrisComment">|||&nbsp;still&nbsp;guaranteed&nbsp;successfully&nbsp;terminate&nbsp;the&nbsp;process.</span></div>
+<div id="line183"><a href="#line183" class="IdrisLineNumber"> 183 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
+<div id="line184"><a href="#line184" class="IdrisLineNumber"> 184 | </a><span class="IdrisFunction">abort</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HasIO</span>&nbsp;<span class="IdrisBound">io</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisBound">io</span>&nbsp;<span class="IdrisType">()</span></div>
+<div id="line185"><a href="#line185" class="IdrisLineNumber"> 185 | </a><span class="IdrisFunction">abort</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">primIO</span>&nbsp;<span class="IdrisFunction">prim__abort</span></div>
+<div id="line186"><a href="#line186" class="IdrisLineNumber"> 186 | </a></div>
+</code>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Crypto.Hash</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Crypto.Hash
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Crypto.Hash</h1><span style="float:right">(<a href="Crypto.Hash.src.html">source</a>)</span><pre></pre></div><h2>Reexports</h2><code><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Crypto.Hash.Interfaces<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Crypto.Hash.SHA2<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Crypto.Hash.SHA1<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Crypto.Hash.MD5</code><h2>Definitions</h2><dl class="decls"><dt id="Crypto.Hash.init"><code><a class="type" href="Crypto.Hash.html#Crypto.Hash.init"><span class="name function">init</span></a>&ensp;:&ensp;(<span class="keyword">0</span>&ensp;<span class="boundvar">algo</span>&ensp;:&ensp;<span class="name type">Type</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Crypto.Hash.Interfaces.html#Crypto.Hash.Interfaces.Hash"><span class="name type">Hash</span></a>&ensp;<span class="boundvar">algo</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="boundvar">algo</span></code></dt><dd><pre>  basically `Hash.initialize` but with explicit type argument</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Crypto.Hash.hash"><code><a class="type" href="Crypto.Hash.html#Crypto.Hash.hash"><span class="name function">hash</span></a>&ensp;:&ensp;(<span class="keyword">0</span>&ensp;<span class="boundvar">algo</span>&ensp;:&ensp;<span class="name type">Type</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;{<span class="keyword">auto</span>&ensp;<span class="boundvar">{conArg:9589}</span>&ensp;:&ensp;<a class="type" href="Crypto.Hash.Interfaces.html#Crypto.Hash.Interfaces.Hash"><span class="name type">Hash</span></a>&ensp;<span class="boundvar">algo</span>}&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;<span class="name type">Bits8</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Data.Vect.Vect"><span class="name type">Vect</span></span>&ensp;<a class="type" href="Crypto.Hash.Interfaces.html#Crypto.Hash.Interfaces.digest_nbyte"><span class="name function">digest_nbyte</span></a>&ensp;<span class="name type">Bits8</span></code></dt><dd><pre>  hash a sequence of bytes and produce a digest</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Crypto.Hash.init_mac"><code><a class="type" href="Crypto.Hash.html#Crypto.Hash.init_mac"><span class="name function">init_mac</span></a>&ensp;:&ensp;(<span class="keyword">0</span>&ensp;<span class="boundvar">algo</span>&ensp;:&ensp;<span class="name type">Type</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Crypto.Hash.Interfaces.html#Crypto.Hash.Interfaces.MAC"><span class="name type">MAC</span></a>&ensp;<span class="boundvar">key</span>&ensp;<span class="boundvar">algo</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="boundvar">key</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">algo</span></code></dt><dd><pre>  basically `MAC.initialize` but with explicit type argument</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Crypto.Hash.mac"><code><a class="type" href="Crypto.Hash.html#Crypto.Hash.mac"><span class="name function">mac</span></a>&ensp;:&ensp;(<span class="keyword">0</span>&ensp;<span class="boundvar">algo</span>&ensp;:&ensp;<span class="name type">Type</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;{<span class="keyword">auto</span>&ensp;<span class="boundvar">{conArg:9637}</span>&ensp;:&ensp;<a class="type" href="Crypto.Hash.Interfaces.html#Crypto.Hash.Interfaces.MAC"><span class="name type">MAC</span></a>&ensp;<span class="boundvar">key</span>&ensp;<span class="boundvar">algo</span>}&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">key</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;<span class="name type">Bits8</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Data.Vect.Vect"><span class="name type">Vect</span></span>&ensp;<a class="type" href="Crypto.Hash.Interfaces.html#Crypto.Hash.Interfaces.digest_nbyte"><span class="name function">digest_nbyte</span></a>&ensp;<span class="name type">Bits8</span></code></dt><dd><pre>  hash a sequence of bytes with key and produce a digest</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd></dl></div><footer>Produced by Idris 2 version 0.7.0-5459e1726</footer></body></html>
