@@ -741,6 +741,24 @@ url    = "https://github.com/stefan-hoeck/idris2-sqlite3"
 commit = "main"
 ipkg   = "sqlite3-rio/sqlite3-rio.ipkg"
 
+[db.stellar-api]
+type   = "git"
+url    = "https://gitlab.com/avidela/stellar/"
+commit = "main"
+ipkg   = "api/stellar-api.ipkg"
+
+[db.stellar-http]
+type   = "git"
+url    = "https://gitlab.com/avidela/stellar/"
+commit = "main"
+ipkg   = "http/stellar-http.ipkg"
+
+[db.stellar-sql]
+type   = "git"
+url    = "https://gitlab.com/avidela/stellar/"
+commit = "main"
+ipkg   = "sql/stellar-sql.ipkg"
+
 [db.structures]
 type   = "git"
 url    = "https://git.sr.ht/~thatonelutenist/Structures"
