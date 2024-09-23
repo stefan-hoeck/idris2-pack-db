@@ -74,10 +74,37 @@
 </li><li>
   <div class="index-wrapper">
     <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Fin.Map.html">Data.Fin.Map</a>
+    </div>
+    <div class="index-namespace-doc">
+      Specialised map from `Fin`s to any type.
+Isomorphic to a vector of appropriate size of maybe's of appropriate type.
+
+This should be a replacement for `SortedMap (Fin n) v` working better at least in elaborator scripts.
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
       <a class="code" href="docs/Data.Fin.Minus.html">Data.Fin.Minus</a>
     </div>
     <div class="index-namespace-doc">
       Special subtraction of a `Fin` from a `Nat`
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Fin.Set.html">Data.Fin.Set</a>
+    </div>
+    <div class="index-namespace-doc">
+      Specialised set of `Fin`s.
+Isomorphic to a vector of appropriate size of booleans.
+
+This should be a replacement for `SortedSet (Fin n)` working better at least in elaborator scripts.
+This can be implemented as simple `Integer` setting and clearing bits, but this seems to work worse in elaborator scripts.
 
     </div>
   </div>
