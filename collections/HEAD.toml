@@ -472,6 +472,12 @@ url    = "https://github.com/kiana-S/numidr"
 commit = "main"
 ipkg   = "numidr.ipkg"
 
+[db.okasaki-pfds]
+type   = "github"
+url    = "https://gitlab.com/bss03/idris2-okasaki-pfds"
+commit = "master"
+ipkg   = "okasaki-pfds.ipkg"
+
 [db.pack]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-pack"
