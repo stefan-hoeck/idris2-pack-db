@@ -152,6 +152,10 @@
 <div id="line31"><a href="#line31" class="IdrisLineNumber"> 31 | </a><span class="IdrisFunction">peekInt</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Ptr</span>&nbsp;<span class="IdrisType">Int</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Int</span></div>
 <div id="line32"><a href="#line32" class="IdrisLineNumber"> 32 | </a><span class="IdrisFunction">peekInt</span>&nbsp;<span class="IdrisBound">p</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">idris_rtlsdr_read_ptr_ref</span>&nbsp;<span class="IdrisBound">p</span>&nbsp;<span class="IdrisData">0</span></div>
 <div id="line33"><a href="#line33" class="IdrisLineNumber"> 33 | </a></div>
+<div id="line34"><a href="#line34" class="IdrisLineNumber"> 34 | </a><span class="IdrisKeyword">export</span></div>
+<div id="line35"><a href="#line35" class="IdrisLineNumber"> 35 | </a><span class="IdrisKeyword">%foreign</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisFunction">idris_rtlsdr</span>&nbsp;<span class="IdrisData">&quot;getstring&quot;</span><span class="IdrisKeyword">)</span></div>
+<div id="line36"><a href="#line36" class="IdrisLineNumber"> 36 | </a><span class="IdrisFunction">idris_rtlsdr_getstring</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Ptr</span>&nbsp;<span class="IdrisType">String</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">String</span></div>
+<div id="line37"><a href="#line37" class="IdrisLineNumber"> 37 | </a></div>
 </code>
 </body>
 </html>
