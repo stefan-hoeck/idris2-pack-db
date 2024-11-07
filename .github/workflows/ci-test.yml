@@ -126,7 +126,9 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git add docs
       - name: Git commit
-        run: git commit -m "[ docs ] CI docs generation" -m "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+        run: |
+          git diff --cached --quiet --exit-code || \
+            git commit -m "[ docs ] CI docs generation" -m "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
       - name: Push changes
         if: always()
         uses: ad-m/github-push-action@master
