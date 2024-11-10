@@ -153,6 +153,13 @@ url    = "https://github.com/stefan-hoeck/idris2-cyby-draw"
 commit = "main"
 ipkg   = "cyby-draw.ipkg"
 
+[db.dependent-map]
+type   = "github"
+url    = "https://github.com/JankaGramofonomanka/idris-dependent-map"
+commit = "master"
+ipkg   = "dependent-map.ipkg"
+test   = "test/dependent-map-test.ipkg"
+
 [db.dependent-vect]
 type   = "git"
 url    = "https://github.com/buzden/idris2-dependent-vect"
