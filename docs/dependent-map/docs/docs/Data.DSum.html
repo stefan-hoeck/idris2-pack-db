@@ -1,0 +1,65 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Data.DSum</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Data.DSum
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Data.DSum</h1><span style="float:right">(<a href="Data.DSum.src.html">source</a>)</span><pre>A module defining a dependent sum
+</pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="Data.DSum.DSum"><code><span class="keyword">data</span>&ensp;<a class="type" href="Data.DSum.html#Data.DSum.DSum"><span class="name type">DSum</span></a>&ensp;:&ensp;(<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd><pre>  A dependent sum<br>  This data type is supposed to mimic the `DSum` type from Haskells &quot;dependent-sum&quot; package</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span><br>  <b>Constructor</b>:&ensp;<dl class="decls"><dt id="Data.DSum.(:=&gt;)"><code><a class="type" href="Data.DSum.html#Data.DSum.(:=&gt;)"><span class="name constructor">(:=&gt;)</span></a>&ensp;:&ensp;<span class="boundvar">tag</span>&ensp;<span class="boundvar">x</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">f</span>&ensp;<span class="boundvar">x</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.DSum.html#Data.DSum.DSum"><span class="name type">DSum</span></a>&ensp;<span class="boundvar">tag</span>&ensp;<span class="boundvar">f</span></code></dt></dl><br>  <b>Hints</b>:<br><dl class="decls">  <dt id="$resolved3182"><code><a class="type" href="Data.GEq.html#Data.GEq.GEq"><span class="name type">GEq</span></a>&ensp;<span class="boundvar">tag</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<a class="type" href="Data.GEq.html#Data.GEq.GEq"><span class="name type">GEq</span></a>&ensp;<span class="boundvar">f</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="type resolved" title="Prelude.EqOrd.Eq"><span class="name type">Eq</span></span>&ensp;(<a class="type" href="Data.DSum.html#Data.DSum.DSum"><span class="name type">DSum</span></a>&ensp;<span class="boundvar">tag</span>&ensp;<span class="boundvar">f</span>)</code></dt>  <dt id="$resolved3181"><code><a class="type" href="Data.GCompare.html#Data.GCompare.GCompare"><span class="name type">GCompare</span></a>&ensp;<span class="boundvar">tag</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<a class="type" href="Data.GCompare.html#Data.GCompare.GCompare"><span class="name type">GCompare</span></a>&ensp;<span class="boundvar">f</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="type resolved" title="Prelude.EqOrd.Ord"><span class="name type">Ord</span></span>&ensp;(<a class="type" href="Data.DSum.html#Data.DSum.DSum"><span class="name type">DSum</span></a>&ensp;<span class="boundvar">tag</span>&ensp;<span class="boundvar">f</span>)</code></dt></dl></dd><dt id="Data.DSum.fst"><code><a class="type" href="Data.DSum.html#Data.DSum.fst"><span class="name function">fst</span></a>&ensp;:&ensp;<a class="type" href="Data.DSum.html#Data.DSum.DSum"><span class="name type">DSum</span></a>&ensp;<span class="boundvar">tag</span>&ensp;<span class="boundvar">f</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Some.html#Data.Some.Some"><span class="name type">Some</span></a>&ensp;<span class="boundvar">tag</span></code></dt><dd><pre>  The first component of a dependent sum</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Data.DSum.snd"><code><a class="type" href="Data.DSum.html#Data.DSum.snd"><span class="name function">snd</span></a>&ensp;:&ensp;<a class="type" href="Data.DSum.html#Data.DSum.DSum"><span class="name type">DSum</span></a>&ensp;<span class="boundvar">tag</span>&ensp;<span class="boundvar">f</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Some.html#Data.Some.Some"><span class="name type">Some</span></a>&ensp;<span class="boundvar">f</span></code></dt><dd><pre>  The sencond component of a dependent sum</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Data.DSum.toSome"><code><a class="type" href="Data.DSum.html#Data.DSum.toSome"><span class="name function">toSome</span></a>&ensp;:&ensp;<a class="type" href="Data.DSum.html#Data.DSum.DSum"><span class="name type">DSum</span></a>&ensp;<span class="boundvar">tag</span>&ensp;<span class="boundvar">f</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Some.html#Data.Some.Some"><span class="name type">Some</span></a>&ensp;(\<span class="boundvar">x</span>&ensp;<span class="keyword">=&gt;</span>&ensp;(<span class="boundvar">tag</span>&ensp;<span class="boundvar">x</span>,&ensp;<span class="boundvar">f</span>&ensp;<span class="boundvar">x</span>))</code></dt><dd><pre>  Convert a dependent sum to `Some`</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd></dl></div><footer>Produced by Idris 2 version 0.7.0-fc3d2a04d</footer></body></html>

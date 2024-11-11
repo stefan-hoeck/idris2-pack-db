@@ -1,0 +1,65 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Data.GEq</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Data.GEq
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Data.GEq</h1><span style="float:right">(<a href="Data.GEq.src.html">source</a>)</span><pre>A module defining the `GEq` interface
+</pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="Data.GEq.toBool"><code><a class="type" href="Data.GEq.html#Data.GEq.toBool"><span class="name function">toBool</span></a>&ensp;:&ensp;<span class="type resolved" title="Prelude.Types.Maybe"><span class="name type">Maybe</span></span>&ensp;<span class="boundvar">thm</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Basics.Bool"><span class="name type">Bool</span></span></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Data.GEq.GEq"><code><span class="keyword">interface</span>&ensp;<a class="type" href="Data.GEq.html#Data.GEq.GEq"><span class="name type">GEq</span></a>&ensp;:&ensp;(<span class="boundvar">t</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd><pre>  Constructors of types that allow for deciding the equality between values<br>  of such types, even in the case when their types are constructed from<br>  different parameters<br>  <br>  Modeled after the `GEq` typeclass from Haskells &quot;some&quot; package</pre><br>  <b>Parameters</b>:&ensp;f<br><b>Methods</b>:<br><dl class="decls">  <dt id="Data.GEq.geq"><code><a class="type" href="Data.GEq.html#Data.GEq.geq"><span class="name function">geq</span></a>&ensp;:&ensp;<span class="boundvar">f</span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">f</span>&ensp;<span class="boundvar">b</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Types.Maybe"><span class="name type">Maybe</span></span>&ensp;(<span class="boundvar">a</span>&ensp;<span class="keyword">=</span>&ensp;<span class="boundvar">b</span>)</code></dt><dd><pre>  If the operands are equal, returns a proof, that their type parameters<br>  are equal</pre></dd></dl><br><b>Implementation</b>:&ensp;<dl class="decls"><dt id="$resolved864"><code><a class="type" href="Data.GCompare.html#Data.GCompare.GCompare"><span class="name type">GCompare</span></a>&ensp;<span class="boundvar">f</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.GEq.html#Data.GEq.GEq"><span class="name type">GEq</span></a>&ensp;<span class="boundvar">f</span></code></dt></dl></dd><dt id="Data.GEq.geq"><code><a class="type" href="Data.GEq.html#Data.GEq.geq"><span class="name function">geq</span></a>&ensp;:&ensp;<a class="type" href="Data.GEq.html#Data.GEq.GEq"><span class="name type">GEq</span></a>&ensp;<span class="boundvar">f</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="boundvar">f</span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">f</span>&ensp;<span class="boundvar">b</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Types.Maybe"><span class="name type">Maybe</span></span>&ensp;(<span class="boundvar">a</span>&ensp;<span class="keyword">=</span>&ensp;<span class="boundvar">b</span>)</code></dt><dd><pre>  If the operands are equal, returns a proof, that their type parameters<br>  are equal</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Data.GEq.geq&apos;"><code><a class="type" href="Data.GEq.html#Data.GEq.geq&apos;"><span class="name function">geq&apos;</span></a>&ensp;:&ensp;<a class="type" href="Data.GEq.html#Data.GEq.GEq"><span class="name type">GEq</span></a>&ensp;<span class="boundvar">f</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="boundvar">f</span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">f</span>&ensp;<span class="boundvar">b</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Basics.Bool"><span class="name type">Bool</span></span></code></dt><dd><pre>  Compare the operands and ignore the equality proof</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Data.GEq.(==)"><code><a class="type" href="Data.GEq.html#Data.GEq.(==)"><span class="name function">(==)</span></a>&ensp;:&ensp;<a class="type" href="Data.GEq.html#Data.GEq.GEq"><span class="name type">GEq</span></a>&ensp;<span class="boundvar">f</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="boundvar">f</span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">f</span>&ensp;<span class="boundvar">b</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Basics.Bool"><span class="name type">Bool</span></span></code></dt><dd><pre>  Compare the operands and ignore the equality proof</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span><br>  <b>Fixity Declaration</b>:&ensp;infix&ensp;operator,&ensp;level&ensp;6</dd><dt id="Data.GEq.ngeq&apos;"><code><a class="type" href="Data.GEq.html#Data.GEq.ngeq&apos;"><span class="name function">ngeq&apos;</span></a>&ensp;:&ensp;<a class="type" href="Data.GEq.html#Data.GEq.GEq"><span class="name type">GEq</span></a>&ensp;<span class="boundvar">f</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="boundvar">f</span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">f</span>&ensp;<span class="boundvar">b</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Basics.Bool"><span class="name type">Bool</span></span></code></dt><dd><pre>  Decide the inequality of the operands</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Data.GEq.(/=)"><code><a class="type" href="Data.GEq.html#Data.GEq.(/=)"><span class="name function">(/=)</span></a>&ensp;:&ensp;<a class="type" href="Data.GEq.html#Data.GEq.GEq"><span class="name type">GEq</span></a>&ensp;<span class="boundvar">f</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="boundvar">f</span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">f</span>&ensp;<span class="boundvar">b</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Basics.Bool"><span class="name type">Bool</span></span></code></dt><dd><pre>  Decide the inequality of the operands</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span><br>  <b>Fixity Declaration</b>:&ensp;infix&ensp;operator,&ensp;level&ensp;6</dd></dl></div><footer>Produced by Idris 2 version 0.7.0-fc3d2a04d</footer></body></html>

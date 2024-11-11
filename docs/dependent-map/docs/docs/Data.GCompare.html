@@ -1,0 +1,65 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Data.GCompare</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Data.GCompare
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Data.GCompare</h1><span style="float:right">(<a href="Data.GCompare.src.html">source</a>)</span><pre>A module defining the `GCompare` interface
+</pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="Data.GCompare.GOrdering"><code><span class="keyword">data</span>&ensp;<a class="type" href="Data.GCompare.html#Data.GCompare.GOrdering"><span class="name type">GOrdering</span></a>&ensp;:&ensp;<span class="boundvar">t</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">t</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd><pre>  An ordering of dependent types<br>  <br>  Modeled after the `GOrdering` type from Haskells &quot;some&quot; package</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span><br>  <b>Constructors</b>:<br><dl class="decls">  <dt id="Data.GCompare.GLT"><code><a class="type" href="Data.GCompare.html#Data.GCompare.GLT"><span class="name constructor">GLT</span></a>&ensp;:&ensp;<a class="type" href="Data.GCompare.html#Data.GCompare.GOrdering"><span class="name type">GOrdering</span></a>&ensp;<span class="boundvar">a</span>&ensp;<span class="boundvar">b</span></code></dt>  <dt id="Data.GCompare.GEQ"><code><a class="type" href="Data.GCompare.html#Data.GCompare.GEQ"><span class="name constructor">GEQ</span></a>&ensp;:&ensp;<a class="type" href="Data.GCompare.html#Data.GCompare.GOrdering"><span class="name type">GOrdering</span></a>&ensp;<span class="boundvar">a</span>&ensp;<span class="boundvar">a</span></code></dt>  <dt id="Data.GCompare.GGT"><code><a class="type" href="Data.GCompare.html#Data.GCompare.GGT"><span class="name constructor">GGT</span></a>&ensp;:&ensp;<a class="type" href="Data.GCompare.html#Data.GCompare.GOrdering"><span class="name type">GOrdering</span></a>&ensp;<span class="boundvar">a</span>&ensp;<span class="boundvar">b</span></code></dt></dl></dd><dt id="Data.GCompare.GCompare"><code><span class="keyword">interface</span>&ensp;<a class="type" href="Data.GCompare.html#Data.GCompare.GCompare"><span class="name type">GCompare</span></a>&ensp;:&ensp;(<span class="boundvar">t</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd><pre>  Constructors of types that allow for comparing values of such types, even<br>  in the case when their types are constructed from different parameters<br>  <br>  Modeled after the `GCompare` typeclass from Haskells &quot;some&quot; package</pre><br>  <b>Parameters</b>:&ensp;f<br><b>Constraints</b>:&ensp;GEq&ensp;f<br><b>Methods</b>:<br><dl class="decls">  <dt id="Data.GCompare.gcompare"><code><a class="type" href="Data.GCompare.html#Data.GCompare.gcompare"><span class="name function">gcompare</span></a>&ensp;:&ensp;<span class="boundvar">f</span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">f</span>&ensp;<span class="boundvar">b</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.GCompare.html#Data.GCompare.GOrdering"><span class="name type">GOrdering</span></a>&ensp;<span class="boundvar">a</span>&ensp;<span class="boundvar">b</span></code></dt></dl></dd><dt id="Data.GCompare.gcompare"><code><a class="type" href="Data.GCompare.html#Data.GCompare.gcompare"><span class="name function">gcompare</span></a>&ensp;:&ensp;<a class="type" href="Data.GCompare.html#Data.GCompare.GCompare"><span class="name type">GCompare</span></a>&ensp;<span class="boundvar">f</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="boundvar">f</span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">f</span>&ensp;<span class="boundvar">b</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.GCompare.html#Data.GCompare.GOrdering"><span class="name type">GOrdering</span></a>&ensp;<span class="boundvar">a</span>&ensp;<span class="boundvar">b</span></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Data.GCompare.gcompare&apos;"><code><a class="type" href="Data.GCompare.html#Data.GCompare.gcompare&apos;"><span class="name function">gcompare&apos;</span></a>&ensp;:&ensp;<a class="type" href="Data.GCompare.html#Data.GCompare.GCompare"><span class="name type">GCompare</span></a>&ensp;<span class="boundvar">f</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="boundvar">f</span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">f</span>&ensp;<span class="boundvar">b</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.EqOrd.Ordering"><span class="name type">Ordering</span></span></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd></dl></div><footer>Produced by Idris 2 version 0.7.0-fc3d2a04d</footer></body></html>
