@@ -498,12 +498,13 @@
 <div id="line377"><a href="#line377" class="IdrisLineNumber"> 377 | </a>&nbsp;&nbsp;<span class="IdrisBound">expr</span>&nbsp;<span class="IdrisKeyword">&lt;-</span>&nbsp;<span class="IdrisFunction">quote</span>&nbsp;<span class="IdrisBound">expr</span></div>
 <div id="line378"><a href="#line378" class="IdrisLineNumber"> 378 | </a>&nbsp;&nbsp;<span class="IdrisBound">printTTImp</span>&nbsp;<span class="IdrisKeyword">&lt;-</span>&nbsp;<span class="IdrisFunction">quote</span>&nbsp;<span class="IdrisBound">printTTImp</span></div>
 <div id="line379"><a href="#line379" class="IdrisLineNumber"> 379 | </a>&nbsp;&nbsp;<span class="IdrisFunction">declare</span>&nbsp;<span class="IdrisKeyword">`[</span></div>
-<div id="line380"><a href="#line380" class="IdrisLineNumber"> 380 | </a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="IdrisFunction">main</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;IO&nbsp;Unit</div>
-<div id="line381"><a href="#line381" class="IdrisLineNumber"> 381 | </a>&nbsp;&nbsp;&nbsp;&nbsp;main&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisKeyword">do</span></div>
-<div id="line382"><a href="#line382" class="IdrisLineNumber"> 382 | </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;putStr&nbsp;$&nbsp;<span class="IdrisKeyword">if</span>&nbsp;<span class="IdrisKeyword">~</span><span class="IdrisBound">printTTImp</span>&nbsp;<span class="IdrisKeyword">then</span>&nbsp;interpolate&nbsp;<span class="IdrisKeyword">~</span><span class="IdrisBound">expr</span>&nbsp;<span class="IdrisKeyword">else</span>&nbsp;show&nbsp;<span class="IdrisKeyword">~</span><span class="IdrisBound">expr</span></div>
-<div id="line383"><a href="#line383" class="IdrisLineNumber"> 383 | </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;putStrLn&nbsp;<span class="IdrisData">&quot;&quot;</span></div>
-<div id="line384"><a href="#line384" class="IdrisLineNumber"> 384 | </a>&nbsp;&nbsp;<span class="IdrisKeyword">]</span></div>
-<div id="line385"><a href="#line385" class="IdrisLineNumber"> 385 | </a></div>
+<div id="line380"><a href="#line380" class="IdrisLineNumber"> 380 | </a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="IdrisKeyword">export</span></div>
+<div id="line381"><a href="#line381" class="IdrisLineNumber"> 381 | </a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="IdrisFunction">main</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;IO&nbsp;Unit</div>
+<div id="line382"><a href="#line382" class="IdrisLineNumber"> 382 | </a>&nbsp;&nbsp;&nbsp;&nbsp;main&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisKeyword">do</span></div>
+<div id="line383"><a href="#line383" class="IdrisLineNumber"> 383 | </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;putStr&nbsp;$&nbsp;<span class="IdrisKeyword">if</span>&nbsp;<span class="IdrisKeyword">~</span><span class="IdrisBound">printTTImp</span>&nbsp;<span class="IdrisKeyword">then</span>&nbsp;interpolate&nbsp;<span class="IdrisKeyword">~</span><span class="IdrisBound">expr</span>&nbsp;<span class="IdrisKeyword">else</span>&nbsp;show&nbsp;<span class="IdrisKeyword">~</span><span class="IdrisBound">expr</span></div>
+<div id="line384"><a href="#line384" class="IdrisLineNumber"> 384 | </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;putStrLn&nbsp;<span class="IdrisData">&quot;&quot;</span></div>
+<div id="line385"><a href="#line385" class="IdrisLineNumber"> 385 | </a>&nbsp;&nbsp;<span class="IdrisKeyword">]</span></div>
+<div id="line386"><a href="#line386" class="IdrisLineNumber"> 386 | </a></div>
 </code>
 </body>
 </html>
