@@ -479,6 +479,12 @@ url    = "https://github.com/mattpolzin/ncurses-idris"
 commit = "main"
 ipkg   = "ncurses-idris.ipkg"
 
+[db.nested]
+type   = "github"
+url    = "https://gitlab.com/bss03/nested"
+commit = "main"
+ipkg   = "nested.ipkg"
+
 [db.numidr]
 type   = "github"
 url    = "https://github.com/kiana-S/numidr"
