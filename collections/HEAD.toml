@@ -204,6 +204,12 @@ url    = "https://github.com/CodingCellist/idris2-dot-parse"
 commit = "main"
 ipkg   = "dot-parse.ipkg"
 
+[db.dtypes]
+type   = "github"
+url    = "https://github.com/JankaGramofonomanka/idris-dtypes"
+commit = "master"
+ipkg   = "dtypes.ipkg"
+
 [db.eff]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-eff"
