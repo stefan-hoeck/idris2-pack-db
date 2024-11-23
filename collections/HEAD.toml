@@ -404,6 +404,12 @@ url    = "https://github.com/Russoul/Just-a-Monad"
 commit = "main"
 ipkg   = "just-a-monad.ipkg"
 
+[db.just-a-parser]
+type   = "github"
+url    = "https://github.com/Russoul/Just-a-Parser"
+commit = "main"
+ipkg   = "just-a-parser.ipkg"
+
 [db.katla]
 type   = "github"
 url    = "https://github.com/idris-community/katla"
