@@ -729,6 +729,12 @@ url    = "https://github.com/stefan-hoeck/idris2-sqlite3"
 commit = "main"
 ipkg   = "sqlite3-rio/sqlite3-rio.ipkg"
 
+[db.structures]
+type   = "git"
+url    = "https://git.sr.ht/~thatonelutenist/Structures"
+commit = "trunk"
+ipkg   = "structures.ipkg"
+
 [db.string-builder]
 type   = "github"
 url    = "https://github.com/Z-snails/string-builder"
