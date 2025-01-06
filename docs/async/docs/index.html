@@ -82,6 +82,15 @@
 </li><li>
   <div class="index-wrapper">
     <div class="index-namespace-url">
+      <a class="code" href="docs/IO.Async.Posix.html">IO.Async.Posix</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
       <a class="code" href="docs/IO.Async.Resource.html">IO.Async.Resource</a>
     </div>
     <div class="index-namespace-doc">
@@ -152,8 +161,15 @@
       A pool of a fixed number of worker threads, each operating on its own
 work queue.
 
-Idle threads will try and take work packages from a shared queue, or
-the will sleep until new work packages are available.
+Idle threads will try and take work packages from other threads
+(work-stealing). However, work-stealing requires synchronization and
+communication between workers, so it comes with a considerable overhead.
+
+After certain intervals, a worker moves one of its tasks to its
+"shared" queue. Workers without active tasks will take a task from
+their own shared queue or from a shared queue of one of their
+neighbours. If no such task can be found, they sleep (become idle)
+for a short amount of time.
 
     </div>
   </div>
