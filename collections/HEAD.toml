@@ -41,6 +41,12 @@ url  = "https://github.com/stefan-hoeck/idris2-async"
 commit = "main"
 ipkg = "async.ipkg"
 
+[db.async-epoll]
+type = "github"
+url  = "https://github.com/stefan-hoeck/idris2-async"
+commit = "main"
+ipkg = "async-epoll/async-epoll.ipkg"
+
 [db.barbies]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-barbies"
