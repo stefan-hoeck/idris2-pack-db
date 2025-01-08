@@ -121,7 +121,7 @@ ipkg   = "comonad.ipkg"
 
 [db.containers]
 type = "github"
-url  = "https://github.com/stefan-hoeck/idris2-containers"
+url  = "https://github.com/idris-community/idris2-containers"
 commit = "main"
 ipkg = "containers.ipkg"
 
