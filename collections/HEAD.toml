@@ -132,6 +132,12 @@ commit = "master"
 ipkg   = "coop.ipkg"
 test   = "tests/tests.ipkg"
 
+[db.control-spec]
+type   = "github"
+url    = "https://github.com/dannypsnl/control-spec"
+commit = "main"
+ipkg   = "control-spec.ipkg"
+
 [db.cozippable]
 type   = "git"
 url    = "https://github.com/buzden/idris2-cozippable"
