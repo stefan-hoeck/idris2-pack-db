@@ -743,19 +743,19 @@ ipkg   = "sqlite3-rio/sqlite3-rio.ipkg"
 
 [db.stellar-api]
 type   = "git"
-url    = "https://gitlab.com/avidela/stellar/"
+url    = "https://gitlab.com/avidela/stellar"
 commit = "main"
 ipkg   = "api/stellar-api.ipkg"
 
 [db.stellar-http]
 type   = "git"
-url    = "https://gitlab.com/avidela/stellar/"
+url    = "https://gitlab.com/avidela/stellar"
 commit = "main"
 ipkg   = "http/stellar-http.ipkg"
 
 [db.stellar-sql]
 type   = "git"
-url    = "https://gitlab.com/avidela/stellar/"
+url    = "https://gitlab.com/avidela/stellar"
 commit = "main"
 ipkg   = "sql/stellar-sql.ipkg"
 
