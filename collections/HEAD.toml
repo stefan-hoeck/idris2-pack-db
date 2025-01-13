@@ -575,6 +575,12 @@ commit = "main"
 ipkg   = "webidl/parser-webidl.ipkg"
 test   = "test/test.ipkg"
 
+[db.pipelines]
+type   = "git"
+url    = "https://gitlab.com/glaive-research/pipelines.git"
+commit = "main"
+ipkg   = "pipelines.ipkg"
+
 [db.pg-idris]
 type   = "github"
 url    = "https://github.com/mattpolzin/pg-idris"
