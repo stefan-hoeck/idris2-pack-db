@@ -125,62 +125,67 @@
 <div id="line4"><a href="#line4" class="IdrisLineNumber"> &nbsp;4 | </a></div>
 <div id="line5"><a href="#line5" class="IdrisLineNumber"> &nbsp;5 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">System.Linux.Epoll.Flags</span></div>
 <div id="line6"><a href="#line6" class="IdrisLineNumber"> &nbsp;6 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">System.Posix.File.FileDesc</span></div>
-<div id="line7"><a href="#line7" class="IdrisLineNumber"> &nbsp;7 | </a></div>
-<div id="line8"><a href="#line8" class="IdrisLineNumber"> &nbsp;8 | </a><span class="IdrisKeyword">%default</span>&nbsp;<span class="IdrisKeyword">total</span></div>
-<div id="line9"><a href="#line9" class="IdrisLineNumber"> &nbsp;9 | </a><span class="IdrisKeyword">%language</span>&nbsp;ElabReflection</div>
-<div id="line10"><a href="#line10" class="IdrisLineNumber"> 10 | </a></div>
-<div id="line11"><a href="#line11" class="IdrisLineNumber"> 11 | </a><span class="IdrisKeyword">%foreign</span>&nbsp;<span class="IdrisData">&quot;C:get_epoll_event_events,&nbsp;linux-idris&quot;</span></div>
-<div id="line12"><a href="#line12" class="IdrisLineNumber"> 12 | </a><span class="IdrisFunction">prim__get_epoll_event_events</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">AnyPtr</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisFunction">PrimIO</span>&nbsp;<span class="IdrisType">Bits32</span></div>
-<div id="line13"><a href="#line13" class="IdrisLineNumber"> 13 | </a></div>
-<div id="line14"><a href="#line14" class="IdrisLineNumber"> 14 | </a><span class="IdrisKeyword">%foreign</span>&nbsp;<span class="IdrisData">&quot;C:get_epoll_event_fd,&nbsp;linux-idris&quot;</span></div>
-<div id="line15"><a href="#line15" class="IdrisLineNumber"> 15 | </a><span class="IdrisFunction">prim__get_epoll_event_fd</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">AnyPtr</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisFunction">PrimIO</span>&nbsp;<span class="IdrisType">Bits32</span></div>
-<div id="line16"><a href="#line16" class="IdrisLineNumber"> 16 | </a></div>
-<div id="line17"><a href="#line17" class="IdrisLineNumber"> 17 | </a><span class="IdrisComment">|||&nbsp;A&nbsp;file&nbsp;descriptor&nbsp;used&nbsp;for&nbsp;monitoring&nbsp;other&nbsp;file&nbsp;descriptors&nbsp;in</span></div>
-<div id="line18"><a href="#line18" class="IdrisLineNumber"> 18 | </a><span class="IdrisComment">|||&nbsp;calls&nbsp;to&nbsp;`epoll_ctl`&nbsp;and&nbsp;`epoll_wait`.</span></div>
-<div id="line19"><a href="#line19" class="IdrisLineNumber"> 19 | </a><span class="IdrisKeyword">export</span></div>
-<div id="line20"><a href="#line20" class="IdrisLineNumber"> 20 | </a><span class="IdrisKeyword">record</span>&nbsp;<span class="IdrisType">Epollfd</span>&nbsp;<span class="IdrisKeyword">where</span></div>
-<div id="line21"><a href="#line21" class="IdrisLineNumber"> 21 | </a>&nbsp;&nbsp;<span class="IdrisKeyword">constructor</span>&nbsp;<span class="IdrisData">EFD</span></div>
-<div id="line22"><a href="#line22" class="IdrisLineNumber"> 22 | </a>&nbsp;&nbsp;<span class="IdrisFunction">fd</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Bits32</span></div>
-<div id="line23"><a href="#line23" class="IdrisLineNumber"> 23 | </a></div>
-<div id="line24"><a href="#line24" class="IdrisLineNumber"> 24 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
-<div id="line25"><a href="#line25" class="IdrisLineNumber"> 25 | </a><span class="IdrisType">Cast</span>&nbsp;<span class="IdrisType">Epollfd</span>&nbsp;<span class="IdrisType">Fd</span>&nbsp;<span class="IdrisKeyword">where</span>&nbsp;<span class="IdrisFunction">cast</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisData">MkFd</span>&nbsp;<span class="IdrisFunction">.</span>&nbsp;<span class="IdrisFunction">fd</span></div>
-<div id="line26"><a href="#line26" class="IdrisLineNumber"> 26 | </a></div>
-<div id="line27"><a href="#line27" class="IdrisLineNumber"> 27 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
-<div id="line28"><a href="#line28" class="IdrisLineNumber"> 28 | </a><span class="IdrisType">Cast</span>&nbsp;<span class="IdrisFunction">CInt</span>&nbsp;<span class="IdrisType">Epollfd</span>&nbsp;<span class="IdrisKeyword">where</span>&nbsp;<span class="IdrisFunction">cast</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisData">EFD</span>&nbsp;<span class="IdrisFunction">.</span>&nbsp;<span class="IdrisFunction">cast</span></div>
-<div id="line29"><a href="#line29" class="IdrisLineNumber"> 29 | </a></div>
-<div id="line30"><a href="#line30" class="IdrisLineNumber"> 30 | </a><span class="IdrisComment">|||&nbsp;Wrapper&nbsp;around&nbsp;a&nbsp;pointer&nbsp;of&nbsp;an&nbsp;`epoll_event`&nbsp;value.</span></div>
-<div id="line31"><a href="#line31" class="IdrisLineNumber"> 31 | </a><span class="IdrisKeyword">export</span></div>
-<div id="line32"><a href="#line32" class="IdrisLineNumber"> 32 | </a><span class="IdrisKeyword">record</span>&nbsp;<span class="IdrisType">SEpollEvent</span>&nbsp;<span class="IdrisKeyword">where</span></div>
-<div id="line33"><a href="#line33" class="IdrisLineNumber"> 33 | </a>&nbsp;&nbsp;<span class="IdrisKeyword">constructor</span>&nbsp;<span class="IdrisData">SE</span></div>
-<div id="line34"><a href="#line34" class="IdrisLineNumber"> 34 | </a>&nbsp;&nbsp;<span class="IdrisFunction">ptr</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">AnyPtr</span></div>
-<div id="line35"><a href="#line35" class="IdrisLineNumber"> 35 | </a></div>
-<div id="line36"><a href="#line36" class="IdrisLineNumber"> 36 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
-<div id="line37"><a href="#line37" class="IdrisLineNumber"> 37 | </a><span class="IdrisType">Struct</span>&nbsp;<span class="IdrisType">SEpollEvent</span>&nbsp;<span class="IdrisKeyword">where</span></div>
-<div id="line38"><a href="#line38" class="IdrisLineNumber"> 38 | </a>&nbsp;&nbsp;<span class="IdrisFunction">wrap</span>&nbsp;&nbsp;&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisData">SE</span></div>
-<div id="line39"><a href="#line39" class="IdrisLineNumber"> 39 | </a>&nbsp;&nbsp;<span class="IdrisFunction">unwrap</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">ptr</span></div>
-<div id="line40"><a href="#line40" class="IdrisLineNumber"> 40 | </a></div>
-<div id="line41"><a href="#line41" class="IdrisLineNumber"> 41 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
-<div id="line42"><a href="#line42" class="IdrisLineNumber"> 42 | </a><span class="IdrisType">SizeOf</span>&nbsp;<span class="IdrisType">SEpollEvent</span>&nbsp;<span class="IdrisKeyword">where</span>&nbsp;<span class="IdrisFunction">sizeof_</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">epoll_event_size</span></div>
-<div id="line43"><a href="#line43" class="IdrisLineNumber"> 43 | </a></div>
-<div id="line44"><a href="#line44" class="IdrisLineNumber"> 44 | </a><span class="IdrisKeyword">export</span></div>
-<div id="line45"><a href="#line45" class="IdrisLineNumber"> 45 | </a><span class="IdrisType">InIO</span>&nbsp;<span class="IdrisType">SEpollEvent</span>&nbsp;<span class="IdrisKeyword">where</span></div>
-<div id="line46"><a href="#line46" class="IdrisLineNumber"> 46 | </a></div>
-<div id="line47"><a href="#line47" class="IdrisLineNumber"> 47 | </a><span class="IdrisComment">|||&nbsp;Wrapper&nbsp;around&nbsp;a&nbsp;pointer&nbsp;of&nbsp;an&nbsp;`epoll_event`&nbsp;value.</span></div>
-<div id="line48"><a href="#line48" class="IdrisLineNumber"> 48 | </a><span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisKeyword">export</span></div>
-<div id="line49"><a href="#line49" class="IdrisLineNumber"> 49 | </a><span class="IdrisKeyword">record</span>&nbsp;<span class="IdrisType">EpollEvent</span>&nbsp;<span class="IdrisKeyword">where</span></div>
-<div id="line50"><a href="#line50" class="IdrisLineNumber"> 50 | </a>&nbsp;&nbsp;<span class="IdrisKeyword">constructor</span>&nbsp;<span class="IdrisData">E</span></div>
-<div id="line51"><a href="#line51" class="IdrisLineNumber"> 51 | </a>&nbsp;&nbsp;<span class="IdrisFunction">event</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Event</span></div>
-<div id="line52"><a href="#line52" class="IdrisLineNumber"> 52 | </a>&nbsp;&nbsp;<span class="IdrisFunction">file</span>&nbsp;&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Fd</span></div>
-<div id="line53"><a href="#line53" class="IdrisLineNumber"> 53 | </a></div>
-<div id="line54"><a href="#line54" class="IdrisLineNumber"> 54 | </a><span class="IdrisKeyword">%runElab</span>&nbsp;<span class="IdrisFunction">derive</span>&nbsp;<span class="IdrisData">&quot;EpollEvent&quot;</span>&nbsp;<span class="IdrisData">[</span><span class="IdrisFunction">Show</span><span class="IdrisData">,</span><span class="IdrisFunction">Eq</span><span class="IdrisData">]</span></div>
-<div id="line55"><a href="#line55" class="IdrisLineNumber"> 55 | </a></div>
-<div id="line56"><a href="#line56" class="IdrisLineNumber"> 56 | </a><span class="IdrisKeyword">export</span></div>
-<div id="line57"><a href="#line57" class="IdrisLineNumber"> 57 | </a><span class="IdrisFunction">epollEvent</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">SEpollEvent</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisFunction">F1</span>&nbsp;<span class="IdrisData">[</span><span class="IdrisType">World</span><span class="IdrisData">]</span>&nbsp;<span class="IdrisType">EpollEvent</span></div>
-<div id="line58"><a href="#line58" class="IdrisLineNumber"> 58 | </a><span class="IdrisFunction">epollEvent</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisData">SE</span>&nbsp;<span class="IdrisBound">p</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisBound">t</span>&nbsp;<span class="IdrisKeyword">=</span></div>
-<div id="line59"><a href="#line59" class="IdrisLineNumber"> 59 | </a>&nbsp;&nbsp;<span class="IdrisKeyword">let</span>&nbsp;<span class="IdrisBound">fd</span>&nbsp;<span class="IdrisData">#</span>&nbsp;<span class="IdrisBound">t</span>&nbsp;<span class="IdrisKeyword">:=</span>&nbsp;<span class="IdrisFunction">ffi</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisFunction">prim__get_epoll_event_fd</span>&nbsp;<span class="IdrisBound">p</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisBound">t</span></div>
-<div id="line60"><a href="#line60" class="IdrisLineNumber"> 60 | </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="IdrisBound">ev</span>&nbsp;<span class="IdrisData">#</span>&nbsp;<span class="IdrisBound">t</span>&nbsp;<span class="IdrisKeyword">:=</span>&nbsp;<span class="IdrisFunction">ffi</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisFunction">prim__get_epoll_event_events</span>&nbsp;<span class="IdrisBound">p</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisBound">t</span></div>
-<div id="line61"><a href="#line61" class="IdrisLineNumber"> 61 | </a>&nbsp;&nbsp;&nbsp;<span class="IdrisKeyword">in</span>&nbsp;<span class="IdrisData">E</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisData">E</span>&nbsp;<span class="IdrisBound">ev</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisFunction">cast</span>&nbsp;<span class="IdrisBound">fd</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisData">#</span>&nbsp;<span class="IdrisBound">t</span></div>
-<div id="line62"><a href="#line62" class="IdrisLineNumber"> 62 | </a></div>
+<div id="line7"><a href="#line7" class="IdrisLineNumber"> &nbsp;7 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">System.Posix.File.ReadRes</span></div>
+<div id="line8"><a href="#line8" class="IdrisLineNumber"> &nbsp;8 | </a></div>
+<div id="line9"><a href="#line9" class="IdrisLineNumber"> &nbsp;9 | </a><span class="IdrisKeyword">%default</span>&nbsp;<span class="IdrisKeyword">total</span></div>
+<div id="line10"><a href="#line10" class="IdrisLineNumber"> 10 | </a><span class="IdrisKeyword">%language</span>&nbsp;ElabReflection</div>
+<div id="line11"><a href="#line11" class="IdrisLineNumber"> 11 | </a></div>
+<div id="line12"><a href="#line12" class="IdrisLineNumber"> 12 | </a><span class="IdrisKeyword">%foreign</span>&nbsp;<span class="IdrisData">&quot;C:get_epoll_event_events,&nbsp;linux-idris&quot;</span></div>
+<div id="line13"><a href="#line13" class="IdrisLineNumber"> 13 | </a><span class="IdrisFunction">prim__get_epoll_event_events</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">AnyPtr</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisFunction">PrimIO</span>&nbsp;<span class="IdrisType">Bits32</span></div>
+<div id="line14"><a href="#line14" class="IdrisLineNumber"> 14 | </a></div>
+<div id="line15"><a href="#line15" class="IdrisLineNumber"> 15 | </a><span class="IdrisKeyword">%foreign</span>&nbsp;<span class="IdrisData">&quot;C:get_epoll_event_fd,&nbsp;linux-idris&quot;</span></div>
+<div id="line16"><a href="#line16" class="IdrisLineNumber"> 16 | </a><span class="IdrisFunction">prim__get_epoll_event_fd</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">AnyPtr</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisFunction">PrimIO</span>&nbsp;<span class="IdrisType">Bits32</span></div>
+<div id="line17"><a href="#line17" class="IdrisLineNumber"> 17 | </a></div>
+<div id="line18"><a href="#line18" class="IdrisLineNumber"> 18 | </a><span class="IdrisComment">|||&nbsp;A&nbsp;file&nbsp;descriptor&nbsp;used&nbsp;for&nbsp;monitoring&nbsp;other&nbsp;file&nbsp;descriptors&nbsp;in</span></div>
+<div id="line19"><a href="#line19" class="IdrisLineNumber"> 19 | </a><span class="IdrisComment">|||&nbsp;calls&nbsp;to&nbsp;`epoll_ctl`&nbsp;and&nbsp;`epoll_wait`.</span></div>
+<div id="line20"><a href="#line20" class="IdrisLineNumber"> 20 | </a><span class="IdrisKeyword">export</span></div>
+<div id="line21"><a href="#line21" class="IdrisLineNumber"> 21 | </a><span class="IdrisKeyword">record</span>&nbsp;<span class="IdrisType">Epollfd</span>&nbsp;<span class="IdrisKeyword">where</span></div>
+<div id="line22"><a href="#line22" class="IdrisLineNumber"> 22 | </a>&nbsp;&nbsp;<span class="IdrisKeyword">constructor</span>&nbsp;<span class="IdrisData">EFD</span></div>
+<div id="line23"><a href="#line23" class="IdrisLineNumber"> 23 | </a>&nbsp;&nbsp;<span class="IdrisFunction">fd</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Bits32</span></div>
+<div id="line24"><a href="#line24" class="IdrisLineNumber"> 24 | </a></div>
+<div id="line25"><a href="#line25" class="IdrisLineNumber"> 25 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
+<div id="line26"><a href="#line26" class="IdrisLineNumber"> 26 | </a><span class="IdrisType">Cast</span>&nbsp;<span class="IdrisType">Epollfd</span>&nbsp;<span class="IdrisType">Fd</span>&nbsp;<span class="IdrisKeyword">where</span>&nbsp;<span class="IdrisFunction">cast</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisData">MkFd</span>&nbsp;<span class="IdrisFunction">.</span>&nbsp;<span class="IdrisFunction">fd</span></div>
+<div id="line27"><a href="#line27" class="IdrisLineNumber"> 27 | </a></div>
+<div id="line28"><a href="#line28" class="IdrisLineNumber"> 28 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
+<div id="line29"><a href="#line29" class="IdrisLineNumber"> 29 | </a><span class="IdrisType">Cast</span>&nbsp;<span class="IdrisFunction">CInt</span>&nbsp;<span class="IdrisType">Epollfd</span>&nbsp;<span class="IdrisKeyword">where</span>&nbsp;<span class="IdrisFunction">cast</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisData">EFD</span>&nbsp;<span class="IdrisFunction">.</span>&nbsp;<span class="IdrisFunction">cast</span></div>
+<div id="line30"><a href="#line30" class="IdrisLineNumber"> 30 | </a></div>
+<div id="line31"><a href="#line31" class="IdrisLineNumber"> 31 | </a><span class="IdrisComment">|||&nbsp;Wrapper&nbsp;around&nbsp;a&nbsp;pointer&nbsp;of&nbsp;an&nbsp;`epoll_event`&nbsp;value.</span></div>
+<div id="line32"><a href="#line32" class="IdrisLineNumber"> 32 | </a><span class="IdrisKeyword">export</span></div>
+<div id="line33"><a href="#line33" class="IdrisLineNumber"> 33 | </a><span class="IdrisKeyword">record</span>&nbsp;<span class="IdrisType">SEpollEvent</span>&nbsp;<span class="IdrisKeyword">where</span></div>
+<div id="line34"><a href="#line34" class="IdrisLineNumber"> 34 | </a>&nbsp;&nbsp;<span class="IdrisKeyword">constructor</span>&nbsp;<span class="IdrisData">SE</span></div>
+<div id="line35"><a href="#line35" class="IdrisLineNumber"> 35 | </a>&nbsp;&nbsp;<span class="IdrisFunction">ptr</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">AnyPtr</span></div>
+<div id="line36"><a href="#line36" class="IdrisLineNumber"> 36 | </a></div>
+<div id="line37"><a href="#line37" class="IdrisLineNumber"> 37 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
+<div id="line38"><a href="#line38" class="IdrisLineNumber"> 38 | </a><span class="IdrisType">Struct</span>&nbsp;<span class="IdrisType">SEpollEvent</span>&nbsp;<span class="IdrisKeyword">where</span></div>
+<div id="line39"><a href="#line39" class="IdrisLineNumber"> 39 | </a>&nbsp;&nbsp;<span class="IdrisFunction">wrap</span>&nbsp;&nbsp;&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisData">SE</span></div>
+<div id="line40"><a href="#line40" class="IdrisLineNumber"> 40 | </a>&nbsp;&nbsp;<span class="IdrisFunction">unwrap</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">ptr</span></div>
+<div id="line41"><a href="#line41" class="IdrisLineNumber"> 41 | </a></div>
+<div id="line42"><a href="#line42" class="IdrisLineNumber"> 42 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
+<div id="line43"><a href="#line43" class="IdrisLineNumber"> 43 | </a><span class="IdrisType">SizeOf</span>&nbsp;<span class="IdrisType">SEpollEvent</span>&nbsp;<span class="IdrisKeyword">where</span>&nbsp;<span class="IdrisFunction">sizeof_</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">epoll_event_size</span></div>
+<div id="line44"><a href="#line44" class="IdrisLineNumber"> 44 | </a></div>
+<div id="line45"><a href="#line45" class="IdrisLineNumber"> 45 | </a><span class="IdrisKeyword">export</span></div>
+<div id="line46"><a href="#line46" class="IdrisLineNumber"> 46 | </a><span class="IdrisType">InIO</span>&nbsp;<span class="IdrisType">SEpollEvent</span>&nbsp;<span class="IdrisKeyword">where</span></div>
+<div id="line47"><a href="#line47" class="IdrisLineNumber"> 47 | </a></div>
+<div id="line48"><a href="#line48" class="IdrisLineNumber"> 48 | </a><span class="IdrisComment">|||&nbsp;Wrapper&nbsp;around&nbsp;a&nbsp;pointer&nbsp;of&nbsp;an&nbsp;`epoll_event`&nbsp;value.</span></div>
+<div id="line49"><a href="#line49" class="IdrisLineNumber"> 49 | </a><span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisKeyword">export</span></div>
+<div id="line50"><a href="#line50" class="IdrisLineNumber"> 50 | </a><span class="IdrisKeyword">record</span>&nbsp;<span class="IdrisType">EpollEvent</span>&nbsp;<span class="IdrisKeyword">where</span></div>
+<div id="line51"><a href="#line51" class="IdrisLineNumber"> 51 | </a>&nbsp;&nbsp;<span class="IdrisKeyword">constructor</span>&nbsp;<span class="IdrisData">E</span></div>
+<div id="line52"><a href="#line52" class="IdrisLineNumber"> 52 | </a>&nbsp;&nbsp;<span class="IdrisFunction">event</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Event</span></div>
+<div id="line53"><a href="#line53" class="IdrisLineNumber"> 53 | </a>&nbsp;&nbsp;<span class="IdrisFunction">file</span>&nbsp;&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Fd</span></div>
+<div id="line54"><a href="#line54" class="IdrisLineNumber"> 54 | </a></div>
+<div id="line55"><a href="#line55" class="IdrisLineNumber"> 55 | </a><span class="IdrisKeyword">%runElab</span>&nbsp;<span class="IdrisFunction">derive</span>&nbsp;<span class="IdrisData">&quot;EpollEvent&quot;</span>&nbsp;<span class="IdrisData">[</span><span class="IdrisFunction">Show</span><span class="IdrisData">,</span><span class="IdrisFunction">Eq</span><span class="IdrisData">]</span></div>
+<div id="line56"><a href="#line56" class="IdrisLineNumber"> 56 | </a></div>
+<div id="line57"><a href="#line57" class="IdrisLineNumber"> 57 | </a><span class="IdrisKeyword">export</span></div>
+<div id="line58"><a href="#line58" class="IdrisLineNumber"> 58 | </a><span class="IdrisFunction">epollEvent</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">SEpollEvent</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisFunction">F1</span>&nbsp;<span class="IdrisData">[</span><span class="IdrisType">World</span><span class="IdrisData">]</span>&nbsp;<span class="IdrisType">EpollEvent</span></div>
+<div id="line59"><a href="#line59" class="IdrisLineNumber"> 59 | </a><span class="IdrisFunction">epollEvent</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisData">SE</span>&nbsp;<span class="IdrisBound">p</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisBound">t</span>&nbsp;<span class="IdrisKeyword">=</span></div>
+<div id="line60"><a href="#line60" class="IdrisLineNumber"> 60 | </a>&nbsp;&nbsp;<span class="IdrisKeyword">let</span>&nbsp;<span class="IdrisBound">fd</span>&nbsp;<span class="IdrisData">#</span>&nbsp;<span class="IdrisBound">t</span>&nbsp;<span class="IdrisKeyword">:=</span>&nbsp;<span class="IdrisFunction">ffi</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisFunction">prim__get_epoll_event_fd</span>&nbsp;<span class="IdrisBound">p</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisBound">t</span></div>
+<div id="line61"><a href="#line61" class="IdrisLineNumber"> 61 | </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="IdrisBound">ev</span>&nbsp;<span class="IdrisData">#</span>&nbsp;<span class="IdrisBound">t</span>&nbsp;<span class="IdrisKeyword">:=</span>&nbsp;<span class="IdrisFunction">ffi</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisFunction">prim__get_epoll_event_events</span>&nbsp;<span class="IdrisBound">p</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisBound">t</span></div>
+<div id="line62"><a href="#line62" class="IdrisLineNumber"> 62 | </a>&nbsp;&nbsp;&nbsp;<span class="IdrisKeyword">in</span>&nbsp;<span class="IdrisData">E</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisData">E</span>&nbsp;<span class="IdrisBound">ev</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisFunction">cast</span>&nbsp;<span class="IdrisBound">fd</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisData">#</span>&nbsp;<span class="IdrisBound">t</span></div>
+<div id="line63"><a href="#line63" class="IdrisLineNumber"> 63 | </a></div>
+<div id="line64"><a href="#line64" class="IdrisLineNumber"> 64 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span>&nbsp;<span class="IdrisKeyword">%hint</span></div>
+<div id="line65"><a href="#line65" class="IdrisLineNumber"> 65 | </a><span class="IdrisFunction">convEpollEvent</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Convert</span>&nbsp;<span class="IdrisType">EpollEvent</span></div>
+<div id="line66"><a href="#line66" class="IdrisLineNumber"> 66 | </a><span class="IdrisFunction">convEpollEvent</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisData">C</span>&nbsp;<span class="IdrisType">SEpollEvent</span>&nbsp;<span class="IdrisFunction">epollEvent</span></div>
+<div id="line67"><a href="#line67" class="IdrisLineNumber"> 67 | </a></div>
 </code>
 </body>
 </html>
