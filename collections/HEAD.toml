@@ -298,6 +298,7 @@ type   = "github"
 url    = "https://github.com/mattpolzin/idris-fvect"
 commit = "main"
 ipkg   = "fvect.ipkg"
+notice = "DEPRECATED. The FVect datatype can now be found in the containers package."
 
 [db.getopts]
 type = "github"
@@ -728,6 +729,7 @@ type   = "github"
 url    = "https://github.com/mattpolzin/idris-snocvect"
 commit = "main"
 ipkg   = "snocvect.ipkg"
+notice = "DEPRECATED. The SnocVect datatype can now be found in the containers package."
 
 [db.sop]
 type   = "github"
