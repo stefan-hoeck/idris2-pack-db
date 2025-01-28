@@ -1,0 +1,155 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>control-flow</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="index">
+<header>
+  <strong>Idris2Doc</strong> : control-flow
+  <nav><a href="index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><h1>Package control-flow - Namespaces</h1><ul class="names"><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/ControlFlow.Edge.html">ControlFlow.Edge</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/ControlFlow.CFG.html">ControlFlow.CFG</a>
+    </div>
+    <div class="index-namespace-doc">
+      This module contains a representation of a control-flow graph that aims to
+enforce the correctness of jumps between vertices of graphs, i.e., blocks
+of code.
+The graph model permits both graphs and vertices that are incomplete and
+facilitates easy composition of such graphs when they are compatible.
+
+A graph / vertex is incomplete when vertices / insrtuctions need to be
+added to it in order for it to be a valid function body / basic block.
+For example a graph that contains only the following pseudo-code block:
+```
+L0: x = call func ()
+    jump L1
+```
+is incomplete because the code block ends with a jump to the block `L1` but
+`L1` is not in the graph.
+An example of an incomplete vertex is the following:
+```
+L0: x = call func ()
+```
+because it does not end with a jump nor with a return instruction.
+
+In this model, vertices and graphs can be incomplete at the beginning or at
+the end (or both). In other words, graphs / vertices can be completed only
+by prepending or appending vertices / instructions to them.
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/ControlFlow.CFG.Conversion.html">ControlFlow.CFG.Conversion</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/ControlFlow.CFG.Simple.html">ControlFlow.CFG.Simple</a>
+    </div>
+    <div class="index-namespace-doc">
+      This module contains a representation of a control-flow graph that aims to
+enforce the correctness of jumps between vertices of graphs, i.e., blocks
+of code.
+The graph model permits graphs to be incomplete and facilitates easy
+composition of such graphs when they are compatible.
+
+*This model is a simplified version of the model in `ControlFlow.CFG`,
+which also allows for incomplete vertices.*
+
+A graph is incomplete when vertices need to be added to it in order for it
+to be a valid function body.
+For example a graph that contains only the following pseudo-code block:
+```
+L0: x = call func ()
+    jump L1
+```
+is incomplete because the code block ends with a jump to the block `L1` but
+`L1` is not in the graph.
+
+In this model, graphs can be incomplete at the beginning or at the end
+(or both). In other words, graphs can be completed only by prepending or
+appending vertices to them.
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/ControlFlow.CBlock.html">ControlFlow.CBlock</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li></ul></div><footer>Produced by Idris 2 version 0.7.0-8e420d6b2</footer></body></html>
