@@ -113,6 +113,12 @@ commit = "master"
 ipkg   = "collection-utils.ipkg"
 test   = "test/test.ipkg"
 
+[db.control-flow]
+type   = "github"
+url    = "https://github.com/JankaGramofonomanka/idris-compiler-tools"
+commit = "master"
+ipkg   = "control-flow/control-flow.ipkg"
+
 [db.comonad]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-comonad"
@@ -825,6 +831,12 @@ type   = "github"
 url    = "https://github.com/cuddlefishie/tester-idr"
 commit = "main"
 ipkg   = "tester.ipkg"
+
+[db.theory]
+type   = "github"
+url    = "https://github.com/JankaGramofonomanka/idris-theory"
+commit = "master"
+ipkg   = "theory.ipkg"
 
 [db.toml]
 type   = "github"
