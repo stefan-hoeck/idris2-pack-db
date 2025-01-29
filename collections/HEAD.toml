@@ -68,14 +68,14 @@ ipkg   = "best-alternative.ipkg"
 test   = "tests/tests.ipkg"
 
 [db.bounded-doubles]
-type   = "github"
+type   = "git"
 url    = "https://github.com/buzden/idris2-bounded-doubles"
 commit = "master"
 ipkg   = "bounded-doubles.ipkg"
 test   = "tests/library-tests.ipkg"
 
 [db.bounded-doubles-hedgehog-generators]
-type   = "github"
+type   = "git"
 url    = "https://github.com/buzden/idris2-bounded-doubles"
 commit = "master"
 ipkg   = "hedgehog-generators.ipkg"
@@ -799,6 +799,7 @@ url    = "https://github.com/buzden/idris2-summary-stat"
 commit = "master"
 ipkg   = "summary-stat.ipkg"
 test   = "tests/tests.ipkg"
+notice = "Weak traversal interface can be found in `weaker-traversals` lib"
 
 [db.svg]
 type   = "git"
@@ -889,6 +890,13 @@ url  = "https://github.com/kbertalan/tyttp"
 commit = "main"
 ipkg = "json/tyttp-json.ipkg"
 test = "json/tests/tests.ipkg"
+
+[db.weaker-traversals]
+type   = "git"
+url    = "https://github.com/buzden/idris2-weaker-traversals"
+commit = "master"
+ipkg   = "weaker-traversals.ipkg"
+test   = "tests/tests.ipkg"
 
 [db.xml]
 type   = "github"
