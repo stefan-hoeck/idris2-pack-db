@@ -259,6 +259,12 @@ commit = "main"
 ipkg   = "epoll.ipkg"
 test   = "tests/test.ipkg"
 
+[db.extrafun]
+type   = "github"
+url    = "https://github.com/jcranch/extrafun"
+commit = "main"
+ipkg   = "extrafun.ipkg"
+
 [db.i-hate-parens]
 type   = "git"
 url    = "https://github.com/buzden/idris2-i-hate-parens"
