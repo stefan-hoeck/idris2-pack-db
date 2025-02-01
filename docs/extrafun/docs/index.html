@@ -1,0 +1,325 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>extrafun</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="index">
+<header>
+  <strong>Idris2Doc</strong> : extrafun
+  <nav><a href="index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><h1>Package extrafun - Namespaces</h1><ul class="names"><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Control.Applicative.Restricted.html">Control.Applicative.Restricted</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Control.Monad.Restricted.html">Control.Monad.Restricted</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Control.Category.html">Control.Category</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Control.Kleisli.html">Control.Kleisli</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Functor.Indexed.html">Data.Functor.Indexed</a>
+    </div>
+    <div class="index-namespace-doc">
+      Functors able to read some separate data, the "index".
+
+They are expected to obey the laws
+  imap g . imap f = imap (\i => g i . f i)
+and
+  imap (const id) = id
+
+The abbreviation "Ind" could be taken to stand for "Indexed", but
+also for "Independent", to contrast it with the "Dependent"
+versions elsewhere in the library.
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Functor.Dependent.html">Data.Functor.Dependent</a>
+    </div>
+    <div class="index-namespace-doc">
+      Functors with type depending on some extra data, the "index"
+
+They are expected to obey the laws
+  imap g . imap f = imap (\i => g i . f i)
+and
+  imap (\i => id {t i}) = id
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Functor.Restricted.html">Data.Functor.Restricted</a>
+    </div>
+    <div class="index-namespace-doc">
+      An attempt at a class of functors defined on a subclass of Type.
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Foldable.Indexed.html">Data.Foldable.Indexed</a>
+    </div>
+    <div class="index-namespace-doc">
+      A Foldable that is able to read extra data, the index
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Foldable.Dependent.html">Data.Foldable.Dependent</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Traversable.Indexed.html">Data.Traversable.Indexed</a>
+    </div>
+    <div class="index-namespace-doc">
+      An IndTraversable is a Traversable able to read some extra data,
+the index.
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Traversable.Dependent.html">Data.Traversable.Dependent</a>
+    </div>
+    <div class="index-namespace-doc">
+      A dependently-typed traversable class
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Filterable.html">Data.Filterable</a>
+    </div>
+    <div class="index-namespace-doc">
+      A Filterable is a functor where elements can be thrown away
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Filterable.Indexed.html">Data.Filterable.Indexed</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Filterable.Dependent.html">Data.Filterable.Dependent</a>
+    </div>
+    <div class="index-namespace-doc">
+      A DepFilterable is a dependently-typed Functor where elements can
+be thrown away.
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Witherable.html">Data.Witherable</a>
+    </div>
+    <div class="index-namespace-doc">
+      A Witherable is a combination of a Traversable and a Filterable
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Witherable.Indexed.html">Data.Witherable.Indexed</a>
+    </div>
+    <div class="index-namespace-doc">
+      An indexed Witherable
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Witherable.Dependent.html">Data.Witherable.Dependent</a>
+    </div>
+    <div class="index-namespace-doc">
+      A dependently-typed Witherable
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Withering.html">Data.Withering</a>
+    </div>
+    <div class="index-namespace-doc">
+      A withering is something which can be run on any IndWitherable.
+
+Since IndWitherable has a large family of superclasses, there are
+many such things.
+
+The interest in these things is that they are the sorts of things
+one wants to do in merging operations.
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Withering.Dependent.html">Data.Withering.Dependent</a>
+    </div>
+    <div class="index-namespace-doc">
+      A dependently-typed Withering
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Indexed.Add.html">Data.Indexed.Add</a>
+    </div>
+    <div class="index-namespace-doc">
+      We can make any collection into an indexed collection by storing
+pairs
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Indexed.AddDep.html">Data.Indexed.AddDep</a>
+    </div>
+    <div class="index-namespace-doc">
+      We can make any collection into an dependently indexed collection
+by storing dependent pairs.
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Indexed.Fixed.html">Data.Indexed.Fixed</a>
+    </div>
+    <div class="index-namespace-doc">
+      We can regarding any functor as indexed, with a specified fixed
+index.
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Indexed.FixedDep.html">Data.Indexed.FixedDep</a>
+    </div>
+    <div class="index-namespace-doc">
+      We can regard any functor as dependently indexed, with specified
+fixed index.
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Indexed.Independent.html">Data.Indexed.Independent</a>
+    </div>
+    <div class="index-namespace-doc">
+      We can treat any dependent functor as an independent functor by
+using constant index
+
+    </div>
+  </div>
+</li></ul></div><footer>Produced by Idris 2 version 0.7.0-8e420d6b2</footer></body></html>
