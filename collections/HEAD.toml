@@ -252,6 +252,12 @@ url    = "https://github.com/stefan-hoeck/idris2-elab-util"
 commit = "main"
 ipkg   = "elab-util.ipkg"
 
+[db.elin]
+type = "github"
+url  = "https://github.com/stefan-hoeck/idris2-elin"
+commit = "main"
+ipkg = "elin.ipkg"
+
 [db.epoll]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-epoll"
