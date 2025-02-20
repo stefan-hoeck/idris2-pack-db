@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Data.CheckedEmpty.List.Lazy.Properties.Quantifiers</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Data.CheckedEmpty.List.Lazy.Properties.Quantifiers
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Data.CheckedEmpty.List.Lazy.Properties.Quantifiers</h1><span style="float:right">(<a href="Data.CheckedEmpty.List.Lazy.Properties.Quantifiers.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="Data.CheckedEmpty.List.Lazy.Properties.Quantifiers.allMapForall"><code><a class="type" href="Data.CheckedEmpty.List.Lazy.Properties.Quantifiers.html#Data.CheckedEmpty.List.Lazy.Properties.Quantifiers.allMapForall"><span class="name function">allMapForall</span></a>&ensp;:&ensp;((<span class="keyword">0</span>&ensp;<span class="boundvar">_</span>&ensp;:&ensp;<a class="type" href="Data.CheckedEmpty.List.Lazy.Elem.html#Data.CheckedEmpty.List.Lazy.Elem.Elem"><span class="name type">Elem</span></a>&ensp;<span class="boundvar">x</span>&ensp;<span class="boundvar">xs</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">p</span>&ensp;(<span class="boundvar">f</span>&ensp;<span class="boundvar">x</span>))&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Data.CheckedEmpty.List.Lazy.Quantifiers.All.All"><span class="name type">All</span></span>&ensp;<span class="boundvar">p</span>&ensp;(<span class="type resolved" title="Prelude.Interfaces.map"><span class="name function">map</span></span>&ensp;<span class="boundvar">f</span>&ensp;<span class="boundvar">xs</span>)</code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Data.CheckedEmpty.List.Lazy.Properties.Quantifiers.allElem"><code><a class="type" href="Data.CheckedEmpty.List.Lazy.Properties.Quantifiers.html#Data.CheckedEmpty.List.Lazy.Properties.Quantifiers.allElem"><span class="name function">allElem</span></a>&ensp;:&ensp;((<span class="keyword">0</span>&ensp;<span class="boundvar">_</span>&ensp;:&ensp;<a class="type" href="Data.CheckedEmpty.List.Lazy.Elem.html#Data.CheckedEmpty.List.Lazy.Elem.Elem"><span class="name type">Elem</span></a>&ensp;<span class="boundvar">x</span>&ensp;<span class="boundvar">xs</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">p</span>&ensp;<span class="boundvar">x</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Data.CheckedEmpty.List.Lazy.Quantifiers.All.All"><span class="name type">All</span></span>&ensp;<span class="boundvar">p</span>&ensp;<span class="boundvar">xs</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Data.CheckedEmpty.List.Lazy.Properties.Quantifiers.allTrue"><code><a class="type" href="Data.CheckedEmpty.List.Lazy.Properties.Quantifiers.html#Data.CheckedEmpty.List.Lazy.Properties.Quantifiers.allTrue"><span class="name function">allTrue</span></a>&ensp;:&ensp;<span class="boundvar">p</span>&ensp;<span class="boundvar">x</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Data.CheckedEmpty.List.Lazy.Quantifiers.All.All"><span class="name type">All</span></span>&ensp;<span class="boundvar">p</span>&ensp;<span class="boundvar">xs</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Data.CheckedEmpty.List.Lazy.Properties.Quantifiers.allMap"><code><a class="type" href="Data.CheckedEmpty.List.Lazy.Properties.Quantifiers.html#Data.CheckedEmpty.List.Lazy.Properties.Quantifiers.allMap"><span class="name function">allMap</span></a>&ensp;:&ensp;<span class="type resolved" title="Data.CheckedEmpty.List.Lazy.Quantifiers.All.All"><span class="name type">All</span></span>&ensp;(<span class="boundvar">p</span>&ensp;<span class="type resolved" title="Prelude.Basics.(.)"><span class="name function">.</span></span>&ensp;<span class="boundvar">f</span>)&ensp;<span class="boundvar">xs</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Data.CheckedEmpty.List.Lazy.Quantifiers.All.All"><span class="name type">All</span></span>&ensp;<span class="boundvar">p</span>&ensp;(<span class="type resolved" title="Prelude.Interfaces.map"><span class="name function">map</span></span>&ensp;<span class="boundvar">f</span>&ensp;<span class="boundvar">xs</span>)</code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd></dl></div><footer>Produced by Idris 2 version 0.7.0-4e8847b70</footer></body></html>
