@@ -171,6 +171,12 @@ url    = "https://github.com/stefan-hoeck/idris2-cyby-draw"
 commit = "main"
 ipkg   = "cyby-draw.ipkg"
 
+[db.decord]
+type   = "github"
+url    = "https://github.com/jcranch/idris-decord"
+commit = "main"
+ipkg   = "decord.ipkg"
+
 [db.dependent-map]
 type   = "github"
 url    = "https://github.com/JankaGramofonomanka/idris-dependent-map"
