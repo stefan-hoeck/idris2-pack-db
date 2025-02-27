@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>IO.Async.Unique</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : IO.Async.Unique
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>IO.Async.Unique</h1><span style="float:right">(<a href="IO.Async.Unique.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="IO.Async.Unique.Token"><code><span class="keyword">record</span>&ensp;<a class="type" href="IO.Async.Unique.html#IO.Async.Unique.Token"><span class="name type">Token</span></a>&ensp;:&ensp;<span class="name type">Type</span></code></dt><dd><pre>  A unique identifier for fibers.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span><br>  <b>Constructor</b>:&ensp;<dl class="decls"><dt id="IO.Async.Unique.T"><code><a class="type" href="IO.Async.Unique.html#IO.Async.Unique.T"><span class="name constructor">T</span></a>&ensp;:&ensp;<span class="type resolved" title="Prelude.Types.Nat"><span class="name type">Nat</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="IO.Async.Unique.html#IO.Async.Unique.Token"><span class="name type">Token</span></a></code></dt></dl><br>  <b>Projection</b>:&ensp;<dl class="decls"><dt id="IO.Async.Unique.Token.(.value)"><code><span class="type resolved" title="IO.Async.Unique.Token.(.value)"><span class="name function">.value</span></span>&ensp;:&ensp;<a class="type" href="IO.Async.Unique.html#IO.Async.Unique.Token"><span class="name type">Token</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Types.Nat"><span class="name type">Nat</span></span></code></dt></dl><br>  <b>Hints</b>:<br><dl class="decls">  <dt id="$resolved6614"><code><span class="type resolved" title="Prelude.EqOrd.Eq"><span class="name type">Eq</span></span>&ensp;<a class="type" href="IO.Async.Unique.html#IO.Async.Unique.Token"><span class="name type">Token</span></a></code></dt>  <dt id="$resolved6613"><code><span class="type resolved" title="Prelude.EqOrd.Ord"><span class="name type">Ord</span></span>&ensp;<a class="type" href="IO.Async.Unique.html#IO.Async.Unique.Token"><span class="name type">Token</span></a></code></dt>  <dt id="$resolved6612"><code><span class="type resolved" title="Prelude.Show.Show"><span class="name type">Show</span></span>&ensp;<a class="type" href="IO.Async.Unique.html#IO.Async.Unique.Token"><span class="name type">Token</span></a></code></dt></dl></dd><dt id="IO.Async.Unique.tokenVal"><code><a class="type" href="IO.Async.Unique.html#IO.Async.Unique.tokenVal"><span class="name function">tokenVal</span></a>&ensp;:&ensp;<a class="type" href="IO.Async.Unique.html#IO.Async.Unique.Token"><span class="name type">Token</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Types.Nat"><span class="name type">Nat</span></span></code></dt><dd><pre>  Returns the internal natural number of a `Token`.<br>  <br>  Note: This is an implementation detail mainly used for testing.<br>        Consider `Token`s to be opaque values with an `Eq` and<br>        `Ord` implementation. Nothing else.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="IO.Async.Unique.token1"><code><a class="type" href="IO.Async.Unique.html#IO.Async.Unique.token1"><span class="name function">token1</span></a>&ensp;:&ensp;<span class="type resolved" title="Data.Linear.Token.IO1"><span class="name function">IO1</span></span>&ensp;<a class="type" href="IO.Async.Unique.html#IO.Async.Unique.Token"><span class="name type">Token</span></a></code></dt><dd><pre>  Generates a new unique token.<br>  <br>  This token is unique throughout the lifetime of an application,<br>  as it is generated from a single, global, mutable reference.<br>  Unique token generation is thread-safe.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="IO.Async.Unique.token"><code><a class="type" href="IO.Async.Unique.html#IO.Async.Unique.token"><span class="name function">token</span></a>&ensp;:&ensp;<span class="type resolved" title="Data.Linear.Token.Lift1"><span class="name type">Lift1</span></span>&ensp;<span class="type resolved" title="Data.Linear.Token.World"><span class="name type">World</span></span>&ensp;<span class="boundvar">f</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="boundvar">f</span>&ensp;<a class="type" href="IO.Async.Unique.html#IO.Async.Unique.Token"><span class="name type">Token</span></a></code></dt><dd><pre>  Generates a new unique token.<br>  <br>  This token is unique throughout the lifetime of an application,<br>  as it is generated from a single, global, mutable reference.<br>  Unique token generation is thread-safe.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd></dl></div><footer>Produced by Idris 2 version 0.7.0-eb5d11b95</footer></body></html>
