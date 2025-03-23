@@ -803,6 +803,18 @@ url    = "https://git.sr.ht/~thatonelutenist/Structures"
 commit = "trunk"
 ipkg   = "structures.ipkg"
 
+[db.streams]
+type   = "git"
+url    = "https://github.com/stefan-hoeck/idris2-streams"
+commit = "main"
+ipkg   = "streams.ipkg"
+
+[db.streams-posix]
+type   = "git"
+url    = "https://github.com/stefan-hoeck/idris2-streams"
+commit = "main"
+ipkg   = "posix/streams-posix.ipkg"
+
 [db.string-builder]
 type   = "github"
 url    = "https://github.com/Z-snails/string-builder"
