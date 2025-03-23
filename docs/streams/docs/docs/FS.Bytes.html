@@ -1,0 +1,65 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>FS.Bytes</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : FS.Bytes
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>FS.Bytes</h1><span style="float:right">(<a href="FS.Bytes.src.html">source</a>)</span><pre>Utilities for working with streams of byte arrays.
+</pre></div><h2>Reexports</h2><code><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Data.ByteString</code><h2>Definitions</h2><dl class="decls"><dt id="FS.Bytes.unlines"><code><a class="type" href="FS.Bytes.html#FS.Bytes.unlines"><span class="name function">unlines</span></a>&ensp;:&ensp;<a class="type" href="FS.Core.html#FS.Core.Pull"><span class="name type">Pull</span></a>&ensp;<span class="boundvar">f</span>&ensp;(<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;<span class="type resolved" title="Data.ByteVect.ByteString"><span class="name type">ByteString</span></span>)&ensp;<span class="boundvar">es</span>&ensp;<span class="boundvar">r</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="FS.Core.html#FS.Core.Pull"><span class="name type">Pull</span></a>&ensp;<span class="boundvar">f</span>&ensp;<span class="type resolved" title="Data.ByteVect.ByteString"><span class="name type">ByteString</span></span>&ensp;<span class="boundvar">es</span>&ensp;<span class="boundvar">r</span></code></dt><dd><pre>  Appends a newline character (`0x0a`) to every bytestring<br>  emitted by the stream.<br>  <br>  A chunk (list) of bytestring is thus concatenated to a single<br>  byte vector. See also `lines`.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="FS.Bytes.lines"><code><a class="type" href="FS.Bytes.html#FS.Bytes.lines"><span class="name function">lines</span></a>&ensp;:&ensp;<a class="type" href="FS.Core.html#FS.Core.Stream"><span class="name function">Stream</span></a>&ensp;<span class="boundvar">f</span>&ensp;<span class="boundvar">es</span>&ensp;<span class="type resolved" title="Data.ByteVect.ByteString"><span class="name type">ByteString</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="FS.Core.html#FS.Core.Stream"><span class="name function">Stream</span></a>&ensp;<span class="boundvar">f</span>&ensp;<span class="boundvar">es</span>&ensp;(<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;<span class="type resolved" title="Data.ByteVect.ByteString"><span class="name type">ByteString</span></span>)</code></dt><dd><pre>  Breaks the bytes emitted by a byte stream along unix newline<br>  characters (`0x0a`).<br>  <br>  For reasons of efficiency, this emits the produce lines as<br>  a list of bytestrings.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="FS.Bytes.UTF8.chunks"><code><span class="type resolved" title="FS.Bytes.UTF8.chunks"><span class="name function">chunks</span></span>&ensp;:&ensp;<a class="type" href="FS.Core.html#FS.Core.Stream"><span class="name function">Stream</span></a>&ensp;<span class="boundvar">f</span>&ensp;<span class="boundvar">es</span>&ensp;<span class="type resolved" title="Data.ByteVect.ByteString"><span class="name type">ByteString</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="FS.Core.html#FS.Core.Stream"><span class="name function">Stream</span></a>&ensp;<span class="boundvar">f</span>&ensp;<span class="boundvar">es</span>&ensp;<span class="type resolved" title="Data.ByteVect.ByteString"><span class="name type">ByteString</span></span></code></dt><dd><pre>  Converts the byte vectors emitted by a stream to byte vectors<br>  that always end at whole code points.<br>  <br>  Note: Typically, this needs to be prefixed with the outer namespace:<br>        `UTF8.chunks`</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="FS.Bytes.UTF8.decode"><code><span class="type resolved" title="FS.Bytes.UTF8.decode"><span class="name function">decode</span></span>&ensp;:&ensp;<a class="type" href="FS.Core.html#FS.Core.Stream"><span class="name function">Stream</span></a>&ensp;<span class="boundvar">f</span>&ensp;<span class="boundvar">es</span>&ensp;<span class="type resolved" title="Data.ByteVect.ByteString"><span class="name type">ByteString</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="FS.Core.html#FS.Core.Stream"><span class="name function">Stream</span></a>&ensp;<span class="boundvar">f</span>&ensp;<span class="boundvar">es</span>&ensp;<span class="name type">String</span></code></dt><dd><pre>  Cuts the byte vectors emitted by a stream at the end of whole<br>  UTF-8 code points and converts them to `String`s.<br>  <br>  Note: Typically, this needs to be prefixed with the outer namespace:<br>        `UTF8.decode`</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="FS.Bytes.UTF8.encode"><code><span class="type resolved" title="FS.Bytes.UTF8.encode"><span class="name function">encode</span></span>&ensp;:&ensp;<a class="type" href="FS.Core.html#FS.Core.Stream"><span class="name function">Stream</span></a>&ensp;<span class="boundvar">f</span>&ensp;<span class="boundvar">es</span>&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="FS.Core.html#FS.Core.Stream"><span class="name function">Stream</span></a>&ensp;<span class="boundvar">f</span>&ensp;<span class="boundvar">es</span>&ensp;<span class="type resolved" title="Data.ByteVect.ByteString"><span class="name type">ByteString</span></span></code></dt><dd><pre>  Converts a stream of strings to UTF-8-encoded byte strings.<br>  <br>  Note: Typically, this needs to be prefixed with the outer namespace:<br>        `UTF8.encode`</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd></dl></div><footer>Produced by Idris 2 version 0.7.0-a4f8aadfa</footer></body></html>
