@@ -126,11 +126,11 @@
 <div id="line5"><a href="#line5" class="IdrisLineNumber"> &nbsp;&nbsp;5 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">Data.Linear.Deferred</span></div>
 <div id="line6"><a href="#line6" class="IdrisLineNumber"> &nbsp;&nbsp;6 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">Data.Linear.Unique</span></div>
 <div id="line7"><a href="#line7" class="IdrisLineNumber"> &nbsp;&nbsp;7 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">Data.Maybe</span></div>
-<div id="line8"><a href="#line8" class="IdrisLineNumber"> &nbsp;&nbsp;8 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">IO.Async.Internal.Ref</span></div>
-<div id="line9"><a href="#line9" class="IdrisLineNumber"> &nbsp;&nbsp;9 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">IO.Async.Loop.Sync</span></div>
-<div id="line10"><a href="#line10" class="IdrisLineNumber"> &nbsp;10 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">IO.Async.Loop.TimerH</span></div>
-<div id="line11"><a href="#line11" class="IdrisLineNumber"> &nbsp;11 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">IO.Async.Semaphore</span></div>
-<div id="line12"><a href="#line12" class="IdrisLineNumber"> &nbsp;12 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">IO.Async.Type</span></div>
+<div id="line8"><a href="#line8" class="IdrisLineNumber"> &nbsp;&nbsp;8 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">IO.Async.Core</span></div>
+<div id="line9"><a href="#line9" class="IdrisLineNumber"> &nbsp;&nbsp;9 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">IO.Async.Internal.Ref</span></div>
+<div id="line10"><a href="#line10" class="IdrisLineNumber"> &nbsp;10 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">IO.Async.Loop.Sync</span></div>
+<div id="line11"><a href="#line11" class="IdrisLineNumber"> &nbsp;11 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">IO.Async.Loop.TimerH</span></div>
+<div id="line12"><a href="#line12" class="IdrisLineNumber"> &nbsp;12 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">IO.Async.Semaphore</span></div>
 <div id="line13"><a href="#line13" class="IdrisLineNumber"> &nbsp;13 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">System.Clock</span></div>
 <div id="line14"><a href="#line14" class="IdrisLineNumber"> &nbsp;14 | </a></div>
 <div id="line15"><a href="#line15" class="IdrisLineNumber"> &nbsp;15 | </a><span class="IdrisKeyword">%default</span>&nbsp;<span class="IdrisKeyword">total</span></div>
@@ -556,7 +556,7 @@
 <div id="line435"><a href="#line435" class="IdrisLineNumber"> 435 | </a><span class="IdrisFunction">syncApp</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Async</span>&nbsp;<span class="IdrisType">SyncST</span>&nbsp;<span class="IdrisData">[]</span>&nbsp;<span class="IdrisType">()</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">IO</span>&nbsp;<span class="IdrisType">()</span></div>
 <div id="line436"><a href="#line436" class="IdrisLineNumber"> 436 | </a><span class="IdrisFunction">syncApp</span>&nbsp;<span class="IdrisBound">as</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisKeyword">do</span></div>
 <div id="line437"><a href="#line437" class="IdrisLineNumber"> 437 | </a>&nbsp;&nbsp;<span class="IdrisBound">el</span>&nbsp;&nbsp;<span class="IdrisKeyword">&lt;-</span>&nbsp;<span class="IdrisFunction">sync</span></div>
-<div id="line438"><a href="#line438" class="IdrisLineNumber"> 438 | </a>&nbsp;&nbsp;<span class="IdrisFunction">runAsync</span>&nbsp;<span class="IdrisData">1024</span>&nbsp;<span class="IdrisBound">el</span>&nbsp;<span class="IdrisBound">as</span></div>
+<div id="line438"><a href="#line438" class="IdrisLineNumber"> 438 | </a>&nbsp;&nbsp;<span class="IdrisFunction">runAsync</span>&nbsp;<span class="IdrisBound">el</span>&nbsp;<span class="IdrisBound">as</span></div>
 <div id="line439"><a href="#line439" class="IdrisLineNumber"> 439 | </a></div>
 </code>
 </body>
