@@ -4,54 +4,54 @@ url     = "https://github.com/idris-lang/Idris2"
 commit  = "main"
 
 [db.algdata]
-type = "github"
-url  = "https://gitlab.com/avidela/algebraic-data"
+type   = "github"
+url    = "https://gitlab.com/avidela/algebraic-data"
 commit = "main"
-ipkg = "algdata.ipkg"
+ipkg   = "algdata.ipkg"
 
 [db.algebra]
-type = "github"
-url  = "https://github.com/stefan-hoeck/idris2-algebra"
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-algebra"
 commit = "main"
-ipkg = "algebra.ipkg"
-test = "test/test.ipkg"
+ipkg   = "algebra.ipkg"
+test   = "test/test.ipkg"
 
 [db.ansi]
-type = "github"
-url  = "https://github.com/idris-community/idris2-ansi"
+type   = "github"
+url    = "https://github.com/idris-community/idris2-ansi"
 commit = "main"
-ipkg = "ansi.ipkg"
+ipkg   = "ansi.ipkg"
 
 [db.apache-mime-types]
-type = "github"
-url  = "https://github.com/kbertalan/idris2-apache-mime-types"
+type   = "github"
+url    = "https://github.com/kbertalan/idris2-apache-mime-types"
 commit = "main"
-ipkg = "apache-mime-types.ipkg"
+ipkg   = "apache-mime-types.ipkg"
 
 [db.array]
-type = "github"
-url  = "https://github.com/stefan-hoeck/idris2-array"
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-array"
 commit = "main"
-ipkg = "array.ipkg"
-test = "test/test.ipkg"
+ipkg   = "array.ipkg"
+test   = "test/test.ipkg"
 
 [db.async]
-type = "github"
-url  = "https://github.com/stefan-hoeck/idris2-async"
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-async"
 commit = "main"
-ipkg = "async.ipkg"
+ipkg   = "async.ipkg"
 
 [db.async-epoll]
-type = "github"
-url  = "https://github.com/stefan-hoeck/idris2-async"
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-async"
 commit = "main"
-ipkg = "async-epoll/async-epoll.ipkg"
+ipkg   = "async-epoll/async-epoll.ipkg"
 
 [db.async-posix]
-type = "github"
-url  = "https://github.com/stefan-hoeck/idris2-async"
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-async"
 commit = "main"
-ipkg = "async-posix/async-posix.ipkg"
+ipkg   = "async-posix/async-posix.ipkg"
 
 [db.barbies]
 type   = "github"
@@ -132,10 +132,10 @@ commit = "main"
 ipkg   = "comonad.ipkg"
 
 [db.containers]
-type = "github"
-url  = "https://github.com/idris-community/idris2-containers"
+type   = "github"
+url    = "https://github.com/idris-community/idris2-containers"
 commit = "main"
-ipkg = "containers.ipkg"
+ipkg   = "containers.ipkg"
 
 [db.coop]
 type   = "git"
@@ -331,10 +331,10 @@ ipkg   = "fvect.ipkg"
 notice = "DEPRECATED. The FVect datatype can now be found in the containers package."
 
 [db.getopts]
-type = "github"
-url  = "https://github.com/idris-community/idris2-getopts"
+type   = "github"
+url    = "https://github.com/idris-community/idris2-getopts"
 commit = "main"
-ipkg = "getopts.ipkg"
+ipkg   = "getopts.ipkg"
 
 [db.graph]
 type   = "github"
@@ -695,10 +695,10 @@ commit = "main"
 ipkg   = "ratio.ipkg"
 
 [db.ref1]
-type = "github"
-url  = "https://github.com/stefan-hoeck/idris2-ref1"
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-ref1"
 commit = "main"
-ipkg = "ref1.ipkg"
+ipkg   = "ref1.ipkg"
 
 [db.refined]
 type   = "github"
@@ -889,43 +889,43 @@ ipkg   = "typelevel-emptiness-collections.ipkg"
 test   = "tests/tests.ipkg"
 
 [db.node]
-type = "github"
-url  = "https://github.com/kbertalan/idris2-node"
+type   = "github"
+url    = "https://github.com/kbertalan/idris2-node"
 commit = "main"
-ipkg = "node.ipkg"
+ipkg   = "node.ipkg"
 
 [db.promise]
-type = "github"
-url  = "https://github.com/kbertalan/idris2-promise"
+type   = "github"
+url    = "https://github.com/kbertalan/idris2-promise"
 commit = "main"
-ipkg = "promise.ipkg"
+ipkg   = "promise.ipkg"
 
 [db.timeit]
-type = "github"
-url  = "https://github.com/MarcelineVQ/idris2-timeit"
+type   = "github"
+url    = "https://github.com/MarcelineVQ/idris2-timeit"
 commit = "main"
-ipkg = "timeit.ipkg"
+ipkg   = "timeit.ipkg"
 
 [db.tyttp]
-type = "github"
-url  = "https://github.com/kbertalan/tyttp"
+type   = "github"
+url    = "https://github.com/kbertalan/tyttp"
 commit = "main"
-ipkg = "tyttp.ipkg"
-test = "tests/tests.ipkg"
+ipkg   = "tyttp.ipkg"
+test   = "tests/tests.ipkg"
 
 [db.tyttp-adapter-node]
-type = "github"
-url  = "https://github.com/kbertalan/tyttp"
+type   = "github"
+url    = "https://github.com/kbertalan/tyttp"
 commit = "main"
-ipkg = "adapter-node/tyttp-adapter-node.ipkg"
-test = "adapter-node/tests/tests.ipkg"
+ipkg   = "adapter-node/tyttp-adapter-node.ipkg"
+test   = "adapter-node/tests/tests.ipkg"
 
 [db.tyttp-json]
-type = "github"
-url  = "https://github.com/kbertalan/tyttp"
+type   = "github"
+url    = "https://github.com/kbertalan/tyttp"
 commit = "main"
-ipkg = "json/tyttp-json.ipkg"
-test = "json/tests/tests.ipkg"
+ipkg   = "json/tyttp-json.ipkg"
+test   = "json/tests/tests.ipkg"
 
 [db.weaker-traversals]
 type   = "git"
@@ -1057,55 +1057,62 @@ ipkg   = "c-ffi.ipkg"
 test   = "test.ipkg"
 
 [db.cont]
-type = "github"
-url  = "https://git.sr.ht/~janus/cont"
+type   = "github"
+url    = "https://git.sr.ht/~janus/cont"
 commit = "master"
-ipkg = "cont.ipkg"
+ipkg   = "cont.ipkg"
 
 [db.buf-conn]
-type = "github"
-url = "https://git.sr.ht/~janus/buf-conn"
+type   = "github"
+url    = "https://git.sr.ht/~janus/buf-conn"
 commit = "master"
-ipkg = "buf-conn.ipkg"
+ipkg   = "buf-conn.ipkg"
 
 [db.http2]
-type = "github"
-url = "https://git.sr.ht/~janus/http2"
+type   = "github"
+url    = "https://git.sr.ht/~janus/http2"
 commit = "master"
-ipkg = "http2.ipkg"
+ipkg   = "http2.ipkg"
 
 [db.pg]
-type = "github"
-url = "https://git.sr.ht/~janus/pg"
+type   = "github"
+url    = "https://git.sr.ht/~janus/pg"
 commit = "master"
-ipkg = "pg.ipkg"
+ipkg   = "pg.ipkg"
 
 [db.pg-types]
-type = "github"
-url = "https://git.sr.ht/~janus/pg-types"
+type   = "github"
+url    = "https://git.sr.ht/~janus/pg-types"
 commit = "master"
-ipkg = "pg-types.ipkg"
+ipkg   = "pg-types.ipkg"
 
 [db.racket-tcp]
-type = "github"
-url = "https://git.sr.ht/~janus/racket-tcp"
+type   = "github"
+url    = "https://git.sr.ht/~janus/racket-tcp"
 commit = "master"
-ipkg = "racket-tcp.ipkg"
+ipkg   = "racket-tcp.ipkg"
 
 [db.rtlsdr]
-type = "github"
-url = "https://github.com/victoredwardocallaghan/idris2-rtlsdr"
+type   = "github"
+url    = "https://github.com/victoredwardocallaghan/idris2-rtlsdr"
 commit = "master"
-ipkg = "rtlsdr.ipkg"
+ipkg   = "rtlsdr.ipkg"
 
 [db.web-server-racket]
-type = "github"
-url = "https://git.sr.ht/~janus/web-server-racket"
+type   = "github"
+url    = "https://git.sr.ht/~janus/web-server-racket"
 commit = "master"
-ipkg = "web-server-racket.ipkg"
+ipkg   = "web-server-racket.ipkg"
 
 [db.web-server-racket-hello-world]
-type = "github"
-url = "https://git.sr.ht/~janus/web-server-racket-hello-world"
+type   = "github"
+url    = "https://git.sr.ht/~janus/web-server-racket-hello-world"
 commit = "master"
-ipkg = "web-server-racket-hello-world.ipkg"
+ipkg   = "web-server-racket-hello-world.ipkg"
+
+[db.systemd]
+type   = "github"
+url    = "https://github.com/Matthew-Mosior/idris2-systemd"
+commit = "main"
+ipkg   = "idris2-systemd.ipkg"
+test   = "test/test.ipkg"
