@@ -409,6 +409,12 @@ commit = "master"
 ipkg   = "if-unsolved-implicit.ipkg"
 test   = "tests/tests.ipkg"
 
+[db.ilex]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-ilex"
+commit = "main"
+ipkg   = "ilex.ipkg"
+
 [db.indexed]
 type   = "github"
 url    = "https://github.com/mattpolzin/idris-indexed"
