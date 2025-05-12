@@ -264,6 +264,13 @@ url    = "https://github.com/stefan-hoeck/idris2-elab-util"
 commit = "main"
 ipkg   = "elab-util.ipkg"
 
+[db.elab-util-extra]
+type   = "git"
+url    = "https://github.com/buzden/deptycheck"
+commit = "master"
+ipkg   = "elab-util-extra/elab-util-extra.ipkg"
+test   = "elab-util-extra/tests/tests.ipkg"
+
 [db.elin]
 type = "github"
 url  = "https://github.com/stefan-hoeck/idris2-elin"
