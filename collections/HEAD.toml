@@ -1007,24 +1007,6 @@ ipkg   = "http.ipkg"
 # commit = "main"
 # ipkg   = "prob-fx.ipkg"
 
-[db.cheerio]
-type   = "github"
-url    = "https://github.com/running-grass/idris2-playground"
-commit = "main"
-ipkg   = "cheerio/cheerio.ipkg"
-
-[db.matrix]
-type   = "github"
-url    = "https://github.com/running-grass/idris2-playground"
-commit = "main"
-ipkg   = "matrix/matrix.ipkg"
-
-[db.game-2048]
-type   = "github"
-url    = "https://github.com/running-grass/idris2-playground"
-commit = "main"
-ipkg   = "game-2048/game-2048.ipkg"
-
 [db.uniplate]
 type   = "github"
 url    = "https://github.com/Z-snails/uniplate-idr"
