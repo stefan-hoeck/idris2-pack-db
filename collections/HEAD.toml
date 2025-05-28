@@ -1087,6 +1087,12 @@ url    = "https://git.sr.ht/~janus/racket-tcp"
 commit = "master"
 ipkg   = "racket-tcp.ipkg"
 
+[db.records]
+type   = "github"
+url    = "https://github.com/kuribas/idris-records"
+commit = "main"
+ipkg   = "records.ipkg"
+
 [db.rtlsdr]
 type   = "github"
 url    = "https://github.com/victoredwardocallaghan/idris2-rtlsdr"
