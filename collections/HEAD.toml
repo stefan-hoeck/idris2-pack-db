@@ -571,6 +571,30 @@ url    = "https://github.com/stefan-hoeck/idris2-pack"
 commit = "main"
 ipkg   = "pack-admin.ipkg"
 
+[db.pact-api]
+type   = "github"
+url    = "https://github.com/running-grass/idris2-pact"
+commit = "main"
+ipkg   = "api/pact-api.ipkg"
+
+[db.pact-server]
+type   = "github"
+url    = "https://github.com/running-grass/idris2-pact"
+commit = "main"
+ipkg   = "server/pact-server.ipkg"
+
+[db.pact-wai]
+type   = "github"
+url    = "https://github.com/running-grass/idris2-pact"
+commit = "main"
+ipkg   = "wai/pact-wai.ipkg"
+
+[db.pact-todomvc]
+type   = "github"
+url    = "https://github.com/running-grass/idris2-pact"
+commit = "main"
+ipkg   = "todomvc/pact-todomvc.ipkg"
+
 [db.park_bench]
 type   = "github"
 url    = "https://github.com/Z-snails/park_bench"
