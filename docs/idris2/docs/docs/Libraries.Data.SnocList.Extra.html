@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Libraries.Data.SnocList.Extra</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Libraries.Data.SnocList.Extra
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Libraries.Data.SnocList.Extra</h1><span style="float:right">(<a href="Libraries.Data.SnocList.Extra.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="Libraries.Data.SnocList.Extra.snocAppendFishAssociative"><code><a class="type" href="Libraries.Data.SnocList.Extra.html#Libraries.Data.SnocList.Extra.snocAppendFishAssociative"><span class="name function">snocAppendFishAssociative</span></a>&ensp;:&ensp;(<span class="boundvar">sx</span>&ensp;:&ensp;<span class="type resolved" title="Prelude.Basics.SnocList"><span class="name type">SnocList</span></span>&ensp;<span class="boundvar">a</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="boundvar">sy</span>&ensp;:&ensp;<span class="type resolved" title="Prelude.Basics.SnocList"><span class="name type">SnocList</span></span>&ensp;<span class="boundvar">a</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="boundvar">zs</span>&ensp;:&ensp;<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;<span class="boundvar">a</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="boundvar">sx</span>&ensp;<span class="type resolved" title="Prelude.Types.SnocList.(++)"><span class="name function">++</span></span>&ensp;<span class="boundvar">sy</span>)&ensp;<span class="type resolved" title="Prelude.Types.SnocList.(&lt;&gt;&lt;)"><span class="name function">&lt;&gt;&lt;</span></span>&ensp;<span class="boundvar">zs</span>&ensp;<span class="keyword">=</span>&ensp;<span class="boundvar">sx</span>&ensp;<span class="type resolved" title="Prelude.Types.SnocList.(++)"><span class="name function">++</span></span>&ensp;(<span class="boundvar">sy</span>&ensp;<span class="type resolved" title="Prelude.Types.SnocList.(&lt;&gt;&lt;)"><span class="name function">&lt;&gt;&lt;</span></span>&ensp;<span class="boundvar">zs</span>)</code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Libraries.Data.SnocList.Extra.snocAppendAsFish"><code><a class="type" href="Libraries.Data.SnocList.Extra.html#Libraries.Data.SnocList.Extra.snocAppendAsFish"><span class="name function">snocAppendAsFish</span></a>&ensp;:&ensp;(<span class="boundvar">sx</span>&ensp;:&ensp;<span class="type resolved" title="Prelude.Basics.SnocList"><span class="name type">SnocList</span></span>&ensp;<span class="boundvar">a</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="boundvar">sy</span>&ensp;:&ensp;<span class="type resolved" title="Prelude.Basics.SnocList"><span class="name type">SnocList</span></span>&ensp;<span class="boundvar">a</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">sx</span>&ensp;<span class="type resolved" title="Prelude.Types.SnocList.(++)"><span class="name function">++</span></span>&ensp;<span class="boundvar">sy</span>&ensp;<span class="keyword">=</span>&ensp;<span class="boundvar">sx</span>&ensp;<span class="type resolved" title="Prelude.Types.SnocList.(&lt;&gt;&lt;)"><span class="name function">&lt;&gt;&lt;</span></span>&ensp;<span class="type resolved" title="Prelude.Cast.cast"><span class="name function">cast</span></span>&ensp;<span class="boundvar">sy</span></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Libraries.Data.SnocList.Extra.revOnto"><code><a class="type" href="Libraries.Data.SnocList.Extra.html#Libraries.Data.SnocList.Extra.revOnto"><span class="name function">revOnto</span></a>&ensp;:&ensp;(<span class="boundvar">xs</span>&ensp;:&ensp;<span class="type resolved" title="Prelude.Basics.SnocList"><span class="name type">SnocList</span></span>&ensp;<span class="boundvar">a</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="boundvar">vs</span>&ensp;:&ensp;<span class="type resolved" title="Prelude.Basics.SnocList"><span class="name type">SnocList</span></span>&ensp;<span class="boundvar">a</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Types.SnocList.reverseOnto"><span class="name function">reverseOnto</span></span>&ensp;<span class="boundvar">xs</span>&ensp;<span class="boundvar">vs</span>&ensp;<span class="keyword">=</span>&ensp;<span class="boundvar">xs</span>&ensp;<span class="type resolved" title="Prelude.Types.SnocList.(++)"><span class="name function">++</span></span>&ensp;<span class="type resolved" title="Prelude.Types.SnocList.reverse"><span class="name function">reverse</span></span>&ensp;<span class="boundvar">vs</span></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Libraries.Data.SnocList.Extra.lookup"><code><a class="type" href="Libraries.Data.SnocList.Extra.html#Libraries.Data.SnocList.Extra.lookup"><span class="name function">lookup</span></a>&ensp;:&ensp;<span class="type resolved" title="Prelude.EqOrd.Eq"><span class="name type">Eq</span></span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Basics.SnocList"><span class="name type">SnocList</span></span>&ensp;(<span class="boundvar">a</span>,&ensp;<span class="boundvar">b</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Types.Maybe"><span class="name type">Maybe</span></span>&ensp;<span class="boundvar">b</span></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Libraries.Data.SnocList.Extra.lengthDistributesOverFish"><code><a class="type" href="Libraries.Data.SnocList.Extra.html#Libraries.Data.SnocList.Extra.lengthDistributesOverFish"><span class="name function">lengthDistributesOverFish</span></a>&ensp;:&ensp;(<span class="boundvar">sx</span>&ensp;:&ensp;<span class="type resolved" title="Prelude.Basics.SnocList"><span class="name type">SnocList</span></span>&ensp;<span class="boundvar">a</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="boundvar">ys</span>&ensp;:&ensp;<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;<span class="boundvar">a</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Types.SnocList.length"><span class="name function">length</span></span>&ensp;(<span class="boundvar">sx</span>&ensp;<span class="type resolved" title="Prelude.Types.SnocList.(&lt;&gt;&lt;)"><span class="name function">&lt;&gt;&lt;</span></span>&ensp;<span class="boundvar">ys</span>)&ensp;<span class="keyword">=</span>&ensp;<span class="type resolved" title="Prelude.Types.SnocList.length"><span class="name function">length</span></span>&ensp;<span class="boundvar">sx</span>&ensp;<span class="type resolved" title="Prelude.Num.(+)"><span class="name function">+</span></span>&ensp;<span class="type resolved" title="Prelude.Types.List.length"><span class="name function">length</span></span>&ensp;<span class="boundvar">ys</span></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd></dl></div><footer>Produced by Idris 2 version 0.7.0-da352d8ed</footer></body></html>
