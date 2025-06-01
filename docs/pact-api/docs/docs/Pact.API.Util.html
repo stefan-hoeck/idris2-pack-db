@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Pact.API.Util</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Pact.API.Util
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Pact.API.Util</h1><span style="float:right">(<a href="Pact.API.Util.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="Pact.API.Util.matchPath"><code><a class="type" href="Pact.API.Util.html#Pact.API.Util.matchPath"><span class="name function">matchPath</span></a>&ensp;:&ensp;<a class="type" href="Pact.API.Core.html#Pact.API.Core.Path"><span class="name type">Path</span></a>&ensp;<span class="boundvar">t</span>&ensp;<span class="boundvar">ts</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Data.Vect.Vect"><span class="name type">Vect</span></span>&ensp;<span class="boundvar">m</span>&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Data.Vect.Quantifiers.All.All"><span class="name type">All</span></span>&ensp;<a class="type" href="Pact.API.HasPathParam.html#Pact.API.HasPathParam.HasPathParam"><span class="name type">HasPathParam</span></a>&ensp;<span class="boundvar">ts</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="type resolved" title="Prelude.Types.Either"><span class="name type">Either</span></span>&ensp;<span class="name type">String</span>&ensp;(<span class="type resolved" title="Data.Vect.Quantifiers.All.HVect"><span class="name function">HVect</span></span>&ensp;<span class="boundvar">ts</span>)</code></dt><dd><pre>  Match a path against a list of path segments.<br>  <br>  @path The path to match.<br>  @segs The list of path segments.<br>  @allprf A proof that all the path segments are path parameters.<br>  <br>  Returns a list of the parsed path parameters.</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Pact.API.Util.GetPathType"><code><a class="type" href="Pact.API.Util.html#Pact.API.Util.GetPathType"><span class="name function">GetPathType</span></a>&ensp;:&ensp;<a class="type" href="Pact.API.Core.html#Pact.API.Core.Path"><span class="name type">Path</span></a>&ensp;<span class="boundvar">{_:10492}</span>&ensp;<span class="boundvar">ts</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd><pre>  Get the type of the path.<br>  @ts The types of the path parameters.<br>  @path The path.<br>  @epType The type of the endpoint.<br>  <br>  Returns the type of the path.</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Pact.API.Util.GetHandlerType"><code><a class="type" href="Pact.API.Util.html#Pact.API.Util.GetHandlerType"><span class="name function">GetHandlerType</span></a>&ensp;:&ensp;(<span class="name type">Type</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Pact.API.Core.html#Pact.API.Core.API"><span class="name type">API</span></a>&ensp;<span class="boundvar">ts</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd><pre>  Get the type of the handler.<br>  @m The type of the monad.<br>  @ts The types of the path parameters.<br>  @path The path.<br>  @epType The type of the endpoint.<br>  <br>  Returns the type of the handler.</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Pact.API.Util.GetEPFromAPI"><code><a class="type" href="Pact.API.Util.html#Pact.API.Util.GetEPFromAPI"><span class="name function">GetEPFromAPI</span></a>&ensp;:&ensp;(<span class="name type">Type</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Pact.API.Core.html#Pact.API.Core.API"><span class="name type">API</span></a>&ensp;<span class="boundvar">tss</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd><pre>  Get the type of the endpoint.<br>  @m The type of the monad.<br>  @ts The types of the path parameters.<br>  @path The path.<br>  @epType The type of the endpoint.<br>  <br>  Returns the type of the endpoint.</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Pact.API.Util.GetEpResultTypeFromAPI"><code><a class="type" href="Pact.API.Util.html#Pact.API.Util.GetEpResultTypeFromAPI"><span class="name function">GetEpResultTypeFromAPI</span></a>&ensp;:&ensp;<a class="type" href="Pact.API.Core.html#Pact.API.Core.API"><span class="name type">API</span></a>&ensp;<span class="boundvar">ts</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd><pre>  Get the type of the endpoint result.<br>  @ts The types of the path parameters.<br>  @path The path.<br>  @epType The type of the endpoint.<br>  <br>  Returns the type of the endpoint result.</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd></dl></div><footer>Produced by Idris 2 version 0.7.0-da352d8ed</footer></body></html>

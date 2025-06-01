@@ -1,0 +1,65 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Pact.API.Accept</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Pact.API.Accept
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Pact.API.Accept</h1><span style="float:right">(<a href="Pact.API.Accept.src.html">source</a>)</span><pre>Accept a content type
+</pre></div><h2>Reexports</h2><code><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Data.Mime.Apache.Model</code><h2>Definitions</h2><dl class="decls"><dt id="Pact.API.Accept.PlainTextAccept"><code><span class="keyword">data</span>&ensp;<a class="type" href="Pact.API.Accept.html#Pact.API.Accept.PlainTextAccept"><span class="name type">PlainTextAccept</span></a>&ensp;:&ensp;<span class="name type">Type</span></code></dt><dd><pre>  Plain text content type</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span><br>  <b>Hints</b>:<br><dl class="decls">  <dt id="$resolved8467"><code><a class="type" href="Pact.API.Accept.html#Pact.API.Accept.Accept"><span class="name type">Accept</span></a>&ensp;<a class="type" href="Pact.API.Accept.html#Pact.API.Accept.PlainTextAccept"><span class="name type">PlainTextAccept</span></a></code></dt>  <dt id="$resolved10375"><code><a class="type" href="Pact.API.MimeRender.html#Pact.API.MimeRender.MimeRender"><span class="name type">MimeRender</span></a>&ensp;<a class="type" href="Pact.API.Accept.html#Pact.API.Accept.PlainTextAccept"><span class="name type">PlainTextAccept</span></a>&ensp;<span class="name type">String</span></code></dt>  <dt id="$resolved10370"><code><a class="type" href="Pact.API.MimeRender.html#Pact.API.MimeRender.MimeUnrender"><span class="name type">MimeUnrender</span></a>&ensp;<a class="type" href="Pact.API.Accept.html#Pact.API.Accept.PlainTextAccept"><span class="name type">PlainTextAccept</span></a>&ensp;<span class="name type">String</span></code></dt></dl></dd><dt id="Pact.API.Accept.JSONAccept"><code><span class="keyword">data</span>&ensp;<a class="type" href="Pact.API.Accept.html#Pact.API.Accept.JSONAccept"><span class="name type">JSONAccept</span></a>&ensp;:&ensp;<span class="name type">Type</span></code></dt><dd><pre>  JSON content type</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span><br>  <b>Hints</b>:<br><dl class="decls">  <dt id="$resolved8469"><code><a class="type" href="Pact.API.Accept.html#Pact.API.Accept.Accept"><span class="name type">Accept</span></a>&ensp;<a class="type" href="Pact.API.Accept.html#Pact.API.Accept.JSONAccept"><span class="name type">JSONAccept</span></a></code></dt>  <dt id="$resolved10377"><code><span class="type resolved" title="JSON.ToJSON.ToJSON"><span class="name type">ToJSON</span></span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<a class="type" href="Pact.API.MimeRender.html#Pact.API.MimeRender.MimeRender"><span class="name type">MimeRender</span></a>&ensp;<a class="type" href="Pact.API.Accept.html#Pact.API.Accept.JSONAccept"><span class="name type">JSONAccept</span></a>&ensp;<span class="boundvar">a</span></code></dt>  <dt id="$resolved10372"><code><span class="type resolved" title="JSON.FromJSON.FromJSON"><span class="name type">FromJSON</span></span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<a class="type" href="Pact.API.MimeRender.html#Pact.API.MimeRender.MimeUnrender"><span class="name type">MimeUnrender</span></a>&ensp;<a class="type" href="Pact.API.Accept.html#Pact.API.Accept.JSONAccept"><span class="name type">JSONAccept</span></a>&ensp;<span class="boundvar">a</span></code></dt></dl></dd><dt id="Pact.API.Accept.XMLAccept"><code><span class="keyword">data</span>&ensp;<a class="type" href="Pact.API.Accept.html#Pact.API.Accept.XMLAccept"><span class="name type">XMLAccept</span></a>&ensp;:&ensp;<span class="name type">Type</span></code></dt><dd><pre>  XMLAccept content type</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span><br>  <b>Hints</b>:<br><dl class="decls">  <dt id="$resolved8466"><code><a class="type" href="Pact.API.Accept.html#Pact.API.Accept.Accept"><span class="name type">Accept</span></a>&ensp;<a class="type" href="Pact.API.Accept.html#Pact.API.Accept.XMLAccept"><span class="name type">XMLAccept</span></a></code></dt>  <dt id="$resolved10374"><code><a class="type" href="Pact.API.MimeRender.html#Pact.API.MimeRender.MimeRender"><span class="name type">MimeRender</span></a>&ensp;<a class="type" href="Pact.API.Accept.html#Pact.API.Accept.XMLAccept"><span class="name type">XMLAccept</span></a>&ensp;<span class="boundvar">a</span></code></dt>  <dt id="$resolved10369"><code><a class="type" href="Pact.API.MimeRender.html#Pact.API.MimeRender.MimeUnrender"><span class="name type">MimeUnrender</span></a>&ensp;<a class="type" href="Pact.API.Accept.html#Pact.API.Accept.XMLAccept"><span class="name type">XMLAccept</span></a>&ensp;<span class="boundvar">a</span></code></dt></dl></dd><dt id="Pact.API.Accept.FormUrlEncodedAccept"><code><span class="keyword">data</span>&ensp;<a class="type" href="Pact.API.Accept.html#Pact.API.Accept.FormUrlEncodedAccept"><span class="name type">FormUrlEncodedAccept</span></a>&ensp;:&ensp;<span class="name type">Type</span></code></dt><dd><pre>  Form URL encoded content type</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span><br>  <b>Hints</b>:<br><dl class="decls">  <dt id="$resolved8470"><code><a class="type" href="Pact.API.Accept.html#Pact.API.Accept.Accept"><span class="name type">Accept</span></a>&ensp;<a class="type" href="Pact.API.Accept.html#Pact.API.Accept.FormUrlEncodedAccept"><span class="name type">FormUrlEncodedAccept</span></a></code></dt>  <dt id="$resolved10378"><code><a class="type" href="Pact.API.MimeRender.html#Pact.API.MimeRender.MimeRender"><span class="name type">MimeRender</span></a>&ensp;<a class="type" href="Pact.API.Accept.html#Pact.API.Accept.FormUrlEncodedAccept"><span class="name type">FormUrlEncodedAccept</span></a>&ensp;<span class="boundvar">a</span></code></dt>  <dt id="$resolved10373"><code><a class="type" href="Pact.API.MimeRender.html#Pact.API.MimeRender.MimeUnrender"><span class="name type">MimeUnrender</span></a>&ensp;<a class="type" href="Pact.API.Accept.html#Pact.API.Accept.FormUrlEncodedAccept"><span class="name type">FormUrlEncodedAccept</span></a>&ensp;<span class="boundvar">a</span></code></dt></dl></dd><dt id="Pact.API.Accept.OctetStreamAccept"><code><span class="keyword">data</span>&ensp;<a class="type" href="Pact.API.Accept.html#Pact.API.Accept.OctetStreamAccept"><span class="name type">OctetStreamAccept</span></a>&ensp;:&ensp;<span class="name type">Type</span></code></dt><dd><pre>  Octet stream content type</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span><br>  <b>Hints</b>:<br><dl class="decls">  <dt id="$resolved8468"><code><a class="type" href="Pact.API.Accept.html#Pact.API.Accept.Accept"><span class="name type">Accept</span></a>&ensp;<a class="type" href="Pact.API.Accept.html#Pact.API.Accept.OctetStreamAccept"><span class="name type">OctetStreamAccept</span></a></code></dt>  <dt id="$resolved10376"><code><a class="type" href="Pact.API.MimeRender.html#Pact.API.MimeRender.MimeRender"><span class="name type">MimeRender</span></a>&ensp;<a class="type" href="Pact.API.Accept.html#Pact.API.Accept.OctetStreamAccept"><span class="name type">OctetStreamAccept</span></a>&ensp;<span class="boundvar">a</span></code></dt>  <dt id="$resolved10371"><code><a class="type" href="Pact.API.MimeRender.html#Pact.API.MimeRender.MimeUnrender"><span class="name type">MimeUnrender</span></a>&ensp;<a class="type" href="Pact.API.Accept.html#Pact.API.Accept.OctetStreamAccept"><span class="name type">OctetStreamAccept</span></a>&ensp;<span class="boundvar">a</span></code></dt></dl></dd><dt id="Pact.API.Accept.Accept"><code><span class="keyword">interface</span>&ensp;<a class="type" href="Pact.API.Accept.html#Pact.API.Accept.Accept"><span class="name type">Accept</span></a>&ensp;:&ensp;<span class="name type">Type</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd><pre>  Accept a content type.</pre><br>  <b>Parameters</b>:&ensp;ctype<br><b>Methods</b>:<br><dl class="decls">  <dt id="Pact.API.Accept.contentType"><code><a class="type" href="Pact.API.Accept.html#Pact.API.Accept.contentType"><span class="name function">contentType</span></a>&ensp;:&ensp;<span class="type resolved" title="Data.Mime.Apache.Model.Mime"><span class="name type">Mime</span></span></code></dt><dd><pre>  Get the content type.</pre></dd></dl><br><b>Implementations</b>:<br><dl class="decls">  <dt id="$resolved8467"><code><a class="type" href="Pact.API.Accept.html#Pact.API.Accept.Accept"><span class="name type">Accept</span></a>&ensp;<a class="type" href="Pact.API.Accept.html#Pact.API.Accept.PlainTextAccept"><span class="name type">PlainTextAccept</span></a></code></dt>  <dt id="$resolved8469"><code><a class="type" href="Pact.API.Accept.html#Pact.API.Accept.Accept"><span class="name type">Accept</span></a>&ensp;<a class="type" href="Pact.API.Accept.html#Pact.API.Accept.JSONAccept"><span class="name type">JSONAccept</span></a></code></dt>  <dt id="$resolved8470"><code><a class="type" href="Pact.API.Accept.html#Pact.API.Accept.Accept"><span class="name type">Accept</span></a>&ensp;<a class="type" href="Pact.API.Accept.html#Pact.API.Accept.FormUrlEncodedAccept"><span class="name type">FormUrlEncodedAccept</span></a></code></dt>  <dt id="$resolved8468"><code><a class="type" href="Pact.API.Accept.html#Pact.API.Accept.Accept"><span class="name type">Accept</span></a>&ensp;<a class="type" href="Pact.API.Accept.html#Pact.API.Accept.OctetStreamAccept"><span class="name type">OctetStreamAccept</span></a></code></dt>  <dt id="$resolved8466"><code><a class="type" href="Pact.API.Accept.html#Pact.API.Accept.Accept"><span class="name type">Accept</span></a>&ensp;<a class="type" href="Pact.API.Accept.html#Pact.API.Accept.XMLAccept"><span class="name type">XMLAccept</span></a></code></dt></dl></dd><dt id="Pact.API.Accept.contentType"><code><a class="type" href="Pact.API.Accept.html#Pact.API.Accept.contentType"><span class="name function">contentType</span></a>&ensp;:&ensp;<a class="type" href="Pact.API.Accept.html#Pact.API.Accept.Accept"><span class="name type">Accept</span></a>&ensp;<span class="boundvar">ctype</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="type resolved" title="Data.Mime.Apache.Model.Mime"><span class="name type">Mime</span></span></code></dt><dd><pre>  Get the content type.</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd></dl></div><footer>Produced by Idris 2 version 0.7.0-da352d8ed</footer></body></html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Pact.Server.HTTP</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Pact.Server.HTTP
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Pact.Server.HTTP</h1><span style="float:right">(<a href="Pact.Server.HTTP.src.html">source</a>)</span><pre>HTTP server implementation
+</pre></div><h2>Reexports</h2><code><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Data.SortedMap<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;FS.Posix<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;FS.Socket<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;IO.Async.Loop.Posix<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;IO.Async.Loop.Epoll<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;System</code><h2>Definitions</h2><dl class="decls"><dt id="Pact.Server.HTTP.Prog"><code><span class="keyword">0</span>&ensp;<a class="type" href="Pact.Server.HTTP.html#Pact.Server.HTTP.Prog"><span class="name function">Prog</span></a>&ensp;:&ensp;<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;<span class="name type">Type</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd><pre>  Prog type is the core type for the server&apos;s asynchronous stream program<br>  Based on Poll event loop and AsyncStream for asynchronous IO</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Pact.Server.HTTP.runServer&apos;"><code><a class="type" href="Pact.Server.HTTP.html#Pact.Server.HTTP.runServer&apos;"><span class="name function">runServer&apos;</span></a>&ensp;:&ensp;<a class="type" href="Pact.Server.HTTP.html#Pact.Server.HTTP.Prog"><span class="name function">Prog</span></a>&ensp;[<span class="type resolved" title="System.Posix.Errno.Type.Errno"><span class="name type">Errno</span></span>]&ensp;<span class="type resolved" title="Builtin.Void"><span class="name type">Void</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="PrimIO.IO"><span class="name type">IO</span></span>&ensp;()</code></dt><dd><pre>  Run the HTTP server<br>  <br>  Accepts an asynchronous program and executes it in the epoll event loop<br>  @ prog The server program to execute</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Pact.Server.HTTP.assemble"><code><a class="type" href="Pact.Server.HTTP.html#Pact.Server.HTTP.assemble"><span class="name function">assemble</span></a>&ensp;:&ensp;<span class="type resolved" title="Pact.WAI.Core.HTTPPull"><span class="name function">HTTPPull</span></span>&ensp;(<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;<span class="type resolved" title="Data.ByteVect.ByteString"><span class="name type">ByteString</span></span>)&ensp;(<span class="type resolved" title="Pact.WAI.Core.HTTPStream"><span class="name function">HTTPStream</span></span>&ensp;<span class="type resolved" title="Data.ByteVect.ByteString"><span class="name type">ByteString</span></span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Pact.WAI.Core.HTTPPull"><span class="name function">HTTPPull</span></span>&ensp;<span class="boundvar">o</span>&ensp;(<span class="type resolved" title="Prelude.Types.Maybe"><span class="name type">Maybe</span></span>&ensp;<span class="type resolved" title="Pact.WAI.Request.Request"><span class="name type">Request</span></span>)</code></dt><dd><pre>  Assemble HTTP request object<br>  <br>  Assembles parsed HTTP components into a complete Request object<br>  @ p Asynchronous pull stream of HTTP ByteStrings</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Pact.Server.HTTP.request"><code><a class="type" href="Pact.Server.HTTP.html#Pact.Server.HTTP.request"><span class="name function">request</span></a>&ensp;:&ensp;<span class="type resolved" title="Pact.WAI.Request.RequestBody"><span class="name function">RequestBody</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Pact.WAI.Core.HTTPPull"><span class="name function">HTTPPull</span></span>&ensp;<span class="boundvar">o</span>&ensp;(<span class="type resolved" title="Prelude.Types.Maybe"><span class="name type">Maybe</span></span>&ensp;<span class="type resolved" title="Pact.WAI.Request.Request"><span class="name type">Request</span></span>)</code></dt><dd><pre>  Parse HTTP request from HTTP byte stream<br>  <br>  @ req HTTP byte stream</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Pact.Server.HTTP.encodeResponse&apos;"><code><a class="type" href="Pact.Server.HTTP.html#Pact.Server.HTTP.encodeResponse&apos;"><span class="name function">encodeResponse&apos;</span></a>&ensp;:&ensp;<span class="type resolved" title="Prelude.Types.Nat"><span class="name type">Nat</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Pact.WAI.Response.Response"><span class="name type">Response</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Data.ByteVect.ByteString"><span class="name type">ByteString</span></span></code></dt><dd><pre>  encodeResponse&apos; is a function that encodes an HTTP response<br>  <br>  Generates an HTTP response ByteString with status code and body<br>  @ status HTTP status code<br>  @ body Response body content</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Pact.Server.HTTP.badRequestHTTP"><code><a class="type" href="Pact.Server.HTTP.html#Pact.Server.HTTP.badRequestHTTP"><span class="name function">badRequestHTTP</span></a>&ensp;:&ensp;<span class="type resolved" title="Data.ByteVect.ByteString"><span class="name type">ByteString</span></span></code></dt><dd><pre>  Generate 400 Bad Request response<br>  @ return ByteString</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Pact.Server.HTTP.serverFunc"><code><a class="type" href="Pact.Server.HTTP.html#Pact.Server.HTTP.serverFunc"><span class="name function">serverFunc</span></a>&ensp;:&ensp;<a class="type" href="Pact.Server.Core.html#Pact.Server.Core.ServerConfig"><span class="name type">ServerConfig</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Pact.WAI.HTTPApplication"><span class="name function">HTTPApplication</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Pact.Server.HTTP.html#Pact.Server.HTTP.Prog"><span class="name function">Prog</span></a>&ensp;[<span class="type resolved" title="System.Posix.Errno.Type.Errno"><span class="name type">Errno</span></span>]&ensp;<span class="type resolved" title="Builtin.Void"><span class="name type">Void</span></span></code></dt><dd><pre>  serverFunc is a function that creates and starts an HTTP server<br>  <br>  Creates HTTP server according to the provided config and application<br>  @ config Server configuration<br>  @ app Application handler function<br>  @ return Prog [Errno] Void</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Pact.Server.HTTP.runRouter"><code><a class="type" href="Pact.Server.HTTP.html#Pact.Server.HTTP.runRouter"><span class="name function">runRouter</span></a>&ensp;:&ensp;<a class="type" href="Pact.Server.Core.html#Pact.Server.Core.ServerConfig"><span class="name type">ServerConfig</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Pact.Server.Core.html#Pact.Server.Core.Router"><span class="name type">Router</span></a>&ensp;<span class="type resolved" title="PrimIO.IO"><span class="name type">IO</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="PrimIO.IO"><span class="name type">IO</span></span>&ensp;()</code></dt><dd><pre>  runServer is a function that runs the HTTP server<br>  @ config Server configuration<br>  @ server Server instance<br>  @ return IO ()</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd></dl></div><footer>Produced by Idris 2 version 0.7.0-da352d8ed</footer></body></html>

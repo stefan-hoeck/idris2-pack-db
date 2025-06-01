@@ -1,0 +1,65 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Pact.WAI.Core</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Pact.WAI.Core
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Pact.WAI.Core</h1><span style="float:right">(<a href="Pact.WAI.Core.src.html">source</a>)</span><pre>Define core types and functions
+</pre></div><h2>Reexports</h2><code><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Data.SortedMap<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Data.ByteVect<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;System.Posix.Errno.Type<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;IO.Async.Loop.Posix</code><h2>Definitions</h2><dl class="decls"><dt id="Pact.WAI.Core.HTTPPull"><code><span class="keyword">0</span>&ensp;<a class="type" href="Pact.WAI.Core.html#Pact.WAI.Core.HTTPPull"><span class="name function">HTTPPull</span></a>&ensp;:&ensp;<span class="name type">Type</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd><pre>  HTTP pull stream type<br>  Represents an asynchronous stream from which HTTP data can be pulled<br>  @ o Output type<br>  @ r Result type</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Pact.WAI.Core.HTTPStream"><code><span class="keyword">0</span>&ensp;<a class="type" href="Pact.WAI.Core.html#Pact.WAI.Core.HTTPStream"><span class="name function">HTTPStream</span></a>&ensp;:&ensp;<span class="name type">Type</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd><pre>  HTTP byte stream type<br>  Represents an HTTP stream from which bytes can be pulled<br>  @ o Output type</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Pact.WAI.Core.QueryParams"><code><span class="keyword">0</span>&ensp;<a class="type" href="Pact.WAI.Core.html#Pact.WAI.Core.QueryParams"><span class="name function">QueryParams</span></a>&ensp;:&ensp;<span class="name type">Type</span></code></dt><dd><pre>  HTTP Query parameter type<br>  Represented as a key-value map, both key and value are strings</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd></dl></div><footer>Produced by Idris 2 version 0.7.0-da352d8ed</footer></body></html>
