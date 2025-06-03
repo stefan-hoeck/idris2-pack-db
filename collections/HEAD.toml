@@ -125,6 +125,12 @@ url  = "https://github.com/idris-community/idris2-containers"
 commit = "main"
 ipkg = "containers.ipkg"
 
+[db.continuation-monad]
+type = "git"
+url = "https://gitlab.com/avidela/continuation-monad"
+commit = "main"
+ipkg = "continuation-monad.ipkg"
+
 [db.coop]
 type   = "git"
 url    = "https://github.com/buzden/idris2-coop"
@@ -786,6 +792,12 @@ type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-tailrec"
 commit = "main"
 ipkg   = "tailrec.ipkg"
+
+[db.telescope]
+type   = "git"
+url    = "https://gitlab.com/avidela/idris2-telescope.git"
+commit = "main"
+ipkg   = "telescope.ipkg"
 
 [db.time-for-sleep]
 type   = "github"
