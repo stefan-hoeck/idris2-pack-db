@@ -577,6 +577,12 @@ url    = "https://github.com/running-grass/idris2-pact"
 commit = "main"
 ipkg   = "api/pact-api.ipkg"
 
+[db.pact-client]
+type   = "github"
+url    = "https://github.com/running-grass/idris2-pact"
+commit = "main"
+ipkg   = "client/pact-client.ipkg"
+
 [db.pact-server]
 type   = "github"
 url    = "https://github.com/running-grass/idris2-pact"
