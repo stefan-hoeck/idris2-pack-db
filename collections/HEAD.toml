@@ -428,6 +428,12 @@ url    = "https://github.com/stefan-hoeck/idris2-ilex"
 commit = "main"
 ipkg   = "ilex.ipkg"
 
+[db.ilex-streams]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-ilex"
+commit = "main"
+ipkg   = "streams/ilex-streams.ipkg"
+
 [db.indexed]
 type   = "github"
 url    = "https://github.com/mattpolzin/idris-indexed"
