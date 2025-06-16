@@ -531,7 +531,7 @@ test        = "tests/libtests.ipkg"
 [db.idris2-lsp]
 type        = "github"
 url         = "https://github.com/idris-community/idris2-lsp"
-commit      = "2736cd1a80779b7b90abd229f58d40e5ed23b530"
+commit      = "eba489fbde228a4e7ef423d19236813f7ca7cbac"
 ipkg        = "idris2-lsp.ipkg"
 packagePath = true
 
@@ -553,14 +553,14 @@ test        = "tests/tests.ipkg"
 [db.ilex]
 type        = "github"
 url         = "https://github.com/stefan-hoeck/idris2-ilex"
-commit      = "b9c3a1cfcd963c4cf297883d74f797beba346214"
+commit      = "fdc489ae309b897c873e980dbc93b570319981b4"
 ipkg        = "ilex.ipkg"
 packagePath = false
 
 [db.ilex-streams]
 type        = "github"
 url         = "https://github.com/stefan-hoeck/idris2-ilex"
-commit      = "b9c3a1cfcd963c4cf297883d74f797beba346214"
+commit      = "fdc489ae309b897c873e980dbc93b570319981b4"
 ipkg        = "streams/ilex-streams.ipkg"
 packagePath = false
 
