@@ -1094,7 +1094,7 @@ ipkg   = "idrisGL.ipkg"
 
 [db.c-ffi]
 type   = "github"
-url    = "https://github.com/joelberkeley/c-ffi"
+url    = "https://codeberg.org/joelberkeley/c-ffi"
 commit = "master"
 ipkg   = "c-ffi.ipkg"
 test   = "test.ipkg"
