@@ -775,6 +775,13 @@ commit = "main"
 ipkg   = "tsv/refined-tsv.ipkg"
 test   = "test/test.ipkg"
 
+[db.regex]
+type   = "git"
+url    = "https://github.com/buzden/idris2-regex"
+commit = "master"
+ipkg   = "regex.ipkg"
+test   = "tests/tests.ipkg"
+
 [db.rhone]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-rhone"
