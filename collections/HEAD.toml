@@ -667,6 +667,18 @@ url    = "https://gitlab.com/glaive-research/pipelines.git"
 commit = "main"
 ipkg   = "pipelines.ipkg"
 
+[db.pjrt-plugin-xla-cpu]
+type   = "github"
+url    = "https://github.com/joelberkeley/spidr"
+commit = "master"
+ipkg   = "pjrt-plugins/xla-cpu/pjrt-plugin-xla-cpu.ipkg"
+
+[db.pjrt-plugin-xla-cuda]
+type   = "github"
+url    = "https://github.com/joelberkeley/spidr"
+commit = "master"
+ipkg   = "pjrt-plugins/xla-cuda/pjrt-plugin-xla-cuda.ipkg"
+
 [db.pg-idris]
 type   = "github"
 url    = "https://github.com/mattpolzin/pg-idris"
@@ -828,6 +840,12 @@ type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-sop"
 commit = "main"
 ipkg   = "sop.ipkg"
+
+[db.spidr]
+type   = "github"
+url    = "https://github.com/joelberkeley/spidr"
+commit = "master"
+ipkg   = "spidr/spidr.ipkg"
 
 [db.sqlite3]
 type   = "github"
