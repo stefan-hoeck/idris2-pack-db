@@ -669,13 +669,13 @@ ipkg   = "pipelines.ipkg"
 
 [db.pjrt-plugin-xla-cpu]
 type   = "github"
-url    = "https://github.com/joelberkeley/spidr"
+url    = "https://codeberg.org/joelberkeley/spidr"
 commit = "master"
 ipkg   = "pjrt-plugins/xla-cpu/pjrt-plugin-xla-cpu.ipkg"
 
 [db.pjrt-plugin-xla-cuda]
 type   = "github"
-url    = "https://github.com/joelberkeley/spidr"
+url    = "https://codeberg.org/joelberkeley/spidr"
 commit = "master"
 ipkg   = "pjrt-plugins/xla-cuda/pjrt-plugin-xla-cuda.ipkg"
 
@@ -843,7 +843,7 @@ ipkg   = "sop.ipkg"
 
 [db.spidr]
 type   = "github"
-url    = "https://github.com/joelberkeley/spidr"
+url    = "https://codeberg.org/joelberkeley/spidr"
 commit = "master"
 ipkg   = "spidr/spidr.ipkg"
 
