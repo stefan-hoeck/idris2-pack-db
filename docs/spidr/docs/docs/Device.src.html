@@ -134,15 +134,16 @@
 <div id="line13"><a href="#line13" class="IdrisLineNumber"> 13 | </a><span class="IdrisComment">You&nbsp;should&nbsp;have&nbsp;received&nbsp;a&nbsp;copy&nbsp;of&nbsp;the&nbsp;GNU&nbsp;Affero&nbsp;General&nbsp;Public&nbsp;License</span></div>
 <div id="line14"><a href="#line14" class="IdrisLineNumber"> 14 | </a><span class="IdrisComment">along&nbsp;with&nbsp;this&nbsp;program.&nbsp;&nbsp;If&nbsp;not,&nbsp;see&nbsp;&lt;https://www.gnu.org/licenses/&gt;.</span></div>
 <div id="line15"><a href="#line15" class="IdrisLineNumber"> 15 | </a><span class="IdrisComment">--}</span></div>
-<div id="line16"><a href="#line16" class="IdrisLineNumber"> 16 | </a><span class="IdrisKeyword">module</span>&nbsp;<span class="IdrisModule">Device</span></div>
-<div id="line17"><a href="#line17" class="IdrisLineNumber"> 17 | </a></div>
-<div id="line18"><a href="#line18" class="IdrisLineNumber"> 18 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">Compiler.Xla.PJRT.C.PjrtCApi</span></div>
-<div id="line19"><a href="#line19" class="IdrisLineNumber"> 19 | </a></div>
-<div id="line20"><a href="#line20" class="IdrisLineNumber"> 20 | </a><span class="IdrisComment">|||&nbsp;A&nbsp;PJRT&nbsp;&quot;device&quot;.&nbsp;These&nbsp;are&nbsp;required&nbsp;to&nbsp;run&nbsp;spidr&nbsp;graphs,&nbsp;and&nbsp;are&nbsp;provided&nbsp;by&nbsp;your&nbsp;plugin.</span></div>
-<div id="line21"><a href="#line21" class="IdrisLineNumber"> 21 | </a><span class="IdrisComment">|||&nbsp;You&nbsp;won&apos;t&nbsp;need&nbsp;to&nbsp;construct&nbsp;one&nbsp;yourself&nbsp;unless&nbsp;you&apos;re&nbsp;writing&nbsp;a&nbsp;plugin.</span></div>
-<div id="line22"><a href="#line22" class="IdrisLineNumber"> 22 | </a><span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisKeyword">export</span></div>
-<div id="line23"><a href="#line23" class="IdrisLineNumber"> 23 | </a><span class="IdrisKeyword">data</span>&nbsp;<span class="IdrisType">Device</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisData">MkDevice</span>&nbsp;<span class="IdrisType">PjrtApi</span>&nbsp;<span class="IdrisType">PjrtClient</span></div>
-<div id="line24"><a href="#line24" class="IdrisLineNumber"> 24 | </a></div>
+<div id="line16"><a href="#line16" class="IdrisLineNumber"> 16 | </a><span class="IdrisComment">|||&nbsp;Defines&nbsp;`Device`,&nbsp;which&nbsp;encapsulates&nbsp;the&nbsp;graph&nbsp;compiler&nbsp;and&nbsp;hardware&nbsp;support.</span></div>
+<div id="line17"><a href="#line17" class="IdrisLineNumber"> 17 | </a><span class="IdrisKeyword">module</span>&nbsp;<span class="IdrisModule">Device</span></div>
+<div id="line18"><a href="#line18" class="IdrisLineNumber"> 18 | </a></div>
+<div id="line19"><a href="#line19" class="IdrisLineNumber"> 19 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">Compiler.Xla.PJRT.C.PjrtCApi</span></div>
+<div id="line20"><a href="#line20" class="IdrisLineNumber"> 20 | </a></div>
+<div id="line21"><a href="#line21" class="IdrisLineNumber"> 21 | </a><span class="IdrisComment">|||&nbsp;A&nbsp;PJRT&nbsp;&quot;device&quot;.&nbsp;These&nbsp;are&nbsp;required&nbsp;to&nbsp;run&nbsp;spidr&nbsp;graphs,&nbsp;and&nbsp;are&nbsp;provided&nbsp;by&nbsp;your&nbsp;plugin.</span></div>
+<div id="line22"><a href="#line22" class="IdrisLineNumber"> 22 | </a><span class="IdrisComment">|||&nbsp;You&nbsp;won&apos;t&nbsp;need&nbsp;to&nbsp;construct&nbsp;one&nbsp;yourself&nbsp;unless&nbsp;you&apos;re&nbsp;writing&nbsp;a&nbsp;plugin.</span></div>
+<div id="line23"><a href="#line23" class="IdrisLineNumber"> 23 | </a><span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisKeyword">export</span></div>
+<div id="line24"><a href="#line24" class="IdrisLineNumber"> 24 | </a><span class="IdrisKeyword">data</span>&nbsp;<span class="IdrisType">Device</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisData">MkDevice</span>&nbsp;<span class="IdrisType">PjrtApi</span>&nbsp;<span class="IdrisType">PjrtClient</span></div>
+<div id="line25"><a href="#line25" class="IdrisLineNumber"> 25 | </a></div>
 </code>
 </body>
 </html>
