@@ -434,6 +434,13 @@ url    = "https://github.com/stefan-hoeck/idris2-ilex"
 commit = "main"
 ipkg   = "streams/ilex-streams.ipkg"
 
+[db.ilex-json]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-ilex"
+commit = "main"
+ipkg   = "json/ilex-json.ipkg"
+test   = "test/test.ipkg"
+
 [db.indexed]
 type   = "github"
 url    = "https://github.com/mattpolzin/idris-indexed"
@@ -632,6 +639,7 @@ url    = "https://github.com/stefan-hoeck/idris2-parser"
 commit = "main"
 ipkg   = "json/parser-json.ipkg"
 test   = "test/test.ipkg"
+notice = "DEPRECATED. Use ilex-json instead."
 
 [db.parser-show]
 type   = "github"
