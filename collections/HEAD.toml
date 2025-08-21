@@ -87,6 +87,12 @@ commit = "master"
 ipkg   = "hedgehog-generators.ipkg"
 test   = "tests/generators-tests.ipkg"
 
+[db.byteorder]
+type   = "git"
+url    = "https://git.sr.ht/~stygianentity/byteorder-idr"
+commit = "trunk"
+ipkg   = "byteorder.ipkg"
+
 [db.bytestring]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-bytestring"
