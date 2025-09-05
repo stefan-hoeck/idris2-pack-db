@@ -50,8 +50,8 @@ jobs:
           apt-get install --yes nodejs
           # spidr ecosystem
           apt-get install --yes curl
-      - name: Use latest pack commit
-        run: pack update
+#      - name: Use latest pack commit
+#        run: pack update
       - name: Install pack-admin
         run: pack --no-prompt install-app pack-admin
       - name: Copy HEAD
