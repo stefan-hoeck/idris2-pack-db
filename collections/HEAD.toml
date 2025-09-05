@@ -497,11 +497,11 @@ url    = "https://github.com/idris-community/katla"
 commit = "main"
 ipkg   = "katla-pandoc.ipkg"
 
-[db.lana]
-type   = "github"
-url    = "https://git.sr.ht/~janus/lana"
-commit = "master"
-ipkg   = "lana.ipkg"
+# [db.lana]
+# type   = "github"
+# url    = "https://git.sr.ht/~janus/lana"
+# commit = "master"
+# ipkg   = "lana.ipkg"
 
 [db.lens]
 type   = "github"
