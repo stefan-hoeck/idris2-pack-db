@@ -1,13 +1,55 @@
-# pack.commit = "latest:main"
-# 
-# [custom.all.pack-admin]
-# type   = "github"
-# url    = "https://github.com/stefan-hoeck/idris2-pack"
-# commit = "latest:main"
-# ipkg   = "pack-admin.ipkg"
-# 
-# [custom.all.pack]
-# type   = "github"
-# url    = "https://github.com/stefan-hoeck/idris2-pack"
-# commit = "latest:main"
-# ipkg   = "pack.ipkg"
+pack.commit = "latest:main"
+
+[custom.all.pack-admin]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-pack"
+commit = "latest:main"
+ipkg   = "pack-admin.ipkg"
+
+[custom.all.pack]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-pack"
+commit = "latest:main"
+ipkg   = "pack.ipkg"
+
+[custom.all.algebra]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-algebra"
+commit = "latest:main"
+ipkg   = "algebra.ipkg"
+
+[custom.all.elab-util]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-elab-util"
+commit = "latest:main"
+ipkg   = "elab-util.ipkg"
+
+[custom.all.filepath]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-filepath"
+commit = "latest:main"
+ipkg   = "filepath.ipkg"
+
+[custom.all.getopts]
+type   = "github"
+url    = "https://github.com/idris-community/idris2-getopts"
+commit = "latest:main"
+ipkg   = "getopts.ipkg"
+
+[custom.all.parser]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-parser"
+commit = "latest:main"
+ipkg   = "parser.ipkg"
+
+[custom.all.parser-toml]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-parser"
+commit = "latest:main"
+ipkg   = "toml/parser-toml.ipkg"
+
+[custom.all.refined]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-refined"
+commit = "latest:main"
+ipkg   = "refined.ipkg"
