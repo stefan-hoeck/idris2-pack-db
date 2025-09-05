@@ -1204,3 +1204,10 @@ url    = "https://github.com/Matthew-Mosior/idris2-systemd"
 commit = "main"
 ipkg   = "idris2-systemd.ipkg"
 test   = "test/test.ipkg"
+
+[db.fixed]
+type   = "github"
+url    = "https://github.com/Matthew-Mosior/idris2-fixed"
+commit = "main"
+ipkg   = "fixed.ipkg"
+test   = "test/test.ipkg"
