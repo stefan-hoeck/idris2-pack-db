@@ -70,18 +70,6 @@
       A telescope is the variable context in a dependently typed program.
 Dependent types with free variables  are really only well-defined in a telescope.
 
-A segment of a telescope is a tuple of types in that
-telescope. These are usually implicit in formal developments, but
-seem to be crucial to get a compositional account. Here we use
-them to get 'n-ary dependent function' (compare with `Data.Fun`
-and `Data.Rel`).
-
-I've learned this from Conor McBride on an SPLV'19 bus ride.
-A literary reference would be welcome. This paper is a start:
-Unifiers as Equivalences: Proof-Relevant Unification of Dependently Typed Data.
-Jesper Cockx, Dominique Devriese, Frank Piessens, ICFP'16.
-but they don't seem to have segments and their left action on contexts.
-
     </div>
   </div>
 </li><li>
@@ -102,9 +90,6 @@ but they don't seem to have segments and their left action on contexts.
     <div class="index-namespace-doc">
       N-ary dependent functions using telescopes
 
-Compare with `base/Data.Fun` and:
-Guillaume Allais. 2019. Generic level polymorphic n-ary functions. TyDe 2019.
-
     </div>
   </div>
 </li><li>
@@ -120,9 +105,6 @@ So telescopes are convenient for well-bracketing dependencies,
 but segments are convenient for processing telescopes from left
 to right.
 
-As with telescopes, indexing segments by their length (hopefully)
-helps the type-checker infer stuff.
-
     </div>
   </div>
 </li><li>
@@ -132,9 +114,6 @@ helps the type-checker infer stuff.
     </div>
     <div class="index-namespace-doc">
       N-ary simple (non-dependent) functions using telescopes
-
-Compare with `base/Data.Fun` and `contrib/Data.Fun.Extra` and with:
-Guillaume Allais. 2019. Generic level polymorphic n-ary functions. TyDe 2019.
 
     </div>
   </div>
@@ -146,9 +125,6 @@ Guillaume Allais. 2019. Generic level polymorphic n-ary functions. TyDe 2019.
     <div class="index-namespace-doc">
       The telescope data structures.
 
-Indexing telescopes by their length (hopefully) helps inform the
-type-checker during inference.
-
     </div>
   </div>
-</li></ul></div><footer>Produced by Idris 2 version 0.7.0-fc11b0305</footer></body></html>
+</li></ul></div><footer>Produced by Idris 2 version 0.7.0-b5398ab10</footer></body></html>

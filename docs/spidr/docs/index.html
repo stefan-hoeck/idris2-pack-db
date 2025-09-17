@@ -483,8 +483,6 @@ usefulness of points in a search domain, towards the task of finding a function 
     <div class="index-namespace-doc">
       For internal spidr use, and use by plugin developers.
 
-The Idris API for PJRT.
-
     </div>
   </div>
 </li><li>
@@ -636,16 +634,6 @@ The Idris API for PJRT.
       Defines `Literal`, a single value or array of values with a specified shape.
 `Literal` is similar to `Tensor`, but differs in a number of important ways:
 
-* `Literal` offers a convenient syntax for constructing `Literal`s with boolean and numeric
-  contents. For example, `True`, `1` and `[1, 2, 3]` are all valid `Literal`s. This makes it
-  useful for constructing `Tensor`s.
-* Operations on `Literal` are *not* accelerated by a graph compiler, so operations on large
-  `Literal`s, and large sequences of operations on any `Literal`, can be expected to be slower
-  than they would on an equivalent `Tensor`.
-* `Literal` is implemented in pure Idris. As such, values can contain elements of any type, and
-  implements a number of standard Idris interfaces. This, along with its convenient syntax,
-  makes it particularly useful for testing operations on `Tensor`s.
-
     </div>
   </div>
 </li><li>
@@ -706,11 +694,6 @@ The Idris API for PJRT.
     <div class="index-namespace-doc">
       Primitive backend data types, and their interaction with Idris.
 
-This module contains a number of interfaces (`Primitive.Num`, `Primitive.Eq` etc.). These
-indicate what operations can be performed on primitive data in the backend. They are entirely
-distinct from the Idris interfaces `Prelude.Num` etc. but carry largely the same meaning.
-For example, primitive types satisfying `Primitive.Ord` have a notion of ordering.
-
     </div>
   </div>
 </li><li>
@@ -723,9 +706,6 @@ For example, primitive types satisfying `Primitive.Ord` have a notion of orderin
 `Tensor`s. `Tensor` operations typically leverage hardware acceleration and graph compilation.
 spidr tracks tensor shape and data type in the types, so you can be sure that if your tensor
 code compiles, these are consistent.
-
-spidr achieves efficient reuse of tensor computations with `Tag`. See the tutorial
-_Nuisances in the Tensor API_ for a discussion of pitfalls to avoid when using `Tag`.
 
     </div>
   </div>
@@ -749,4 +729,4 @@ _Nuisances in the Tensor API_ for a discussion of pitfalls to avoid when using `
 
     </div>
   </div>
-</li></ul></div><footer>Produced by Idris 2 version 0.7.0-fc11b0305</footer></body></html>
+</li></ul></div><footer>Produced by Idris 2 version 0.7.0-b5398ab10</footer></body></html>

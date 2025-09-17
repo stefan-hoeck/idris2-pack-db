@@ -94,35 +94,6 @@ all of the same structure during code generation: An encoding
 of natural numbers which the Idris compiler converts to a
 native integer representation.
 
-The main type for indexing into an array of size `n` is `Fin n`,
-representing a natural number strictly smaller than `n`.
-
-As an alternative, we can use a natural number `k` directly, together
-with a proof of type `LT k n`, showing that `k` is strictly smaller
-than `n`. Such numbers can be converted directly to `Fin n` by means
-of function `Data.Nat.natToFinLT`. This way of indexing is very
-useful for iterating over the whole array from then end: We start
-with `n` itself together with an erased proof of type `LTE n n`, which
-can be generated automatically. By pattern matching on the current
-position, we can safely access all positions in the array until
-we arrive at 0. See the implementation of `foldr` (a private
-function called `foldrI`) in module `Data.Array.Indexed` for an
-example how this is used.
-
-It is only slightly harder to iterate over an array from the
-front. This is where data type `Ix m n` comes into play: It's
-another way of saying that `m <= n` holds, but it works in
-the oposite direction than `LTE`: It's zero constructor `IZ` proofs
-that `n <= n` for all `n`, while its successor constructor
-proofs that from `S k <= n` follows `k <= n`. This means, that
-for a given `k`, a values of type `Ix k n` corresponds to the
-values `n - k`. This allows us to recurse over a natural number
-while keeping an auto-implicit proof of type `Ix k n`, and use
-this proof for indexing into the array.
-See the implementation of `foldl` (a private
-function called `foldlI`) in module `Data.Array.Indexed` for an
-example how this is used.
-
     </div>
   </div>
 </li><li>
@@ -179,4 +150,4 @@ example how this is used.
       
     </div>
   </div>
-</li></ul></div><footer>Produced by Idris 2 version 0.7.0-fc11b0305</footer></body></html>
+</li></ul></div><footer>Produced by Idris 2 version 0.7.0-b5398ab10</footer></body></html>

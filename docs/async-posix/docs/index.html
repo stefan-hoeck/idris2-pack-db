@@ -114,13 +114,6 @@
     <div class="index-namespace-doc">
       Posix-compliant file polling based on the `poll` system call.
 
-This form of file polling takes linear time with relation for
-the number of file descriptors to be polled, which is perfectly
-fine for polling small numbers of file descriptors. For polling
-hundreds or thousands of file descriptors, consider using
-the poller from async-epoll, which is based on the Linux-only
-`epoll` system calls.
-
     </div>
   </div>
 </li><li>
@@ -131,13 +124,6 @@ the poller from async-epoll, which is based on the Linux-only
     <div class="index-namespace-doc">
       A pool of a fixed number of worker threads, each operating on its own
 work queue.
-
-Idle threads will try and take work packages from other threads
-(work-stealing).
-
-Each thread is responsible for scheduling and running an arbitrary number
-of `Fiber`s, as well as taking care of registered timers, signal handlers,
-and file polling.
 
     </div>
   </div>
@@ -168,4 +154,4 @@ and file polling.
       
     </div>
   </div>
-</li></ul></div><footer>Produced by Idris 2 version 0.7.0-fc11b0305</footer></body></html>
+</li></ul></div><footer>Produced by Idris 2 version 0.7.0-b5398ab10</footer></body></html>

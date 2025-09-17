@@ -106,20 +106,6 @@
       This module containes the logic for properly placing double bonds, especiall
 the pi-part of those bonds. We use a simple heuristic to place the pi-bond:
 
-In case of a double bond with three substituents, the pi bond will be placed
-on the same side of the sigma bond as the lone substituent.
-
-In case of a double bond with four substituents, the dominant cycle
-(if any; see below) will be determined, and the pi-bond will be placed
-within that cycle.
-
-In all other cases, a symmetric double with both lines being displaced
-from the center by the same amount of space, will be displayed.
-
-In order to define the dominant cycle to which a double bond belongs,
-rings will be sorted by number of multiple bonds and then by ring size.
-Six membered rings will always be preferred over other ring sizes.
-
     </div>
   </div>
 </li><li>
@@ -269,41 +255,6 @@ Six membered rings will always be preferred over other ring sizes.
       Measuring the visible bounds of text is incredibly hard
 and tons of material have been written about this.
 
-In this module, we take a pragmatic approach that produces
-reasonable results without having to load and parse font files.
-The drawback of this: The steps described below have to be repeated
-for every new font we'd like to support.
-
-A detailed introduction to typography and how fonts are specified
-can be found [here](https://learn.microsoft.com/en-us/typography/opentype/spec/otff).
-
-In general, we need to know the height and width of a piece of printed text
-to properly align it with the rest of the drawing.
-
-Text height:
-  there are different types of "height" when it comes to text, and I won't go
-  into the details here. Suffice to say that we are interested in vertically aligning
-  atom labels, charges, implicit hydrogen count and mass numbers in a
-  way that feels natural. For this, wir are mostly interested in "capHeight" of
-  a font: The height of capital letters (without descenders). This, together
-  with the Em-square size can be read from font files.
-
-Text width:
-  While computing the height of a piece of text is non-trivial, computing its
-  width is insane. Every glyph has its own specific width, sometimes depending
-  on its neighbouring glyphs (see ligatures and kerning). Fortunately, there
-  is a quite simple method to get good approximations without being overly
-  complicated. It is described on [stackoverflow](https://stackoverflow.com/questions/16007743/roughly-approximate-the-width-of-a-string-of-text-in-python)
-  We use Python (because it has support for almost everything) to parse
-  the true type font file we are interested in and generate a dictionary
-  of the glyphs and their widths we are interested in. Using this to compute
-  the width of a piece of text at a given font size is efficient and simple
-  but not perfectly exact because it ignores kerning. It also requires large
-  dictionaries if we want to support lots of unicode characters.
-
-Note: The Python script used to extract the glyph widths can be found in the
-      `resources` directory.
-
     </div>
   </div>
-</li></ul></div><footer>Produced by Idris 2 version 0.7.0-fc11b0305</footer></body></html>
+</li></ul></div><footer>Produced by Idris 2 version 0.7.0-b5398ab10</footer></body></html>

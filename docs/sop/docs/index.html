@@ -95,42 +95,6 @@ We distinguish between two types of containers: Product
 types hold all their values at once, while sum types
 represent a choice: A generalization of `Either`.
 
-The core data types in this library are indexed over a
-container (typically a List or List of Lists) of values
-of type `k` plus a type-level function `f` of type `k -> Type`.
-The values of the container index together with `f` determine
-the types of values at each position in the
-heterogeneous product or sum, while the shape of container
-indices mirror the shape of the corresponding product types.
-
-The interfaces in this module allow us to create
-hetereogeneous containers from sufficiently general functions
-(`HPure`), use unary functions to change the context of
-values in a heterogeneous container (`HFunctor`),
-collapse heterogeneous containers into a single value (`HFoldable`)
-and run an effectful computation over all values in
-a heterogeneous container (`HSequence`).
-
-In addition, `HFunctor` can be generalized to arbitrary
-n-ary functions (`HAp`). However, this case is special in that only
-the last argument of such a function can be a sum type
-while all other arguments have to be product types.
-This makes sense, since when combining values of two sum types,
-we typically cannot guarantee that the values point at
-same choice and are therefore compatible.
-
-Implementation notes:
-
-For many of the functions in this module, there is a constrained
-version taking an implicit heterogeneous product holding
-the desired implementations. Since Idris2 uses the same
-mechanism for resolving interface constraints and auto implicits,
-we do not need an additional structure or interface
-for these constraints.
-The disadvantage of this is, that we more often have to explicitly
-pattern match on these constraint products in order for Idris2
-to know where to look for implementations.
-
     </div>
   </div>
 </li><li>
@@ -195,15 +159,6 @@ to know where to look for implementations.
     <div class="index-namespace-doc">
       Metadata about a data type's constructor and field names.
 
-Since for the time being, record syntax is still under discussion,
-records are not yet treated any differently from other
-product types. This might well change in the future, once
-the issues about record syntax are resolved.
-
-Also, it seems not yet to be possible to get access to an
-operator's fixity through elaborator reflection. We try to make
-this information available as soon as possible.
-
     </div>
   </div>
 </li><li>
@@ -215,4 +170,4 @@ this information available as soon as possible.
       
     </div>
   </div>
-</li></ul></div><footer>Produced by Idris 2 version 0.7.0-fc11b0305</footer></body></html>
+</li></ul></div><footer>Produced by Idris 2 version 0.7.0-b5398ab10</footer></body></html>

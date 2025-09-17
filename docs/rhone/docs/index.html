@@ -89,13 +89,6 @@
 together with associated interface implementations and
 some core functionality.
 
-An MSF is an effectful computation from an input of type `i`
-to an output of type `o`, that can be described using a rich
-library of combinators and evaluated using function
-`Data.MSF.Running.step`,
-which not only produces an output for every input value
-but also a new MSF to be used in the next evaluation step.
-
     </div>
   </div>
 </li><li>
@@ -124,13 +117,6 @@ but also a new MSF to be used in the next evaluation step.
     <div class="index-namespace-doc">
       Switching Combinators
 
-Switches allow us to dynamically change the structure
-(wiring) of a running network of stream functions.
-Semantically, the react on discrete events, but
-some of the switching primitives in this module use
-the `Either` data type if it allows us to more exactly
-describe the semantics of a switch.
-
     </div>
   </div>
 </li><li>
@@ -151,27 +137,6 @@ describe the semantics of a switch.
     <div class="index-namespace-doc">
       Various utility combinators.
 
-A note on arrow operators: Arrow operators in this module are
-of the form `i>o`, where `i` is either `>`, `^`, `!`, or `?`.
-and `o` is either `>`, `^`, `!`, or `-`. Each of these symbols
-describe a different type of arrow-like function at the
-corresponding end of the operator:
-
-The following table lists the meaning of symbols
-
-| Symbol      | Meaning                  | Example                    |
-|-------------|--------------------------|----------------------------|
-| `>`         | An MSF                   | arr (*2) >>> arrM printLn  |
-| `^`         | a pure function          | (*2) ^>> printLn           |
-| `!`         | an effectful computation | arr (*2) >>! printLn       |
-
-In addition, symbol `?` corresponds to an event stream input, and
-symbol `-` describes fanning out to a list of sinks:
-
-```idris example
-when (> 10) ?>- [ arrM printLn, put ]
-```
-
     </div>
   </div>
 </li><li>
@@ -183,4 +148,4 @@ when (> 10) ?>- [ arrM printLn, put ]
       
     </div>
   </div>
-</li></ul></div><footer>Produced by Idris 2 version 0.7.0-fc11b0305</footer></body></html>
+</li></ul></div><footer>Produced by Idris 2 version 0.7.0-b5398ab10</footer></body></html>

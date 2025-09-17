@@ -169,14 +169,6 @@
       Utilities pertaining to the _lamda-lifted_ intermediate representation of
 Idris 2 programs.
 
-This representation of program syntax is one of several used when compiling
-a program. These representations can be used by compiler back-ends to
-compile from versions of Idris programs with reduced complexity---see
-[Which Intermediate Representation (IR) should be consumed by the custom
-back-end?]
-(https://idris2.readthedocs.io/en/latest/backends/backend-cookbook.html?highlight=lifted#which-intermediate-representation-ir-should-be-consumed-by-the-custom-back-end)
-for more information.
-
     </div>
   </div>
 </li><li>
@@ -199,29 +191,6 @@ for more information.
 algorithm. The main goal right now is to move duplicate
 expressions introduced during autosearch (which includes
 interface resolution) to the top level.
-
-As such, the functionality provided by this module should
-be considered a form of whole program optimization.
-To keep things simple, it operates only on closed terms right
-now, which are - in case of several occurences - introduced
-as new zero-argument toplevel functions.
-
-The procedure is very simple: In an analysis step, we
-iterate over all toplevel definitions once, trying to
-convert every subexpression to a closed one (no free
-variables). Closed terms are then stored in a `SortedMap`
-together with their size and count. In order to only use
-linear space w.r.t. term size, we start this analysis at the
-leaves and substitute closed terms with the machine generated
-names before analyzing parent terms.
-
-In a second step, we compare the count of each machine
-generated name with the count of its parent expression.
-If they are the same, the name is dropped and replaces with
-a CSE optimized version of the original expression, otherwise
-the name is kept and a new zero argumet function of the
-given name is added to the toplevel, thus eliminating the
-duplicate expressions.
 
     </div>
   </div>
@@ -354,121 +323,6 @@ converting `NamedCExp` to imperative statements.
     <div class="index-namespace-doc">
       Tail-call optimization.
 
-Here is a lengthy explanation how this works at the
-moment. Assume the following call graph of functions f1,f2,f3,f4 all
-calling each other in tail call position:
-
-```
-      ------------ f2 ---- f4 (result)
-     /          /     \
-f1 ---- f1     /       -- f1
-     \        /
-      -- f3 --
-```
-
-First, a directed graph of all toplevel function calls
-(incoming and outgoing) in tail-call position is created:
-
-```idris
-MkCallGraph $ fromList [(f1,[f1,f2,f3]),(f2,[f1,f4]),(f3,[f2])]
-            $ fromList [(f1,[f1,f2]),(f2,[f1,f3]),(f3,[f1]),(f4,[f2])]
-```
-
-Mutually tail-recursive functions form a strongly connected
-component in such a call graph: There is a (directed) path from every function
-to every other function. Tarjan's algorithm is used to identify
-these strongly connected components and grouping them in
-a `List` of `List1`s.
-
-A tail-recursive group of functions is now converted to an imperative
-loop as follows: Let `obj={h:_, a1:_, a2:_, ...}`
-be a Javascript object consisting
-of a tag `h` and arguments `a1`,`a2`,... . `h` indicates, whether `obj.a1`
-contains the result of the computation (`h = 0`) or describes
-a continuation indicating the next function to be invoked, in which
-case fields `a1`,`a2`,... are the function's arguments.
-together with the necessary arguments. The group of mutually
-recursive functions is now converted to a single switch statement
-where each branch corresponds to one of the function.
-Each function will be changed in such a way that instead of
-(recursively) calling another function in its group it will return
-a new object `{h:_, a1:_, ...}` with `h` indicating the next
-function to call (the next branch to choose in the `switch`
-statement and `a1`,`a2`,... being the next function's set of
-arguments. The function and initial argument object will then
-be passed to toplevel function `__tailRec`, which loops
-until the object signals that we have arrived at a result.
-
-Here is an example of two mutually tail-recursive functions
-together with the generated tail-call optimized code.
-
-Original version:
-
-```javascript
-function isEven(arg){
-  switch (arg) {
-    case 0  : return 1;
-    default : return isOdd(arg - 1);
-  }
-}
-
-function isOdd(arg){
-  switch (arg) {
-    case 0  : return 0;
-    default : return isEven(arg - 1);
-  }
-}
-```
-
-The above gets converted to code similar to
-the following.
-
-```javascript
-function tcOpt(arg) {
-  switch(arg.h) {
-  // former function isEven
-  case 1: {
-    switch (arg.a1) {
-      case 0  : return {h: 0, a1: 1};
-      default : return {h: 2, a1: arg.a1 - 1};
-    }
-  }
-  // former function isOdd
-  case 2: {
-    switch (a1) {
-      case 0  : return {h: 0, a1: 0};
-      default : return {h: 1, a1: arg.a1 - 1};
-    }
-  }
-}
-
-function isEven(arg){
-  return __tailRec(tcOpt,{h: 1, a1: arg})
-}
-
-function isOdd(arg){
-  return __tailRec(tcOpt,{h: 2, a1: arg})
-}
-```
-
-Finally, `__tailRec` is implemented as follows:
-
-```javascript
-  function __tailRec(f,ini) {
-    let obj = ini;
-    while(true){
-      switch(obj.h){
-        case 0: return obj.a1;
-        default: obj = f(obj);
-      }
-    }
-  }
-```
-
-While the above example is in Javascript, this module operates
-on `NamedCExp` exclusively, so it might be used with any backend
-where the things described above can be expressed.
-
     </div>
   </div>
 </li><li>
@@ -561,10 +415,6 @@ to a sequence of imperative statements.
     </div>
     <div class="index-namespace-doc">
       Code common to all the scheme backend
-
-In most cases the inital `Nat` argument
-is the number of cases a given expression is under.
-it is used to generate new unique names for the scrutinee of a case block
 
     </div>
   </div>
@@ -1840,8 +1690,6 @@ This data structure is meant to get efficiently data with a correlated NonEmptyF
 The element data type must implement the `Measure` interface. An implementation
 is provided already for NonEmptyFC and tuples with NonEmptyFC as first element.
 
-[1] https://www.staff.city.ac.uk/~ross/papers/FingerTree.pdf
-
     </div>
   </div>
 </li><li>
@@ -2103,28 +1951,6 @@ attach metadata to the payload.
     <div class="index-namespace-doc">
       A simple module to process 'literate' documents.
 
-The module uses a lexer to split the document into code blocks,
-delineated by user-defined markers, and code lines that are
-indicated be a line marker. The lexer returns a document stripped
-of non-code elements but preserving the original document's line
-count. Column numbering of code lines are not preserved.
-
-The underlying tokeniser is greedy.
-
-Once it identifies a line marker it reads a prettifying space then
-consumes until the end of line. Once identifies a starting code
-block marker, the lexer will consume input until the next
-identifiable end block is encountered. Any other content is
-treated as part of the original document.
-
-Thus, the input literate files *must* be well-formed w.r.t
-to code line markers and code blocks.
-
-A further restriction is that literate documents cannot contain
-the markers within the document's main text: This will confuse the
-lexer.
-
-
     </div>
   </div>
 </li><li>
@@ -2153,9 +1979,6 @@ lexer.
     <div class="index-namespace-doc">
       A Idris port of the prettyprinter library [1] and
 the ANSI terminal backend [2].
-
-[1] https://hackage.haskell.org/package/prettyprinter
-[2] https://hackage.haskell.org/package/prettyprinter-ansi-terminal
 
     </div>
   </div>
@@ -2944,4 +2767,4 @@ the ANSI terminal backend [2].
       
     </div>
   </div>
-</li></ul></div><footer>Produced by Idris 2 version 0.7.0-fc11b0305</footer></body></html>
+</li></ul></div><footer>Produced by Idris 2 version 0.7.0-b5398ab10</footer></body></html>

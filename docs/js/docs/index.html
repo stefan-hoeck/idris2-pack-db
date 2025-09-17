@@ -88,25 +88,6 @@
       Primitive Javascript arrays. This offers an alternative
 to the functionality provided by `Data.IOArray.Prims` from base.
 
-In addition to mutable arrays, we also provide linear arrays
-for imperatively filling arrays in a pure envirionment,
-as well as immutable arrays, the latter being guaranteed to always
-return a value if an index is within bounds.
-
-We use `Bits32` for indexing, as this is the type reflecting
-most exactly the kinds of indices use to access array elements.
-However, right now, `Bits32` is represented by `BigInt` at the Javascript
-backend. This might negatively affect performance, as we always have
-to convert to `Number` first (that's `Double` in Idris2).
-Hopefully, the backend representation will change in the future, and
-this will be no longer an issue.
-
-In addition, `Bits32` does not offer a lot of functionality when
-it comes to available proofs for it being in bounds. This
-module provides a minimal amount of utilities for this, but again,
-these might hopefully go elswhere, where the whole topic is treated
-more thoroughly.
-
     </div>
   </div>
 </li><li>
@@ -210,13 +191,6 @@ to values, and we can use them exactly as such. However,
 objects can also be used as an intermediary representation
 for encoding data from and to JSON.
 
-This module therefore provides additional functionality:
-
-A linear `LinObject` data type for encoding nested datastructure
-into an intermediary object representation, and an immutable
-`IObject` data type, mainly for decoding data, but also as an efficient
-means for having an immutable string to data mapping.
-
     </div>
   </div>
 </li><li>
@@ -277,4 +251,4 @@ own package.
       
     </div>
   </div>
-</li></ul></div><footer>Produced by Idris 2 version 0.7.0-fc11b0305</footer></body></html>
+</li></ul></div><footer>Produced by Idris 2 version 0.7.0-b5398ab10</footer></body></html>

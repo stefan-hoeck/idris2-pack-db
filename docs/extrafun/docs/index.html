@@ -105,15 +105,6 @@
     <div class="index-namespace-doc">
       Functors able to read some separate data, the "index".
 
-They are expected to obey the laws
-  imap g . imap f = imap (\i => g i . f i)
-and
-  imap (const id) = id
-
-The abbreviation "Ind" could be taken to stand for "Indexed", but
-also for "Independent", to contrast it with the "Dependent"
-versions elsewhere in the library.
-
     </div>
   </div>
 </li><li>
@@ -123,11 +114,6 @@ versions elsewhere in the library.
     </div>
     <div class="index-namespace-doc">
       Functors with type depending on some extra data, the "index"
-
-They are expected to obey the laws
-  imap g . imap f = imap (\i => g i . f i)
-and
-  imap (\i => id {t i}) = id
 
     </div>
   </div>
@@ -249,12 +235,6 @@ be thrown away.
     <div class="index-namespace-doc">
       A withering is something which can be run on any IndWitherable.
 
-Since IndWitherable has a large family of superclasses, there are
-many such things.
-
-The interest in these things is that they are the sorts of things
-one wants to do in merging operations.
-
     </div>
   </div>
 </li><li>
@@ -322,4 +302,4 @@ using constant index
 
     </div>
   </div>
-</li></ul></div><footer>Produced by Idris 2 version 0.7.0-fc11b0305</footer></body></html>
+</li></ul></div><footer>Produced by Idris 2 version 0.7.0-b5398ab10</footer></body></html>
