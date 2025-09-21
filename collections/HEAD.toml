@@ -447,6 +447,13 @@ commit = "main"
 ipkg   = "json/ilex-json.ipkg"
 test   = "test/test.ipkg"
 
+[db.ilex-toml]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-ilex"
+commit = "main"
+ipkg   = "toml/ilex-toml.ipkg"
+test   = "test/test.ipkg"
+
 [db.indexed]
 type   = "github"
 url    = "https://github.com/mattpolzin/idris-indexed"
