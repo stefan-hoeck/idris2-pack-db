@@ -1,0 +1,334 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>tensortype</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="index">
+<header>
+  <strong>Idris2Doc</strong> : tensortype
+  <nav><a href="index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><h1>Package tensortype - Namespaces</h1><ul class="names"><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Container.html">Data.Container</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Container.Object.Definition.html">Data.Container.Object.Definition</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Container.Object.Instances.html">Data.Container.Object.Instances</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Container.Extension.Definition.html">Data.Container.Extension.Definition</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Container.Extension.Instances.html">Data.Container.Extension.Instances</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Container.Morphism.Definition.html">Data.Container.Morphism.Definition</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Container.Morphism.Instances.html">Data.Container.Morphism.Instances</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Container.Concrete.Definition.html">Data.Container.Concrete.Definition</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Container.Concrete.Instances.html">Data.Container.Concrete.Instances</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Container.Applicative.Definition.html">Data.Container.Applicative.Definition</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Container.Applicative.Instances.html">Data.Container.Applicative.Instances</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Container.Definitions.html">Data.Container.Definitions</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Container.Instances.html">Data.Container.Instances</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Container.InstanceInterfaces.html">Data.Container.InstanceInterfaces</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Container.Products.html">Data.Container.Products</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Container.TreeUtils.html">Data.Container.TreeUtils</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Container.SubTerm.html">Data.Container.SubTerm</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Tensor.html">Data.Tensor</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Tensor.Tensor.html">Data.Tensor.Tensor</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Tensor.Utils.html">Data.Tensor.Utils</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Para.html">Data.Para</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Para.Para.html">Data.Para.Para</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Functor.Naperian.html">Data.Functor.Naperian</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Tree.html">Data.Tree</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Algebra.html">Data.Algebra</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Architectures.Activations.html">Architectures.Activations</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Architectures.Attention.html">Architectures.Attention</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Architectures.Softargmax.html">Architectures.Softargmax</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Architectures.Linear.html">Architectures.Linear</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Misc.html">Misc</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li></ul></div><footer>Produced by Idris 2 version 0.7.0-ab81660dc</footer></body></html>

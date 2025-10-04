@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Data.Container.Extension.Instances</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Data.Container.Extension.Instances
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Data.Container.Extension.Instances</h1><span style="float:right">(<a href="Data.Container.Extension.Instances.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="Data.Container.Extension.Instances.ExtensionsOfMainExamples.Scalar&apos;"><code><span class="type resolved" title="Data.Container.Extension.Instances.ExtensionsOfMainExamples.Scalar&apos;"><span class="name function">Scalar&apos;</span></span>&ensp;:&ensp;<span class="name type">Type</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd><pre>  Isomorphic to the Identity</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Data.Container.Extension.Instances.ExtensionsOfMainExamples.Pair&apos;"><code><span class="type resolved" title="Data.Container.Extension.Instances.ExtensionsOfMainExamples.Pair&apos;"><span class="name function">Pair&apos;</span></span>&ensp;:&ensp;<span class="name type">Type</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd><pre>  Isomorphic to Pair</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Data.Container.Extension.Instances.ExtensionsOfMainExamples.Either&apos;"><code><span class="type resolved" title="Data.Container.Extension.Instances.ExtensionsOfMainExamples.Either&apos;"><span class="name function">Either&apos;</span></span>&ensp;:&ensp;<span class="name type">Type</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd><pre>  Isomorphic to Either</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Data.Container.Extension.Instances.ExtensionsOfMainExamples.Maybe&apos;"><code><span class="type resolved" title="Data.Container.Extension.Instances.ExtensionsOfMainExamples.Maybe&apos;"><span class="name function">Maybe&apos;</span></span>&ensp;:&ensp;<span class="name type">Type</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd><pre>  Isomorphic to Maybe</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Data.Container.Extension.Instances.ExtensionsOfMainExamples.List&apos;"><code><span class="type resolved" title="Data.Container.Extension.Instances.ExtensionsOfMainExamples.List&apos;"><span class="name function">List&apos;</span></span>&ensp;:&ensp;<span class="name type">Type</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd><pre>  Isomorphic to List</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Data.Container.Extension.Instances.ExtensionsOfMainExamples.Vect&apos;"><code><span class="type resolved" title="Data.Container.Extension.Instances.ExtensionsOfMainExamples.Vect&apos;"><span class="name function">Vect&apos;</span></span>&ensp;:&ensp;<span class="type resolved" title="Prelude.Types.Nat"><span class="name type">Nat</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd><pre>  Isomorphic to Vect</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Data.Container.Extension.Instances.ExtensionsOfMainExamples.Stream&apos;"><code><span class="type resolved" title="Data.Container.Extension.Instances.ExtensionsOfMainExamples.Stream&apos;"><span class="name function">Stream&apos;</span></span>&ensp;:&ensp;<span class="name type">Type</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd><pre>  Isomorphic to Stream</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Data.Container.Extension.Instances.ExtensionsOfMainExamples.BinTree&apos;"><code><span class="type resolved" title="Data.Container.Extension.Instances.ExtensionsOfMainExamples.BinTree&apos;"><span class="name function">BinTree&apos;</span></span>&ensp;:&ensp;<span class="name type">Type</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd><pre>  Isomorphic to Data.Tree.BinTreeSame</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Data.Container.Extension.Instances.ExtensionsOfMainExamples.BinTreeNode&apos;"><code><span class="type resolved" title="Data.Container.Extension.Instances.ExtensionsOfMainExamples.BinTreeNode&apos;"><span class="name function">BinTreeNode&apos;</span></span>&ensp;:&ensp;<span class="name type">Type</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd><pre>  Isomorphic to Data.Tree.BinTreeNode</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Data.Container.Extension.Instances.ExtensionsOfMainExamples.BinTreeLeaf&apos;"><code><span class="type resolved" title="Data.Container.Extension.Instances.ExtensionsOfMainExamples.BinTreeLeaf&apos;"><span class="name function">BinTreeLeaf&apos;</span></span>&ensp;:&ensp;<span class="name type">Type</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd><pre>  Isomorphic to Data.Tree.BinTreeLeaf</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Data.Container.Extension.Instances.composeExtensions"><code><a class="type" href="Data.Container.Extension.Instances.html#Data.Container.Extension.Instances.composeExtensions"><span class="name function">composeExtensions</span></a>&ensp;:&ensp;<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;<a class="type" href="Data.Container.Object.Definition.html#Data.Container.Object.Definition.Cont"><span class="name type">Cont</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Data.Container.Extension.Instances.EmptyExt"><code><a class="type" href="Data.Container.Extension.Instances.html#Data.Container.Extension.Instances.EmptyExt"><span class="name function">EmptyExt</span></a>&ensp;:&ensp;<a class="type" href="Data.Container.Extension.Definition.html#Data.Container.Extension.Definition.Ext"><span class="name type">Ext</span></a>&ensp;(<a class="type" href="Data.Container.Object.Instances.html#Data.Container.Object.Instances.Nap"><span class="name function">Nap</span></a>&ensp;<span class="boundvar">l</span>)&ensp;()</code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Data.Container.Extension.Instances.liftA2ConstCont"><code><a class="type" href="Data.Container.Extension.Instances.html#Data.Container.Extension.Instances.liftA2ConstCont"><span class="name function">liftA2ConstCont</span></a>&ensp;:&ensp;<a class="type" href="Data.Container.Extension.Definition.html#Data.Container.Extension.Definition.Ext"><span class="name type">Ext</span></a>&ensp;(<a class="type" href="Data.Container.Object.Instances.html#Data.Container.Object.Instances.Nap"><span class="name function">Nap</span></a>&ensp;<span class="boundvar">l</span>)&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Container.Extension.Definition.html#Data.Container.Extension.Definition.Ext"><span class="name type">Ext</span></a>&ensp;(<a class="type" href="Data.Container.Object.Instances.html#Data.Container.Object.Instances.Nap"><span class="name function">Nap</span></a>&ensp;<span class="boundvar">l</span>)&ensp;<span class="boundvar">b</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Container.Extension.Definition.html#Data.Container.Extension.Definition.Ext"><span class="name type">Ext</span></a>&ensp;(<a class="type" href="Data.Container.Object.Instances.html#Data.Container.Object.Instances.Nap"><span class="name function">Nap</span></a>&ensp;<span class="boundvar">l</span>)&ensp;(<span class="boundvar">a</span>,&ensp;<span class="boundvar">b</span>)</code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Data.Container.Extension.Instances.positionsCont"><code><a class="type" href="Data.Container.Extension.Instances.html#Data.Container.Extension.Instances.positionsCont"><span class="name function">positionsCont</span></a>&ensp;:&ensp;<a class="type" href="Data.Container.Extension.Definition.html#Data.Container.Extension.Definition.Ext"><span class="name type">Ext</span></a>&ensp;<span class="boundvar">c</span>&ensp;(<span class="boundvar">c</span>&ensp;<span class="type resolved" title="Data.Container.Object.Definition.Cont.(.pos)"><span class="name function">.pos</span></span>&ensp;<span class="boundvar">sh</span>)</code></dt><dd><pre>  Generalisation of &apos;positions&apos; from Data.Functor<br>  Works for an arbitrary container, as long as we supply its shape<br>  The definition in Data.Functor.positions is for Naperian containers<br>  i.e. containers with a unit shape</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd></dl></div><footer>Produced by Idris 2 version 0.7.0-ab81660dc</footer></body></html>
