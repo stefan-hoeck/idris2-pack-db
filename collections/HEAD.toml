@@ -553,6 +553,13 @@ url  = "https://github.com/running-grass/idris2-markdown"
 commit = "main"
 ipkg = "markdown.ipkg"
 
+[db.mk]
+type   = "git"
+url    = "https://github.com/buzden/idris2-mk"
+commit = "master"
+ipkg   = "mk.ipkg"
+tests  = "tests/tests.ipkg"
+
 [db.monocle]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-monocle"
