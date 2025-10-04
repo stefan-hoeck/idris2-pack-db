@@ -982,6 +982,12 @@ url    = "https://gitlab.com/avidela/idris2-telescope.git"
 commit = "main"
 ipkg   = "telescope.ipkg"
 
+[db.tensortype]
+type   = "github"
+url    = "https://github.com/bgavran/TensorType"
+commit = "main"
+ipkg   = "tensortype.ipkg"
+
 [db.time-for-sleep]
 type   = "github"
 url    = "https://github.com/buzden/idris2-time-for-sleep"
