@@ -1,0 +1,74 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Data.Graph.Indexed.Ring.Relevant.ShortestPath</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Data.Graph.Indexed.Ring.Relevant.ShortestPath
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Data.Graph.Indexed.Ring.Relevant.ShortestPath</h1><span style="float:right">(<a href="Data.Graph.Indexed.Ring.Relevant.ShortestPath.src.html">source</a>)</span><pre>This module provides utilities used to compute families of relevant cycles
+as described by Vismara et al in &quot;Union of all the minimum cycle bases of a graph&quot;
+(The Electronic Journal of Combinatorics 4 (1997)).
+
+In particular, it computes the number of shortest paths between a root
+node and all other nodes in a graph.
+
+Please note that this is internal stuff. The algorithm is not suitable
+as a general shortest path algorithm, as it computes only paths up
+to half the graph order in length.
+</pre></div><h2>Reexports</h2><code><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Data.Graph.Indexed<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Data.Graph.Indexed.Subgraph</code><h2>Definitions</h2><dl class="decls"><dt id="Data.Graph.Indexed.Ring.Relevant.ShortestPath.smaller"><code><a class="type" href="Data.Graph.Indexed.Ring.Relevant.ShortestPath.html#Data.Graph.Indexed.Ring.Relevant.ShortestPath.smaller"><span class="name function">smaller</span></a>&ensp;:&ensp;<span class="type resolved" title="Data.Fin.Fin"><span class="name type">Fin</span></span>&ensp;<span class="boundvar">o</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Types.Nat"><span class="name type">Nat</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Graph.Indexed.Subgraph.html#Data.Graph.Indexed.Subgraph.ISubgraph"><span class="name function">ISubgraph</span></a>&ensp;<span class="boundvar">o</span>&ensp;<span class="boundvar">k</span>&ensp;<span class="boundvar">e</span>&ensp;<span class="type resolved" title="Prelude.Types.Nat"><span class="name type">Nat</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Data.Fin.Fin"><span class="name type">Fin</span></span>&ensp;<span class="boundvar">o</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Basics.Bool"><span class="name type">Bool</span></span></code></dt><dd><pre>  `True` if node `n` is &quot;smaller&quot; than `root`. This is<br>  the ordering &quot;pi&quot; used in the paper.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Data.Graph.Indexed.Ring.Relevant.ShortestPath.toDegs"><code><a class="type" href="Data.Graph.Indexed.Ring.Relevant.ShortestPath.html#Data.Graph.Indexed.Ring.Relevant.ShortestPath.toDegs"><span class="name function">toDegs</span></a>&ensp;:&ensp;<a class="type" href="Data.Graph.Indexed.Subgraph.html#Data.Graph.Indexed.Subgraph.Subgraph"><span class="name function">Subgraph</span></a>&ensp;<span class="boundvar">k</span>&ensp;<span class="boundvar">e</span>&ensp;<span class="boundvar">n</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Graph.Indexed.Subgraph.html#Data.Graph.Indexed.Subgraph.Subgraph"><span class="name function">Subgraph</span></a>&ensp;<span class="boundvar">k</span>&ensp;<span class="boundvar">e</span>&ensp;<span class="type resolved" title="Prelude.Types.Nat"><span class="name type">Nat</span></span></code></dt><dd><pre>  Converts a subgraph to hold the degree of each node as its label.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Data.Graph.Indexed.Ring.Relevant.ShortestPath.shortestPaths"><code><a class="type" href="Data.Graph.Indexed.Ring.Relevant.ShortestPath.html#Data.Graph.Indexed.Ring.Relevant.ShortestPath.shortestPaths"><span class="name function">shortestPaths</span></a>&ensp;:&ensp;<a class="type" href="Data.Graph.Indexed.Subgraph.html#Data.Graph.Indexed.Subgraph.ISubgraph"><span class="name function">ISubgraph</span></a>&ensp;<span class="boundvar">o</span>&ensp;<span class="boundvar">k</span>&ensp;<span class="boundvar">e</span>&ensp;<span class="type resolved" title="Prelude.Types.Nat"><span class="name type">Nat</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Data.Fin.Fin"><span class="name type">Fin</span></span>&ensp;<span class="boundvar">o</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;(<a class="type" href="Data.Graph.Indexed.Ring.Relevant.Types.html#Data.Graph.Indexed.Ring.Relevant.Types.Path"><span class="name type">Path</span></a>&ensp;<span class="boundvar">o</span>)</code></dt><dd><pre>  Computes the shortest paths to all nodes reachable from<br>  the given starting node.<br>  <br>  Note: This is not a general shortest paths algorithm but a utility<br>  for computing relevant cycles. Since paths are later merged to cycles,<br>  only paths of length up to half the graph order are computed.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd></dl></div><footer>Produced by Idris 2 version 0.7.0-ab81660dc</footer></body></html>
