@@ -56,7 +56,10 @@ jobs:
           # spidr ecosystem
           apt-get install --yes curl
       - name: Use latest pack commit
-        run: /root/.local/bin/pack update
+        run: |
+          /root/.local/bin/pack info
+          /root/.local/bin/pack update
+          /root/.local/bin/pack info
       - name: Install pack-admin
         run: /root/.local/bin/pack --no-prompt install-app pack-admin
       - name: Copy HEAD
