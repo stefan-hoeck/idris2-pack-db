@@ -540,6 +540,12 @@ url    = "https://github.com/stefan-hoeck/idris2-linux"
 commit = "main"
 ipkg   = "linux/linux.ipkg"
 
+[db.literal]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-literal"
+commit = "main"
+ipkg   = "literal.ipkg"
+
 [db.idris2-lsp]
 type        = "github"
 url         = "https://github.com/idris-community/idris2-lsp"
