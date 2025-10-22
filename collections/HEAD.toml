@@ -189,6 +189,12 @@ commit = "main"
 ipkg   = "crypt.ipkg"
 test   = "test/test.ipkg"
 
+[db.css]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-css"
+commit = "main"
+ipkg   = "css.ipkg"
+
 [db.cyby-draw]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-cyby-draw"
