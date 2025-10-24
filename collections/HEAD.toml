@@ -1015,7 +1015,7 @@ test   = "tests/tests.ipkg"
 
 [db.tester]
 type   = "github"
-url    = "https://github.com/cuddlefishie/tester-idr"
+url    = "https://github.com/hydrolarus/tester-idr"
 commit = "main"
 ipkg   = "tester.ipkg"
 
@@ -1027,7 +1027,7 @@ ipkg   = "theory.ipkg"
 
 [db.toml]
 type   = "github"
-url    = "https://github.com/cuddlefishie/toml-idr"
+url    = "https://github.com/hydrolarus/toml-idr"
 commit = "main"
 ipkg   = "toml.ipkg"
 
