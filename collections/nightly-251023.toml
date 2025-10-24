@@ -1284,7 +1284,7 @@ packagePath = false
 
 [db.tester]
 type        = "github"
-url         = "https://github.com/cuddlefishie/tester-idr"
+url         = "https://github.com/hydrolarus/tester-idr"
 commit      = "3dcdb54ed578a14597a17cb93c926734a9da69ca"
 ipkg        = "tester.ipkg"
 packagePath = false
@@ -1320,7 +1320,7 @@ packagePath = false
 
 [db.toml]
 type        = "github"
-url         = "https://github.com/cuddlefishie/toml-idr"
+url         = "https://github.com/hydrolarus/toml-idr"
 commit      = "7e5c4f3cc2ff028f665653b43c4c1f9b0a8211e2"
 ipkg        = "toml.ipkg"
 packagePath = false
