@@ -47,6 +47,13 @@ commit      = "0b7e64a9b0cfbe4a40daea23f8e7b9173978d217"
 ipkg        = "async.ipkg"
 packagePath = false
 
+[db.async-dom]
+type        = "github"
+url         = "https://github.com/stefan-hoeck/idris2-async"
+commit      = "0b7e64a9b0cfbe4a40daea23f8e7b9173978d217"
+ipkg        = "async.ipkg"
+packagePath = false
+
 [db.async-epoll]
 type        = "github"
 url         = "https://github.com/stefan-hoeck/idris2-async"
