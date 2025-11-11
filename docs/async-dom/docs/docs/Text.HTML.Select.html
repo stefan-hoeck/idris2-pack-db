@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Text.HTML.Select</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Text.HTML.Select
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Text.HTML.Select</h1><span style="float:right">(<a href="Text.HTML.Select.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="Text.HTML.Select.SelectEntry"><code><span class="keyword">data</span>&ensp;<a class="type" href="Text.HTML.Select.html#Text.HTML.Select.SelectEntry"><span class="name type">SelectEntry</span></a>&ensp;:&ensp;<span class="name type">Type</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span><br>  <b>Constructors</b>:<br><dl class="decls">  <dt id="Text.HTML.Select.Title"><code><a class="type" href="Text.HTML.Select.html#Text.HTML.Select.Title"><span class="name constructor">Title</span></a>&ensp;:&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Text.HTML.Select.html#Text.HTML.Select.SelectEntry"><span class="name type">SelectEntry</span></a>&ensp;<span class="boundvar">t</span></code></dt>  <dt id="Text.HTML.Select.Entry"><code><a class="type" href="Text.HTML.Select.html#Text.HTML.Select.Entry"><span class="name constructor">Entry</span></a>&ensp;:&ensp;<span class="boundvar">t</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Text.HTML.Select.html#Text.HTML.Select.SelectEntry"><span class="name type">SelectEntry</span></a>&ensp;<span class="boundvar">t</span></code></dt></dl></dd><dt id="Text.HTML.Select.selectEntries"><code><a class="type" href="Text.HTML.Select.html#Text.HTML.Select.selectEntries"><span class="name function">selectEntries</span></a>&ensp;:&ensp;<a class="type" href="Text.HTML.Attribute.html#Text.HTML.Attribute.Sink"><span class="name type">Sink</span></a>&ensp;<span class="boundvar">e</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;(<a class="type" href="Text.HTML.Select.html#Text.HTML.Select.SelectEntry"><span class="name type">SelectEntry</span></a>&ensp;<span class="boundvar">t</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="boundvar">t</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Basics.Bool"><span class="name type">Bool</span></span>)&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="boundvar">t</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">e</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;(<a class="type" href="Text.HTML.Attribute.html#Text.HTML.Attribute.Attribute"><span class="name type">Attribute</span></a>&ensp;<span class="type resolved" title="Text.HTML.Tag.Select"><span class="name constructor">Select</span></span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Text.HTML.Node.html#Text.HTML.Node.HTMLNode"><span class="name type">HTMLNode</span></a></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Text.HTML.Select.selectFromListBy"><code><a class="type" href="Text.HTML.Select.html#Text.HTML.Select.selectFromListBy"><span class="name function">selectFromListBy</span></a>&ensp;:&ensp;<a class="type" href="Text.HTML.Attribute.html#Text.HTML.Attribute.Sink"><span class="name type">Sink</span></a>&ensp;<span class="boundvar">e</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;<span class="boundvar">t</span>&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="boundvar">t</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Basics.Bool"><span class="name type">Bool</span></span>)&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="boundvar">t</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">String</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="boundvar">t</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">e</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;(<a class="type" href="Text.HTML.Attribute.html#Text.HTML.Attribute.Attribute"><span class="name type">Attribute</span></a>&ensp;<span class="type resolved" title="Text.HTML.Tag.Select"><span class="name constructor">Select</span></span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Text.HTML.Node.html#Text.HTML.Node.HTMLNode"><span class="name type">HTMLNode</span></a></code></dt><dd><pre>  Create a `&lt;select&gt;` element displaying the options in the given<br>  list.<br>  <br>  @values  : the list of options<br>  @sel     : true if the given item in the list should be selected<br>  @display : how to display an option at the UI<br>  @toEvent : how to convert an option to an event<br>  @attrs   : additional attributes</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Text.HTML.Select.selectFromList"><code><a class="type" href="Text.HTML.Select.html#Text.HTML.Select.selectFromList"><span class="name function">selectFromList</span></a>&ensp;:&ensp;<a class="type" href="Text.HTML.Attribute.html#Text.HTML.Attribute.Sink"><span class="name type">Sink</span></a>&ensp;<span class="boundvar">e</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="type resolved" title="Prelude.EqOrd.Eq"><span class="name type">Eq</span></span>&ensp;<span class="boundvar">t</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;<span class="boundvar">t</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Types.Maybe"><span class="name type">Maybe</span></span>&ensp;<span class="boundvar">t</span>&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="boundvar">t</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">String</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="boundvar">t</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">e</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;(<a class="type" href="Text.HTML.Attribute.html#Text.HTML.Attribute.Attribute"><span class="name type">Attribute</span></a>&ensp;<span class="type resolved" title="Text.HTML.Tag.Select"><span class="name constructor">Select</span></span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Text.HTML.Node.html#Text.HTML.Node.HTMLNode"><span class="name type">HTMLNode</span></a></code></dt><dd><pre>  Like `selectFromListBy` but uses an optional initial value<br>  to determine the initially selected value.<br>  <br>  @values  : the list of options<br>  @init    : the initially selected option (if any)<br>  @display : how to display an option at the UI<br>  @toEvent : how to convert an option to an event<br>  @attrs   : additional attributes</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd></dl></div><footer>Produced by Idris 2 version 0.8.0-c6788e5ce</footer></body></html>

@@ -138,12 +138,13 @@
 <div id="line17"><a href="#line17" class="IdrisLineNumber"> 17 | </a><span class="IdrisFunction">isSubTerm</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">MOrd</span>&nbsp;<span class="IdrisBound">a</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisBound">a</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisBound">a</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Bool</span></div>
 <div id="line18"><a href="#line18" class="IdrisLineNumber"> 18 | </a><span class="IdrisFunction">isSubTerm</span>&nbsp;<span class="IdrisBound">x</span>&nbsp;<span class="IdrisBound">y</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisKeyword">case</span>&nbsp;<span class="IdrisFunction">mcompare</span>&nbsp;<span class="IdrisBound">x</span>&nbsp;<span class="IdrisBound">y</span>&nbsp;<span class="IdrisKeyword">of</span></div>
 <div id="line19"><a href="#line19" class="IdrisLineNumber"> 19 | </a>&nbsp;&nbsp;<span class="IdrisData">Just</span>&nbsp;<span class="IdrisData">LT</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisData">True</span></div>
-<div id="line20"><a href="#line20" class="IdrisLineNumber"> 20 | </a>&nbsp;&nbsp;<span class="IdrisKeyword">_</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisData">False</span></div>
-<div id="line21"><a href="#line21" class="IdrisLineNumber"> 21 | </a></div>
-<div id="line22"><a href="#line22" class="IdrisLineNumber"> 22 | </a><span class="IdrisComment">--&nbsp;|||&nbsp;Should&nbsp;generally&nbsp;be&nbsp;possible&nbsp;to&nbsp;derive&nbsp;with&nbsp;metaprogramming</span></div>
-<div id="line23"><a href="#line23" class="IdrisLineNumber"> 23 | </a><span class="IdrisComment">--&nbsp;|||&nbsp;This&nbsp;sounds&nbsp;like&nbsp;something&nbsp;that&nbsp;should&nbsp;be&nbsp;generally&nbsp;possible&nbsp;to&nbsp;derive</span></div>
-<div id="line24"><a href="#line24" class="IdrisLineNumber"> 24 | </a><span class="IdrisComment">--&nbsp;|||&nbsp;with&nbsp;metaprogramming&nbsp;for&nbsp;any&nbsp;inductive&nbsp;type?</span></div>
-<div id="line25"><a href="#line25" class="IdrisLineNumber"> 25 | </a><span class="IdrisComment">--&nbsp;|||&nbsp;I&nbsp;could&nbsp;imagine&nbsp;this&nbsp;being&nbsp;a&nbsp;built&nbsp;in&nbsp;functionality&nbsp;in&nbsp;a&nbsp;functional&nbsp;language</span></div>
+<div id="line20"><a href="#line20" class="IdrisLineNumber"> 20 | </a>&nbsp;&nbsp;<span class="IdrisData">Just</span>&nbsp;<span class="IdrisData">EQ</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisData">True</span></div>
+<div id="line21"><a href="#line21" class="IdrisLineNumber"> 21 | </a>&nbsp;&nbsp;<span class="IdrisKeyword">_</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisData">False</span></div>
+<div id="line22"><a href="#line22" class="IdrisLineNumber"> 22 | </a></div>
+<div id="line23"><a href="#line23" class="IdrisLineNumber"> 23 | </a><span class="IdrisComment">--&nbsp;|||&nbsp;Should&nbsp;generally&nbsp;be&nbsp;possible&nbsp;to&nbsp;derive&nbsp;with&nbsp;metaprogramming</span></div>
+<div id="line24"><a href="#line24" class="IdrisLineNumber"> 24 | </a><span class="IdrisComment">--&nbsp;|||&nbsp;This&nbsp;sounds&nbsp;like&nbsp;something&nbsp;that&nbsp;should&nbsp;be&nbsp;generally&nbsp;possible&nbsp;to&nbsp;derive</span></div>
+<div id="line25"><a href="#line25" class="IdrisLineNumber"> 25 | </a><span class="IdrisComment">--&nbsp;|||&nbsp;with&nbsp;metaprogramming&nbsp;for&nbsp;any&nbsp;inductive&nbsp;type?</span></div>
+<div id="line26"><a href="#line26" class="IdrisLineNumber"> 26 | </a><span class="IdrisComment">--&nbsp;|||&nbsp;I&nbsp;could&nbsp;imagine&nbsp;this&nbsp;being&nbsp;a&nbsp;built&nbsp;in&nbsp;functionality&nbsp;in&nbsp;a&nbsp;functional&nbsp;language</span></div>
 </code>
 </body>
 </html>
