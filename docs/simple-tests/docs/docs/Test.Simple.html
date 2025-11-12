@@ -1,0 +1,65 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Test.Simple</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Test.Simple
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Test.Simple</h1><span style="float:right">(<a href="Test.Simple.src.html">source</a>)</span><pre>A simple library for simple unit tests
+</pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="Test.Simple.ETest"><code><a class="type" href="Test.Simple.html#Test.Simple.ETest"><span class="name function">ETest</span></a>&ensp;:&ensp;<span class="name type">Type</span></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Test.Simple.by"><code><a class="type" href="Test.Simple.html#Test.Simple.by"><span class="name function">by</span></a>&ensp;:&ensp;(<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Basics.Bool"><span class="name type">Bool</span></span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Test.Simple.html#Test.Simple.TestValues"><span class="name type">TestValues</span></a>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Test.Simple.html#Test.Simple.EqValues"><span class="name type">EqValues</span></a>&ensp;<span class="boundvar">a</span></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Test.Simple.runTests"><code><a class="type" href="Test.Simple.html#Test.Simple.runTests"><span class="name function">runTests</span></a>&ensp;:&ensp;<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;<a class="type" href="Test.Simple.html#Test.Simple.ETest"><span class="name function">ETest</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="PrimIO.IO"><span class="name type">IO</span></span>&ensp;()</code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Test.Simple.Test.(&gt;&gt;)"><code><span class="type resolved" title="Test.Simple.Test.(&gt;&gt;)"><span class="name function">(&gt;&gt;)</span></span>&ensp;:&ensp;<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;<a class="type" href="Test.Simple.html#Test.Simple.ETest"><span class="name function">ETest</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;<a class="type" href="Test.Simple.html#Test.Simple.ETest"><span class="name function">ETest</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;<a class="type" href="Test.Simple.html#Test.Simple.ETest"><span class="name function">ETest</span></a></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span><br>  <b>Fixity Declaration</b>:&ensp;infixl&ensp;operator,&ensp;level&ensp;1</dd><dt id="Test.Simple.Test.pure"><code><span class="type resolved" title="Test.Simple.Test.pure"><span class="name function">pure</span></span>&ensp;:&ensp;<a class="type" href="Test.Simple.html#Test.Simple.Testing"><span class="name type">Testing</span></a>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;<a class="type" href="Test.Simple.html#Test.Simple.ETest"><span class="name function">ETest</span></a></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Test.Simple.test"><code><a class="type" href="Test.Simple.html#Test.Simple.test"><span class="name function">test</span></a>&ensp;:&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.EqOrd.Eq"><span class="name type">Eq</span></span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<a class="type" href="Test.Simple.html#Test.Simple.TestValues"><span class="name type">TestValues</span></a>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;<a class="type" href="Test.Simple.html#Test.Simple.ETest"><span class="name function">ETest</span></a></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Test.Simple.testEq"><code><a class="type" href="Test.Simple.html#Test.Simple.testEq"><span class="name function">testEq</span></a>&ensp;:&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Test.Simple.html#Test.Simple.EqValues"><span class="name type">EqValues</span></a>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;<a class="type" href="Test.Simple.html#Test.Simple.ETest"><span class="name function">ETest</span></a></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Test.Simple.shouldBe"><code><a class="type" href="Test.Simple.html#Test.Simple.shouldBe"><span class="name function">shouldBe</span></a>&ensp;:&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Test.Simple.html#Test.Simple.TestValues"><span class="name type">TestValues</span></a>&ensp;<span class="boundvar">a</span></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Test.Simple.(.shouldBeTrue)"><code><a class="type" href="Test.Simple.html#Test.Simple.(.shouldBeTrue)"><span class="name function">.shouldBeTrue</span></a>&ensp;:&ensp;<span class="type resolved" title="Prelude.Basics.Bool"><span class="name type">Bool</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Test.Simple.html#Test.Simple.TestValues"><span class="name type">TestValues</span></a>&ensp;<span class="type resolved" title="Prelude.Basics.Bool"><span class="name type">Bool</span></span></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Test.Simple.(.shouldBeFalse)"><code><a class="type" href="Test.Simple.html#Test.Simple.(.shouldBeFalse)"><span class="name function">.shouldBeFalse</span></a>&ensp;:&ensp;<span class="type resolved" title="Prelude.Basics.Bool"><span class="name type">Bool</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Test.Simple.html#Test.Simple.TestValues"><span class="name type">TestValues</span></a>&ensp;<span class="type resolved" title="Prelude.Basics.Bool"><span class="name type">Bool</span></span></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd></dl></div><footer>Produced by Idris 2 version 0.8.0-c6788e5ce</footer></body></html>
