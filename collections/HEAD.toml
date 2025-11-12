@@ -891,6 +891,13 @@ commit = "master"
 ipkg   = "scram.ipkg"
 test   = "test/test.ipkg"
 
+[db.simple-tests]
+type   = "git"
+url    = "https://gitlab.com/avidela/idris2-simple-tests"
+commit = "main"
+ipkg   = "simple-tests.ipkg"
+test   = "test/test.ipkg"
+
 [db.sha]
 type   = "github"
 url    = "https://git.sr.ht/~janus/sha"
