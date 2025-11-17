@@ -522,19 +522,13 @@
 <div id="line401"><a href="#line401" class="IdrisLineNumber"> 401 | </a><span class="IdrisFunction">fromAtomicNr</span>&nbsp;<span class="IdrisData">117</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisData">Ts</span></div>
 <div id="line402"><a href="#line402" class="IdrisLineNumber"> 402 | </a><span class="IdrisFunction">fromAtomicNr</span>&nbsp;<span class="IdrisData">118</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisData">Og</span></div>
 <div id="line403"><a href="#line403" class="IdrisLineNumber"> 403 | </a></div>
-<div id="line404"><a href="#line404" class="IdrisLineNumber"> 404 | </a><span class="IdrisComment">--&nbsp;this&nbsp;is&nbsp;just&nbsp;an&nbsp;additional&nbsp;measure&nbsp;of&nbsp;safety:</span></div>
-<div id="line405"><a href="#line405" class="IdrisLineNumber"> 405 | </a><span class="IdrisComment">--&nbsp;if&nbsp;we&nbsp;ever&nbsp;increase&nbsp;the&nbsp;valid&nbsp;range&nbsp;of&nbsp;atomic&nbsp;numbers</span></div>
-<div id="line406"><a href="#line406" class="IdrisLineNumber"> 406 | </a><span class="IdrisComment">--&nbsp;Idris&nbsp;will&nbsp;shout&nbsp;at&nbsp;us&nbsp;here&nbsp;that&nbsp;this&nbsp;case&nbsp;is&nbsp;actually</span></div>
-<div id="line407"><a href="#line407" class="IdrisLineNumber"> 407 | </a><span class="IdrisComment">--&nbsp;not&nbsp;impossible.</span></div>
-<div id="line408"><a href="#line408" class="IdrisLineNumber"> 408 | </a><span class="IdrisFunction">fromAtomicNr</span>&nbsp;<span class="IdrisKeyword">(</span>MkAtomicNr&nbsp;<span class="IdrisData">119</span>&nbsp;prf<span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisKeyword">impossible</span></div>
-<div id="line409"><a href="#line409" class="IdrisLineNumber"> 409 | </a></div>
-<div id="line410"><a href="#line410" class="IdrisLineNumber"> 410 | </a><span class="IdrisComment">--&nbsp;since&nbsp;we&nbsp;are&nbsp;dealing&nbsp;with&nbsp;primitive&nbsp;`Bits8`&nbsp;here,</span></div>
-<div id="line411"><a href="#line411" class="IdrisLineNumber"> 411 | </a><span class="IdrisComment">--&nbsp;Idris&nbsp;needs&nbsp;our&nbsp;help&nbsp;to&nbsp;figure&nbsp;out&nbsp;that&nbsp;we&nbsp;have&nbsp;reached&nbsp;the&nbsp;end</span></div>
-<div id="line412"><a href="#line412" class="IdrisLineNumber"> 412 | </a><span class="IdrisComment">--&nbsp;of&nbsp;possible&nbsp;inputs.</span></div>
-<div id="line413"><a href="#line413" class="IdrisLineNumber"> 413 | </a><span class="IdrisFunction">fromAtomicNr</span>&nbsp;<span class="IdrisBound">x</span>&nbsp;&nbsp;&nbsp;<span class="IdrisKeyword">=</span></div>
-<div id="line414"><a href="#line414" class="IdrisLineNumber"> 414 | </a>&nbsp;&nbsp;<span class="IdrisPostulate">assert_total</span>&nbsp;$</div>
-<div id="line415"><a href="#line415" class="IdrisLineNumber"> 415 | </a>&nbsp;&nbsp;<span class="IdrisPostulate">idris_crash</span>&nbsp;<span class="IdrisData">&quot;fromAtomicNr&nbsp;called&nbsp;with&nbsp;invalid&nbsp;AtomicNr:&nbsp;\{</span><span class="IdrisFunction">show</span><span class="IdrisData">&nbsp;</span><span class="IdrisBound">x</span><span class="IdrisData">}&quot;</span></div>
-<div id="line416"><a href="#line416" class="IdrisLineNumber"> 416 | </a></div>
+<div id="line404"><a href="#line404" class="IdrisLineNumber"> 404 | </a><span class="IdrisComment">--&nbsp;since&nbsp;we&nbsp;are&nbsp;dealing&nbsp;with&nbsp;primitive&nbsp;`Bits8`&nbsp;here,</span></div>
+<div id="line405"><a href="#line405" class="IdrisLineNumber"> 405 | </a><span class="IdrisComment">--&nbsp;Idris&nbsp;needs&nbsp;our&nbsp;help&nbsp;to&nbsp;figure&nbsp;out&nbsp;that&nbsp;we&nbsp;have&nbsp;reached&nbsp;the&nbsp;end</span></div>
+<div id="line406"><a href="#line406" class="IdrisLineNumber"> 406 | </a><span class="IdrisComment">--&nbsp;of&nbsp;possible&nbsp;inputs.</span></div>
+<div id="line407"><a href="#line407" class="IdrisLineNumber"> 407 | </a><span class="IdrisFunction">fromAtomicNr</span>&nbsp;<span class="IdrisBound">x</span>&nbsp;&nbsp;&nbsp;<span class="IdrisKeyword">=</span></div>
+<div id="line408"><a href="#line408" class="IdrisLineNumber"> 408 | </a>&nbsp;&nbsp;<span class="IdrisPostulate">assert_total</span>&nbsp;$</div>
+<div id="line409"><a href="#line409" class="IdrisLineNumber"> 409 | </a>&nbsp;&nbsp;<span class="IdrisPostulate">idris_crash</span>&nbsp;<span class="IdrisData">&quot;fromAtomicNr&nbsp;called&nbsp;with&nbsp;invalid&nbsp;AtomicNr:&nbsp;\{</span><span class="IdrisFunction">show</span><span class="IdrisData">&nbsp;</span><span class="IdrisBound">x</span><span class="IdrisData">}&quot;</span></div>
+<div id="line410"><a href="#line410" class="IdrisLineNumber"> 410 | </a></div>
 </code>
 </body>
 </html>
