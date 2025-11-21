@@ -43,42 +43,42 @@ test        = "test/test.ipkg"
 [db.async]
 type        = "github"
 url         = "https://github.com/stefan-hoeck/idris2-async"
-commit      = "0b7e64a9b0cfbe4a40daea23f8e7b9173978d217"
+commit      = "fa08935d10f4013b0caef76412bcc47598646e17"
 ipkg        = "async.ipkg"
 packagePath = false
 
 [db.async-dom]
 type        = "github"
 url         = "https://github.com/stefan-hoeck/idris2-async-dom"
-commit      = "33aa4107b2ae006aede89a4bb581a85b73732bf3"
+commit      = "136b3557c3eb25bdbb1bcc39e4815a6338e53c4f"
 ipkg        = "async-dom.ipkg"
 packagePath = false
 
 [db.async-epoll]
 type        = "github"
 url         = "https://github.com/stefan-hoeck/idris2-async"
-commit      = "0b7e64a9b0cfbe4a40daea23f8e7b9173978d217"
+commit      = "fa08935d10f4013b0caef76412bcc47598646e17"
 ipkg        = "async-epoll/async-epoll.ipkg"
 packagePath = false
 
 [db.async-js]
 type        = "github"
 url         = "https://github.com/stefan-hoeck/idris2-async"
-commit      = "0b7e64a9b0cfbe4a40daea23f8e7b9173978d217"
+commit      = "fa08935d10f4013b0caef76412bcc47598646e17"
 ipkg        = "async-js/async-js.ipkg"
 packagePath = false
 
 [db.async-posix]
 type        = "github"
 url         = "https://github.com/stefan-hoeck/idris2-async"
-commit      = "0b7e64a9b0cfbe4a40daea23f8e7b9173978d217"
+commit      = "fa08935d10f4013b0caef76412bcc47598646e17"
 ipkg        = "async-posix/async-posix.ipkg"
 packagePath = false
 
 [db.async-spec]
 type        = "github"
 url         = "https://github.com/stefan-hoeck/idris2-async"
-commit      = "0b7e64a9b0cfbe4a40daea23f8e7b9173978d217"
+commit      = "fa08935d10f4013b0caef76412bcc47598646e17"
 ipkg        = "async-spec/async-spec.ipkg"
 packagePath = false
 
@@ -1217,14 +1217,14 @@ packagePath = false
 [db.streams]
 type        = "github"
 url         = "https://github.com/stefan-hoeck/idris2-streams"
-commit      = "27690b59ac4ee2157fb84078f6fef419f0cc66c8"
+commit      = "c6d2e84f32fc8588288a6c26fe33b383874e1300"
 ipkg        = "streams.ipkg"
 packagePath = false
 
 [db.streams-posix]
 type        = "github"
 url         = "https://github.com/stefan-hoeck/idris2-streams"
-commit      = "27690b59ac4ee2157fb84078f6fef419f0cc66c8"
+commit      = "c6d2e84f32fc8588288a6c26fe33b383874e1300"
 ipkg        = "posix/streams-posix.ipkg"
 packagePath = false
 
