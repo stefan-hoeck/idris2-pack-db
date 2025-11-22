@@ -445,40 +445,6 @@
 <div id="line324"><a href="#line324" class="IdrisLineNumber"> 324 | </a>&nbsp;&nbsp;<span class="IdrisFunction">blur</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Ref</span>&nbsp;<span class="IdrisBound">t</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisFunction">JS</span>&nbsp;<span class="IdrisBound">es</span>&nbsp;<span class="IdrisType">()</span></div>
 <div id="line325"><a href="#line325" class="IdrisLineNumber"> 325 | </a>&nbsp;&nbsp;<span class="IdrisFunction">blur</span>&nbsp;<span class="IdrisBound">r</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">castElementByRef</span>&nbsp;<span class="IdrisKeyword">{</span><span class="IdrisBound">t</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisType">HTMLElement</span><span class="IdrisKeyword">}</span>&nbsp;<span class="IdrisBound">r</span>&nbsp;<span class="IdrisFunction">&gt;&gt;=</span>&nbsp;<span class="IdrisFunction">blur</span></div>
 <div id="line326"><a href="#line326" class="IdrisLineNumber"> 326 | </a></div>
-<div id="line327"><a href="#line327" class="IdrisLineNumber"> 327 | </a><span class="IdrisComment">--&nbsp;|||&nbsp;Renders&nbsp;a&nbsp;scene&nbsp;at&nbsp;a&nbsp;canvas&nbsp;element</span></div>
-<div id="line328"><a href="#line328" class="IdrisLineNumber"> 328 | </a><span class="IdrisComment">--&nbsp;export&nbsp;%inline</span></div>
-<div id="line329"><a href="#line329" class="IdrisLineNumber"> 329 | </a><span class="IdrisComment">--&nbsp;renderWithMetrics&nbsp;:&nbsp;Ref&nbsp;Tag.Canvas&nbsp;-&gt;&nbsp;(TextMeasure&nbsp;=&gt;&nbsp;CanvasDims&nbsp;-&gt;&nbsp;Scene)&nbsp;-&gt;&nbsp;JS&nbsp;es&nbsp;()</span></div>
-<div id="line330"><a href="#line330" class="IdrisLineNumber"> 330 | </a><span class="IdrisComment">--&nbsp;renderWithMetrics&nbsp;r&nbsp;s&nbsp;=&nbsp;cmd_&nbsp;(renderWithMetrics&nbsp;r&nbsp;s)</span></div>
-<div id="line331"><a href="#line331" class="IdrisLineNumber"> 331 | </a><span class="IdrisComment">--</span></div>
-<div id="line332"><a href="#line332" class="IdrisLineNumber"> 332 | </a><span class="IdrisComment">--&nbsp;|||&nbsp;Renders&nbsp;a&nbsp;scene&nbsp;at&nbsp;a&nbsp;canvas&nbsp;element</span></div>
-<div id="line333"><a href="#line333" class="IdrisLineNumber"> 333 | </a><span class="IdrisComment">--&nbsp;export&nbsp;%inline</span></div>
-<div id="line334"><a href="#line334" class="IdrisLineNumber"> 334 | </a><span class="IdrisComment">--&nbsp;renderWithDims&nbsp;:&nbsp;Ref&nbsp;Tag.Canvas&nbsp;-&gt;&nbsp;(CanvasDims&nbsp;-&gt;&nbsp;Scene)&nbsp;-&gt;&nbsp;JS&nbsp;es&nbsp;()</span></div>
-<div id="line335"><a href="#line335" class="IdrisLineNumber"> 335 | </a><span class="IdrisComment">--&nbsp;renderWithDims&nbsp;r&nbsp;s&nbsp;=&nbsp;cmd_&nbsp;(render&nbsp;r&nbsp;s)</span></div>
-<div id="line336"><a href="#line336" class="IdrisLineNumber"> 336 | </a><span class="IdrisComment">--</span></div>
-<div id="line337"><a href="#line337" class="IdrisLineNumber"> 337 | </a><span class="IdrisComment">--&nbsp;|||&nbsp;Renders&nbsp;a&nbsp;scene&nbsp;at&nbsp;a&nbsp;canvas&nbsp;element</span></div>
-<div id="line338"><a href="#line338" class="IdrisLineNumber"> 338 | </a><span class="IdrisComment">--&nbsp;export&nbsp;%inline</span></div>
-<div id="line339"><a href="#line339" class="IdrisLineNumber"> 339 | </a><span class="IdrisComment">--&nbsp;render&nbsp;:&nbsp;Ref&nbsp;Tag.Canvas&nbsp;-&gt;&nbsp;Scene&nbsp;-&gt;&nbsp;JS&nbsp;es&nbsp;()</span></div>
-<div id="line340"><a href="#line340" class="IdrisLineNumber"> 340 | </a><span class="IdrisComment">--&nbsp;render&nbsp;r&nbsp;=&nbsp;renderWithDims&nbsp;r&nbsp;.&nbsp;const</span></div>
-<div id="line341"><a href="#line341" class="IdrisLineNumber"> 341 | </a><span class="IdrisComment">--</span></div>
-<div id="line342"><a href="#line342" class="IdrisLineNumber"> 342 | </a><span class="IdrisComment">--&nbsp;|||&nbsp;Adjusts&nbsp;the&nbsp;dimensions&nbsp;of&nbsp;a&nbsp;`HTMLCanvasElement`</span></div>
-<div id="line343"><a href="#line343" class="IdrisLineNumber"> 343 | </a><span class="IdrisComment">--&nbsp;export</span></div>
-<div id="line344"><a href="#line344" class="IdrisLineNumber"> 344 | </a><span class="IdrisComment">--&nbsp;setCanvasDims&nbsp;:&nbsp;Ref&nbsp;Tag.Canvas&nbsp;-&gt;&nbsp;CanvasDims&nbsp;-&gt;&nbsp;JS&nbsp;es&nbsp;()</span></div>
-<div id="line345"><a href="#line345" class="IdrisLineNumber"> 345 | </a><span class="IdrisComment">--&nbsp;setCanvasDims&nbsp;r&nbsp;d&nbsp;=</span></div>
-<div id="line346"><a href="#line346" class="IdrisLineNumber"> 346 | </a><span class="IdrisComment">--&nbsp;&nbsp;&nbsp;cmd_&nbsp;$&nbsp;do</span></div>
-<div id="line347"><a href="#line347" class="IdrisLineNumber"> 347 | </a><span class="IdrisComment">--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c&nbsp;&lt;-&nbsp;castElementByRef&nbsp;{t&nbsp;=&nbsp;HTMLCanvasElement}&nbsp;r</span></div>
-<div id="line348"><a href="#line348" class="IdrisLineNumber"> 348 | </a><span class="IdrisComment">--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set&nbsp;(height&nbsp;c)&nbsp;(cast&nbsp;d.cheight)</span></div>
-<div id="line349"><a href="#line349" class="IdrisLineNumber"> 349 | </a><span class="IdrisComment">--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set&nbsp;(width&nbsp;c)&nbsp;(cast&nbsp;d.cwidth)</span></div>
-<div id="line350"><a href="#line350" class="IdrisLineNumber"> 350 | </a><span class="IdrisComment">--</span></div>
-<div id="line351"><a href="#line351" class="IdrisLineNumber"> 351 | </a><span class="IdrisComment">--&nbsp;|||&nbsp;Provides&nbsp;a&nbsp;`TextMeasure`&nbsp;utility&nbsp;from&nbsp;the&nbsp;given&nbsp;`Canvas`&nbsp;to&nbsp;run&nbsp;the&nbsp;given</span></div>
-<div id="line352"><a href="#line352" class="IdrisLineNumber"> 352 | </a><span class="IdrisComment">--&nbsp;|||&nbsp;command.</span></div>
-<div id="line353"><a href="#line353" class="IdrisLineNumber"> 353 | </a><span class="IdrisComment">--&nbsp;export</span></div>
-<div id="line354"><a href="#line354" class="IdrisLineNumber"> 354 | </a><span class="IdrisComment">--&nbsp;withMetricsFor&nbsp;:&nbsp;Ref&nbsp;Tag.Canvas&nbsp;-&gt;&nbsp;(TextMeasure&nbsp;=&gt;&nbsp;JS&nbsp;es&nbsp;())&nbsp;-&gt;&nbsp;JS&nbsp;es&nbsp;()</span></div>
-<div id="line355"><a href="#line355" class="IdrisLineNumber"> 355 | </a><span class="IdrisComment">--&nbsp;withMetricsFor&nbsp;ref&nbsp;c&nbsp;=</span></div>
-<div id="line356"><a href="#line356" class="IdrisLineNumber"> 356 | </a><span class="IdrisComment">--&nbsp;&nbsp;&nbsp;C&nbsp;$&nbsp;\h&nbsp;=&gt;&nbsp;do</span></div>
-<div id="line357"><a href="#line357" class="IdrisLineNumber"> 357 | </a><span class="IdrisComment">--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;canvas&nbsp;&lt;-&nbsp;castElementByRef&nbsp;{t&nbsp;=&nbsp;HTMLCanvasElement}&nbsp;ref</span></div>
-<div id="line358"><a href="#line358" class="IdrisLineNumber"> 358 | </a><span class="IdrisComment">--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ctxt&nbsp;&nbsp;&nbsp;&lt;-&nbsp;context2D&nbsp;canvas</span></div>
-<div id="line359"><a href="#line359" class="IdrisLineNumber"> 359 | </a><span class="IdrisComment">--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;run&nbsp;(withMetrics&nbsp;ctxt&nbsp;c)&nbsp;h</span></div>
-<div id="line360"><a href="#line360" class="IdrisLineNumber"> 360 | </a></div>
 </code>
 </body>
 </html>
