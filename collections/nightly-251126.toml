@@ -294,7 +294,7 @@ test        = "tests/tests.ipkg"
 [db.deptycheck]
 type        = "github"
 url         = "https://github.com/buzden/deptycheck"
-commit      = "48933d0442b04bec564c13952e8a1b03ccd55cd9"
+commit      = "0a3c61a79a2681b2619347373f238be980cd8b66"
 ipkg        = "deptycheck.ipkg"
 packagePath = false
 test        = "tests/tests.ipkg"
@@ -379,7 +379,7 @@ packagePath = false
 [db.elab-util-extra]
 type        = "github"
 url         = "https://github.com/buzden/deptycheck"
-commit      = "48933d0442b04bec564c13952e8a1b03ccd55cd9"
+commit      = "0a3c61a79a2681b2619347373f238be980cd8b66"
 ipkg        = "elab-util-extra/elab-util-extra.ipkg"
 packagePath = false
 test        = "elab-util-extra/tests/tests.ipkg"
