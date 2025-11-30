@@ -122,15 +122,15 @@
 <div id="line1"><a href="#line1" class="IdrisLineNumber"> &nbsp;&nbsp;1 | </a><span class="IdrisKeyword">module</span>&nbsp;<span class="IdrisModule">Stellar.HTTP.Types</span></div>
 <div id="line2"><a href="#line2" class="IdrisLineNumber"> &nbsp;&nbsp;2 | </a></div>
 <div id="line3"><a href="#line3" class="IdrisLineNumber"> &nbsp;&nbsp;3 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">Stellar.API</span></div>
-<div id="line4"><a href="#line4" class="IdrisLineNumber"> &nbsp;&nbsp;4 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">Stellar.Helper</span></div>
-<div id="line5"><a href="#line5" class="IdrisLineNumber"> &nbsp;&nbsp;5 | </a></div>
-<div id="line6"><a href="#line6" class="IdrisLineNumber"> &nbsp;&nbsp;6 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisModule">Data.Buffer</span></div>
-<div id="line7"><a href="#line7" class="IdrisLineNumber"> &nbsp;&nbsp;7 | </a></div>
-<div id="line8"><a href="#line8" class="IdrisLineNumber"> &nbsp;&nbsp;8 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">TyTTP.HTTP</span></div>
-<div id="line9"><a href="#line9" class="IdrisLineNumber"> &nbsp;&nbsp;9 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisModule">TyTTP.URL</span></div>
-<div id="line10"><a href="#line10" class="IdrisLineNumber"> &nbsp;10 | </a></div>
-<div id="line11"><a href="#line11" class="IdrisLineNumber"> &nbsp;11 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisModule">System.Path</span></div>
-<div id="line12"><a href="#line12" class="IdrisLineNumber"> &nbsp;12 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">System</span></div>
+<div id="line4"><a href="#line4" class="IdrisLineNumber"> &nbsp;&nbsp;4 | </a></div>
+<div id="line5"><a href="#line5" class="IdrisLineNumber"> &nbsp;&nbsp;5 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisModule">Data.Buffer</span></div>
+<div id="line6"><a href="#line6" class="IdrisLineNumber"> &nbsp;&nbsp;6 | </a></div>
+<div id="line7"><a href="#line7" class="IdrisLineNumber"> &nbsp;&nbsp;7 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">TyTTP.HTTP</span></div>
+<div id="line8"><a href="#line8" class="IdrisLineNumber"> &nbsp;&nbsp;8 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisModule">TyTTP.URL</span></div>
+<div id="line9"><a href="#line9" class="IdrisLineNumber"> &nbsp;&nbsp;9 | </a></div>
+<div id="line10"><a href="#line10" class="IdrisLineNumber"> &nbsp;10 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisModule">System.Path</span></div>
+<div id="line11"><a href="#line11" class="IdrisLineNumber"> &nbsp;11 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">System</span></div>
+<div id="line12"><a href="#line12" class="IdrisLineNumber"> &nbsp;12 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">System.Utils</span></div>
 <div id="line13"><a href="#line13" class="IdrisLineNumber"> &nbsp;13 | </a></div>
 <div id="line14"><a href="#line14" class="IdrisLineNumber"> &nbsp;14 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisModule">JSON.Simple.Derive</span></div>
 <div id="line15"><a href="#line15" class="IdrisLineNumber"> &nbsp;15 | </a></div>
@@ -369,7 +369,7 @@
 <div id="line248"><a href="#line248" class="IdrisLineNumber"> 248 | </a><span class="IdrisComment">|||&nbsp;is&nbsp;not&nbsp;within&nbsp;ascii&nbsp;then&nbsp;we&nbsp;print&nbsp;garbage</span></div>
 <div id="line249"><a href="#line249" class="IdrisLineNumber"> 249 | </a><span class="IdrisKeyword">export</span></div>
 <div id="line250"><a href="#line250" class="IdrisLineNumber"> 250 | </a><span class="IdrisType">HTTPDebug</span>&nbsp;<span class="IdrisType">Buffer</span>&nbsp;<span class="IdrisKeyword">where</span></div>
-<div id="line251"><a href="#line251" class="IdrisLineNumber"> 251 | </a>&nbsp;&nbsp;<span class="IdrisFunction">renderDebug</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">bufferToString&apos;</span></div>
+<div id="line251"><a href="#line251" class="IdrisLineNumber"> 251 | </a>&nbsp;&nbsp;<span class="IdrisFunction">renderDebug</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">bufferToStringUnsafe</span></div>
 <div id="line252"><a href="#line252" class="IdrisLineNumber"> 252 | </a></div>
 <div id="line253"><a href="#line253" class="IdrisLineNumber"> 253 | </a><span class="IdrisComment">|||&nbsp;Well-formed&nbsp;url&nbsp;print&nbsp;everything&nbsp;about&nbsp;them&nbsp;using&nbsp;the&nbsp;default&nbsp;`Maybe`&nbsp;instances</span></div>
 <div id="line254"><a href="#line254" class="IdrisLineNumber"> 254 | </a><span class="IdrisKeyword">export</span></div>
