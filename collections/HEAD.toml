@@ -366,6 +366,12 @@ url    = "https://github.com/stefan-hoeck/idris2-freer"
 commit = "main"
 ipkg   = "freer.ipkg"
 
+[db.fs-utils]
+type = "git"
+url = "https://gitlab.com/avidela/fs-utils"
+commit = "main"
+ipkg = "fs-utils.ipkg"
+
 [db.fvect]
 type   = "github"
 url    = "https://github.com/mattpolzin/idris-fvect"
