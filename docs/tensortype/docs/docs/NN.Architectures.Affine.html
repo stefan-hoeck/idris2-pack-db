@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>NN.Architectures.Affine</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : NN.Architectures.Affine
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>NN.Architectures.Affine</h1><span style="float:right">(<a href="NN.Architectures.Affine.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="NN.Architectures.Affine.AffineLayerParams"><code><span class="keyword">record</span>&ensp;<a class="type" href="NN.Architectures.Affine.html#NN.Architectures.Affine.AffineLayerParams"><span class="name type">AffineLayerParams</span></a>&ensp;:&ensp;<a class="type" href="Data.Container.Object.Definition.html#Data.Container.Object.Definition.Cont"><span class="name type">Cont</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Container.Object.Definition.html#Data.Container.Object.Definition.Cont"><span class="name type">Cont</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span><br>  <b>Constructor</b>:&ensp;<dl class="decls"><dt id="NN.Architectures.Affine.MkParams"><code><a class="type" href="NN.Architectures.Affine.html#NN.Architectures.Affine.MkParams"><span class="name constructor">MkParams</span></a>&ensp;:&ensp;<a class="type" href="Data.Tensor.Tensor.html#Data.Tensor.Tensor.CTensor"><span class="name type">CTensor</span></a>&ensp;[<span class="boundvar">y</span>,&ensp;<span class="boundvar">x</span>]&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Tensor.Tensor.html#Data.Tensor.Tensor.CTensor"><span class="name type">CTensor</span></a>&ensp;[<span class="boundvar">y</span>]&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="NN.Architectures.Affine.html#NN.Architectures.Affine.AffineLayerParams"><span class="name type">AffineLayerParams</span></a>&ensp;<span class="boundvar">x</span>&ensp;<span class="boundvar">y</span>&ensp;<span class="boundvar">a</span></code></dt></dl><br>  <b>Projections</b>:<br><dl class="decls">  <dt id="NN.Architectures.Affine.AffineLayerParams.(.bias)"><code><span class="type resolved" title="NN.Architectures.Affine.AffineLayerParams.(.bias)"><span class="name function">.bias</span></span>&ensp;:&ensp;<a class="type" href="NN.Architectures.Affine.html#NN.Architectures.Affine.AffineLayerParams"><span class="name type">AffineLayerParams</span></a>&ensp;<span class="boundvar">x</span>&ensp;<span class="boundvar">y</span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Tensor.Tensor.html#Data.Tensor.Tensor.CTensor"><span class="name type">CTensor</span></a>&ensp;[<span class="boundvar">y</span>]&ensp;<span class="boundvar">a</span></code></dt>  <dt id="NN.Architectures.Affine.AffineLayerParams.(.weights)"><code><span class="type resolved" title="NN.Architectures.Affine.AffineLayerParams.(.weights)"><span class="name function">.weights</span></span>&ensp;:&ensp;<a class="type" href="NN.Architectures.Affine.html#NN.Architectures.Affine.AffineLayerParams"><span class="name type">AffineLayerParams</span></a>&ensp;<span class="boundvar">x</span>&ensp;<span class="boundvar">y</span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Tensor.Tensor.html#Data.Tensor.Tensor.CTensor"><span class="name type">CTensor</span></a>&ensp;[<span class="boundvar">y</span>,&ensp;<span class="boundvar">x</span>]&ensp;<span class="boundvar">a</span></code></dt></dl></dd><dt id="NN.Architectures.Affine.AffineLayerParams.(.weights)"><code><span class="type resolved" title="NN.Architectures.Affine.AffineLayerParams.(.weights)"><span class="name function">.weights</span></span>&ensp;:&ensp;<a class="type" href="NN.Architectures.Affine.html#NN.Architectures.Affine.AffineLayerParams"><span class="name type">AffineLayerParams</span></a>&ensp;<span class="boundvar">x</span>&ensp;<span class="boundvar">y</span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Tensor.Tensor.html#Data.Tensor.Tensor.CTensor"><span class="name type">CTensor</span></a>&ensp;[<span class="boundvar">y</span>,&ensp;<span class="boundvar">x</span>]&ensp;<span class="boundvar">a</span></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="NN.Architectures.Affine.AffineLayerParams.weights"><code><span class="type resolved" title="NN.Architectures.Affine.AffineLayerParams.weights"><span class="name function">weights</span></span>&ensp;:&ensp;<a class="type" href="NN.Architectures.Affine.html#NN.Architectures.Affine.AffineLayerParams"><span class="name type">AffineLayerParams</span></a>&ensp;<span class="boundvar">x</span>&ensp;<span class="boundvar">y</span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Tensor.Tensor.html#Data.Tensor.Tensor.CTensor"><span class="name type">CTensor</span></a>&ensp;[<span class="boundvar">y</span>,&ensp;<span class="boundvar">x</span>]&ensp;<span class="boundvar">a</span></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="NN.Architectures.Affine.AffineLayerParams.(.bias)"><code><span class="type resolved" title="NN.Architectures.Affine.AffineLayerParams.(.bias)"><span class="name function">.bias</span></span>&ensp;:&ensp;<a class="type" href="NN.Architectures.Affine.html#NN.Architectures.Affine.AffineLayerParams"><span class="name type">AffineLayerParams</span></a>&ensp;<span class="boundvar">x</span>&ensp;<span class="boundvar">y</span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Tensor.Tensor.html#Data.Tensor.Tensor.CTensor"><span class="name type">CTensor</span></a>&ensp;[<span class="boundvar">y</span>]&ensp;<span class="boundvar">a</span></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="NN.Architectures.Affine.AffineLayerParams.bias"><code><span class="type resolved" title="NN.Architectures.Affine.AffineLayerParams.bias"><span class="name function">bias</span></span>&ensp;:&ensp;<a class="type" href="NN.Architectures.Affine.html#NN.Architectures.Affine.AffineLayerParams"><span class="name type">AffineLayerParams</span></a>&ensp;<span class="boundvar">x</span>&ensp;<span class="boundvar">y</span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Tensor.Tensor.html#Data.Tensor.Tensor.CTensor"><span class="name type">CTensor</span></a>&ensp;[<span class="boundvar">y</span>]&ensp;<span class="boundvar">a</span></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="NN.Architectures.Affine.affineImpl"><code><a class="type" href="NN.Architectures.Affine.html#NN.Architectures.Affine.affineImpl"><span class="name function">affineImpl</span></a>&ensp;:&ensp;<span class="type resolved" title="Prelude.Num.Num"><span class="name type">Num</span></span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="type resolved" title="Data.Tensor.Tensor.TensorInstances.AlgebraInstance.AllAlgebra"><span class="name type">AllAlgebra</span></span>&ensp;[<span class="boundvar">x</span>]&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<a class="type" href="Data.Container.Applicative.Definition.html#Data.Container.Applicative.Definition.AllApplicative"><span class="name type">AllApplicative</span></a>&ensp;[<span class="boundvar">x</span>,&ensp;<span class="boundvar">y</span>]&ensp;<span class="keyword">=&gt;</span>&ensp;<a class="type" href="Data.Tensor.Tensor.html#Data.Tensor.Tensor.CTensor"><span class="name type">CTensor</span></a>&ensp;[<span class="boundvar">x</span>]&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="NN.Architectures.Affine.html#NN.Architectures.Affine.AffineLayerParams"><span class="name type">AffineLayerParams</span></a>&ensp;<span class="boundvar">x</span>&ensp;<span class="boundvar">y</span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Tensor.Tensor.html#Data.Tensor.Tensor.CTensor"><span class="name type">CTensor</span></a>&ensp;[<span class="boundvar">y</span>]&ensp;<span class="boundvar">a</span></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="NN.Architectures.Affine.affinePara"><code><a class="type" href="NN.Architectures.Affine.html#NN.Architectures.Affine.affinePara"><span class="name function">affinePara</span></a>&ensp;:&ensp;<span class="type resolved" title="Prelude.Num.Num"><span class="name type">Num</span></span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="type resolved" title="Data.Tensor.Tensor.TensorInstances.AlgebraInstance.AllAlgebra"><span class="name type">AllAlgebra</span></span>&ensp;[<span class="boundvar">x</span>]&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<a class="type" href="Data.Container.Applicative.Definition.html#Data.Container.Applicative.Definition.AllApplicative"><span class="name type">AllApplicative</span></a>&ensp;[<span class="boundvar">x</span>,&ensp;<span class="boundvar">y</span>]&ensp;<span class="keyword">=&gt;</span>&ensp;<a class="type" href="Data.Tensor.Tensor.html#Data.Tensor.Tensor.CTensor"><span class="name type">CTensor</span></a>&ensp;[<span class="boundvar">x</span>]&ensp;<span class="boundvar">a</span>&ensp;<a class="type" href="Data.Para.Para.html#Data.Para.Para.(-\-&gt;)"><span class="name function">-\-&gt;</span></a>&ensp;<a class="type" href="Data.Tensor.Tensor.html#Data.Tensor.Tensor.CTensor"><span class="name type">CTensor</span></a>&ensp;[<span class="boundvar">y</span>]&ensp;<span class="boundvar">a</span></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd></dl></div><footer>Produced by Idris 2 version 0.8.0-acde1c926</footer></body></html>
