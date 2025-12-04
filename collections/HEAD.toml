@@ -1286,3 +1286,10 @@ url    = "https://github.com/Matthew-Mosior/idris2-fixed"
 commit = "main"
 ipkg   = "fixed.ipkg"
 test   = "test/test.ipkg"
+
+[db.stringsearch-algorithms]
+type   = "github"
+url    = "https://github.com/Matthew-Mosior/idris2-stringsearch-algorithms"
+commit = "main"
+ipkg   = "stringsearch-algorithms.ipkg"
+test   = "test/test.ipkg"
