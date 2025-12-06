@@ -1,7 +1,7 @@
 [idris2]
 url     = "https://github.com/idris-lang/Idris2"
 version = "0.8.0"
-commit  = "153d9459d13bc6f903f35879fc304305549155d8"
+commit  = "95333b3adc33decf1d0cc17e825c90f1afc36a42"
 
 [db.algdata]
 type        = "github"
@@ -1254,7 +1254,7 @@ test        = "test/test.ipkg"
 [db.stringsearch-algorithms]
 type        = "github"
 url         = "https://github.com/Matthew-Mosior/idris2-stringsearch-algorithms"
-commit      = "4c8fe7e4b0027e067935950c358a96784609f52e"
+commit      = "28b3f6c7bbe953b2298091664b7f03c067a329e1"
 ipkg        = "stringsearch-algorithms.ipkg"
 packagePath = false
 test        = "test/test.ipkg"
