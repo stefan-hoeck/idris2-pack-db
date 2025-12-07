@@ -411,6 +411,12 @@ url    = "https://github.com/Z-snails/Idris2-hashable"
 commit = "main"
 ipkg   = "hashable.ipkg"
 
+[db.hashable-derive]
+type = "github"
+url = "https://github.com//uartman/hashable-derive"
+commit = "main"
+ipkg = "hashable-derive.ipkg"
+
 [db.hashmap]
 type   = "github"
 url    = "https://github.com/Z-snails/idris2-hashmap"
