@@ -264,7 +264,7 @@ packagePath = false
 [db.cyby-draw]
 type        = "github"
 url         = "https://github.com/stefan-hoeck/idris2-cyby-draw"
-commit      = "034e3842dac998a61b4988f422d007ccc2a9b6b6"
+commit      = "81a252b7306643826659fa4f01d58e3ef9d9fbc3"
 ipkg        = "cyby-draw.ipkg"
 packagePath = false
 
