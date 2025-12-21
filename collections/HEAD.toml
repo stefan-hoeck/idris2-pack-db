@@ -903,6 +903,12 @@ commit = "master"
 ipkg   = "scram.ipkg"
 test   = "test/test.ipkg"
 
+[db.scgi]
+type   = "github"
+url    = "https://github.com/idris-community/idris2-scgi"
+commit = "main"
+ipkg   = "scgi.ipkg"
+
 [db.simple-tests]
 type   = "git"
 url    = "https://gitlab.com/avidela/idris2-simple-tests"
@@ -1168,6 +1174,18 @@ type   = "github"
 url    = "https://github.com/idris-community/idris2-http"
 commit = "master"
 ipkg   = "http.ipkg"
+
+[db.http-types]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-http-types"
+commit = "main"
+ipkg   = "http-types.ipkg"
+
+[db.http-server-api]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-http-types"
+commit = "main"
+ipkg   = "http-server-api/http-server-api.ipkg"
 
 # [db.prob-fx]
 # type   = "github"
