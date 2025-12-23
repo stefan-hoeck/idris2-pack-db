@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>HTTP.Method</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : HTTP.Method
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>HTTP.Method</h1><span style="float:right">(<a href="HTTP.Method.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="HTTP.Method.Method"><code><span class="keyword">data</span>&ensp;<a class="type" href="HTTP.Method.html#HTTP.Method.Method"><span class="name type">Method</span></a>&ensp;:&ensp;<span class="name type">Type</span></code></dt><dd><pre>  An enumeration of HTTP request methods.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span><br>  <b>Constructors</b>:<br><dl class="decls">  <dt id="HTTP.Method.GET"><code><a class="type" href="HTTP.Method.html#HTTP.Method.GET"><span class="name constructor">GET</span></a>&ensp;:&ensp;<a class="type" href="HTTP.Method.html#HTTP.Method.Method"><span class="name type">Method</span></a></code></dt><dd><pre>  Requests a representation of the specified resource.<br>  GET requests should not contain a request body.</pre></dd>  <dt id="HTTP.Method.HEAD"><code><a class="type" href="HTTP.Method.html#HTTP.Method.HEAD"><span class="name constructor">HEAD</span></a>&ensp;:&ensp;<a class="type" href="HTTP.Method.html#HTTP.Method.Method"><span class="name type">Method</span></a></code></dt><dd><pre>  Requests the metadata of a resource. This is typically sent<br>  instead of a `GET` request, for instance to determine the<br>  `Content-Size` of a resource.</pre></dd>  <dt id="HTTP.Method.POST"><code><a class="type" href="HTTP.Method.html#HTTP.Method.POST"><span class="name constructor">POST</span></a>&ensp;:&ensp;<a class="type" href="HTTP.Method.html#HTTP.Method.Method"><span class="name type">Method</span></a></code></dt><dd><pre>  Submits some data to the specified resource, often resulting<br>  in a change of the server state.</pre></dd>  <dt id="HTTP.Method.PUT"><code><a class="type" href="HTTP.Method.html#HTTP.Method.PUT"><span class="name constructor">PUT</span></a>&ensp;:&ensp;<a class="type" href="HTTP.Method.html#HTTP.Method.Method"><span class="name type">Method</span></a></code></dt><dd><pre>  Creates a new resource or replaces an existing resource with<br>  the request content. Unlike `POST`, `PUT` requests are supposed<br>  to be idempotent.</pre></dd>  <dt id="HTTP.Method.DELETE"><code><a class="type" href="HTTP.Method.html#HTTP.Method.DELETE"><span class="name constructor">DELETE</span></a>&ensp;:&ensp;<a class="type" href="HTTP.Method.html#HTTP.Method.Method"><span class="name type">Method</span></a></code></dt><dd><pre>  Asks the HTTP server to delete a specified resource.</pre></dd>  <dt id="HTTP.Method.PATCH"><code><a class="type" href="HTTP.Method.html#HTTP.Method.PATCH"><span class="name constructor">PATCH</span></a>&ensp;:&ensp;<a class="type" href="HTTP.Method.html#HTTP.Method.Method"><span class="name type">Method</span></a></code></dt><dd><pre>  Applies a partial modification to a resource.</pre></dd></dl><br>  <b>Hints</b>:<br><dl class="decls">  <dt id="$resolved17127"><code><span class="type resolved" title="Prelude.EqOrd.Eq"><span class="name type">Eq</span></span>&ensp;<a class="type" href="HTTP.Method.html#HTTP.Method.Method"><span class="name type">Method</span></a></code></dt>  <dt id="$resolved17126"><code><span class="type resolved" title="Prelude.EqOrd.Ord"><span class="name type">Ord</span></span>&ensp;<a class="type" href="HTTP.Method.html#HTTP.Method.Method"><span class="name type">Method</span></a></code></dt>  <dt id="$resolved17125"><code><span class="type resolved" title="Prelude.Show.Show"><span class="name type">Show</span></span>&ensp;<a class="type" href="HTTP.Method.html#HTTP.Method.Method"><span class="name type">Method</span></a></code></dt></dl></dd></dl></div><footer>Produced by Idris 2 version 0.8.0-0e9b01d04</footer></body></html>

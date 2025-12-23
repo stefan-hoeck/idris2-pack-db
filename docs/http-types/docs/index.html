@@ -2,7 +2,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>async</title>
+  <title>http-types</title>
   <link rel="stylesheet" type="text/css" id="preferredStyle" href="default.css">
   <script>
     /* Updates the stylesheet to use the preferred one.
@@ -35,7 +35,7 @@
 
 <body class="index">
 <header>
-  <strong>Idris2Doc</strong> : async
+  <strong>Idris2Doc</strong> : http-types
   <nav><a href="index.html">Index</a>
 
   <select id="selectPreferredStyle">
@@ -61,10 +61,10 @@
 </script>
 
 </header>
-<div class="container"><h1>Package async - Namespaces</h1><ul class="names"><li>
+<div class="container"><h1>Package http-types - Namespaces</h1><ul class="names"><li>
   <div class="index-wrapper">
     <div class="index-namespace-url">
-      <a class="code" href="docs/IO.Async.html">IO.Async</a>
+      <a class="code" href="docs/HTTP.API.html">HTTP.API</a>
     </div>
     <div class="index-namespace-doc">
       
@@ -73,7 +73,7 @@
 </li><li>
   <div class="index-wrapper">
     <div class="index-namespace-url">
-      <a class="code" href="docs/IO.Async.Core.html">IO.Async.Core</a>
+      <a class="code" href="docs/HTTP.API.Content.html">HTTP.API.Content</a>
     </div>
     <div class="index-namespace-doc">
       
@@ -82,7 +82,7 @@
 </li><li>
   <div class="index-wrapper">
     <div class="index-namespace-url">
-      <a class="code" href="docs/IO.Async.BQueue.html">IO.Async.BQueue</a>
+      <a class="code" href="docs/HTTP.API.Endpoints.html">HTTP.API.Endpoints</a>
     </div>
     <div class="index-namespace-doc">
       
@@ -91,7 +91,7 @@
 </li><li>
   <div class="index-wrapper">
     <div class="index-namespace-url">
-      <a class="code" href="docs/IO.Async.Channel.html">IO.Async.Channel</a>
+      <a class="code" href="docs/HTTP.API.Decode.html">HTTP.API.Decode</a>
     </div>
     <div class="index-namespace-doc">
       
@@ -100,7 +100,7 @@
 </li><li>
   <div class="index-wrapper">
     <div class="index-namespace-url">
-      <a class="code" href="docs/IO.Async.Semaphore.html">IO.Async.Semaphore</a>
+      <a class="code" href="docs/HTTP.API.Encode.html">HTTP.API.Encode</a>
     </div>
     <div class="index-namespace-doc">
       
@@ -109,7 +109,7 @@
 </li><li>
   <div class="index-wrapper">
     <div class="index-namespace-url">
-      <a class="code" href="docs/IO.Async.Service.html">IO.Async.Service</a>
+      <a class="code" href="docs/HTTP.API.Env.html">HTTP.API.Env</a>
     </div>
     <div class="index-namespace-doc">
       
@@ -118,7 +118,7 @@
 </li><li>
   <div class="index-wrapper">
     <div class="index-namespace-url">
-      <a class="code" href="docs/IO.Async.Util.html">IO.Async.Util</a>
+      <a class="code" href="docs/HTTP.API.Header.html">HTTP.API.Header</a>
     </div>
     <div class="index-namespace-doc">
       
@@ -127,17 +127,7 @@
 </li><li>
   <div class="index-wrapper">
     <div class="index-namespace-url">
-      <a class="code" href="docs/IO.Async.Loop.html">IO.Async.Loop</a>
-    </div>
-    <div class="index-namespace-doc">
-      Utilities for working with work loops.
-
-    </div>
-  </div>
-</li><li>
-  <div class="index-wrapper">
-    <div class="index-namespace-url">
-      <a class="code" href="docs/IO.Async.Loop.Sync.html">IO.Async.Loop.Sync</a>
+      <a class="code" href="docs/HTTP.API.Method.html">HTTP.API.Method</a>
     </div>
     <div class="index-namespace-doc">
       
@@ -146,7 +136,7 @@
 </li><li>
   <div class="index-wrapper">
     <div class="index-namespace-url">
-      <a class="code" href="docs/IO.Async.Loop.TimerH.html">IO.Async.Loop.TimerH</a>
+      <a class="code" href="docs/HTTP.API.Path.html">HTTP.API.Path</a>
     </div>
     <div class="index-namespace-doc">
       
@@ -155,7 +145,7 @@
 </li><li>
   <div class="index-wrapper">
     <div class="index-namespace-url">
-      <a class="code" href="docs/IO.Async.Loop.TimerST.html">IO.Async.Loop.TimerST</a>
+      <a class="code" href="docs/HTTP.API.Query.html">HTTP.API.Query</a>
     </div>
     <div class="index-namespace-doc">
       
@@ -164,13 +154,73 @@
 </li><li>
   <div class="index-wrapper">
     <div class="index-namespace-url">
-      <a class="code" href="docs/IO.Async.Internal.Ref.html">IO.Async.Internal.Ref</a>
+      <a class="code" href="docs/HTTP.API.TList.html">HTTP.API.TList</a>
     </div>
     <div class="index-namespace-doc">
-      Mutable references exposed in `PrimIO`. This includes the ability
-to mutate via a CAS-loop to avoid locking with a mutex in certain
-occasions.
-
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/HTTP.Header.html">HTTP.Header</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/HTTP.Method.html">HTTP.Method</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/HTTP.MimeType.html">HTTP.MimeType</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/HTTP.RequestErr.html">HTTP.RequestErr</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/HTTP.Status.html">HTTP.Status</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/HTTP.URI.html">HTTP.URI</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/HTTP.URI.Parser.html">HTTP.URI.Parser</a>
+    </div>
+    <div class="index-namespace-doc">
+      
     </div>
   </div>
 </li></ul></div><footer>Produced by Idris 2 version 0.8.0-0e9b01d04</footer></body></html>
