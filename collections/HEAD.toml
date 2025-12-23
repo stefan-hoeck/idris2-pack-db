@@ -238,7 +238,6 @@ type   = "git"
 url    = "https://github.com/buzden/deptycheck"
 commit = "master"
 ipkg   = "deptycheck.ipkg"
-test   = "tests/tests.ipkg"
 
 [db.dinwiddy]
 type   = "github"
