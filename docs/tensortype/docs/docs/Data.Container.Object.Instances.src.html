@@ -123,7 +123,7 @@
 <div id="line2"><a href="#line2" class="IdrisLineNumber"> &nbsp;&nbsp;2 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">Data.Fin</span></div>
 <div id="line3"><a href="#line3" class="IdrisLineNumber"> &nbsp;&nbsp;3 | </a></div>
 <div id="line4"><a href="#line4" class="IdrisLineNumber"> &nbsp;&nbsp;4 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisModule">Data.Container.Object.Definition</span></div>
-<div id="line5"><a href="#line5" class="IdrisLineNumber"> &nbsp;&nbsp;5 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisModule">Data.Container.Products</span></div>
+<div id="line5"><a href="#line5" class="IdrisLineNumber"> &nbsp;&nbsp;5 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisModule">Data.Container.Product.Definitions</span></div>
 <div id="line6"><a href="#line6" class="IdrisLineNumber"> &nbsp;&nbsp;6 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisModule">Data.Container.TreeUtils</span></div>
 <div id="line7"><a href="#line7" class="IdrisLineNumber"> &nbsp;&nbsp;7 | </a></div>
 <div id="line8"><a href="#line8" class="IdrisLineNumber"> &nbsp;&nbsp;8 | </a><span class="IdrisComment">|||&nbsp;Empty&nbsp;container,&nbsp;isomorphic&nbsp;to&nbsp;Void</span></div>
@@ -181,7 +181,7 @@
 <div id="line60"><a href="#line60" class="IdrisLineNumber"> &nbsp;60 | </a><span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisKeyword">export</span></div>
 <div id="line61"><a href="#line61" class="IdrisLineNumber"> &nbsp;61 | </a><span class="IdrisFunction">List</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Cont</span></div>
 <div id="line62"><a href="#line62" class="IdrisLineNumber"> &nbsp;62 | </a><span class="IdrisFunction">List</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisBound">n</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Nat</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisData">!&gt;</span>&nbsp;<span class="IdrisType">Fin</span>&nbsp;<span class="IdrisBound">n</span></div>
-<div id="line63"><a href="#line63" class="IdrisLineNumber"> &nbsp;63 | </a>&nbsp;&nbsp;</div>
+<div id="line63"><a href="#line63" class="IdrisLineNumber"> &nbsp;63 | </a></div>
 <div id="line64"><a href="#line64" class="IdrisLineNumber"> &nbsp;64 | </a><span class="IdrisComment">|||&nbsp;Vect,&nbsp;container&nbsp;of&nbsp;a&nbsp;fixed/known&nbsp;number&nbsp;of&nbsp;things</span></div>
 <div id="line65"><a href="#line65" class="IdrisLineNumber"> &nbsp;65 | </a><span class="IdrisComment">|||&nbsp;As&nbsp;a&nbsp;polynomial&nbsp;functor:&nbsp;F(X)&nbsp;=&nbsp;X^n</span></div>
 <div id="line66"><a href="#line66" class="IdrisLineNumber"> &nbsp;66 | </a><span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisKeyword">export</span></div>
@@ -199,15 +199,15 @@
 <div id="line78"><a href="#line78" class="IdrisLineNumber"> &nbsp;78 | </a><span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisKeyword">export</span></div>
 <div id="line79"><a href="#line79" class="IdrisLineNumber"> &nbsp;79 | </a><span class="IdrisFunction">BinTree</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Cont</span></div>
 <div id="line80"><a href="#line80" class="IdrisLineNumber"> &nbsp;80 | </a><span class="IdrisFunction">BinTree</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisBound">b</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">BinTreeShape</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisData">!&gt;</span>&nbsp;<span class="IdrisType">BinTreePos</span>&nbsp;<span class="IdrisBound">b</span></div>
-<div id="line81"><a href="#line81" class="IdrisLineNumber"> &nbsp;81 | </a>&nbsp;&nbsp;</div>
+<div id="line81"><a href="#line81" class="IdrisLineNumber"> &nbsp;81 | </a></div>
 <div id="line82"><a href="#line82" class="IdrisLineNumber"> &nbsp;82 | </a><span class="IdrisComment">|||&nbsp;Container&nbsp;of&nbsp;things&nbsp;stored&nbsp;at&nbsp;nodes&nbsp;of&nbsp;a&nbsp;binary&nbsp;tree</span></div>
-<div id="line83"><a href="#line83" class="IdrisLineNumber"> &nbsp;83 | </a><span class="IdrisComment">|||&nbsp;As&nbsp;a&nbsp;polynomial&nbsp;functor:&nbsp;F(X)&nbsp;=&nbsp;1&nbsp;+&nbsp;X&nbsp;+&nbsp;2X^2&nbsp;+&nbsp;5X^3&nbsp;+&nbsp;</span></div>
+<div id="line83"><a href="#line83" class="IdrisLineNumber"> &nbsp;83 | </a><span class="IdrisComment">|||&nbsp;As&nbsp;a&nbsp;polynomial&nbsp;functor:&nbsp;F(X)&nbsp;=&nbsp;1&nbsp;+&nbsp;X&nbsp;+&nbsp;2X^2&nbsp;+&nbsp;5X^3&nbsp;+</span></div>
 <div id="line84"><a href="#line84" class="IdrisLineNumber"> &nbsp;84 | </a><span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisKeyword">export</span></div>
 <div id="line85"><a href="#line85" class="IdrisLineNumber"> &nbsp;85 | </a><span class="IdrisFunction">BinTreeNode</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Cont</span></div>
 <div id="line86"><a href="#line86" class="IdrisLineNumber"> &nbsp;86 | </a><span class="IdrisFunction">BinTreeNode</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisBound">b</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">BinTreeShape</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisData">!&gt;</span>&nbsp;<span class="IdrisType">BinTreePosNode</span>&nbsp;<span class="IdrisBound">b</span></div>
-<div id="line87"><a href="#line87" class="IdrisLineNumber"> &nbsp;87 | </a>&nbsp;&nbsp;</div>
+<div id="line87"><a href="#line87" class="IdrisLineNumber"> &nbsp;87 | </a></div>
 <div id="line88"><a href="#line88" class="IdrisLineNumber"> &nbsp;88 | </a><span class="IdrisComment">|||&nbsp;Container&nbsp;of&nbsp;things&nbsp;stored&nbsp;at&nbsp;leaves&nbsp;of&nbsp;a&nbsp;binary&nbsp;tree</span></div>
-<div id="line89"><a href="#line89" class="IdrisLineNumber"> &nbsp;89 | </a><span class="IdrisComment">|||&nbsp;As&nbsp;a&nbsp;polynomial&nbsp;functor:&nbsp;F(X)&nbsp;=&nbsp;X&nbsp;+&nbsp;X^2&nbsp;+&nbsp;2X^3&nbsp;+&nbsp;5X^4&nbsp;+&nbsp;</span></div>
+<div id="line89"><a href="#line89" class="IdrisLineNumber"> &nbsp;89 | </a><span class="IdrisComment">|||&nbsp;As&nbsp;a&nbsp;polynomial&nbsp;functor:&nbsp;F(X)&nbsp;=&nbsp;X&nbsp;+&nbsp;X^2&nbsp;+&nbsp;2X^3&nbsp;+&nbsp;5X^4&nbsp;+</span></div>
 <div id="line90"><a href="#line90" class="IdrisLineNumber"> &nbsp;90 | </a><span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisKeyword">export</span></div>
 <div id="line91"><a href="#line91" class="IdrisLineNumber"> &nbsp;91 | </a><span class="IdrisFunction">BinTreeLeaf</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Cont</span></div>
 <div id="line92"><a href="#line92" class="IdrisLineNumber"> &nbsp;92 | </a><span class="IdrisFunction">BinTreeLeaf</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisBound">b</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">BinTreeShape</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisData">!&gt;</span>&nbsp;<span class="IdrisType">BinTreePosLeaf</span>&nbsp;<span class="IdrisBound">b</span></div>
@@ -220,7 +220,7 @@
 <div id="line99"><a href="#line99" class="IdrisLineNumber"> &nbsp;99 | </a></div>
 <div id="line100"><a href="#line100" class="IdrisLineNumber"> 100 | </a><span class="IdrisComment">--&nbsp;TODO&nbsp;what&nbsp;is&nbsp;&quot;Tensor&quot;&nbsp;with&nbsp;hancock&nbsp;product?&nbsp;with&nbsp;cartesian&nbsp;product?</span></div>
 <div id="line101"><a href="#line101" class="IdrisLineNumber"> 101 | </a><span class="IdrisComment">--&nbsp;TODO&nbsp;duoidal&nbsp;structure&nbsp;between&nbsp;with&nbsp;hancock&nbsp;product&nbsp;and&nbsp;composition</span></div>
-<div id="line102"><a href="#line102" class="IdrisLineNumber"> 102 | </a>&nbsp;&nbsp;</div>
+<div id="line102"><a href="#line102" class="IdrisLineNumber"> 102 | </a></div>
 <div id="line103"><a href="#line103" class="IdrisLineNumber"> 103 | </a><span class="IdrisComment">|||&nbsp;Every&nbsp;lens&nbsp;gives&nbsp;rise&nbsp;to&nbsp;a&nbsp;container</span></div>
 <div id="line104"><a href="#line104" class="IdrisLineNumber"> 104 | </a><span class="IdrisComment">|||&nbsp;The&nbsp;set&nbsp;of&nbsp;shapes&nbsp;is&nbsp;the&nbsp;lens&nbsp;itself</span></div>
 <div id="line105"><a href="#line105" class="IdrisLineNumber"> 105 | </a><span class="IdrisComment">|||&nbsp;The&nbsp;set&nbsp;of&nbsp;positions&nbsp;is&nbsp;the&nbsp;inputs&nbsp;to&nbsp;the&nbsp;lens</span></div>
@@ -246,14 +246,14 @@
 <div id="line125"><a href="#line125" class="IdrisLineNumber"> 125 | </a><span class="IdrisFunction">Const</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Type</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Type</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Cont</span></div>
 <div id="line126"><a href="#line126" class="IdrisLineNumber"> 126 | </a><span class="IdrisFunction">Const</span>&nbsp;<span class="IdrisBound">a</span>&nbsp;<span class="IdrisBound">b</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisKeyword">(_</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisBound">a</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisData">!&gt;</span>&nbsp;<span class="IdrisBound">b</span></div>
 <div id="line127"><a href="#line127" class="IdrisLineNumber"> 127 | </a></div>
-<div id="line128"><a href="#line128" class="IdrisLineNumber"> 128 | </a><span class="IdrisComment">|||&nbsp;Constant&nbsp;container&nbsp;with&nbsp;a&nbsp;single&nbsp;shape&nbsp;&nbsp;</span></div>
+<div id="line128"><a href="#line128" class="IdrisLineNumber"> 128 | </a><span class="IdrisComment">|||&nbsp;Constant&nbsp;container&nbsp;with&nbsp;a&nbsp;single&nbsp;shape</span></div>
 <div id="line129"><a href="#line129" class="IdrisLineNumber"> 129 | </a><span class="IdrisComment">|||&nbsp;Naperian&nbsp;container</span></div>
 <div id="line130"><a href="#line130" class="IdrisLineNumber"> 130 | </a><span class="IdrisComment">|||&nbsp;As&nbsp;a&nbsp;polynomial&nbsp;functor:&nbsp;F(X)&nbsp;=&nbsp;X^b</span></div>
 <div id="line131"><a href="#line131" class="IdrisLineNumber"> 131 | </a><span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisKeyword">export</span></div>
 <div id="line132"><a href="#line132" class="IdrisLineNumber"> 132 | </a><span class="IdrisFunction">Nap</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Type</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Cont</span></div>
 <div id="line133"><a href="#line133" class="IdrisLineNumber"> 133 | </a><span class="IdrisFunction">Nap</span>&nbsp;<span class="IdrisBound">b</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">Const</span>&nbsp;<span class="IdrisType">Unit</span>&nbsp;<span class="IdrisBound">b</span></div>
 <div id="line134"><a href="#line134" class="IdrisLineNumber"> 134 | </a></div>
-<div id="line135"><a href="#line135" class="IdrisLineNumber"> 135 | </a><span class="IdrisComment">--&nbsp;Some&nbsp;more&nbsp;examples&nbsp;that&nbsp;require&nbsp;the&nbsp;Applicative&nbsp;constraint&nbsp;can&nbsp;be&nbsp;found&nbsp;in&nbsp;</span></div>
+<div id="line135"><a href="#line135" class="IdrisLineNumber"> 135 | </a><span class="IdrisComment">--&nbsp;Some&nbsp;more&nbsp;examples&nbsp;that&nbsp;require&nbsp;the&nbsp;Applicative&nbsp;constraint&nbsp;can&nbsp;be&nbsp;found&nbsp;in</span></div>
 <div id="line136"><a href="#line136" class="IdrisLineNumber"> 136 | </a><span class="IdrisComment">--&nbsp;`Data.Container.Object.Applicative`</span></div>
 <div id="line137"><a href="#line137" class="IdrisLineNumber"> 137 | </a></div>
 </code>

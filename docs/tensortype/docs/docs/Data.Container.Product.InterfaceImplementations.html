@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Data.Container.Product.InterfaceImplementations</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Data.Container.Product.InterfaceImplementations
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Data.Container.Product.InterfaceImplementations</h1><span style="float:right">(<a href="Data.Container.Product.InterfaceImplementations.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="Data.Container.Product.InterfaceImplementations.BinTreeUtils.pairBTreeShapes"><code><span class="type resolved" title="Data.Container.Product.InterfaceImplementations.BinTreeUtils.pairBTreeShapes"><span class="name function">pairBTreeShapes</span></span>&ensp;:&ensp;<span class="type resolved" title="Data.Container.TreeUtils.BinaryTrees.BinTreeShape"><span class="name type">BinTreeShape</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Data.Container.TreeUtils.BinaryTrees.BinTreeShape"><span class="name type">BinTreeShape</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Data.Container.TreeUtils.BinaryTrees.BinTreeShape"><span class="name type">BinTreeShape</span></span></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Data.Container.Product.InterfaceImplementations.BinTreeUtils.pairBTreePos"><code><span class="type resolved" title="Data.Container.Product.InterfaceImplementations.BinTreeUtils.pairBTreePos"><span class="name function">pairBTreePos</span></span>&ensp;:&ensp;<span class="type resolved" title="Data.Container.TreeUtils.BinaryTrees.NodesAndLeaves.BinTreePos"><span class="name type">BinTreePos</span></span>&ensp;(<span class="type resolved" title="Data.Container.Product.InterfaceImplementations.BinTreeUtils.pairBTreeShapes"><span class="name function">pairBTreeShapes</span></span>&ensp;<span class="boundvar">sh1</span>&ensp;<span class="boundvar">sh2</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="type resolved" title="Data.Container.TreeUtils.BinaryTrees.NodesAndLeaves.BinTreePos"><span class="name type">BinTreePos</span></span>&ensp;<span class="boundvar">sh1</span>,&ensp;<span class="type resolved" title="Data.Container.TreeUtils.BinaryTrees.NodesAndLeaves.BinTreePos"><span class="name type">BinTreePos</span></span>&ensp;<span class="boundvar">sh2</span>)</code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Data.Container.Product.InterfaceImplementations.BinTreeUtils.pairBTreeLeafPos"><code><span class="type resolved" title="Data.Container.Product.InterfaceImplementations.BinTreeUtils.pairBTreeLeafPos"><span class="name function">pairBTreeLeafPos</span></span>&ensp;:&ensp;<span class="type resolved" title="Data.Container.TreeUtils.BinaryTrees.Leaves.BinTreePosLeaf"><span class="name type">BinTreePosLeaf</span></span>&ensp;(<span class="type resolved" title="Data.Container.Product.InterfaceImplementations.BinTreeUtils.pairBTreeShapes"><span class="name function">pairBTreeShapes</span></span>&ensp;<span class="boundvar">sh1</span>&ensp;<span class="boundvar">sh2</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="type resolved" title="Data.Container.TreeUtils.BinaryTrees.Leaves.BinTreePosLeaf"><span class="name type">BinTreePosLeaf</span></span>&ensp;<span class="boundvar">sh1</span>,&ensp;<span class="type resolved" title="Data.Container.TreeUtils.BinaryTrees.Leaves.BinTreePosLeaf"><span class="name type">BinTreePosLeaf</span></span>&ensp;<span class="boundvar">sh2</span>)</code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Data.Container.Product.InterfaceImplementations.dotWith"><code><a class="type" href="Data.Container.Product.InterfaceImplementations.html#Data.Container.Product.InterfaceImplementations.dotWith"><span class="name function">dotWith</span></a>&ensp;:&ensp;<a class="type" href="Data.Container.Product.Interfaces.html#Data.Container.Product.Interfaces.TensorMonoid"><span class="name type">TensorMonoid</span></a>&ensp;<span class="boundvar">cont</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<a class="type" href="Data.Algebra.html#Data.Algebra.Algebra"><span class="name type">Algebra</span></a>&ensp;(<a class="type" href="Data.Container.Extension.Definition.html#Data.Container.Extension.Definition.Ext"><span class="name type">Ext</span></a>&ensp;<span class="boundvar">cont</span>)&ensp;<span class="boundvar">c</span>&ensp;<span class="keyword">=&gt;</span>&ensp;(<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">b</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">c</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Container.Extension.Definition.html#Data.Container.Extension.Definition.Ext"><span class="name type">Ext</span></a>&ensp;<span class="boundvar">cont</span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Container.Extension.Definition.html#Data.Container.Extension.Definition.Ext"><span class="name type">Ext</span></a>&ensp;<span class="boundvar">cont</span>&ensp;<span class="boundvar">b</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Container.Extension.Definition.html#Data.Container.Extension.Definition.Ext"><span class="name type">Ext</span></a>&ensp;<a class="type" href="Data.Container.Object.Instances.html#Data.Container.Object.Instances.Scalar"><span class="name function">Scalar</span></a>&ensp;<span class="boundvar">c</span></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd></dl></div><footer>Produced by Idris 2 version 0.8.0-2be43760d</footer></body></html>
