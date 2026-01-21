@@ -1174,6 +1174,12 @@ url    = "https://github.com/idris-community/idris2-http"
 commit = "master"
 ipkg   = "http.ipkg"
 
+[db.http-client-api]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-http-types"
+commit = "main"
+ipkg   = "http-client-api/http-client-api.ipkg"
+
 [db.http-types]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-http-types"
