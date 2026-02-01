@@ -1322,3 +1322,10 @@ url    = "https://github.com/Matthew-Mosior/idris2-stringsearch-algorithms"
 commit = "main"
 ipkg   = "stringsearch-algorithms.ipkg"
 test   = "test/test.ipkg"
+
+[db.ilex-fasta]
+type   = "github"
+url    = "https://github.com/Matthew-Mosior/idris2-bioinformatics"
+commit = "main"
+ipkg   = "fasta/ilex-fasta.ipkg"
+test   = "test/test.ipkg"
