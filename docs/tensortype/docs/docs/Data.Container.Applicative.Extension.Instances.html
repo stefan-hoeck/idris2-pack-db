@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Data.Container.Applicative.Extension.Instances</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Data.Container.Applicative.Extension.Instances
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Data.Container.Applicative.Extension.Instances</h1><span style="float:right">(<a href="Data.Container.Applicative.Extension.Instances.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="Data.Container.Applicative.Extension.Instances.ApplicativeRoseTree&apos;"><code><a class="type" href="Data.Container.Applicative.Extension.Instances.html#Data.Container.Applicative.Extension.Instances.ApplicativeRoseTree&apos;"><span class="name function">ApplicativeRoseTree&apos;</span></a>&ensp;:&ensp;<a class="type" href="Data.Container.Base.Product.Interfaces.html#Data.Container.Base.Product.Interfaces.TensorMonoid"><span class="name type">TensorMonoid</span></a>&ensp;<span class="boundvar">c</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="name type">Type</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd><pre>  Isomorphic to Data.Tree.ApplicativeRoseTree (TODO)</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Data.Container.Applicative.Extension.Instances.ApplicativeRoseTreeNode&apos;"><code><a class="type" href="Data.Container.Applicative.Extension.Instances.html#Data.Container.Applicative.Extension.Instances.ApplicativeRoseTreeNode&apos;"><span class="name function">ApplicativeRoseTreeNode&apos;</span></a>&ensp;:&ensp;<a class="type" href="Data.Container.Base.Product.Interfaces.html#Data.Container.Base.Product.Interfaces.TensorMonoid"><span class="name type">TensorMonoid</span></a>&ensp;<span class="boundvar">c</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="name type">Type</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Data.Container.Applicative.Extension.Instances.ApplicativeRoseTreeLeaf&apos;"><code><a class="type" href="Data.Container.Applicative.Extension.Instances.html#Data.Container.Applicative.Extension.Instances.ApplicativeRoseTreeLeaf&apos;"><span class="name function">ApplicativeRoseTreeLeaf&apos;</span></a>&ensp;:&ensp;<a class="type" href="Data.Container.Base.Product.Interfaces.html#Data.Container.Base.Product.Interfaces.TensorMonoid"><span class="name type">TensorMonoid</span></a>&ensp;<span class="boundvar">c</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="name type">Type</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Data.Container.Applicative.Extension.Instances.RoseTree&apos;"><code><a class="type" href="Data.Container.Applicative.Extension.Instances.html#Data.Container.Applicative.Extension.Instances.RoseTree&apos;"><span class="name function">RoseTree&apos;</span></a>&ensp;:&ensp;<span class="name type">Type</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd><pre>  Isomorphic to Data.Tree.RoseTree</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Data.Container.Applicative.Extension.Instances.RoseTreeNode&apos;"><code><a class="type" href="Data.Container.Applicative.Extension.Instances.html#Data.Container.Applicative.Extension.Instances.RoseTreeNode&apos;"><span class="name function">RoseTreeNode&apos;</span></a>&ensp;:&ensp;<span class="name type">Type</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd><pre>  Isomorphic to Data.Tree.RoseTreeNode (TODO)</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Data.Container.Applicative.Extension.Instances.RoseTreeLeaf&apos;"><code><a class="type" href="Data.Container.Applicative.Extension.Instances.html#Data.Container.Applicative.Extension.Instances.RoseTreeLeaf&apos;"><span class="name function">RoseTreeLeaf&apos;</span></a>&ensp;:&ensp;<span class="name type">Type</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd><pre>  Isomorphic to Data.Tree.RoseTreeLeaf (TODO)</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd></dl></div><footer>Produced by Idris 2 version 0.8.0-b714fcaea</footer></body></html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Data.CT.Category.Instances</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Data.CT.Category.Instances
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Data.CT.Category.Instances</h1><span style="float:right">(<a href="Data.CT.Category.Instances.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="Data.CT.Category.Instances.TypeCat"><code><a class="type" href="Data.CT.Category.Instances.html#Data.CT.Category.Instances.TypeCat"><span class="name function">TypeCat</span></a>&ensp;:&ensp;<a class="type" href="Data.CT.Category.Definition.html#Data.CT.Category.Definition.Cat"><span class="name type">Cat</span></a></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Data.CT.Category.Instances.Cat"><code><a class="type" href="Data.CT.Category.Instances.html#Data.CT.Category.Instances.Cat"><span class="name function">Cat</span></a>&ensp;:&ensp;<a class="type" href="Data.CT.Category.Definition.html#Data.CT.Category.Definition.Cat"><span class="name type">Cat</span></a></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Data.CT.Category.Instances.opCat"><code><a class="type" href="Data.CT.Category.Instances.html#Data.CT.Category.Instances.opCat"><span class="name function">opCat</span></a>&ensp;:&ensp;<a class="type" href="Data.CT.Category.Definition.html#Data.CT.Category.Definition.Cat"><span class="name type">Cat</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.CT.Category.Definition.html#Data.CT.Category.Definition.Cat"><span class="name type">Cat</span></a></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Data.CT.Category.Instances.DLens"><code><a class="type" href="Data.CT.Category.Instances.html#Data.CT.Category.Instances.DLens"><span class="name function">DLens</span></a>&ensp;:&ensp;<a class="type" href="Data.CT.Category.Definition.html#Data.CT.Category.Definition.Cat"><span class="name type">Cat</span></a></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Data.CT.Category.Instances.DChart"><code><a class="type" href="Data.CT.Category.Instances.html#Data.CT.Category.Instances.DChart"><span class="name function">DChart</span></a>&ensp;:&ensp;<a class="type" href="Data.CT.Category.Definition.html#Data.CT.Category.Definition.Cat"><span class="name type">Cat</span></a></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Data.CT.Category.Instances.AddDLens"><code><a class="type" href="Data.CT.Category.Instances.html#Data.CT.Category.Instances.AddDLens"><span class="name function">AddDLens</span></a>&ensp;:&ensp;<a class="type" href="Data.CT.Category.Definition.html#Data.CT.Category.Definition.Cat"><span class="name type">Cat</span></a></code></dt><dd><pre>  Category of additive dependent lenses</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Data.CT.Category.Instances.AddDChart"><code><a class="type" href="Data.CT.Category.Instances.html#Data.CT.Category.Instances.AddDChart"><span class="name function">AddDChart</span></a>&ensp;:&ensp;<a class="type" href="Data.CT.Category.Definition.html#Data.CT.Category.Definition.Cat"><span class="name type">Cat</span></a></code></dt><dd><pre>  Category of additive dependent charts</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd></dl></div><footer>Produced by Idris 2 version 0.8.0-b714fcaea</footer></body></html>

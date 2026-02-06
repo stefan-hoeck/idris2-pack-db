@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Data.CT.Functor.Instances</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Data.CT.Functor.Instances
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Data.CT.Functor.Instances</h1><span style="float:right">(<a href="Data.CT.Functor.Instances.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="Data.CT.Functor.Instances.id"><code><a class="type" href="Data.CT.Functor.Instances.html#Data.CT.Functor.Instances.id"><span class="name function">id</span></a>&ensp;:&ensp;<a class="type" href="Data.CT.Functor.Definition.html#Data.CT.Functor.Definition.Functor"><span class="name type">Functor</span></a>&ensp;<span class="boundvar">c</span>&ensp;<span class="boundvar">c</span></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Data.CT.Functor.Instances.IndCat"><code><a class="type" href="Data.CT.Functor.Instances.html#Data.CT.Functor.Instances.IndCat"><span class="name function">IndCat</span></a>&ensp;:&ensp;<a class="type" href="Data.CT.Category.Definition.html#Data.CT.Category.Definition.Cat"><span class="name type">Cat</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd><pre>  Functor Type -&gt; Cat^op</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Data.CT.Functor.Instances.Const"><code><a class="type" href="Data.CT.Functor.Instances.html#Data.CT.Functor.Instances.Const"><span class="name function">Const</span></a>&ensp;:&ensp;<a class="type" href="Data.CT.Functor.Instances.html#Data.CT.Functor.Instances.IndCat"><span class="name function">IndCat</span></a>&ensp;<span class="boundvar">c</span></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Data.CT.Functor.Instances.Fam.FamObj"><code><span class="type resolved" title="Data.CT.Functor.Instances.Fam.FamObj"><span class="name function">FamObj</span></span>&ensp;:&ensp;<span class="name type">Type</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.CT.Category.Definition.html#Data.CT.Category.Definition.Cat"><span class="name type">Cat</span></a></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Data.CT.Functor.Instances.Fam.FamMor"><code><span class="type resolved" title="Data.CT.Functor.Instances.Fam.FamMor"><span class="name function">FamMor</span></span>&ensp;:&ensp;(<span class="boundvar">x</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">y</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.CT.Functor.Definition.html#Data.CT.Functor.Definition.Functor"><span class="name type">Functor</span></a>&ensp;(<span class="type resolved" title="Data.CT.Functor.Instances.Fam.FamObj"><span class="name function">FamObj</span></span>&ensp;<span class="boundvar">y</span>)&ensp;(<span class="type resolved" title="Data.CT.Functor.Instances.Fam.FamObj"><span class="name function">FamObj</span></span>&ensp;<span class="boundvar">x</span>)</code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Data.CT.Functor.Instances.Fam.FamIndCat"><code><span class="type resolved" title="Data.CT.Functor.Instances.Fam.FamIndCat"><span class="name function">FamIndCat</span></span>&ensp;:&ensp;<a class="type" href="Data.CT.Functor.Instances.html#Data.CT.Functor.Instances.IndCat"><span class="name function">IndCat</span></a>&ensp;<a class="type" href="Data.CT.Category.Instances.html#Data.CT.Category.Instances.TypeCat"><span class="name function">TypeCat</span></a></code></dt><dd><pre>  We will mostly instantiate this for `c=TypeCat` <br>  Functor Type -&gt; Cat^op</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Data.CT.Functor.Instances.Base"><code><a class="type" href="Data.CT.Functor.Instances.html#Data.CT.Functor.Instances.Base"><span class="name function">Base</span></a>&ensp;:&ensp;<a class="type" href="Data.CT.Functor.Definition.html#Data.CT.Functor.Definition.Functor"><span class="name type">Functor</span></a>&ensp;<a class="type" href="Data.CT.Category.Instances.html#Data.CT.Category.Instances.DLens"><span class="name function">DLens</span></a>&ensp;<a class="type" href="Data.CT.Category.Instances.html#Data.CT.Category.Instances.TypeCat"><span class="name function">TypeCat</span></a></code></dt><dd><pre>  Functor which projects the forward part of a dependent lens</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Data.CT.Functor.Instances.FamDLens"><code><a class="type" href="Data.CT.Functor.Instances.html#Data.CT.Functor.Instances.FamDLens"><span class="name function">FamDLens</span></a>&ensp;:&ensp;<a class="type" href="Data.CT.Functor.Instances.html#Data.CT.Functor.Instances.IndCat"><span class="name function">IndCat</span></a>&ensp;<a class="type" href="Data.CT.Category.Instances.html#Data.CT.Category.Instances.DLens"><span class="name function">DLens</span></a></code></dt><dd><pre>  DLens -&gt; Type -&gt; Cat^op</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Data.CT.Functor.Instances.AddBase"><code><a class="type" href="Data.CT.Functor.Instances.html#Data.CT.Functor.Instances.AddBase"><span class="name function">AddBase</span></a>&ensp;:&ensp;<a class="type" href="Data.CT.Functor.Definition.html#Data.CT.Functor.Definition.Functor"><span class="name type">Functor</span></a>&ensp;<a class="type" href="Data.CT.Category.Instances.html#Data.CT.Category.Instances.AddDLens"><span class="name function">AddDLens</span></a>&ensp;<a class="type" href="Data.CT.Category.Instances.html#Data.CT.Category.Instances.TypeCat"><span class="name function">TypeCat</span></a></code></dt><dd><pre>  Functor which projects out the forward part of an additive dependent lens</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Data.CT.Functor.Instances.FamAddDLens"><code><a class="type" href="Data.CT.Functor.Instances.html#Data.CT.Functor.Instances.FamAddDLens"><span class="name function">FamAddDLens</span></a>&ensp;:&ensp;<a class="type" href="Data.CT.Functor.Instances.html#Data.CT.Functor.Instances.IndCat"><span class="name function">IndCat</span></a>&ensp;<a class="type" href="Data.CT.Category.Instances.html#Data.CT.Category.Instances.AddDLens"><span class="name function">AddDLens</span></a></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd></dl></div><footer>Produced by Idris 2 version 0.8.0-b714fcaea</footer></body></html>
