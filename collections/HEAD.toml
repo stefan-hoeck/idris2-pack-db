@@ -1092,6 +1092,12 @@ url    = "https://github.com/MarcelineVQ/idris2-timeit"
 commit = "main"
 ipkg   = "timeit.ipkg"
 
+[db.type-aligned]
+type   = "github"
+url    = "https://gitlab.com/bss03/type-aligned"
+commit = "main"
+ipkg   = "type-aligned.ipkg"
+
 [db.tyttp]
 type   = "github"
 url    = "https://github.com/kbertalan/tyttp"
