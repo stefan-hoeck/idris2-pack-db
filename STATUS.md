@@ -149,7 +149,6 @@
 | [pg-idris](https://github.com/mattpolzin/pg-idris) | Postgres support for Idris 2 programs compiled with the Chez Scheme or NodeJS backends. | MIT | [509bc46](https://github.com/mattpolzin/pg-idris/commit/509bc468c9b30cdd0e7f554deeec9cf1b0832863) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-db/docs/pg-idris/docs/index.html) |
 | [pg-types](https://git.sr.ht/~janus/pg-types) | Data types for PostgreSQL clients. Also miscellaneous Bits32 to/from big-endian coding. Used in the pg and http2 packages. |  | [b854bbc](https://git.sr.ht/~janus/pg-types/commit/b854bbcfb5e9e303d836d9b5a733b0060eb9e90a) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-db/docs/pg-types/docs/index.html) |
 | [pipelines](https://gitlab.com/glaive-research/pipelines.git) |  |  | [a931a12](https://gitlab.com/glaive-research/pipelines.git/commit/a931a12b0fc3656ad279368deb4428cb2b38c144) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-db/docs/pipelines/docs/index.html) |
-| [pjrt-plugin-xla-cpu](https://codeberg.org/joelberkeley/spidr) | XLA PJRT plugin for CPU. | AGPL-3.0-or-later | [5a9755e](https://codeberg.org/joelberkeley/spidr/commit/5a9755ea387772e36f7bd316321c5bd1037c96ce) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-db/docs/pjrt-plugin-xla-cpu/docs/index.html) |
 | [pjrt-plugin-xla-cuda](https://codeberg.org/joelberkeley/spidr) | XLA PJRT plugin for CUDA-enabled GPUs. | AGPL-3.0-or-later | [5a9755e](https://codeberg.org/joelberkeley/spidr/commit/5a9755ea387772e36f7bd316321c5bd1037c96ce) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-db/docs/pjrt-plugin-xla-cuda/docs/index.html) |
 | [positive-nat](https://github.com/buzden/idris2-positive-nat) | Strictly positive natural number data type | Apache-2.0 | [6f0858b](https://github.com/buzden/idris2-positive-nat/commit/6f0858bc2158059231110babd02fa40b6ea3ff21) | success | [docs](https://stefan-hoeck.github.io/idris2-pack-db/docs/positive-nat/docs/index.html) |
 | [posix](https://github.com/stefan-hoeck/idris2-linux) | POSIX compliant system calls |  | [4d5d452](https://github.com/stefan-hoeck/idris2-linux/commit/4d5d4521fba1c9d5d771aaaee79cf50e9c893f26) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-db/docs/posix/docs/index.html) |
@@ -230,6 +229,7 @@
 
 | Package | Dependencies | Commit |
 | --- | --- | --- |
+| [pjrt-plugin-xla-cpu](https://codeberg.org/joelberkeley/spidr) |  | [5a9755e](https://codeberg.org/joelberkeley/spidr/commit/5a9755ea387772e36f7bd316321c5bd1037c96ce) |
 
 
 ## Unresolved Packages
