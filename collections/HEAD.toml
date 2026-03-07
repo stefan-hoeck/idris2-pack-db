@@ -894,6 +894,7 @@ url    = "https://github.com/stefan-hoeck/idris2-rio"
 commit = "main"
 ipkg   = "rio.ipkg"
 test   = "test.ipkg"
+notice = "DEPRECATED. Package rio is no longer maintained. Consider using async for a much more powerful effect type"
 
 [db.scram]
 type   = "github"
@@ -952,6 +953,13 @@ type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-sqlite3"
 commit = "main"
 ipkg   = "sqlite3-rio/sqlite3-rio.ipkg"
+notice = "DEPRECATED. Use sqlite3-streams instead"
+
+[db.sqlite3-streams]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-sqlite3"
+commit = "main"
+ipkg   = "sqlite3-streams/sqlite3-streams.ipkg"
 
 [db.stellar-api]
 type   = "git"
