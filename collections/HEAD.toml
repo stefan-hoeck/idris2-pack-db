@@ -319,6 +319,20 @@ commit = "main"
 ipkg   = "epoll.ipkg"
 test   = "tests/test.ipkg"
 
+[db.evince]
+type   = "github"
+url    = "https://github.com/bio-aeon/evince"
+commit = "main"
+ipkg   = "evince/evince.ipkg"
+test   = "evince/test/test.ipkg"
+
+[db.evince-hedgehog]
+type   = "github"
+url    = "https://github.com/bio-aeon/evince"
+commit = "main"
+ipkg   = "evince-hedgehog/evince-hedgehog.ipkg"
+test   = "evince-hedgehog/test/test.ipkg"
+
 [db.extrafun]
 type   = "github"
 url    = "https://github.com/jcranch/extrafun"
