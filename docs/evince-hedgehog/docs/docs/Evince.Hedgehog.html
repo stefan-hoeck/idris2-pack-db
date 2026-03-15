@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Evince.Hedgehog</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Evince.Hedgehog
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Evince.Hedgehog</h1><span style="float:right">(<a href="Evince.Hedgehog.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="Evince.Hedgehog.prop"><code><a class="type" href="Evince.Hedgehog.html#Evince.Hedgehog.prop"><span class="name function">prop</span></a>&ensp;:&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Hedgehog.Internal.Property.Property"><span class="name type">Property</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Evince.Core.Spec"><span class="name type">Spec</span></span>&ensp;<span class="boundvar">a</span>&ensp;()</code></dt><dd><pre>  Embed a hedgehog Property as an evince test case.</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Evince.Hedgehog.itProp"><code><a class="type" href="Evince.Hedgehog.html#Evince.Hedgehog.itProp"><span class="name function">itProp</span></a>&ensp;:&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Hedgehog.Internal.Property.PropertyT"><span class="name function">PropertyT</span></span>&ensp;()&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Evince.Core.Spec"><span class="name type">Spec</span></span>&ensp;<span class="boundvar">a</span>&ensp;()</code></dt><dd><pre>  Embed a PropertyT action (wraps in `property`).</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Evince.Hedgehog.itProp1"><code><a class="type" href="Evince.Hedgehog.html#Evince.Hedgehog.itProp1"><span class="name function">itProp1</span></a>&ensp;:&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Hedgehog.Internal.Property.PropertyT"><span class="name function">PropertyT</span></span>&ensp;()&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Evince.Core.Spec"><span class="name type">Spec</span></span>&ensp;<span class="boundvar">a</span>&ensp;()</code></dt><dd><pre>  Embed a single-run property (wraps in `property1`).</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd></dl></div><footer>Produced by Idris 2 version 0.8.0-ed88eddb1</footer></body></html>
