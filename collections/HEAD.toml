@@ -312,6 +312,18 @@ url  = "https://github.com/stefan-hoeck/idris2-elin"
 commit = "main"
 ipkg = "elin.ipkg"
 
+[db.emkit-sourcing]
+type = "github"
+url  = "https://github.com/isberg/idris2-event-modeling-kit"
+commit = "main"
+ipkg = "emkit-sourcing.ipkg"
+
+[db.emkit-store]
+type = "github"
+url  = "https://github.com/isberg/idris2-event-modeling-kit"
+commit = "main"
+ipkg = "emkit-store.ipkg"
+
 [db.epoll]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-epoll"
