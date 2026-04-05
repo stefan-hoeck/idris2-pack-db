@@ -1064,6 +1064,12 @@ url    = "https://github.com/bgavran/TensorType"
 commit = "main"
 ipkg   = "tensortype.ipkg"
 
+[db.text-markdown]
+type   = "github"
+url    = "https://codeberg.org/berg4478/idris2-text-markdown"
+commit = "main"
+ipkg   = "idris2-text-markdown.ipkg"
+
 [db.time-for-sleep]
 type   = "github"
 url    = "https://github.com/buzden/idris2-time-for-sleep"
