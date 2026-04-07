@@ -603,10 +603,11 @@ commit      = "main"
 ipkg        = "lsp-lib.ipkg"
 
 [db.markdown]
-type = "github"
-url  = "https://github.com/running-grass/idris2-markdown"
+type   = "github"
+url    = "https://codeberg.org/berg4478/idris2-text-markdown"
 commit = "main"
-ipkg = "markdown.ipkg"
+ipkg   = "idris2-text-markdown.ipkg"
+tests  = "test/test.ipkg"
 
 [db.mk]
 type   = "git"
@@ -1063,12 +1064,6 @@ type   = "github"
 url    = "https://github.com/bgavran/TensorType"
 commit = "main"
 ipkg   = "tensortype.ipkg"
-
-[db.text-markdown]
-type   = "github"
-url    = "https://codeberg.org/berg4478/idris2-text-markdown"
-commit = "main"
-ipkg   = "idris2-text-markdown.ipkg"
 
 [db.time-for-sleep]
 type   = "github"
