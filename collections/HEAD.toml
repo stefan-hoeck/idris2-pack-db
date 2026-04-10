@@ -606,7 +606,7 @@ ipkg        = "lsp-lib.ipkg"
 type   = "github"
 url    = "https://codeberg.org/berg4478/idris2-text-markdown"
 commit = "main"
-ipkg   = "idris2-markdown.ipkg"
+ipkg   = "markdown.ipkg"
 tests  = "test/test.ipkg"
 
 [db.mk]
