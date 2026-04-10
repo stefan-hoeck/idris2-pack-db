@@ -426,7 +426,7 @@ ipkg   = "hashable.ipkg"
 
 [db.hashable-derive]
 type = "github"
-url = "https://github.com//uartman/hashable-derive"
+url = "https://github.com/uartman/hashable-derive"
 commit = "main"
 ipkg = "hashable-derive.ipkg"
 
