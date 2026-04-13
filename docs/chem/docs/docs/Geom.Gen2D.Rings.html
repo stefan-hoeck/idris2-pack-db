@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Geom.Gen2D.Rings</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Geom.Gen2D.Rings
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Geom.Gen2D.Rings</h1><span style="float:right">(<a href="Geom.Gen2D.Rings.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="Geom.Gen2D.Rings.placeRing"><code><a class="type" href="Geom.Gen2D.Rings.html#Geom.Gen2D.Rings.placeRing"><span class="name function">placeRing</span></a>&ensp;:&ensp;<span class="type resolved" title="Data.Linear.Token.DebugFlag"><span class="name type">DebugFlag</span></span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="type resolved" title="Prelude.Cast.Cast"><span class="name type">Cast</span></span>&ensp;<span class="boundvar">n</span>&ensp;<a class="type" href="Chem.Elem.html#Chem.Elem.Elem"><span class="name type">Elem</span></a>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="type resolved" title="Prelude.Cast.Cast"><span class="name type">Cast</span></span>&ensp;<span class="boundvar">n</span>&ensp;<a class="type" href="Chem.Types.html#Chem.Types.Hybridization"><span class="name type">Hybridization</span></a>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="type resolved" title="Data.Graph.Indexed.Types.IGraph"><span class="name type">IGraph</span></span>&ensp;<span class="boundvar">k</span>&ensp;<span class="boundvar">e</span>&ensp;<span class="boundvar">n</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Geom.Gen2D.State.html#Geom.Gen2D.State.PlaceST"><span class="name type">PlaceST</span></a>&ensp;<span class="boundvar">s</span>&ensp;<span class="boundvar">k</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<a class="type" href="Geom.Gen2D.Types.html#Geom.Gen2D.Types.AttachPoint"><span class="name type">AttachPoint</span></a>&ensp;<span class="boundvar">k</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;(<span class="type resolved" title="Data.Fin.Fin"><span class="name type">Fin</span></span>&ensp;<span class="boundvar">k</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Data.Graph.Indexed.Subgraph.Subgraph"><span class="name function">Subgraph</span></span>&ensp;<span class="boundvar">k</span>&ensp;<span class="boundvar">e</span>&ensp;<span class="boundvar">n</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Data.Linear.Token.F1&apos;"><span class="name function">F1&apos;</span></span>&ensp;<span class="boundvar">s</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd></dl></div><footer>Produced by Idris 2 version 0.8.0-19a3f4ec0</footer></body></html>
