@@ -1358,3 +1358,10 @@ url    = "https://github.com/Matthew-Mosior/idris2-bioinformatics"
 commit = "main"
 ipkg   = "fasta/ilex-fasta.ipkg"
 test   = "test/test.ipkg"
+
+[db.idris2-dep-graph]
+type   = "git"
+url    = "https://codeberg.org/tzemanovic/idris2-dep-graph"
+commit = "main"
+ipkg   = "idris2-dep-graph.ipkg"
+test   = "test/test.ipkg"
