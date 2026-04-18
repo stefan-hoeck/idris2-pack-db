@@ -589,6 +589,27 @@ url    = "https://github.com/stefan-hoeck/idris2-literal"
 commit = "main"
 ipkg   = "literal.ipkg"
 
+[db.log4types]
+type   = "github"
+url    = "https://github.com/bio-aeon/log4types"
+commit = "main"
+ipkg   = "log4types/log4types.ipkg"
+test   = "log4types/test/test.ipkg"
+
+[db.log4types-core]
+type   = "github"
+url    = "https://github.com/bio-aeon/log4types"
+commit = "main"
+ipkg   = "log4types-core/log4types-core.ipkg"
+test   = "log4types-core/test/test.ipkg"
+
+[db.log4types-json]
+type   = "github"
+url    = "https://github.com/bio-aeon/log4types"
+commit = "main"
+ipkg   = "log4types-json/log4types-json.ipkg"
+test   = "log4types-json/test/test.ipkg"
+
 [db.idris2-lsp]
 type        = "github"
 url         = "https://github.com/idris-community/idris2-lsp"
