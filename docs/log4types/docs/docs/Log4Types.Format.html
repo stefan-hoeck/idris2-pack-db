@@ -1,0 +1,65 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Log4Types.Format</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Log4Types.Format
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Log4Types.Format</h1><span style="float:right">(<a href="Log4Types.Format.src.html">source</a>)</span><pre>Human-readable text formatting for log output.
+</pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="Log4Types.Format.textRenderer"><code><a class="type" href="Log4Types.Format.html#Log4Types.Format.textRenderer"><span class="name function">textRenderer</span></a>&ensp;:&ensp;<span class="type resolved" title="Log4Types.Core.Renderer.LogRenderer"><span class="name type">LogRenderer</span></span>&ensp;<span class="name type">String</span></code></dt><dd><pre>  A LogRenderer that builds key=value text output.<br>  <br>  Fields are rendered as `key=value` pairs separated by spaces.<br>  Nested objects are rendered as `key.subkey=value`.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Log4Types.Format.fmtSeverity"><code><a class="type" href="Log4Types.Format.html#Log4Types.Format.fmtSeverity"><span class="name function">fmtSeverity</span></a>&ensp;:&ensp;<span class="type resolved" title="Log4Types.Core.Severity.Severity"><span class="name type">Severity</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">String</span></code></dt><dd><pre>  Format a severity level as a bracketed tag.<br>  <br>  ```idris<br>  fmtSeverity Info == &quot;[INFO]&quot;<br>  ```</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Log4Types.Format.formatWith"><code><a class="type" href="Log4Types.Format.html#Log4Types.Format.formatWith"><span class="name function">formatWith</span></a>&ensp;:&ensp;(<span class="boundvar">msg</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">String</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Log4Types.Core.Action.LogAction"><span class="name type">LogAction</span></span>&ensp;<span class="boundvar">m</span>&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Log4Types.Core.Action.LogAction"><span class="name type">LogAction</span></span>&ensp;<span class="boundvar">m</span>&ensp;<span class="boundvar">msg</span></code></dt><dd><pre>  Compose a formatting function with a string log action.<br>  <br>  This is `cmap` specialised for the common pattern of<br>  formatting a message then sending it to a string-based logger.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd></dl></div><footer>Produced by Idris 2 version 0.8.0-214eb4547</footer></body></html>

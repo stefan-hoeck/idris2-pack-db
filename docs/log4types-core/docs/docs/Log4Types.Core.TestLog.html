@@ -1,0 +1,68 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Log4Types.Core.TestLog</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Log4Types.Core.TestLog
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Log4Types.Core.TestLog</h1><span style="float:right">(<a href="Log4Types.Core.TestLog.src.html">source</a>)</span><pre>In-memory logging for testing.
+
+`TestLog` captures log messages in an `IORef` so tests can assert
+on what was logged without IO side effects like writing to stdout.
+</pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="Log4Types.Core.TestLog.TestLog"><code><span class="keyword">record</span>&ensp;<a class="type" href="Log4Types.Core.TestLog.html#Log4Types.Core.TestLog.TestLog"><span class="name type">TestLog</span></a>&ensp;:&ensp;<span class="name type">Type</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd><pre>  An in-memory log sink that accumulates messages.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span><br>  <b>Constructor</b>:&ensp;<dl class="decls"><dt id="Log4Types.Core.TestLog.MkTestLog"><code><a class="type" href="Log4Types.Core.TestLog.html#Log4Types.Core.TestLog.MkTestLog"><span class="name constructor">MkTestLog</span></a>&ensp;:&ensp;<span class="type resolved" title="Data.IORef.IORef"><span class="name type">IORef</span></span>&ensp;(<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;<span class="boundvar">msg</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Log4Types.Core.TestLog.html#Log4Types.Core.TestLog.TestLog"><span class="name type">TestLog</span></a>&ensp;<span class="boundvar">msg</span></code></dt></dl><br>  <b>Projection</b>:&ensp;<dl class="decls"><dt id="Log4Types.Core.TestLog.TestLog.(.messages)"><code><span class="type resolved" title="Log4Types.Core.TestLog.TestLog.(.messages)"><span class="name function">.messages</span></span>&ensp;:&ensp;<a class="type" href="Log4Types.Core.TestLog.html#Log4Types.Core.TestLog.TestLog"><span class="name type">TestLog</span></a>&ensp;<span class="boundvar">msg</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Data.IORef.IORef"><span class="name type">IORef</span></span>&ensp;(<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;<span class="boundvar">msg</span>)</code></dt></dl></dd><dt id="Log4Types.Core.TestLog.TestLog.(.messages)"><code><span class="type resolved" title="Log4Types.Core.TestLog.TestLog.(.messages)"><span class="name function">.messages</span></span>&ensp;:&ensp;<a class="type" href="Log4Types.Core.TestLog.html#Log4Types.Core.TestLog.TestLog"><span class="name type">TestLog</span></a>&ensp;<span class="boundvar">msg</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Data.IORef.IORef"><span class="name type">IORef</span></span>&ensp;(<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;<span class="boundvar">msg</span>)</code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Log4Types.Core.TestLog.TestLog.messages"><code><span class="type resolved" title="Log4Types.Core.TestLog.TestLog.messages"><span class="name function">messages</span></span>&ensp;:&ensp;<a class="type" href="Log4Types.Core.TestLog.html#Log4Types.Core.TestLog.TestLog"><span class="name type">TestLog</span></a>&ensp;<span class="boundvar">msg</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Data.IORef.IORef"><span class="name type">IORef</span></span>&ensp;(<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;<span class="boundvar">msg</span>)</code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Log4Types.Core.TestLog.newTestLog"><code><a class="type" href="Log4Types.Core.TestLog.html#Log4Types.Core.TestLog.newTestLog"><span class="name function">newTestLog</span></a>&ensp;:&ensp;<span class="type resolved" title="Prelude.IO.HasIO"><span class="name type">HasIO</span></span>&ensp;<span class="boundvar">io</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="boundvar">io</span>&ensp;(<a class="type" href="Log4Types.Core.TestLog.html#Log4Types.Core.TestLog.TestLog"><span class="name type">TestLog</span></a>&ensp;<span class="boundvar">msg</span>)</code></dt><dd><pre>  Create a new empty TestLog.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Log4Types.Core.TestLog.getMessages"><code><a class="type" href="Log4Types.Core.TestLog.html#Log4Types.Core.TestLog.getMessages"><span class="name function">getMessages</span></a>&ensp;:&ensp;<span class="type resolved" title="Prelude.IO.HasIO"><span class="name type">HasIO</span></span>&ensp;<span class="boundvar">io</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<a class="type" href="Log4Types.Core.TestLog.html#Log4Types.Core.TestLog.TestLog"><span class="name type">TestLog</span></a>&ensp;<span class="boundvar">msg</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">io</span>&ensp;(<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;<span class="boundvar">msg</span>)</code></dt><dd><pre>  Retrieve captured messages in the order they were logged.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Log4Types.Core.TestLog.testLogAction"><code><a class="type" href="Log4Types.Core.TestLog.html#Log4Types.Core.TestLog.testLogAction"><span class="name function">testLogAction</span></a>&ensp;:&ensp;<span class="type resolved" title="Prelude.IO.HasIO"><span class="name type">HasIO</span></span>&ensp;<span class="boundvar">io</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<a class="type" href="Log4Types.Core.TestLog.html#Log4Types.Core.TestLog.TestLog"><span class="name type">TestLog</span></a>&ensp;<span class="boundvar">msg</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Log4Types.Core.Action.html#Log4Types.Core.Action.LogAction"><span class="name type">LogAction</span></a>&ensp;<span class="boundvar">io</span>&ensp;<span class="boundvar">msg</span></code></dt><dd><pre>  A LogAction that appends messages to a TestLog.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Log4Types.Core.TestLog.withTestLog"><code><a class="type" href="Log4Types.Core.TestLog.html#Log4Types.Core.TestLog.withTestLog"><span class="name function">withTestLog</span></a>&ensp;:&ensp;<span class="type resolved" title="Prelude.IO.HasIO"><span class="name type">HasIO</span></span>&ensp;<span class="boundvar">io</span>&ensp;<span class="keyword">=&gt;</span>&ensp;(<a class="type" href="Log4Types.Core.Action.html#Log4Types.Core.Action.LogAction"><span class="name type">LogAction</span></a>&ensp;<span class="boundvar">io</span>&ensp;<span class="boundvar">msg</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">io</span>&ensp;<span class="boundvar">a</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">io</span>&ensp;(<span class="boundvar">a</span>,&ensp;<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;<span class="boundvar">msg</span>)</code></dt><dd><pre>  Create a TestLog, run an action with it, and return captured messages.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd></dl></div><footer>Produced by Idris 2 version 0.8.0-214eb4547</footer></body></html>

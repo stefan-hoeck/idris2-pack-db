@@ -1,0 +1,69 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Log4Types.Core.Value</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Log4Types.Core.Value
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Log4Types.Core.Value</h1><span style="float:right">(<a href="Log4Types.Core.Value.src.html">source</a>)</span><pre>Typed primitive values for structured log fields.
+
+`LogParamValue` preserves type fidelity so that numbers remain
+numbers and booleans remain booleans in structured output (e.g. JSON),
+rather than everything being stringified.
+</pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="Log4Types.Core.Value.LogParamValue"><code><span class="keyword">data</span>&ensp;<a class="type" href="Log4Types.Core.Value.html#Log4Types.Core.Value.LogParamValue"><span class="name type">LogParamValue</span></a>&ensp;:&ensp;<span class="name type">Type</span></code></dt><dd><pre>  A primitive value that can appear in a structured log field.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span><br>  <b>Constructors</b>:<br><dl class="decls">  <dt id="Log4Types.Core.Value.StrVal"><code><a class="type" href="Log4Types.Core.Value.html#Log4Types.Core.Value.StrVal"><span class="name constructor">StrVal</span></a>&ensp;:&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Log4Types.Core.Value.html#Log4Types.Core.Value.LogParamValue"><span class="name type">LogParamValue</span></a></code></dt>  <dt id="Log4Types.Core.Value.IntVal"><code><a class="type" href="Log4Types.Core.Value.html#Log4Types.Core.Value.IntVal"><span class="name constructor">IntVal</span></a>&ensp;:&ensp;<span class="name type">Integer</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Log4Types.Core.Value.html#Log4Types.Core.Value.LogParamValue"><span class="name type">LogParamValue</span></a></code></dt>  <dt id="Log4Types.Core.Value.FloatVal"><code><a class="type" href="Log4Types.Core.Value.html#Log4Types.Core.Value.FloatVal"><span class="name constructor">FloatVal</span></a>&ensp;:&ensp;<span class="name type">Double</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Log4Types.Core.Value.html#Log4Types.Core.Value.LogParamValue"><span class="name type">LogParamValue</span></a></code></dt>  <dt id="Log4Types.Core.Value.BoolVal"><code><a class="type" href="Log4Types.Core.Value.html#Log4Types.Core.Value.BoolVal"><span class="name constructor">BoolVal</span></a>&ensp;:&ensp;<span class="type resolved" title="Prelude.Basics.Bool"><span class="name type">Bool</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Log4Types.Core.Value.html#Log4Types.Core.Value.LogParamValue"><span class="name type">LogParamValue</span></a></code></dt>  <dt id="Log4Types.Core.Value.NullVal"><code><a class="type" href="Log4Types.Core.Value.html#Log4Types.Core.Value.NullVal"><span class="name constructor">NullVal</span></a>&ensp;:&ensp;<a class="type" href="Log4Types.Core.Value.html#Log4Types.Core.Value.LogParamValue"><span class="name type">LogParamValue</span></a></code></dt></dl><br>  <b>Hints</b>:<br><dl class="decls">  <dt id="$resolved358"><code><span class="type resolved" title="Prelude.EqOrd.Eq"><span class="name type">Eq</span></span>&ensp;<a class="type" href="Log4Types.Core.Value.html#Log4Types.Core.Value.LogParamValue"><span class="name type">LogParamValue</span></a></code></dt>  <dt id="$resolved2893"><code><a class="type" href="Log4Types.Core.Loggable.html#Log4Types.Core.Loggable.Loggable"><span class="name type">Loggable</span></a>&ensp;<a class="type" href="Log4Types.Core.Value.html#Log4Types.Core.Value.LogParamValue"><span class="name type">LogParamValue</span></a></code></dt>  <dt id="$resolved357"><code><span class="type resolved" title="Prelude.Show.Show"><span class="name type">Show</span></span>&ensp;<a class="type" href="Log4Types.Core.Value.html#Log4Types.Core.Value.LogParamValue"><span class="name type">LogParamValue</span></a></code></dt></dl></dd></dl></div><footer>Produced by Idris 2 version 0.8.0-214eb4547</footer></body></html>

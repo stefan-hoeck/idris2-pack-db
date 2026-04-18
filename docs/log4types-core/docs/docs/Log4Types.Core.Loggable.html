@@ -1,0 +1,69 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Log4Types.Core.Loggable</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Log4Types.Core.Loggable
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Log4Types.Core.Loggable</h1><span style="float:right">(<a href="Log4Types.Core.Loggable.src.html">source</a>)</span><pre>The Loggable interface for structured log values.
+
+`Loggable` describes how a type renders into structured log fields,
+independent of the output format. A single `Loggable` instance works
+with any `LogRenderer` -- JSON, text, key-value pairs, etc.
+</pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="Log4Types.Core.Loggable.Loggable"><code><span class="keyword">interface</span>&ensp;<a class="type" href="Log4Types.Core.Loggable.html#Log4Types.Core.Loggable.Loggable"><span class="name type">Loggable</span></a>&ensp;:&ensp;<span class="name type">Type</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd><pre>  Typeclass for types that can be rendered as structured log data.<br>  <br>  Implement `logFields` to describe how your type contributes fields<br>  to a log entry, and `logShow` for human-readable display.</pre><br>  <b>Parameters</b>:&ensp;a<br><b>Methods</b>:<br><dl class="decls">  <dt id="Log4Types.Core.Loggable.logFields"><code><a class="type" href="Log4Types.Core.Loggable.html#Log4Types.Core.Loggable.logFields"><span class="name function">logFields</span></a>&ensp;:&ensp;<a class="type" href="Log4Types.Core.Renderer.html#Log4Types.Core.Renderer.LogRenderer"><span class="name type">LogRenderer</span></a>&ensp;<span class="boundvar">r</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">r</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">r</span></code></dt><dd><pre>  Render all structured fields of this value into the renderer.</pre></dd>  <dt id="Log4Types.Core.Loggable.logShow"><code><a class="type" href="Log4Types.Core.Loggable.html#Log4Types.Core.Loggable.logShow"><span class="name function">logShow</span></a>&ensp;:&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">String</span></code></dt><dd><pre>  Human-readable string representation for log messages.</pre></dd></dl><br><b>Implementations</b>:<br><dl class="decls">  <dt id="$resolved2891"><code><a class="type" href="Log4Types.Core.Loggable.html#Log4Types.Core.Loggable.Loggable"><span class="name type">Loggable</span></a>&ensp;<span class="name type">String</span></code></dt>  <dt id="$resolved2895"><code><a class="type" href="Log4Types.Core.Loggable.html#Log4Types.Core.Loggable.Loggable"><span class="name type">Loggable</span></a>&ensp;<span class="name type">Int</span></code></dt>  <dt id="$resolved2894"><code><a class="type" href="Log4Types.Core.Loggable.html#Log4Types.Core.Loggable.Loggable"><span class="name type">Loggable</span></a>&ensp;<span class="name type">Integer</span></code></dt>  <dt id="$resolved2892"><code><a class="type" href="Log4Types.Core.Loggable.html#Log4Types.Core.Loggable.Loggable"><span class="name type">Loggable</span></a>&ensp;<span class="type resolved" title="Prelude.Types.Nat"><span class="name type">Nat</span></span></code></dt>  <dt id="$resolved2896"><code><a class="type" href="Log4Types.Core.Loggable.html#Log4Types.Core.Loggable.Loggable"><span class="name type">Loggable</span></a>&ensp;<span class="name type">Double</span></code></dt>  <dt id="$resolved2897"><code><a class="type" href="Log4Types.Core.Loggable.html#Log4Types.Core.Loggable.Loggable"><span class="name type">Loggable</span></a>&ensp;<span class="type resolved" title="Prelude.Basics.Bool"><span class="name type">Bool</span></span></code></dt>  <dt id="$resolved2898"><code><a class="type" href="Log4Types.Core.Loggable.html#Log4Types.Core.Loggable.Loggable"><span class="name type">Loggable</span></a>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<a class="type" href="Log4Types.Core.Loggable.html#Log4Types.Core.Loggable.Loggable"><span class="name type">Loggable</span></a>&ensp;(<span class="type resolved" title="Prelude.Types.Maybe"><span class="name type">Maybe</span></span>&ensp;<span class="boundvar">a</span>)</code></dt>  <dt id="$resolved2899"><code><a class="type" href="Log4Types.Core.Loggable.html#Log4Types.Core.Loggable.Loggable"><span class="name type">Loggable</span></a>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<a class="type" href="Log4Types.Core.Loggable.html#Log4Types.Core.Loggable.Loggable"><span class="name type">Loggable</span></a>&ensp;(<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;<span class="boundvar">a</span>)</code></dt>  <dt id="$resolved2893"><code><a class="type" href="Log4Types.Core.Loggable.html#Log4Types.Core.Loggable.Loggable"><span class="name type">Loggable</span></a>&ensp;<a class="type" href="Log4Types.Core.Value.html#Log4Types.Core.Value.LogParamValue"><span class="name type">LogParamValue</span></a></code></dt></dl></dd><dt id="Log4Types.Core.Loggable.logFields"><code><a class="type" href="Log4Types.Core.Loggable.html#Log4Types.Core.Loggable.logFields"><span class="name function">logFields</span></a>&ensp;:&ensp;<a class="type" href="Log4Types.Core.Loggable.html#Log4Types.Core.Loggable.Loggable"><span class="name type">Loggable</span></a>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<a class="type" href="Log4Types.Core.Renderer.html#Log4Types.Core.Renderer.LogRenderer"><span class="name type">LogRenderer</span></a>&ensp;<span class="boundvar">r</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">r</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">r</span></code></dt><dd><pre>  Render all structured fields of this value into the renderer.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Log4Types.Core.Loggable.logShow"><code><a class="type" href="Log4Types.Core.Loggable.html#Log4Types.Core.Loggable.logShow"><span class="name function">logShow</span></a>&ensp;:&ensp;<a class="type" href="Log4Types.Core.Loggable.html#Log4Types.Core.Loggable.Loggable"><span class="name type">Loggable</span></a>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">String</span></code></dt><dd><pre>  Human-readable string representation for log messages.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Log4Types.Core.Loggable.LoggedValue"><code><span class="keyword">data</span>&ensp;<a class="type" href="Log4Types.Core.Loggable.html#Log4Types.Core.Loggable.LoggedValue"><span class="name type">LoggedValue</span></a>&ensp;:&ensp;<span class="name type">Type</span></code></dt><dd><pre>  An existentially-wrapped loggable value.<br>  <br>  Packages a value together with its `Loggable` evidence so it can<br>  be stored in heterogeneous collections and passed without carrying<br>  the type parameter.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span><br>  <b>Constructor</b>:&ensp;<dl class="decls"><dt id="Log4Types.Core.Loggable.MkLoggedValue"><code><a class="type" href="Log4Types.Core.Loggable.html#Log4Types.Core.Loggable.MkLoggedValue"><span class="name constructor">MkLoggedValue</span></a>&ensp;:&ensp;<a class="type" href="Log4Types.Core.Loggable.html#Log4Types.Core.Loggable.Loggable"><span class="name type">Loggable</span></a>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Log4Types.Core.Loggable.html#Log4Types.Core.Loggable.LoggedValue"><span class="name type">LoggedValue</span></a></code></dt></dl><br>  <b>Hint</b>:&ensp;<dl class="decls"><dt id="$resolved2890"><code><span class="type resolved" title="Prelude.Show.Show"><span class="name type">Show</span></span>&ensp;<a class="type" href="Log4Types.Core.Loggable.html#Log4Types.Core.Loggable.LoggedValue"><span class="name type">LoggedValue</span></a></code></dt></dl></dd><dt id="Log4Types.Core.Loggable.loggedValueFields"><code><a class="type" href="Log4Types.Core.Loggable.html#Log4Types.Core.Loggable.loggedValueFields"><span class="name function">loggedValueFields</span></a>&ensp;:&ensp;<a class="type" href="Log4Types.Core.Renderer.html#Log4Types.Core.Renderer.LogRenderer"><span class="name type">LogRenderer</span></a>&ensp;<span class="boundvar">r</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Log4Types.Core.Loggable.html#Log4Types.Core.Loggable.LoggedValue"><span class="name type">LoggedValue</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">r</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">r</span></code></dt><dd><pre>  Render the fields of a LoggedValue using the given renderer.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Log4Types.Core.Loggable.loggedValueShow"><code><a class="type" href="Log4Types.Core.Loggable.html#Log4Types.Core.Loggable.loggedValueShow"><span class="name function">loggedValueShow</span></a>&ensp;:&ensp;<a class="type" href="Log4Types.Core.Loggable.html#Log4Types.Core.Loggable.LoggedValue"><span class="name type">LoggedValue</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">String</span></code></dt><dd><pre>  Show a LoggedValue using its Loggable instance.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd></dl></div><footer>Produced by Idris 2 version 0.8.0-214eb4547</footer></body></html>
