@@ -134,16 +134,69 @@
 <div id="line13"><a href="#line13" class="IdrisLineNumber"> 13 | </a><span class="IdrisComment">You&nbsp;should&nbsp;have&nbsp;received&nbsp;a&nbsp;copy&nbsp;of&nbsp;the&nbsp;GNU&nbsp;Affero&nbsp;General&nbsp;Public&nbsp;License</span></div>
 <div id="line14"><a href="#line14" class="IdrisLineNumber"> 14 | </a><span class="IdrisComment">along&nbsp;with&nbsp;this&nbsp;program.&nbsp;&nbsp;If&nbsp;not,&nbsp;see&nbsp;&lt;https://www.gnu.org/licenses/&gt;.</span></div>
 <div id="line15"><a href="#line15" class="IdrisLineNumber"> 15 | </a><span class="IdrisComment">--}</span></div>
-<div id="line16"><a href="#line16" class="IdrisLineNumber"> 16 | </a><span class="IdrisComment">|||&nbsp;Defines&nbsp;`Device`,&nbsp;which&nbsp;encapsulates&nbsp;the&nbsp;graph&nbsp;compiler&nbsp;and&nbsp;hardware&nbsp;support.</span></div>
-<div id="line17"><a href="#line17" class="IdrisLineNumber"> 17 | </a><span class="IdrisKeyword">module</span>&nbsp;<span class="IdrisModule">Device</span></div>
-<div id="line18"><a href="#line18" class="IdrisLineNumber"> 18 | </a></div>
-<div id="line19"><a href="#line19" class="IdrisLineNumber"> 19 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">Compiler.Xla.PJRT.C.PjrtCApi</span></div>
-<div id="line20"><a href="#line20" class="IdrisLineNumber"> 20 | </a></div>
-<div id="line21"><a href="#line21" class="IdrisLineNumber"> 21 | </a><span class="IdrisComment">|||&nbsp;A&nbsp;PJRT&nbsp;&quot;device&quot;.&nbsp;These&nbsp;are&nbsp;required&nbsp;to&nbsp;run&nbsp;spidr&nbsp;graphs,&nbsp;and&nbsp;are&nbsp;provided&nbsp;by&nbsp;your&nbsp;plugin.</span></div>
-<div id="line22"><a href="#line22" class="IdrisLineNumber"> 22 | </a><span class="IdrisComment">|||&nbsp;You&nbsp;won&apos;t&nbsp;need&nbsp;to&nbsp;construct&nbsp;one&nbsp;yourself&nbsp;unless&nbsp;you&apos;re&nbsp;writing&nbsp;a&nbsp;plugin.</span></div>
-<div id="line23"><a href="#line23" class="IdrisLineNumber"> 23 | </a><span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisKeyword">export</span></div>
-<div id="line24"><a href="#line24" class="IdrisLineNumber"> 24 | </a><span class="IdrisKeyword">data</span>&nbsp;<span class="IdrisType">Device</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisData">MkDevice</span>&nbsp;<span class="IdrisType">PjrtApi</span>&nbsp;<span class="IdrisType">PjrtClient</span></div>
-<div id="line25"><a href="#line25" class="IdrisLineNumber"> 25 | </a></div>
+<div id="line16"><a href="#line16" class="IdrisLineNumber"> 16 | </a><span class="IdrisComment">|||&nbsp;`Device`&nbsp;management.&nbsp;A&nbsp;`Device`&nbsp;encapsulates&nbsp;the&nbsp;graph&nbsp;compiler&nbsp;and&nbsp;hardware&nbsp;support.</span></div>
+<div id="line17"><a href="#line17" class="IdrisLineNumber"> 17 | </a><span class="IdrisComment">|||</span></div>
+<div id="line18"><a href="#line18" class="IdrisLineNumber"> 18 | </a><span class="IdrisComment">|||&nbsp;Beyond&nbsp;the&nbsp;*type*&nbsp;`Device`&nbsp;itself,&nbsp;you&nbsp;will&nbsp;not&nbsp;likely&nbsp;need&nbsp;this&nbsp;module&nbsp;unless&nbsp;you&nbsp;are</span></div>
+<div id="line19"><a href="#line19" class="IdrisLineNumber"> 19 | </a><span class="IdrisComment">|||&nbsp;developing&nbsp;a&nbsp;custom&nbsp;plugin.</span></div>
+<div id="line20"><a href="#line20" class="IdrisLineNumber"> 20 | </a><span class="IdrisKeyword">module</span>&nbsp;<span class="IdrisModule">Device</span></div>
+<div id="line21"><a href="#line21" class="IdrisLineNumber"> 21 | </a></div>
+<div id="line22"><a href="#line22" class="IdrisLineNumber"> 22 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">Compiler.Enzyme.MLIR.Implementations.CoreDialectsAutoDiffImplementations</span></div>
+<div id="line23"><a href="#line23" class="IdrisLineNumber"> 23 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">Compiler.Enzyme.MLIR.Dialect.Dialect</span></div>
+<div id="line24"><a href="#line24" class="IdrisLineNumber"> 24 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">Compiler.Enzyme.MLIR.Passes.Passes</span></div>
+<div id="line25"><a href="#line25" class="IdrisLineNumber"> 25 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">Compiler.EnzymeJAX.Src.EnzymeAD.JAX.Implementations.XLADerivatives</span></div>
+<div id="line26"><a href="#line26" class="IdrisLineNumber"> 26 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">Compiler.EnzymeJAX.Src.EnzymeAD.JAX.Passes.Passes</span></div>
+<div id="line27"><a href="#line27" class="IdrisLineNumber"> 27 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">Compiler.MLIR.Dialect.Func.IR.FuncOps</span></div>
+<div id="line28"><a href="#line28" class="IdrisLineNumber"> 28 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisModule">Compiler.MLIR.IR.DialectRegistry</span></div>
+<div id="line29"><a href="#line29" class="IdrisLineNumber"> 29 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisModule">Compiler.MLIR.IR.MLIRContext</span></div>
+<div id="line30"><a href="#line30" class="IdrisLineNumber"> 30 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisModule">Compiler.MLIR.Pass.PassManager</span></div>
+<div id="line31"><a href="#line31" class="IdrisLineNumber"> 31 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">Compiler.MLIR.Transforms.Passes</span></div>
+<div id="line32"><a href="#line32" class="IdrisLineNumber"> 32 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">Compiler.Stablehlo.Dialect.ChloOps</span></div>
+<div id="line33"><a href="#line33" class="IdrisLineNumber"> 33 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">Compiler.Stablehlo.Dialect.StablehloOps</span></div>
+<div id="line34"><a href="#line34" class="IdrisLineNumber"> 34 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">Compiler.Stablehlo.Transforms.Passes</span></div>
+<div id="line35"><a href="#line35" class="IdrisLineNumber"> 35 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">Compiler.Xla.PJRT.C.PjrtCApi</span></div>
+<div id="line36"><a href="#line36" class="IdrisLineNumber"> 36 | </a></div>
+<div id="line37"><a href="#line37" class="IdrisLineNumber"> 37 | </a><span class="IdrisComment">|||&nbsp;A&nbsp;PJRT&nbsp;&quot;device&quot;.&nbsp;These&nbsp;are&nbsp;required&nbsp;to&nbsp;run&nbsp;spidr&nbsp;graphs,&nbsp;and&nbsp;are&nbsp;provided&nbsp;by&nbsp;your&nbsp;plugin.</span></div>
+<div id="line38"><a href="#line38" class="IdrisLineNumber"> 38 | </a><span class="IdrisComment">|||</span></div>
+<div id="line39"><a href="#line39" class="IdrisLineNumber"> 39 | </a><span class="IdrisComment">|||&nbsp;Plugin&nbsp;developers&nbsp;should&nbsp;create&nbsp;one&nbsp;via&nbsp;`createDevice`.&nbsp;Everyone&nbsp;else&nbsp;should&nbsp;use&nbsp;their&nbsp;plugin.</span></div>
+<div id="line40"><a href="#line40" class="IdrisLineNumber"> 40 | </a><span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisKeyword">export</span></div>
+<div id="line41"><a href="#line41" class="IdrisLineNumber"> 41 | </a><span class="IdrisKeyword">record</span>&nbsp;<span class="IdrisType">Device</span>&nbsp;<span class="IdrisKeyword">where</span></div>
+<div id="line42"><a href="#line42" class="IdrisLineNumber"> 42 | </a>&nbsp;&nbsp;<span class="IdrisKeyword">constructor</span>&nbsp;<span class="IdrisData">MkDevice</span></div>
+<div id="line43"><a href="#line43" class="IdrisLineNumber"> 43 | </a>&nbsp;&nbsp;<span class="IdrisFunction">mlirCtx</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">MLIRContext</span></div>
+<div id="line44"><a href="#line44" class="IdrisLineNumber"> 44 | </a>&nbsp;&nbsp;<span class="IdrisFunction">passManager</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">PassManager</span></div>
+<div id="line45"><a href="#line45" class="IdrisLineNumber"> 45 | </a>&nbsp;&nbsp;<span class="IdrisFunction">api</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">PjrtApi</span></div>
+<div id="line46"><a href="#line46" class="IdrisLineNumber"> 46 | </a>&nbsp;&nbsp;<span class="IdrisFunction">client</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">PjrtClient</span></div>
+<div id="line47"><a href="#line47" class="IdrisLineNumber"> 47 | </a></div>
+<div id="line48"><a href="#line48" class="IdrisLineNumber"> 48 | </a><span class="IdrisFunction">initializeMLIRContext</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HasIO</span>&nbsp;<span class="IdrisBound">io</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisType">MLIRContext</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisBound">io</span>&nbsp;<span class="IdrisType">()</span></div>
+<div id="line49"><a href="#line49" class="IdrisLineNumber"> 49 | </a><span class="IdrisFunction">initializeMLIRContext</span>&nbsp;<span class="IdrisBound">ctx</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisKeyword">do</span></div>
+<div id="line50"><a href="#line50" class="IdrisLineNumber"> 50 | </a>&nbsp;&nbsp;<span class="IdrisFunction">loadDialectFuncDialect</span>&nbsp;<span class="IdrisBound">ctx</span></div>
+<div id="line51"><a href="#line51" class="IdrisLineNumber"> 51 | </a>&nbsp;&nbsp;<span class="IdrisFunction">loadDialectStablehloDialect</span>&nbsp;<span class="IdrisBound">ctx</span></div>
+<div id="line52"><a href="#line52" class="IdrisLineNumber"> 52 | </a>&nbsp;&nbsp;<span class="IdrisFunction">loadDialectChloDialect</span>&nbsp;<span class="IdrisBound">ctx</span></div>
+<div id="line53"><a href="#line53" class="IdrisLineNumber"> 53 | </a>&nbsp;&nbsp;<span class="IdrisFunction">loadDialectEnzymeDialect</span>&nbsp;<span class="IdrisBound">ctx</span></div>
+<div id="line54"><a href="#line54" class="IdrisLineNumber"> 54 | </a></div>
+<div id="line55"><a href="#line55" class="IdrisLineNumber"> 55 | </a>&nbsp;&nbsp;<span class="IdrisBound">reg</span>&nbsp;<span class="IdrisKeyword">&lt;-</span>&nbsp;<span class="IdrisFunction">mkDialectRegistry</span></div>
+<div id="line56"><a href="#line56" class="IdrisLineNumber"> 56 | </a>&nbsp;&nbsp;<span class="IdrisFunction">registerCoreDialectAutodiffInterfaces</span>&nbsp;<span class="IdrisBound">reg</span></div>
+<div id="line57"><a href="#line57" class="IdrisLineNumber"> 57 | </a>&nbsp;&nbsp;<span class="IdrisFunction">registerStableHLODialectAutoDiffInterface</span>&nbsp;<span class="IdrisBound">reg</span></div>
+<div id="line58"><a href="#line58" class="IdrisLineNumber"> 58 | </a>&nbsp;&nbsp;<span class="IdrisFunction">appendDialectRegistry</span>&nbsp;<span class="IdrisBound">ctx</span>&nbsp;<span class="IdrisBound">reg</span></div>
+<div id="line59"><a href="#line59" class="IdrisLineNumber"> 59 | </a></div>
+<div id="line60"><a href="#line60" class="IdrisLineNumber"> 60 | </a><span class="IdrisFunction">initializePassManager</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HasIO</span>&nbsp;<span class="IdrisBound">io</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisType">PassManager</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisBound">io</span>&nbsp;<span class="IdrisType">()</span></div>
+<div id="line61"><a href="#line61" class="IdrisLineNumber"> 61 | </a><span class="IdrisFunction">initializePassManager</span>&nbsp;<span class="IdrisBound">pm</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisKeyword">do</span></div>
+<div id="line62"><a href="#line62" class="IdrisLineNumber"> 62 | </a>&nbsp;&nbsp;<span class="IdrisFunction">addChloLegalizeToStablehloPass</span>&nbsp;<span class="IdrisBound">pm</span></div>
+<div id="line63"><a href="#line63" class="IdrisLineNumber"> 63 | </a>&nbsp;&nbsp;<span class="IdrisFunction">addOutlineEnzymeFromRegionPass</span>&nbsp;<span class="IdrisBound">pm</span></div>
+<div id="line64"><a href="#line64" class="IdrisLineNumber"> 64 | </a>&nbsp;&nbsp;<span class="IdrisFunction">registerCanonicalizerPass</span></div>
+<div id="line65"><a href="#line65" class="IdrisLineNumber"> 65 | </a>&nbsp;&nbsp;<span class="IdrisFunction">registerRemoveUnusedEnzymeOpsPass</span></div>
+<div id="line66"><a href="#line66" class="IdrisLineNumber"> 66 | </a>&nbsp;&nbsp;<span class="IdrisFunction">addDifferentiatePass</span>&nbsp;<span class="IdrisBound">pm</span>&nbsp;<span class="IdrisData">&quot;canonicalize,remove-unnecessary-enzyme-ops&quot;</span></div>
+<div id="line67"><a href="#line67" class="IdrisLineNumber"> 67 | </a>&nbsp;&nbsp;<span class="IdrisFunction">addArithRaisingPass</span>&nbsp;<span class="IdrisBound">pm</span></div>
+<div id="line68"><a href="#line68" class="IdrisLineNumber"> 68 | </a></div>
+<div id="line69"><a href="#line69" class="IdrisLineNumber"> 69 | </a><span class="IdrisComment">|||&nbsp;Create&nbsp;and&nbsp;initialize&nbsp;a&nbsp;`Device`.&nbsp;For&nbsp;use&nbsp;by&nbsp;plugin&nbsp;developers.</span></div>
+<div id="line70"><a href="#line70" class="IdrisLineNumber"> 70 | </a><span class="IdrisKeyword">export</span></div>
+<div id="line71"><a href="#line71" class="IdrisLineNumber"> 71 | </a><span class="IdrisFunction">createDevice</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">PjrtApi</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisFunction">Pjrt</span>&nbsp;<span class="IdrisType">Device</span></div>
+<div id="line72"><a href="#line72" class="IdrisLineNumber"> 72 | </a><span class="IdrisFunction">createDevice</span>&nbsp;<span class="IdrisBound">api</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisKeyword">do</span></div>
+<div id="line73"><a href="#line73" class="IdrisLineNumber"> 73 | </a>&nbsp;&nbsp;<span class="IdrisBound">mlirCtx</span>&nbsp;<span class="IdrisKeyword">&lt;-</span>&nbsp;<span class="IdrisFunction">mkMLIRContext</span></div>
+<div id="line74"><a href="#line74" class="IdrisLineNumber"> 74 | </a>&nbsp;&nbsp;<span class="IdrisFunction">initializeMLIRContext</span>&nbsp;<span class="IdrisBound">mlirCtx</span></div>
+<div id="line75"><a href="#line75" class="IdrisLineNumber"> 75 | </a>&nbsp;&nbsp;<span class="IdrisBound">passManager</span>&nbsp;<span class="IdrisKeyword">&lt;-</span>&nbsp;<span class="IdrisFunction">mkPassManager</span>&nbsp;<span class="IdrisBound">mlirCtx</span></div>
+<div id="line76"><a href="#line76" class="IdrisLineNumber"> 76 | </a>&nbsp;&nbsp;<span class="IdrisFunction">initializePassManager</span>&nbsp;<span class="IdrisBound">passManager</span></div>
+<div id="line77"><a href="#line77" class="IdrisLineNumber"> 77 | </a>&nbsp;&nbsp;<span class="IdrisFunction">pure</span>&nbsp;$&nbsp;<span class="IdrisData">MkDevice</span>&nbsp;<span class="IdrisBound">mlirCtx</span>&nbsp;<span class="IdrisBound">passManager</span>&nbsp;<span class="IdrisBound">api</span>&nbsp;<span class="IdrisKeyword">!(</span><span class="IdrisFunction">pjrtClientCreate</span>&nbsp;<span class="IdrisBound">api</span><span class="IdrisKeyword">)</span></div>
+<div id="line78"><a href="#line78" class="IdrisLineNumber"> 78 | </a></div>
 </code>
 </body>
 </html>

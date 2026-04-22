@@ -1,0 +1,65 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Compiler.Enzyme.MLIR.Dialect.Ops</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Compiler.Enzyme.MLIR.Dialect.Ops
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Compiler.Enzyme.MLIR.Dialect.Ops</h1><span style="float:right">(<a href="Compiler.Enzyme.MLIR.Dialect.Ops.src.html">source</a>)</span><pre>For internal spidr use only.
+</pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="Compiler.Enzyme.MLIR.Dialect.Ops.AutoDiffRegionOp"><code><span class="keyword">data</span>&ensp;<a class="type" href="Compiler.Enzyme.MLIR.Dialect.Ops.html#Compiler.Enzyme.MLIR.Dialect.Ops.AutoDiffRegionOp"><span class="name type">AutoDiffRegionOp</span></a>&ensp;:&ensp;<span class="name type">Type</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span><br>  <b>Constructor</b>:&ensp;<dl class="decls"><dt id="Compiler.Enzyme.MLIR.Dialect.Ops.MkAutoDiffRegionOp"><code><a class="type" href="Compiler.Enzyme.MLIR.Dialect.Ops.html#Compiler.Enzyme.MLIR.Dialect.Ops.MkAutoDiffRegionOp"><span class="name constructor">MkAutoDiffRegionOp</span></a>&ensp;:&ensp;<span class="type resolved" title="PrimIO.GCAnyPtr"><span class="name type">GCAnyPtr</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Compiler.Enzyme.MLIR.Dialect.Ops.html#Compiler.Enzyme.MLIR.Dialect.Ops.AutoDiffRegionOp"><span class="name type">AutoDiffRegionOp</span></a></code></dt></dl><br>  <b>Hint</b>:&ensp;<dl class="decls"><dt id="$resolved12165"><code><a class="type" href="Compiler.MLIR.IR.OpDefinition.html#Compiler.MLIR.IR.OpDefinition.Op"><span class="name type">Op</span></a>&ensp;<a class="type" href="Compiler.Enzyme.MLIR.Dialect.Ops.html#Compiler.Enzyme.MLIR.Dialect.Ops.AutoDiffRegionOp"><span class="name type">AutoDiffRegionOp</span></a></code></dt></dl></dd><dt id="Compiler.Enzyme.MLIR.Dialect.Ops.Activity"><code><span class="keyword">data</span>&ensp;<a class="type" href="Compiler.Enzyme.MLIR.Dialect.Ops.html#Compiler.Enzyme.MLIR.Dialect.Ops.Activity"><span class="name type">Activity</span></a>&ensp;:&ensp;<span class="name type">Type</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span><br>  <b>Constructors</b>:<br><dl class="decls">  <dt id="Compiler.Enzyme.MLIR.Dialect.Ops.EnzymeActive"><code><a class="type" href="Compiler.Enzyme.MLIR.Dialect.Ops.html#Compiler.Enzyme.MLIR.Dialect.Ops.EnzymeActive"><span class="name constructor">EnzymeActive</span></a>&ensp;:&ensp;<a class="type" href="Compiler.Enzyme.MLIR.Dialect.Ops.html#Compiler.Enzyme.MLIR.Dialect.Ops.Activity"><span class="name type">Activity</span></a></code></dt>  <dt id="Compiler.Enzyme.MLIR.Dialect.Ops.EnzymeDup"><code><a class="type" href="Compiler.Enzyme.MLIR.Dialect.Ops.html#Compiler.Enzyme.MLIR.Dialect.Ops.EnzymeDup"><span class="name constructor">EnzymeDup</span></a>&ensp;:&ensp;<a class="type" href="Compiler.Enzyme.MLIR.Dialect.Ops.html#Compiler.Enzyme.MLIR.Dialect.Ops.Activity"><span class="name type">Activity</span></a></code></dt>  <dt id="Compiler.Enzyme.MLIR.Dialect.Ops.EnzymeConst"><code><a class="type" href="Compiler.Enzyme.MLIR.Dialect.Ops.html#Compiler.Enzyme.MLIR.Dialect.Ops.EnzymeConst"><span class="name constructor">EnzymeConst</span></a>&ensp;:&ensp;<a class="type" href="Compiler.Enzyme.MLIR.Dialect.Ops.html#Compiler.Enzyme.MLIR.Dialect.Ops.Activity"><span class="name type">Activity</span></a></code></dt>  <dt id="Compiler.Enzyme.MLIR.Dialect.Ops.EnzymeDupnoneed"><code><a class="type" href="Compiler.Enzyme.MLIR.Dialect.Ops.html#Compiler.Enzyme.MLIR.Dialect.Ops.EnzymeDupnoneed"><span class="name constructor">EnzymeDupnoneed</span></a>&ensp;:&ensp;<a class="type" href="Compiler.Enzyme.MLIR.Dialect.Ops.html#Compiler.Enzyme.MLIR.Dialect.Ops.Activity"><span class="name type">Activity</span></a></code></dt>  <dt id="Compiler.Enzyme.MLIR.Dialect.Ops.EnzymeActivenoneed"><code><a class="type" href="Compiler.Enzyme.MLIR.Dialect.Ops.html#Compiler.Enzyme.MLIR.Dialect.Ops.EnzymeActivenoneed"><span class="name constructor">EnzymeActivenoneed</span></a>&ensp;:&ensp;<a class="type" href="Compiler.Enzyme.MLIR.Dialect.Ops.html#Compiler.Enzyme.MLIR.Dialect.Ops.Activity"><span class="name type">Activity</span></a></code></dt>  <dt id="Compiler.Enzyme.MLIR.Dialect.Ops.EnzymeConstnoneed"><code><a class="type" href="Compiler.Enzyme.MLIR.Dialect.Ops.html#Compiler.Enzyme.MLIR.Dialect.Ops.EnzymeConstnoneed"><span class="name constructor">EnzymeConstnoneed</span></a>&ensp;:&ensp;<a class="type" href="Compiler.Enzyme.MLIR.Dialect.Ops.html#Compiler.Enzyme.MLIR.Dialect.Ops.Activity"><span class="name type">Activity</span></a></code></dt></dl><br>  <b>Hint</b>:&ensp;<dl class="decls"><dt id="$resolved12166"><code><span class="type resolved" title="Prelude.Cast.Cast"><span class="name type">Cast</span></span>&ensp;<a class="type" href="Compiler.Enzyme.MLIR.Dialect.Ops.html#Compiler.Enzyme.MLIR.Dialect.Ops.Activity"><span class="name type">Activity</span></a>&ensp;<span class="name type">Int</span></code></dt></dl></dd><dt id="Compiler.Enzyme.MLIR.Dialect.Ops.AutoDiffRegionOp.create"><code><span class="type resolved" title="Compiler.Enzyme.MLIR.Dialect.Ops.AutoDiffRegionOp.create"><span class="name function">create</span></span>&ensp;:&ensp;<span class="type resolved" title="Prelude.IO.HasIO"><span class="name type">HasIO</span></span>&ensp;<span class="boundvar">io</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<a class="type" href="Compiler.MLIR.IR.Builders.html#Compiler.MLIR.IR.Builders.OpBuilder"><span class="name type">OpBuilder</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Compiler.MLIR.IR.MLIRContext.html#Compiler.MLIR.IR.MLIRContext.MLIRContext"><span class="name type">MLIRContext</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Compiler.MLIR.IR.Location.html#Compiler.MLIR.IR.Location.Location"><span class="name type">Location</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Compiler.MLIR.IR.TypeRange.html#Compiler.MLIR.IR.TypeRange.TypeRange"><span class="name type">TypeRange</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Compiler.MLIR.IR.ValueRange.html#Compiler.MLIR.IR.ValueRange.ValueRange"><span class="name type">ValueRange</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Compiler.Enzyme.MLIR.Dialect.Ops.html#Compiler.Enzyme.MLIR.Dialect.Ops.Activity"><span class="name type">Activity</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Compiler.Enzyme.MLIR.Dialect.Ops.html#Compiler.Enzyme.MLIR.Dialect.Ops.Activity"><span class="name type">Activity</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">io</span>&ensp;<a class="type" href="Compiler.Enzyme.MLIR.Dialect.Ops.html#Compiler.Enzyme.MLIR.Dialect.Ops.AutoDiffRegionOp"><span class="name type">AutoDiffRegionOp</span></a></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Compiler.Enzyme.MLIR.Dialect.Ops.getBody"><code><a class="type" href="Compiler.Enzyme.MLIR.Dialect.Ops.html#Compiler.Enzyme.MLIR.Dialect.Ops.getBody"><span class="name function">getBody</span></a>&ensp;:&ensp;<a class="type" href="Compiler.Enzyme.MLIR.Dialect.Ops.html#Compiler.Enzyme.MLIR.Dialect.Ops.AutoDiffRegionOp"><span class="name type">AutoDiffRegionOp</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Compiler.MLIR.IR.Region.html#Compiler.MLIR.IR.Region.Region"><span class="name type">Region</span></a></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Compiler.Enzyme.MLIR.Dialect.Ops.YieldOp"><code><span class="keyword">data</span>&ensp;<a class="type" href="Compiler.Enzyme.MLIR.Dialect.Ops.html#Compiler.Enzyme.MLIR.Dialect.Ops.YieldOp"><span class="name type">YieldOp</span></a>&ensp;:&ensp;<span class="name type">Type</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span><br>  <b>Constructor</b>:&ensp;<dl class="decls"><dt id="Compiler.Enzyme.MLIR.Dialect.Ops.MkYieldOp"><code><a class="type" href="Compiler.Enzyme.MLIR.Dialect.Ops.html#Compiler.Enzyme.MLIR.Dialect.Ops.MkYieldOp"><span class="name constructor">MkYieldOp</span></a>&ensp;:&ensp;<span class="type resolved" title="PrimIO.GCAnyPtr"><span class="name type">GCAnyPtr</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Compiler.Enzyme.MLIR.Dialect.Ops.html#Compiler.Enzyme.MLIR.Dialect.Ops.YieldOp"><span class="name type">YieldOp</span></a></code></dt></dl></dd><dt id="Compiler.Enzyme.MLIR.Dialect.Ops.YieldOp.create"><code><span class="type resolved" title="Compiler.Enzyme.MLIR.Dialect.Ops.YieldOp.create"><span class="name function">create</span></span>&ensp;:&ensp;<span class="type resolved" title="Prelude.IO.HasIO"><span class="name type">HasIO</span></span>&ensp;<span class="boundvar">io</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<a class="type" href="Compiler.MLIR.IR.Builders.html#Compiler.MLIR.IR.Builders.OpBuilder"><span class="name type">OpBuilder</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Compiler.MLIR.IR.Location.html#Compiler.MLIR.IR.Location.Location"><span class="name type">Location</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Compiler.MLIR.IR.ValueRange.html#Compiler.MLIR.IR.ValueRange.ValueRange"><span class="name type">ValueRange</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">io</span>&ensp;<a class="type" href="Compiler.Enzyme.MLIR.Dialect.Ops.html#Compiler.Enzyme.MLIR.Dialect.Ops.YieldOp"><span class="name type">YieldOp</span></a></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd></dl></div><footer>Produced by Idris 2 version 0.8.0-214eb4547</footer></body></html>

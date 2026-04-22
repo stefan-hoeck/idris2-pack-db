@@ -1,0 +1,65 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Compiler.Stablehlo.Dialect.StablehloEnums</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Compiler.Stablehlo.Dialect.StablehloEnums
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Compiler.Stablehlo.Dialect.StablehloEnums</h1><span style="float:right">(<a href="Compiler.Stablehlo.Dialect.StablehloEnums.src.html">source</a>)</span><pre>For internal spidr use only.
+</pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="Compiler.Stablehlo.Dialect.StablehloEnums.ComparisonDirection"><code><span class="keyword">data</span>&ensp;<a class="type" href="Compiler.Stablehlo.Dialect.StablehloEnums.html#Compiler.Stablehlo.Dialect.StablehloEnums.ComparisonDirection"><span class="name type">ComparisonDirection</span></a>&ensp;:&ensp;<span class="name type">Type</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span><br>  <b>Constructors</b>:<br><dl class="decls">  <dt id="Compiler.Stablehlo.Dialect.StablehloEnums.Eq"><code><a class="type" href="Compiler.Stablehlo.Dialect.StablehloEnums.html#Compiler.Stablehlo.Dialect.StablehloEnums.Eq"><span class="name constructor">Eq</span></a>&ensp;:&ensp;<a class="type" href="Compiler.Stablehlo.Dialect.StablehloEnums.html#Compiler.Stablehlo.Dialect.StablehloEnums.ComparisonDirection"><span class="name type">ComparisonDirection</span></a></code></dt>  <dt id="Compiler.Stablehlo.Dialect.StablehloEnums.Ne"><code><a class="type" href="Compiler.Stablehlo.Dialect.StablehloEnums.html#Compiler.Stablehlo.Dialect.StablehloEnums.Ne"><span class="name constructor">Ne</span></a>&ensp;:&ensp;<a class="type" href="Compiler.Stablehlo.Dialect.StablehloEnums.html#Compiler.Stablehlo.Dialect.StablehloEnums.ComparisonDirection"><span class="name type">ComparisonDirection</span></a></code></dt>  <dt id="Compiler.Stablehlo.Dialect.StablehloEnums.Ge"><code><a class="type" href="Compiler.Stablehlo.Dialect.StablehloEnums.html#Compiler.Stablehlo.Dialect.StablehloEnums.Ge"><span class="name constructor">Ge</span></a>&ensp;:&ensp;<a class="type" href="Compiler.Stablehlo.Dialect.StablehloEnums.html#Compiler.Stablehlo.Dialect.StablehloEnums.ComparisonDirection"><span class="name type">ComparisonDirection</span></a></code></dt>  <dt id="Compiler.Stablehlo.Dialect.StablehloEnums.Gt"><code><a class="type" href="Compiler.Stablehlo.Dialect.StablehloEnums.html#Compiler.Stablehlo.Dialect.StablehloEnums.Gt"><span class="name constructor">Gt</span></a>&ensp;:&ensp;<a class="type" href="Compiler.Stablehlo.Dialect.StablehloEnums.html#Compiler.Stablehlo.Dialect.StablehloEnums.ComparisonDirection"><span class="name type">ComparisonDirection</span></a></code></dt>  <dt id="Compiler.Stablehlo.Dialect.StablehloEnums.Le"><code><a class="type" href="Compiler.Stablehlo.Dialect.StablehloEnums.html#Compiler.Stablehlo.Dialect.StablehloEnums.Le"><span class="name constructor">Le</span></a>&ensp;:&ensp;<a class="type" href="Compiler.Stablehlo.Dialect.StablehloEnums.html#Compiler.Stablehlo.Dialect.StablehloEnums.ComparisonDirection"><span class="name type">ComparisonDirection</span></a></code></dt>  <dt id="Compiler.Stablehlo.Dialect.StablehloEnums.Lt"><code><a class="type" href="Compiler.Stablehlo.Dialect.StablehloEnums.html#Compiler.Stablehlo.Dialect.StablehloEnums.Lt"><span class="name constructor">Lt</span></a>&ensp;:&ensp;<a class="type" href="Compiler.Stablehlo.Dialect.StablehloEnums.html#Compiler.Stablehlo.Dialect.StablehloEnums.ComparisonDirection"><span class="name type">ComparisonDirection</span></a></code></dt></dl><br>  <b>Hints</b>:<br><dl class="decls">  <dt id="$resolved11489"><code><span class="type resolved" title="Prelude.Cast.Cast"><span class="name type">Cast</span></span>&ensp;<a class="type" href="Compiler.Stablehlo.Dialect.StablehloEnums.html#Compiler.Stablehlo.Dialect.StablehloEnums.ComparisonDirection"><span class="name type">ComparisonDirection</span></a>&ensp;<span class="name type">Bits64</span></code></dt>  <dt id="$resolved11812"><code><span class="type resolved" title="Prelude.Show.Show"><span class="name type">Show</span></span>&ensp;<a class="type" href="Compiler.Stablehlo.Dialect.StablehloEnums.html#Compiler.Stablehlo.Dialect.StablehloEnums.ComparisonDirection"><span class="name type">ComparisonDirection</span></a></code></dt></dl></dd><dt id="Compiler.Stablehlo.Dialect.StablehloEnums.Transpose"><code><span class="keyword">data</span>&ensp;<a class="type" href="Compiler.Stablehlo.Dialect.StablehloEnums.html#Compiler.Stablehlo.Dialect.StablehloEnums.Transpose"><span class="name type">Transpose</span></a>&ensp;:&ensp;<span class="name type">Type</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span><br>  <b>Constructors</b>:<br><dl class="decls">  <dt id="Compiler.Stablehlo.Dialect.StablehloEnums.NoTranspose"><code><a class="type" href="Compiler.Stablehlo.Dialect.StablehloEnums.html#Compiler.Stablehlo.Dialect.StablehloEnums.NoTranspose"><span class="name constructor">NoTranspose</span></a>&ensp;:&ensp;<a class="type" href="Compiler.Stablehlo.Dialect.StablehloEnums.html#Compiler.Stablehlo.Dialect.StablehloEnums.Transpose"><span class="name type">Transpose</span></a></code></dt>  <dt id="Compiler.Stablehlo.Dialect.StablehloEnums.Transpose_"><code><a class="type" href="Compiler.Stablehlo.Dialect.StablehloEnums.html#Compiler.Stablehlo.Dialect.StablehloEnums.Transpose_"><span class="name constructor">Transpose_</span></a>&ensp;:&ensp;<a class="type" href="Compiler.Stablehlo.Dialect.StablehloEnums.html#Compiler.Stablehlo.Dialect.StablehloEnums.Transpose"><span class="name type">Transpose</span></a></code></dt>  <dt id="Compiler.Stablehlo.Dialect.StablehloEnums.Adjoint"><code><a class="type" href="Compiler.Stablehlo.Dialect.StablehloEnums.html#Compiler.Stablehlo.Dialect.StablehloEnums.Adjoint"><span class="name constructor">Adjoint</span></a>&ensp;:&ensp;<a class="type" href="Compiler.Stablehlo.Dialect.StablehloEnums.html#Compiler.Stablehlo.Dialect.StablehloEnums.Transpose"><span class="name type">Transpose</span></a></code></dt></dl><br>  <b>Hint</b>:&ensp;<dl class="decls"><dt id="$resolved11487"><code><span class="type resolved" title="Prelude.Cast.Cast"><span class="name type">Cast</span></span>&ensp;<a class="type" href="Compiler.Stablehlo.Dialect.StablehloEnums.html#Compiler.Stablehlo.Dialect.StablehloEnums.Transpose"><span class="name type">Transpose</span></a>&ensp;<span class="name type">Bits64</span></code></dt></dl></dd><dt id="Compiler.Stablehlo.Dialect.StablehloEnums.RngAlgorithm"><code><span class="keyword">data</span>&ensp;<a class="type" href="Compiler.Stablehlo.Dialect.StablehloEnums.html#Compiler.Stablehlo.Dialect.StablehloEnums.RngAlgorithm"><span class="name type">RngAlgorithm</span></a>&ensp;:&ensp;<span class="name type">Type</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span><br>  <b>Constructors</b>:<br><dl class="decls">  <dt id="Compiler.Stablehlo.Dialect.StablehloEnums.Default"><code><a class="type" href="Compiler.Stablehlo.Dialect.StablehloEnums.html#Compiler.Stablehlo.Dialect.StablehloEnums.Default"><span class="name constructor">Default</span></a>&ensp;:&ensp;<a class="type" href="Compiler.Stablehlo.Dialect.StablehloEnums.html#Compiler.Stablehlo.Dialect.StablehloEnums.RngAlgorithm"><span class="name type">RngAlgorithm</span></a></code></dt>  <dt id="Compiler.Stablehlo.Dialect.StablehloEnums.ThreeFry"><code><a class="type" href="Compiler.Stablehlo.Dialect.StablehloEnums.html#Compiler.Stablehlo.Dialect.StablehloEnums.ThreeFry"><span class="name constructor">ThreeFry</span></a>&ensp;:&ensp;<a class="type" href="Compiler.Stablehlo.Dialect.StablehloEnums.html#Compiler.Stablehlo.Dialect.StablehloEnums.RngAlgorithm"><span class="name type">RngAlgorithm</span></a></code></dt>  <dt id="Compiler.Stablehlo.Dialect.StablehloEnums.Philox"><code><a class="type" href="Compiler.Stablehlo.Dialect.StablehloEnums.html#Compiler.Stablehlo.Dialect.StablehloEnums.Philox"><span class="name constructor">Philox</span></a>&ensp;:&ensp;<a class="type" href="Compiler.Stablehlo.Dialect.StablehloEnums.html#Compiler.Stablehlo.Dialect.StablehloEnums.RngAlgorithm"><span class="name type">RngAlgorithm</span></a></code></dt></dl><br>  <b>Hint</b>:&ensp;<dl class="decls"><dt id="$resolved11488"><code><span class="type resolved" title="Prelude.Cast.Cast"><span class="name type">Cast</span></span>&ensp;<a class="type" href="Compiler.Stablehlo.Dialect.StablehloEnums.html#Compiler.Stablehlo.Dialect.StablehloEnums.RngAlgorithm"><span class="name type">RngAlgorithm</span></a>&ensp;<span class="name type">Bits64</span></code></dt></dl></dd></dl></div><footer>Produced by Idris 2 version 0.8.0-214eb4547</footer></body></html>

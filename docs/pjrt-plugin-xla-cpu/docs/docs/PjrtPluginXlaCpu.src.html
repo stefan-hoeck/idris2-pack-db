@@ -141,15 +141,13 @@
 <div id="line20"><a href="#line20" class="IdrisLineNumber"> 20 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisModule">Compiler.Xla.PJRT.C.PjrtCApi</span></div>
 <div id="line21"><a href="#line21" class="IdrisLineNumber"> 21 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisModule">Device</span></div>
 <div id="line22"><a href="#line22" class="IdrisLineNumber"> 22 | </a></div>
-<div id="line23"><a href="#line23" class="IdrisLineNumber"> 23 | </a><span class="IdrisKeyword">%foreign</span>&nbsp;<span class="IdrisData">&quot;C:GetPjrtApi,pjrt_plugin_xla_cpu&quot;</span></div>
+<div id="line23"><a href="#line23" class="IdrisLineNumber"> 23 | </a><span class="IdrisKeyword">%foreign</span>&nbsp;<span class="IdrisData">&quot;C:GetPjrtApi,pjrt_plugin_xla_cpu,xla/pjrt/c/pjrt_c_api_cpu.h&quot;</span></div>
 <div id="line24"><a href="#line24" class="IdrisLineNumber"> 24 | </a><span class="IdrisFunction">prim__getPjrtApi</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisFunction">PrimIO</span>&nbsp;<span class="IdrisType">AnyPtr</span></div>
 <div id="line25"><a href="#line25" class="IdrisLineNumber"> 25 | </a></div>
 <div id="line26"><a href="#line26" class="IdrisLineNumber"> 26 | </a><span class="IdrisKeyword">export</span></div>
 <div id="line27"><a href="#line27" class="IdrisLineNumber"> 27 | </a><span class="IdrisFunction">device</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisFunction">Pjrt</span>&nbsp;<span class="IdrisType">Device</span></div>
-<div id="line28"><a href="#line28" class="IdrisLineNumber"> 28 | </a><span class="IdrisFunction">device</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisKeyword">do</span></div>
-<div id="line29"><a href="#line29" class="IdrisLineNumber"> 29 | </a>&nbsp;&nbsp;<span class="IdrisBound">api</span>&nbsp;<span class="IdrisKeyword">&lt;-</span>&nbsp;<span class="IdrisData">MkPjrtApi</span>&nbsp;<span class="IdrisFunction">&lt;$&gt;</span>&nbsp;<span class="IdrisFunction">primIO</span>&nbsp;<span class="IdrisFunction">prim__getPjrtApi</span></div>
-<div id="line30"><a href="#line30" class="IdrisLineNumber"> 30 | </a>&nbsp;&nbsp;<span class="IdrisData">MkDevice</span>&nbsp;<span class="IdrisBound">api</span>&nbsp;<span class="IdrisFunction">&lt;$&gt;</span>&nbsp;<span class="IdrisFunction">pjrtClientCreate</span>&nbsp;<span class="IdrisBound">api</span></div>
-<div id="line31"><a href="#line31" class="IdrisLineNumber"> 31 | </a></div>
+<div id="line28"><a href="#line28" class="IdrisLineNumber"> 28 | </a><span class="IdrisFunction">device</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">createDevice</span>&nbsp;<span class="IdrisFunction">=&lt;&lt;</span>&nbsp;<span class="IdrisData">MkPjrtApi</span>&nbsp;<span class="IdrisFunction">&lt;$&gt;</span>&nbsp;<span class="IdrisFunction">primIO</span>&nbsp;<span class="IdrisFunction">prim__getPjrtApi</span></div>
+<div id="line29"><a href="#line29" class="IdrisLineNumber"> 29 | </a></div>
 </code>
 </body>
 </html>
