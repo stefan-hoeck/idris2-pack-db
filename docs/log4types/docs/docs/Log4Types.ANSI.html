@@ -1,0 +1,69 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Log4Types.ANSI</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Log4Types.ANSI
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Log4Types.ANSI</h1><span style="float:right">(<a href="Log4Types.ANSI.src.html">source</a>)</span><pre>ANSI-coloured console output for log4types.
+
+Severity-coloured bracketed tags and a coloured text renderer for
+development-time console logging. Colour codes are emitted only when
+stdout is a terminal; redirected output stays plain.
+</pre></div><h2>Reexports</h2><code><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Control.ANSI</code><h2>Definitions</h2><dl class="decls"><dt id="Log4Types.ANSI.severityColor"><code><a class="type" href="Log4Types.ANSI.html#Log4Types.ANSI.severityColor"><span class="name function">severityColor</span></a>&ensp;:&ensp;<span class="type resolved" title="Log4Types.Core.Severity.Severity"><span class="name type">Severity</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Control.ANSI.SGR.Color"><span class="name type">Color</span></span></code></dt><dd><pre>  Pick an ANSI colour for a severity level.<br>  <br>  Debug is green, Info blue, Warning yellow, Error red - matching the<br>  conventions used by most CLI tools.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Log4Types.ANSI.fmtColouredSeverity"><code><a class="type" href="Log4Types.ANSI.html#Log4Types.ANSI.fmtColouredSeverity"><span class="name function">fmtColouredSeverity</span></a>&ensp;:&ensp;<span class="type resolved" title="Log4Types.Core.Severity.Severity"><span class="name type">Severity</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">String</span></code></dt><dd><pre>  Format a severity as a coloured bracketed tag.<br>  <br>  The output is the same bracketed text as `fmtSeverity` (e.g. `[ERROR]`)<br>  wrapped in ANSI escape sequences for the matching colour.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Log4Types.ANSI.colouredTextRenderer"><code><a class="type" href="Log4Types.ANSI.html#Log4Types.ANSI.colouredTextRenderer"><span class="name function">colouredTextRenderer</span></a>&ensp;:&ensp;<span class="type resolved" title="Log4Types.Core.Renderer.LogRenderer"><span class="name type">LogRenderer</span></span>&ensp;<span class="name type">String</span></code></dt><dd><pre>  A LogRenderer that produces key=value text with a coloured severity tag<br>  when the renderer encounters a &quot;severity&quot; field.<br>  <br>  Non-severity fields render exactly as `textRenderer` does.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Log4Types.ANSI.stdoutIsTTY"><code><a class="type" href="Log4Types.ANSI.html#Log4Types.ANSI.stdoutIsTTY"><span class="name function">stdoutIsTTY</span></a>&ensp;:&ensp;<span class="type resolved" title="Prelude.IO.HasIO"><span class="name type">HasIO</span></span>&ensp;<span class="boundvar">io</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="boundvar">io</span>&ensp;<span class="type resolved" title="Prelude.Basics.Bool"><span class="name type">Bool</span></span></code></dt><dd><pre>  True when stdout is connected to a terminal.<br>  <br>  Used to decide whether ANSI colour codes should be emitted. When the<br>  output is redirected to a file or pipe, colours are suppressed.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Log4Types.ANSI.fmtColouredMsg"><code><a class="type" href="Log4Types.ANSI.html#Log4Types.ANSI.fmtColouredMsg"><span class="name function">fmtColouredMsg</span></a>&ensp;:&ensp;<a class="type" href="Log4Types.Message.html#Log4Types.Message.Msg"><span class="name type">Msg</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">String</span></code></dt><dd><pre>  Render a Msg as a single line: coloured severity tag, message text,<br>  and any structured fields as `key=value` pairs.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Log4Types.ANSI.fmtMsgForTTY"><code><a class="type" href="Log4Types.ANSI.html#Log4Types.ANSI.fmtMsgForTTY"><span class="name function">fmtMsgForTTY</span></a>&ensp;:&ensp;<span class="type resolved" title="Prelude.Basics.Bool"><span class="name type">Bool</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Log4Types.Message.html#Log4Types.Message.Msg"><span class="name type">Msg</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">String</span></code></dt><dd><pre>  Pick a Msg formatter based on TTY availability.<br>  <br>  When `True`, returns the coloured formatter `fmtColouredMsg`.<br>  When `False`, falls back to plain `show` so redirected output stays clean.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Log4Types.ANSI.colouredLogStdout"><code><a class="type" href="Log4Types.ANSI.html#Log4Types.ANSI.colouredLogStdout"><span class="name function">colouredLogStdout</span></a>&ensp;:&ensp;<span class="type resolved" title="Prelude.IO.HasIO"><span class="name type">HasIO</span></span>&ensp;<span class="boundvar">io</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="boundvar">io</span>&ensp;(<span class="type resolved" title="Log4Types.Core.Action.LogAction"><span class="name type">LogAction</span></span>&ensp;<span class="boundvar">io</span>&ensp;<a class="type" href="Log4Types.Message.html#Log4Types.Message.Msg"><span class="name type">Msg</span></a>)</code></dt><dd><pre>  A log action that writes Msg values to stdout with ANSI colouring<br>  when stdout is a terminal, and plain text otherwise.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd></dl></div><footer>Produced by Idris 2 version 0.8.0-214eb4547</footer></body></html>
