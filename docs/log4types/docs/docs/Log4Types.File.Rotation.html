@@ -1,0 +1,72 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Log4Types.File.Rotation</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Log4Types.File.Rotation
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Log4Types.File.Rotation</h1><span style="float:right">(<a href="Log4Types.File.Rotation.src.html">source</a>)</span><pre>Size-based rotation for file-backed loggers.
+
+`withRotatingLogFile` is a continuation-style entry point that gives
+the user a `LogAction` writing to a file. When the file&apos;s size exceeds
+a configured limit, the action rotates the file (renaming
+`app.log` to `app.log.1`, shifting older files up, and deleting
+anything beyond a count limit), then continues writing to a fresh
+file at the original path.
+</pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="Log4Types.File.Rotation.renameFile"><code><a class="type" href="Log4Types.File.Rotation.html#Log4Types.File.Rotation.renameFile"><span class="name function">renameFile</span></a>&ensp;:&ensp;<span class="type resolved" title="Prelude.IO.HasIO"><span class="name type">HasIO</span></span>&ensp;<span class="boundvar">io</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">io</span>&ensp;(<span class="type resolved" title="Prelude.Types.Either"><span class="name type">Either</span></span>&ensp;<span class="type resolved" title="System.File.Error.FileError"><span class="name type">FileError</span></span>&ensp;())</code></dt><dd><pre>  Rename a file. Returns `Left` on failure (most often: source missing or<br>  permission denied). The `FileError` is `GenericFileError` carrying the<br>  platform&apos;s raw return code, since structured errnos are not available<br>  across all backends.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Log4Types.File.Rotation.RotationConfig"><code><span class="keyword">record</span>&ensp;<a class="type" href="Log4Types.File.Rotation.html#Log4Types.File.Rotation.RotationConfig"><span class="name type">RotationConfig</span></a>&ensp;:&ensp;<span class="name type">Type</span></code></dt><dd><pre>  Configuration for size-based file rotation.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span><br>  <b>Constructor</b>:&ensp;<dl class="decls"><dt id="Log4Types.File.Rotation.MkRotationConfig"><code><a class="type" href="Log4Types.File.Rotation.html#Log4Types.File.Rotation.MkRotationConfig"><span class="name constructor">MkRotationConfig</span></a>&ensp;:&ensp;<span class="name type">Integer</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Types.Nat"><span class="name type">Nat</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Log4Types.File.Rotation.html#Log4Types.File.Rotation.RotationConfig"><span class="name type">RotationConfig</span></a></code></dt></dl><br>  <b>Projections</b>:<br><dl class="decls">  <dt id="Log4Types.File.Rotation.RotationConfig.(.maxBytes)"><code><span class="type resolved" title="Log4Types.File.Rotation.RotationConfig.(.maxBytes)"><span class="name function">.maxBytes</span></span>&ensp;:&ensp;<a class="type" href="Log4Types.File.Rotation.html#Log4Types.File.Rotation.RotationConfig"><span class="name type">RotationConfig</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Integer</span></code></dt><dd><pre>  Maximum bytes in the current file before rotation triggers.</pre></dd>  <dt id="Log4Types.File.Rotation.RotationConfig.(.maxFiles)"><code><span class="type resolved" title="Log4Types.File.Rotation.RotationConfig.(.maxFiles)"><span class="name function">.maxFiles</span></span>&ensp;:&ensp;<a class="type" href="Log4Types.File.Rotation.html#Log4Types.File.Rotation.RotationConfig"><span class="name type">RotationConfig</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Types.Nat"><span class="name type">Nat</span></span></code></dt><dd><pre>  Maximum number of rotated files to keep (file.1, file.2, ...).<br>  Files beyond this are deleted after rotation.</pre></dd></dl></dd><dt id="Log4Types.File.Rotation.RotationConfig.(.maxBytes)"><code><span class="type resolved" title="Log4Types.File.Rotation.RotationConfig.(.maxBytes)"><span class="name function">.maxBytes</span></span>&ensp;:&ensp;<a class="type" href="Log4Types.File.Rotation.html#Log4Types.File.Rotation.RotationConfig"><span class="name type">RotationConfig</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Integer</span></code></dt><dd><pre>  Maximum bytes in the current file before rotation triggers.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Log4Types.File.Rotation.RotationConfig.maxBytes"><code><span class="type resolved" title="Log4Types.File.Rotation.RotationConfig.maxBytes"><span class="name function">maxBytes</span></span>&ensp;:&ensp;<a class="type" href="Log4Types.File.Rotation.html#Log4Types.File.Rotation.RotationConfig"><span class="name type">RotationConfig</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Integer</span></code></dt><dd><pre>  Maximum bytes in the current file before rotation triggers.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Log4Types.File.Rotation.RotationConfig.(.maxFiles)"><code><span class="type resolved" title="Log4Types.File.Rotation.RotationConfig.(.maxFiles)"><span class="name function">.maxFiles</span></span>&ensp;:&ensp;<a class="type" href="Log4Types.File.Rotation.html#Log4Types.File.Rotation.RotationConfig"><span class="name type">RotationConfig</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Types.Nat"><span class="name type">Nat</span></span></code></dt><dd><pre>  Maximum number of rotated files to keep (file.1, file.2, ...).<br>  Files beyond this are deleted after rotation.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Log4Types.File.Rotation.RotationConfig.maxFiles"><code><span class="type resolved" title="Log4Types.File.Rotation.RotationConfig.maxFiles"><span class="name function">maxFiles</span></span>&ensp;:&ensp;<a class="type" href="Log4Types.File.Rotation.html#Log4Types.File.Rotation.RotationConfig"><span class="name type">RotationConfig</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Types.Nat"><span class="name type">Nat</span></span></code></dt><dd><pre>  Maximum number of rotated files to keep (file.1, file.2, ...).<br>  Files beyond this are deleted after rotation.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Log4Types.File.Rotation.defaultRotation"><code><a class="type" href="Log4Types.File.Rotation.html#Log4Types.File.Rotation.defaultRotation"><span class="name function">defaultRotation</span></a>&ensp;:&ensp;<a class="type" href="Log4Types.File.Rotation.html#Log4Types.File.Rotation.RotationConfig"><span class="name type">RotationConfig</span></a></code></dt><dd><pre>  Default rotation: 10 MB per file, keep 5 rotated copies.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Log4Types.File.Rotation.withRotatingLogFile"><code><a class="type" href="Log4Types.File.Rotation.html#Log4Types.File.Rotation.withRotatingLogFile"><span class="name function">withRotatingLogFile</span></a>&ensp;:&ensp;<span class="type resolved" title="Prelude.IO.HasIO"><span class="name type">HasIO</span></span>&ensp;<span class="boundvar">io</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Log4Types.File.Rotation.html#Log4Types.File.Rotation.RotationConfig"><span class="name type">RotationConfig</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="type resolved" title="Log4Types.Core.Action.LogAction"><span class="name type">LogAction</span></span>&ensp;<span class="boundvar">io</span>&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">io</span>&ensp;<span class="boundvar">a</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">io</span>&ensp;(<span class="type resolved" title="Prelude.Types.Either"><span class="name type">Either</span></span>&ensp;<span class="type resolved" title="System.File.Error.FileError"><span class="name type">FileError</span></span>&ensp;<span class="boundvar">a</span>)</code></dt><dd><pre>  Run a computation with a rotating file-backed `LogAction`.<br>  <br>  Writes go to `basePath`. When size exceeds `config.maxBytes`,<br>  `basePath` is renamed to `basePath.1`, previous `.1` becomes `.2`,<br>  and so on up to `config.maxFiles`. Files beyond that count are<br>  deleted on rotation.<br>  <br>  Returns `Left FileError` if the initial open failed, otherwise<br>  `Right` with the callback&apos;s result.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd></dl></div><footer>Produced by Idris 2 version 0.8.0-214eb4547</footer></body></html>

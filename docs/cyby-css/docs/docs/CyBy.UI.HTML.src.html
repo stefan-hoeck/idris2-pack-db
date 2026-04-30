@@ -1,0 +1,289 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <style>
+  .IdrisData {
+  color: darkred
+}
+.IdrisType {
+  color: blue
+}
+.IdrisBound {
+  color: black
+}
+.IdrisFunction {
+  color: darkgreen
+}
+.IdrisKeyword {
+  text-decoration: underline;
+}
+.IdrisComment {
+  color: #b22222
+}
+.IdrisNamespace {
+  font-style: italic;
+  color: black
+}
+.IdrisPostulate {
+  font-weight: bold;
+  color: red
+}
+.IdrisModule {
+  font-style: italic;
+  color: black
+}
+
+  .IdrisLineNumber {
+    text-decoration: none;
+    color: lightgrey;
+    user-select: none;
+  }
+  .IdrisLineNumber:hover {
+    color: darkgray;
+  }
+  .IdrisLineNumber:target {
+    color: gray;
+  }
+  .IdrisHighlight {
+    background-color: yellow;
+  }
+  </style>
+  <script>
+    function initialize() {
+      function handleHash(ev) {
+          if (!location.hash) return
+          let m = location.hash.match(/#(line\d+)(?:-(line\d+))?/)
+          if (m) {
+              let start = document.getElementById(m[1])
+              let end = document.getElementById(m[2])
+              if (start) {
+                  if (end && end.compareDocumentPosition(start) === 4) {
+                      ([start, end] = [end, start])
+                  }
+                  // Only on page load
+                  if (!ev) start.scrollIntoView()
+                  let parent = start.parentElement
+                  let lines = parent.children
+                  let className = ''
+                  for (let n = 0; n < lines.length; n++) {
+                      let el = lines[n]
+                      if (el === start) className = 'IdrisHighlight'
+                      el.className = className
+                      if (el === end || className && !end) className = ''
+                  }
+              }
+          }
+      }
+      let startLine
+      let endLine
+      function handlePointerMove(ev) {
+          if (startLine) {
+              for (let el = document.elementFromPoint(ev.clientX, ev.clientY); el; el = el.parentElement) {
+                  if (el.parentElement === startLine.parentElement) {
+                      if (endLine !== el) {
+                          endLine = el
+                          update()
+                      }
+                      break
+                  }
+              }
+          }
+      }
+      function update(ev) {
+          window.location.hash = startLine === endLine ? startLine.id : startLine.id + '-' + endLine.id
+      }
+      function handlePointerDown(ev) {
+          let target = ev.target
+          if (target.className === 'IdrisLineNumber') {
+              startLine = endLine = target.parentElement
+              window.addEventListener('pointermove', handlePointerMove)
+              update()
+              ev.preventDefault()
+          }
+      }
+      function handlePointerUp(ev) {
+          if (startLine) {
+              update()
+              window.removeEventListener('pointermove', handlePointerMove)
+              startLine = endLine = null
+          }
+      }
+      window.addEventListener('hashchange', handleHash)
+      window.addEventListener('pointerdown', handlePointerDown)
+      window.addEventListener('pointerup', handlePointerUp)
+      handleHash()
+  }
+  </script>
+</head>
+<body onload="initialize()">
+<code class="IdrisCode">
+<div id="line0"><a href="#line0" class="IdrisLineNumber"> &nbsp;&nbsp;0 | </a><span class="IdrisKeyword">module</span>&nbsp;<span class="IdrisModule">CyBy.UI.HTML</span></div>
+<div id="line1"><a href="#line1" class="IdrisLineNumber"> &nbsp;&nbsp;1 | </a></div>
+<div id="line2"><a href="#line2" class="IdrisLineNumber"> &nbsp;&nbsp;2 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">Data.List</span></div>
+<div id="line3"><a href="#line3" class="IdrisLineNumber"> &nbsp;&nbsp;3 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">IO.Async.Logging</span></div>
+<div id="line4"><a href="#line4" class="IdrisLineNumber"> &nbsp;&nbsp;4 | </a></div>
+<div id="line5"><a href="#line5" class="IdrisLineNumber"> &nbsp;&nbsp;5 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisModule">CyBy.UI.CSS.Classes</span></div>
+<div id="line6"><a href="#line6" class="IdrisLineNumber"> &nbsp;&nbsp;6 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisModule">Text.HTML</span></div>
+<div id="line7"><a href="#line7" class="IdrisLineNumber"> &nbsp;&nbsp;7 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisModule">Text.HTML.DomID</span></div>
+<div id="line8"><a href="#line8" class="IdrisLineNumber"> &nbsp;&nbsp;8 | </a></div>
+<div id="line9"><a href="#line9" class="IdrisLineNumber"> &nbsp;&nbsp;9 | </a><span class="IdrisKeyword">%default</span>&nbsp;<span class="IdrisKeyword">total</span></div>
+<div id="line10"><a href="#line10" class="IdrisLineNumber"> &nbsp;10 | </a></div>
+<div id="line11"><a href="#line11" class="IdrisLineNumber"> &nbsp;11 | </a><span class="IdrisComment">--------------------------------------------------------------------------------</span></div>
+<div id="line12"><a href="#line12" class="IdrisLineNumber"> &nbsp;12 | </a><span class="IdrisComment">--&nbsp;Utilities</span></div>
+<div id="line13"><a href="#line13" class="IdrisLineNumber"> &nbsp;13 | </a><span class="IdrisComment">--------------------------------------------------------------------------------</span></div>
+<div id="line14"><a href="#line14" class="IdrisLineNumber"> &nbsp;14 | </a></div>
+<div id="line15"><a href="#line15" class="IdrisLineNumber"> &nbsp;15 | </a><span class="IdrisKeyword">export</span></div>
+<div id="line16"><a href="#line16" class="IdrisLineNumber"> &nbsp;16 | </a><span class="IdrisFunction">formSep</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HTMLNode</span></div>
+<div id="line17"><a href="#line17" class="IdrisLineNumber"> &nbsp;17 | </a><span class="IdrisFunction">formSep</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">div</span>&nbsp;<span class="IdrisData">[</span><span class="IdrisFunction">class</span>&nbsp;<span class="IdrisFunction">formsep</span><span class="IdrisData">]</span>&nbsp;<span class="IdrisData">[]</span></div>
+<div id="line18"><a href="#line18" class="IdrisLineNumber"> &nbsp;18 | </a></div>
+<div id="line19"><a href="#line19" class="IdrisLineNumber"> &nbsp;19 | </a><span class="IdrisKeyword">export</span></div>
+<div id="line20"><a href="#line20" class="IdrisLineNumber"> &nbsp;20 | </a><span class="IdrisFunction">hbarSep</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HTMLNode</span></div>
+<div id="line21"><a href="#line21" class="IdrisLineNumber"> &nbsp;21 | </a><span class="IdrisFunction">hbarSep</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">div</span>&nbsp;<span class="IdrisData">[</span><span class="IdrisFunction">class</span>&nbsp;<span class="IdrisFunction">hbarsep</span><span class="IdrisData">]</span>&nbsp;<span class="IdrisData">[]</span></div>
+<div id="line22"><a href="#line22" class="IdrisLineNumber"> &nbsp;22 | </a></div>
+<div id="line23"><a href="#line23" class="IdrisLineNumber"> &nbsp;23 | </a><span class="IdrisKeyword">export</span></div>
+<div id="line24"><a href="#line24" class="IdrisLineNumber"> &nbsp;24 | </a><span class="IdrisFunction">vbarSep</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HTMLNode</span></div>
+<div id="line25"><a href="#line25" class="IdrisLineNumber"> &nbsp;25 | </a><span class="IdrisFunction">vbarSep</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">div</span>&nbsp;<span class="IdrisData">[</span><span class="IdrisFunction">class</span>&nbsp;<span class="IdrisFunction">vbarsep</span><span class="IdrisData">]</span>&nbsp;<span class="IdrisData">[]</span></div>
+<div id="line26"><a href="#line26" class="IdrisLineNumber"> &nbsp;26 | </a></div>
+<div id="line27"><a href="#line27" class="IdrisLineNumber"> &nbsp;27 | </a><span class="IdrisComment">--------------------------------------------------------------------------------</span></div>
+<div id="line28"><a href="#line28" class="IdrisLineNumber"> &nbsp;28 | </a><span class="IdrisComment">--&nbsp;Logging</span></div>
+<div id="line29"><a href="#line29" class="IdrisLineNumber"> &nbsp;29 | </a><span class="IdrisComment">--------------------------------------------------------------------------------</span></div>
+<div id="line30"><a href="#line30" class="IdrisLineNumber"> &nbsp;30 | </a></div>
+<div id="line31"><a href="#line31" class="IdrisLineNumber"> &nbsp;31 | </a><span class="IdrisKeyword">export</span></div>
+<div id="line32"><a href="#line32" class="IdrisLineNumber"> &nbsp;32 | </a><span class="IdrisFunction">CyByLog</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">DomID</span></div>
+<div id="line33"><a href="#line33" class="IdrisLineNumber"> &nbsp;33 | </a><span class="IdrisFunction">CyByLog</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisData">&quot;cyby-log&quot;</span></div>
+<div id="line34"><a href="#line34" class="IdrisLineNumber"> &nbsp;34 | </a></div>
+<div id="line35"><a href="#line35" class="IdrisLineNumber"> &nbsp;35 | </a><span class="IdrisKeyword">export</span></div>
+<div id="line36"><a href="#line36" class="IdrisLineNumber"> &nbsp;36 | </a><span class="IdrisFunction">logNode</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">LogLevel</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">List</span>&nbsp;<span class="IdrisType">String</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">HTMLNode</span></div>
+<div id="line37"><a href="#line37" class="IdrisLineNumber"> &nbsp;37 | </a><span class="IdrisFunction">logNode</span>&nbsp;<span class="IdrisBound">l</span>&nbsp;<span class="IdrisBound">msgs</span>&nbsp;<span class="IdrisKeyword">=</span></div>
+<div id="line38"><a href="#line38" class="IdrisLineNumber"> &nbsp;38 | </a>&nbsp;&nbsp;<span class="IdrisFunction">div</span>&nbsp;<span class="IdrisData">[</span><span class="IdrisFunction">class</span>&nbsp;<span class="IdrisFunction">formRow</span><span class="IdrisData">]</span></div>
+<div id="line39"><a href="#line39" class="IdrisLineNumber"> &nbsp;39 | </a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="IdrisData">[</span>&nbsp;<span class="IdrisFunction">div</span>&nbsp;<span class="IdrisData">[</span><span class="IdrisFunction">classes</span>&nbsp;<span class="IdrisData">[</span><span class="IdrisFunction">formLabel</span><span class="IdrisData">,</span>&nbsp;<span class="IdrisFunction">level</span>&nbsp;<span class="IdrisBound">l</span><span class="IdrisData">]]</span>&nbsp;<span class="IdrisData">[Text</span>&nbsp;$&nbsp;<span class="IdrisData">&quot;[\{</span><span class="IdrisBound">l</span><span class="IdrisData">}]&quot;]</span></div>
+<div id="line40"><a href="#line40" class="IdrisLineNumber"> &nbsp;40 | </a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="IdrisData">,</span>&nbsp;<span class="IdrisFunction">div</span>&nbsp;<span class="IdrisData">[</span><span class="IdrisFunction">class</span>&nbsp;<span class="IdrisFunction">formValue</span><span class="IdrisData">]</span>&nbsp;$&nbsp;<span class="IdrisFunction">intersperse</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisFunction">br</span>&nbsp;<span class="IdrisData">[]</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisFunction">map</span>&nbsp;<span class="IdrisData">Text</span>&nbsp;<span class="IdrisBound">msgs</span><span class="IdrisKeyword">)</span></div>
+<div id="line41"><a href="#line41" class="IdrisLineNumber"> &nbsp;41 | </a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="IdrisData">]</span></div>
+<div id="line42"><a href="#line42" class="IdrisLineNumber"> &nbsp;42 | </a></div>
+<div id="line43"><a href="#line43" class="IdrisLineNumber"> &nbsp;43 | </a><span class="IdrisKeyword">export</span></div>
+<div id="line44"><a href="#line44" class="IdrisLineNumber"> &nbsp;44 | </a><span class="IdrisFunction">appLog</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HTMLNode</span></div>
+<div id="line45"><a href="#line45" class="IdrisLineNumber"> &nbsp;45 | </a><span class="IdrisFunction">appLog</span>&nbsp;<span class="IdrisKeyword">=</span></div>
+<div id="line46"><a href="#line46" class="IdrisLineNumber"> &nbsp;46 | </a>&nbsp;&nbsp;<span class="IdrisFunction">div</span></div>
+<div id="line47"><a href="#line47" class="IdrisLineNumber"> &nbsp;47 | </a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="IdrisData">[</span>&nbsp;<span class="IdrisFunction">class</span>&nbsp;<span class="IdrisFunction">drawLog</span>&nbsp;<span class="IdrisData">]</span></div>
+<div id="line48"><a href="#line48" class="IdrisLineNumber"> &nbsp;48 | </a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="IdrisData">[</span>&nbsp;<span class="IdrisFunction">div</span>&nbsp;<span class="IdrisData">[</span><span class="IdrisFunction">class</span>&nbsp;<span class="IdrisFunction">compTitle</span><span class="IdrisData">]</span>&nbsp;<span class="IdrisData">[&quot;Log&quot;]</span></div>
+<div id="line49"><a href="#line49" class="IdrisLineNumber"> &nbsp;49 | </a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="IdrisData">,</span>&nbsp;<span class="IdrisFunction">div</span>&nbsp;<span class="IdrisData">[</span><span class="IdrisFunction">ref</span>&nbsp;<span class="IdrisFunction">CyByLog</span><span class="IdrisData">,</span>&nbsp;<span class="IdrisFunction">classes</span>&nbsp;<span class="IdrisData">[</span><span class="IdrisFunction">compList</span><span class="IdrisData">]]</span>&nbsp;<span class="IdrisData">[]</span></div>
+<div id="line50"><a href="#line50" class="IdrisLineNumber"> &nbsp;50 | </a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="IdrisData">]</span></div>
+<div id="line51"><a href="#line51" class="IdrisLineNumber"> &nbsp;51 | </a></div>
+<div id="line52"><a href="#line52" class="IdrisLineNumber"> &nbsp;52 | </a><span class="IdrisComment">--------------------------------------------------------------------------------</span></div>
+<div id="line53"><a href="#line53" class="IdrisLineNumber"> &nbsp;53 | </a><span class="IdrisComment">--&nbsp;Icons</span></div>
+<div id="line54"><a href="#line54" class="IdrisLineNumber"> &nbsp;54 | </a><span class="IdrisComment">--------------------------------------------------------------------------------</span></div>
+<div id="line55"><a href="#line55" class="IdrisLineNumber"> &nbsp;55 | </a></div>
+<div id="line56"><a href="#line56" class="IdrisLineNumber"> &nbsp;56 | </a><span class="IdrisKeyword">export</span></div>
+<div id="line57"><a href="#line57" class="IdrisLineNumber"> &nbsp;57 | </a><span class="IdrisFunction">pathNoStroke</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">String</span></div>
+<div id="line58"><a href="#line58" class="IdrisLineNumber"> &nbsp;58 | </a><span class="IdrisFunction">pathNoStroke</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisData">&quot;path&nbsp;style=&apos;stroke:none;fill:currentcolor;&apos;&quot;</span></div>
+<div id="line59"><a href="#line59" class="IdrisLineNumber"> &nbsp;59 | </a></div>
+<div id="line60"><a href="#line60" class="IdrisLineNumber"> &nbsp;60 | </a><span class="IdrisComment">--&nbsp;The&nbsp;following&nbsp;icons&nbsp;are&nbsp;to&nbsp;be&nbsp;inlined&nbsp;directly&nbsp;in&nbsp;the&nbsp;DOM.&nbsp;We&nbsp;use</span></div>
+<div id="line61"><a href="#line61" class="IdrisLineNumber"> &nbsp;61 | </a><span class="IdrisComment">--&nbsp;`currentcolor`&nbsp;to&nbsp;adopt&nbsp;the&nbsp;coloring&nbsp;of&nbsp;the&nbsp;parent&nbsp;container.</span></div>
+<div id="line62"><a href="#line62" class="IdrisLineNumber"> &nbsp;62 | </a></div>
+<div id="line63"><a href="#line63" class="IdrisLineNumber"> &nbsp;63 | </a><span class="IdrisComment">|||&nbsp;Icon&nbsp;for&nbsp;selecting&nbsp;items&nbsp;in&nbsp;the&nbsp;UI</span></div>
+<div id="line64"><a href="#line64" class="IdrisLineNumber"> &nbsp;64 | </a><span class="IdrisKeyword">export</span></div>
+<div id="line65"><a href="#line65" class="IdrisLineNumber"> &nbsp;65 | </a><span class="IdrisFunction">select</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HTMLNode</span></div>
+<div id="line66"><a href="#line66" class="IdrisLineNumber"> &nbsp;66 | </a><span class="IdrisFunction">select</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisData">Raw</span>&nbsp;<span class="IdrisData">&quot;&lt;svg&nbsp;viewBox=&apos;0&nbsp;0&nbsp;20&nbsp;20&apos;&gt;&lt;\{</span><span class="IdrisFunction">pathNoStroke</span><span class="IdrisData">}&nbsp;d=&apos;M&nbsp;3.332031&nbsp;16.667969&nbsp;L&nbsp;3.332031&nbsp;17.5&nbsp;L&nbsp;1.667969&nbsp;17.5&nbsp;L&nbsp;1.667969&nbsp;15.832031&nbsp;L&nbsp;2.5&nbsp;15.832031&nbsp;L&nbsp;2.5&nbsp;16.667969&nbsp;Z&nbsp;M&nbsp;2.5&nbsp;2.5&nbsp;L&nbsp;3.332031&nbsp;2.5&nbsp;L&nbsp;3.332031&nbsp;1.667969&nbsp;L&nbsp;1.667969&nbsp;1.667969&nbsp;L&nbsp;1.667969&nbsp;3.332031&nbsp;L&nbsp;2.5&nbsp;3.332031&nbsp;Z&nbsp;M&nbsp;1.667969&nbsp;6.667969&nbsp;L&nbsp;2.5&nbsp;6.667969&nbsp;L&nbsp;2.5&nbsp;5&nbsp;L&nbsp;1.667969&nbsp;5&nbsp;Z&nbsp;M&nbsp;1.667969&nbsp;10.832031&nbsp;L&nbsp;2.5&nbsp;10.832031&nbsp;L&nbsp;2.5&nbsp;8.332031&nbsp;L&nbsp;1.667969&nbsp;8.332031&nbsp;Z&nbsp;M&nbsp;16.667969&nbsp;6.667969&nbsp;L&nbsp;17.5&nbsp;6.667969&nbsp;L&nbsp;17.5&nbsp;5&nbsp;L&nbsp;16.667969&nbsp;5&nbsp;Z&nbsp;M&nbsp;16.667969&nbsp;10&nbsp;L&nbsp;17.5&nbsp;10&nbsp;L&nbsp;17.5&nbsp;8.332031&nbsp;L&nbsp;16.667969&nbsp;8.332031&nbsp;Z&nbsp;M&nbsp;1.667969&nbsp;14.167969&nbsp;L&nbsp;2.5&nbsp;14.167969&nbsp;L&nbsp;2.5&nbsp;12.5&nbsp;L&nbsp;1.667969&nbsp;12.5&nbsp;Z&nbsp;M&nbsp;6.667969&nbsp;2.5&nbsp;L&nbsp;6.667969&nbsp;1.667969&nbsp;L&nbsp;5&nbsp;1.667969&nbsp;L&nbsp;5&nbsp;2.5&nbsp;Z&nbsp;M&nbsp;10.832031&nbsp;2.5&nbsp;L&nbsp;10.832031&nbsp;1.667969&nbsp;L&nbsp;8.332031&nbsp;1.667969&nbsp;L&nbsp;8.332031&nbsp;2.5&nbsp;Z&nbsp;M&nbsp;7.5&nbsp;17.5&nbsp;L&nbsp;7.5&nbsp;16.667969&nbsp;L&nbsp;5.832031&nbsp;16.667969&nbsp;L&nbsp;5.832031&nbsp;17.5&nbsp;Z&nbsp;M&nbsp;10.832031&nbsp;17.5&nbsp;L&nbsp;10.832031&nbsp;16.667969&nbsp;L&nbsp;9.167969&nbsp;16.667969&nbsp;L&nbsp;9.167969&nbsp;17.5&nbsp;Z&nbsp;M&nbsp;14.167969&nbsp;2.5&nbsp;L&nbsp;14.167969&nbsp;1.667969&nbsp;L&nbsp;12.5&nbsp;1.667969&nbsp;L&nbsp;12.5&nbsp;2.5&nbsp;Z&nbsp;M&nbsp;15.832031&nbsp;1.667969&nbsp;L&nbsp;15.832031&nbsp;2.5&nbsp;L&nbsp;16.667969&nbsp;2.5&nbsp;L&nbsp;16.667969&nbsp;3.332031&nbsp;L&nbsp;17.5&nbsp;3.332031&nbsp;L&nbsp;17.5&nbsp;1.667969&nbsp;Z&nbsp;M&nbsp;15.628906&nbsp;18.332031&nbsp;L&nbsp;17.867188&nbsp;17.207031&nbsp;L&nbsp;15.9375&nbsp;13.332031&nbsp;L&nbsp;19.167969&nbsp;13.332031&nbsp;L&nbsp;11.667969&nbsp;7.886719&nbsp;L&nbsp;11.667969&nbsp;17.136719&nbsp;L&nbsp;13.652344&nbsp;14.417969&nbsp;Z&nbsp;M&nbsp;13.78125&nbsp;12.824219&nbsp;L&nbsp;12.5&nbsp;14.582031&nbsp;L&nbsp;12.5&nbsp;9.523438&nbsp;L&nbsp;16.601562&nbsp;12.5&nbsp;L&nbsp;14.59375&nbsp;12.5&nbsp;L&nbsp;16.75&nbsp;16.835938&nbsp;L&nbsp;15.996094&nbsp;17.214844&nbsp;Z&nbsp;M&nbsp;13.78125&nbsp;12.824219&apos;/&gt;&lt;/svg&gt;&quot;</span></div>
+<div id="line67"><a href="#line67" class="IdrisLineNumber"> &nbsp;67 | </a></div>
+<div id="line68"><a href="#line68" class="IdrisLineNumber"> &nbsp;68 | </a><span class="IdrisComment">|||&nbsp;Icon&nbsp;of&nbsp;an&nbsp;eraser</span></div>
+<div id="line69"><a href="#line69" class="IdrisLineNumber"> &nbsp;69 | </a><span class="IdrisKeyword">export</span></div>
+<div id="line70"><a href="#line70" class="IdrisLineNumber"> &nbsp;70 | </a><span class="IdrisFunction">erase</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HTMLNode</span></div>
+<div id="line71"><a href="#line71" class="IdrisLineNumber"> &nbsp;71 | </a><span class="IdrisFunction">erase</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisData">Raw</span>&nbsp;<span class="IdrisData">&quot;&lt;svg&nbsp;viewBox=&apos;0&nbsp;0&nbsp;20&nbsp;20&apos;&gt;&lt;\{</span><span class="IdrisFunction">pathNoStroke</span><span class="IdrisData">}&nbsp;d=&apos;M&nbsp;10.109375&nbsp;2.757812&nbsp;C&nbsp;11.082031&nbsp;1.78125&nbsp;12.667969&nbsp;1.78125&nbsp;13.640625&nbsp;2.757812&nbsp;L&nbsp;18.492188&nbsp;7.609375&nbsp;C&nbsp;19.46875&nbsp;8.582031&nbsp;19.46875&nbsp;10.167969&nbsp;18.492188&nbsp;11.140625&nbsp;L&nbsp;11.617188&nbsp;18.015625&nbsp;C&nbsp;11.148438&nbsp;18.488281&nbsp;10.511719&nbsp;18.75&nbsp;9.847656&nbsp;18.75&nbsp;L&nbsp;6.398438&nbsp;18.75&nbsp;C&nbsp;5.738281&nbsp;18.75&nbsp;5.101562&nbsp;18.488281&nbsp;4.632812&nbsp;18.015625&nbsp;L&nbsp;1.507812&nbsp;14.890625&nbsp;C&nbsp;0.53125&nbsp;13.917969&nbsp;0.53125&nbsp;12.332031&nbsp;1.507812&nbsp;11.359375&nbsp;L&nbsp;10.105469&nbsp;2.757812&nbsp;Z&nbsp;M&nbsp;12.757812&nbsp;3.640625&nbsp;C&nbsp;12.269531&nbsp;3.15625&nbsp;11.480469&nbsp;3.15625&nbsp;10.992188&nbsp;3.640625&nbsp;L&nbsp;5.199219&nbsp;9.433594&nbsp;L&nbsp;11.816406&nbsp;16.050781&nbsp;L&nbsp;17.609375&nbsp;10.257812&nbsp;C&nbsp;18.09375&nbsp;9.769531&nbsp;18.09375&nbsp;8.980469&nbsp;17.609375&nbsp;8.492188&nbsp;Z&nbsp;M&nbsp;10.933594&nbsp;16.933594&nbsp;L&nbsp;4.316406&nbsp;10.316406&nbsp;L&nbsp;2.390625&nbsp;12.242188&nbsp;C&nbsp;1.90625&nbsp;12.730469&nbsp;1.90625&nbsp;13.519531&nbsp;2.390625&nbsp;14.007812&nbsp;L&nbsp;5.515625&nbsp;17.132812&nbsp;C&nbsp;5.75&nbsp;17.367188&nbsp;6.070312&nbsp;17.5&nbsp;6.402344&nbsp;17.5&nbsp;L&nbsp;9.851562&nbsp;17.5&nbsp;C&nbsp;10.179688&nbsp;17.5&nbsp;10.5&nbsp;17.367188&nbsp;10.734375&nbsp;17.132812&nbsp;Z&nbsp;M&nbsp;10.933594&nbsp;16.933594&apos;/&gt;&lt;/svg&gt;&quot;</span></div>
+<div id="line72"><a href="#line72" class="IdrisLineNumber"> &nbsp;72 | </a></div>
+<div id="line73"><a href="#line73" class="IdrisLineNumber"> &nbsp;73 | </a><span class="IdrisComment">|||&nbsp;Icon&nbsp;of&nbsp;a&nbsp;trash&nbsp;can</span></div>
+<div id="line74"><a href="#line74" class="IdrisLineNumber"> &nbsp;74 | </a><span class="IdrisKeyword">export</span></div>
+<div id="line75"><a href="#line75" class="IdrisLineNumber"> &nbsp;75 | </a><span class="IdrisFunction">trash</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HTMLNode</span></div>
+<div id="line76"><a href="#line76" class="IdrisLineNumber"> &nbsp;76 | </a><span class="IdrisFunction">trash</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisData">Raw</span>&nbsp;<span class="IdrisData">&quot;&lt;svg&nbsp;viewBox=&apos;0&nbsp;0&nbsp;20&nbsp;20&apos;&gt;&lt;\{</span><span class="IdrisFunction">pathNoStroke</span><span class="IdrisData">}&nbsp;d=&apos;M&nbsp;15.726562&nbsp;5&nbsp;L&nbsp;16.5625&nbsp;5&nbsp;L&nbsp;15.742188&nbsp;18.347656&nbsp;C&nbsp;15.710938&nbsp;18.808594&nbsp;15.328125&nbsp;19.167969&nbsp;14.867188&nbsp;19.167969&nbsp;L&nbsp;5.132812&nbsp;19.167969&nbsp;C&nbsp;4.671875&nbsp;19.164062&nbsp;4.289062&nbsp;18.808594&nbsp;4.257812&nbsp;18.347656&nbsp;L&nbsp;3.4375&nbsp;5&nbsp;L&nbsp;4.273438&nbsp;5&nbsp;L&nbsp;5.089844&nbsp;18.292969&nbsp;C&nbsp;5.089844&nbsp;18.316406&nbsp;5.109375&nbsp;18.332031&nbsp;5.132812&nbsp;18.332031&nbsp;L&nbsp;14.867188&nbsp;18.332031&nbsp;Z&nbsp;M&nbsp;7.917969&nbsp;15.832031&nbsp;C&nbsp;8.148438&nbsp;15.832031&nbsp;8.332031&nbsp;15.648438&nbsp;8.332031&nbsp;15.417969&nbsp;L&nbsp;8.332031&nbsp;7.082031&nbsp;C&nbsp;8.332031&nbsp;6.851562&nbsp;8.148438&nbsp;6.667969&nbsp;7.917969&nbsp;6.667969&nbsp;C&nbsp;7.6875&nbsp;6.667969&nbsp;7.5&nbsp;6.851562&nbsp;7.5&nbsp;7.082031&nbsp;L&nbsp;7.5&nbsp;15.417969&nbsp;C&nbsp;7.5&nbsp;15.648438&nbsp;7.6875&nbsp;15.832031&nbsp;7.917969&nbsp;15.832031&nbsp;Z&nbsp;M&nbsp;12.082031&nbsp;15.832031&nbsp;C&nbsp;12.3125&nbsp;15.832031&nbsp;12.5&nbsp;15.648438&nbsp;12.5&nbsp;15.417969&nbsp;L&nbsp;12.5&nbsp;7.082031&nbsp;C&nbsp;12.5&nbsp;6.851562&nbsp;12.3125&nbsp;6.667969&nbsp;12.082031&nbsp;6.667969&nbsp;C&nbsp;11.851562&nbsp;6.667969&nbsp;11.667969&nbsp;6.851562&nbsp;11.667969&nbsp;7.082031&nbsp;L&nbsp;11.667969&nbsp;15.417969&nbsp;C&nbsp;11.667969&nbsp;15.648438&nbsp;11.851562&nbsp;15.832031&nbsp;12.082031&nbsp;15.832031&nbsp;Z&nbsp;M&nbsp;4.21875&nbsp;4.167969&nbsp;L&nbsp;2.5&nbsp;4.167969&nbsp;L&nbsp;2.5&nbsp;3.332031&nbsp;L&nbsp;6.667969&nbsp;3.332031&nbsp;L&nbsp;6.667969&nbsp;2.707031&nbsp;C&nbsp;6.667969&nbsp;2.132812&nbsp;7.132812&nbsp;1.667969&nbsp;7.707031&nbsp;1.667969&nbsp;L&nbsp;12.292969&nbsp;1.667969&nbsp;C&nbsp;12.867188&nbsp;1.667969&nbsp;13.332031&nbsp;2.132812&nbsp;13.332031&nbsp;2.707031&nbsp;L&nbsp;13.332031&nbsp;3.332031&nbsp;L&nbsp;17.5&nbsp;3.332031&nbsp;L&nbsp;17.5&nbsp;4.167969&nbsp;Z&nbsp;M&nbsp;7.5&nbsp;3.332031&nbsp;L&nbsp;12.5&nbsp;3.332031&nbsp;L&nbsp;12.5&nbsp;2.707031&nbsp;C&nbsp;12.5&nbsp;2.59375&nbsp;12.40625&nbsp;2.5&nbsp;12.292969&nbsp;2.5&nbsp;L&nbsp;7.707031&nbsp;2.5&nbsp;C&nbsp;7.59375&nbsp;2.5&nbsp;7.5&nbsp;2.59375&nbsp;7.5&nbsp;2.707031&nbsp;Z&nbsp;M&nbsp;7.5&nbsp;3.332031&apos;/&gt;&lt;/svg&gt;&quot;</span></div>
+<div id="line77"><a href="#line77" class="IdrisLineNumber"> &nbsp;77 | </a></div>
+<div id="line78"><a href="#line78" class="IdrisLineNumber"> &nbsp;78 | </a><span class="IdrisComment">|||&nbsp;Undo&nbsp;icon&nbsp;(counter&nbsp;clockwise&nbsp;arrow)</span></div>
+<div id="line79"><a href="#line79" class="IdrisLineNumber"> &nbsp;79 | </a><span class="IdrisKeyword">export</span></div>
+<div id="line80"><a href="#line80" class="IdrisLineNumber"> &nbsp;80 | </a><span class="IdrisFunction">undo</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HTMLNode</span></div>
+<div id="line81"><a href="#line81" class="IdrisLineNumber"> &nbsp;81 | </a><span class="IdrisFunction">undo</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisData">Raw</span>&nbsp;<span class="IdrisData">&quot;&lt;svg&nbsp;viewBox=&apos;0&nbsp;0&nbsp;20&nbsp;20&apos;&gt;&lt;\{</span><span class="IdrisFunction">pathNoStroke</span><span class="IdrisData">}&nbsp;d=&apos;M&nbsp;6.667969&nbsp;5.417969&nbsp;L&nbsp;6.667969&nbsp;7.6875&nbsp;C&nbsp;7.5&nbsp;6.800781&nbsp;8.6875&nbsp;6.25&nbsp;10&nbsp;6.25&nbsp;C&nbsp;12.53125&nbsp;6.25&nbsp;14.582031&nbsp;8.300781&nbsp;14.582031&nbsp;10.832031&nbsp;C&nbsp;14.582031&nbsp;12.097656&nbsp;14.070312&nbsp;13.246094&nbsp;13.242188&nbsp;14.074219&nbsp;L&nbsp;12.210938&nbsp;13.042969&nbsp;C&nbsp;12.773438&nbsp;12.476562&nbsp;13.125&nbsp;11.695312&nbsp;13.125&nbsp;10.832031&nbsp;C&nbsp;13.125&nbsp;9.105469&nbsp;11.726562&nbsp;7.707031&nbsp;10&nbsp;7.707031&nbsp;C&nbsp;9.074219&nbsp;7.707031&nbsp;8.242188&nbsp;8.109375&nbsp;7.671875&nbsp;8.75&nbsp;L&nbsp;10&nbsp;8.75&nbsp;L&nbsp;8.75&nbsp;10&nbsp;L&nbsp;5.417969&nbsp;10&nbsp;L&nbsp;5.417969&nbsp;6.667969&nbsp;Z&nbsp;M&nbsp;6.667969&nbsp;5.417969&nbsp;&apos;/&gt;&lt;/svg&gt;&quot;</span></div>
+<div id="line82"><a href="#line82" class="IdrisLineNumber"> &nbsp;82 | </a></div>
+<div id="line83"><a href="#line83" class="IdrisLineNumber"> &nbsp;83 | </a><span class="IdrisComment">|||&nbsp;Redo&nbsp;icon&nbsp;(clockwise&nbsp;arrow)</span></div>
+<div id="line84"><a href="#line84" class="IdrisLineNumber"> &nbsp;84 | </a><span class="IdrisKeyword">export</span></div>
+<div id="line85"><a href="#line85" class="IdrisLineNumber"> &nbsp;85 | </a><span class="IdrisFunction">redo</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HTMLNode</span></div>
+<div id="line86"><a href="#line86" class="IdrisLineNumber"> &nbsp;86 | </a><span class="IdrisFunction">redo</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisData">Raw</span>&nbsp;<span class="IdrisData">&quot;&lt;svg&nbsp;viewBox=&apos;0&nbsp;0&nbsp;20&nbsp;20&apos;&gt;&lt;\{</span><span class="IdrisFunction">pathNoStroke</span><span class="IdrisData">}&nbsp;d=&apos;M&nbsp;13.332031&nbsp;5.417969&nbsp;L&nbsp;14.582031&nbsp;6.667969&nbsp;L&nbsp;14.582031&nbsp;10&nbsp;L&nbsp;11.25&nbsp;10&nbsp;L&nbsp;10&nbsp;8.75&nbsp;L&nbsp;12.328125&nbsp;8.75&nbsp;C&nbsp;11.757812&nbsp;8.109375&nbsp;10.925781&nbsp;7.707031&nbsp;10&nbsp;7.707031&nbsp;C&nbsp;8.273438&nbsp;7.707031&nbsp;6.875&nbsp;9.105469&nbsp;6.875&nbsp;10.832031&nbsp;C&nbsp;6.875&nbsp;11.695312&nbsp;7.226562&nbsp;12.476562&nbsp;7.789062&nbsp;13.042969&nbsp;L&nbsp;6.757812&nbsp;14.074219&nbsp;C&nbsp;5.929688&nbsp;13.246094&nbsp;5.417969&nbsp;12.097656&nbsp;5.417969&nbsp;10.832031&nbsp;C&nbsp;5.417969&nbsp;8.300781&nbsp;7.46875&nbsp;6.25&nbsp;10&nbsp;6.25&nbsp;C&nbsp;11.3125&nbsp;6.25&nbsp;12.496094&nbsp;6.800781&nbsp;13.332031&nbsp;7.6875&nbsp;Z&nbsp;M&nbsp;13.332031&nbsp;5.417969&nbsp;&apos;/&gt;&lt;/svg&gt;&quot;</span></div>
+<div id="line87"><a href="#line87" class="IdrisLineNumber"> &nbsp;87 | </a></div>
+<div id="line88"><a href="#line88" class="IdrisLineNumber"> &nbsp;88 | </a><span class="IdrisComment">|||&nbsp;Icon&nbsp;for&nbsp;centering&nbsp;a&nbsp;molecule</span></div>
+<div id="line89"><a href="#line89" class="IdrisLineNumber"> &nbsp;89 | </a><span class="IdrisKeyword">export</span></div>
+<div id="line90"><a href="#line90" class="IdrisLineNumber"> &nbsp;90 | </a><span class="IdrisFunction">center</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HTMLNode</span></div>
+<div id="line91"><a href="#line91" class="IdrisLineNumber"> &nbsp;91 | </a><span class="IdrisFunction">center</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisData">Raw</span>&nbsp;<span class="IdrisData">&quot;&lt;svg&nbsp;viewBox=&apos;0&nbsp;0&nbsp;20&nbsp;20&apos;&gt;&lt;\{</span><span class="IdrisFunction">pathNoStroke</span><span class="IdrisData">}&nbsp;d=&apos;M&nbsp;5&nbsp;1.25&nbsp;L&nbsp;1.25&nbsp;1.25&nbsp;L&nbsp;1.25&nbsp;5&nbsp;L&nbsp;2.5&nbsp;5&nbsp;L&nbsp;2.5&nbsp;2.5&nbsp;L&nbsp;5&nbsp;2.5&nbsp;Z&nbsp;M&nbsp;5&nbsp;1.25&nbsp;&apos;/&gt;&lt;\{</span><span class="IdrisFunction">pathNoStroke</span><span class="IdrisData">}&nbsp;d=&apos;M&nbsp;15&nbsp;1.25&nbsp;L&nbsp;18.75&nbsp;1.25&nbsp;L&nbsp;18.75&nbsp;5&nbsp;L&nbsp;17.5&nbsp;5&nbsp;L&nbsp;17.5&nbsp;2.5&nbsp;L&nbsp;15&nbsp;2.5&nbsp;Z&nbsp;M&nbsp;15&nbsp;1.25&nbsp;&apos;/&gt;&lt;\{</span><span class="IdrisFunction">pathNoStroke</span><span class="IdrisData">}&nbsp;d=&apos;M&nbsp;5&nbsp;18.75&nbsp;L&nbsp;1.25&nbsp;18.75&nbsp;L&nbsp;1.25&nbsp;15&nbsp;L&nbsp;2.5&nbsp;15&nbsp;L&nbsp;2.5&nbsp;17.5&nbsp;L&nbsp;5&nbsp;17.5&nbsp;Z&nbsp;M&nbsp;5&nbsp;18.75&nbsp;&apos;/&gt;&lt;\{</span><span class="IdrisFunction">pathNoStroke</span><span class="IdrisData">}&nbsp;d=&apos;M&nbsp;15&nbsp;18.75&nbsp;L&nbsp;18.75&nbsp;18.75&nbsp;L&nbsp;18.75&nbsp;15&nbsp;L&nbsp;17.5&nbsp;15&nbsp;L&nbsp;17.5&nbsp;17.5&nbsp;L&nbsp;15&nbsp;17.5&nbsp;Z&nbsp;M&nbsp;15&nbsp;18.75&nbsp;&apos;/&gt;&lt;\{</span><span class="IdrisFunction">pathNoStroke</span><span class="IdrisData">}&nbsp;d=&apos;M&nbsp;15&nbsp;15&nbsp;L&nbsp;5&nbsp;15&nbsp;C&nbsp;4.308594&nbsp;15&nbsp;3.75&nbsp;14.441406&nbsp;3.75&nbsp;13.75&nbsp;L&nbsp;3.75&nbsp;6.25&nbsp;C&nbsp;3.75&nbsp;5.558594&nbsp;4.308594&nbsp;5&nbsp;5&nbsp;5&nbsp;L&nbsp;15&nbsp;5&nbsp;C&nbsp;15.691406&nbsp;5&nbsp;16.25&nbsp;5.558594&nbsp;16.25&nbsp;6.25&nbsp;L&nbsp;16.25&nbsp;13.75&nbsp;C&nbsp;16.25&nbsp;14.441406&nbsp;15.691406&nbsp;15&nbsp;15&nbsp;15&nbsp;Z&nbsp;M&nbsp;5&nbsp;6.25&nbsp;L&nbsp;5&nbsp;13.75&nbsp;L&nbsp;15&nbsp;13.75&nbsp;L&nbsp;15&nbsp;6.25&nbsp;Z&nbsp;M&nbsp;5&nbsp;6.25&nbsp;&apos;/&gt;&lt;/svg&gt;&quot;</span></div>
+<div id="line92"><a href="#line92" class="IdrisLineNumber"> &nbsp;92 | </a></div>
+<div id="line93"><a href="#line93" class="IdrisLineNumber"> &nbsp;93 | </a><span class="IdrisComment">|||&nbsp;Lens&nbsp;with&nbsp;a&nbsp;plus&nbsp;sign</span></div>
+<div id="line94"><a href="#line94" class="IdrisLineNumber"> &nbsp;94 | </a><span class="IdrisKeyword">export</span></div>
+<div id="line95"><a href="#line95" class="IdrisLineNumber"> &nbsp;95 | </a><span class="IdrisFunction">zoomIn</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HTMLNode</span></div>
+<div id="line96"><a href="#line96" class="IdrisLineNumber"> &nbsp;96 | </a><span class="IdrisFunction">zoomIn</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisData">Raw</span>&nbsp;<span class="IdrisData">&quot;&lt;svg&nbsp;viewBox=&apos;0&nbsp;0&nbsp;20&nbsp;20&apos;&gt;&lt;\{</span><span class="IdrisFunction">pathNoStroke</span><span class="IdrisData">}&nbsp;d=&apos;M&nbsp;18.96875&nbsp;17.0625&nbsp;L&nbsp;15.4375&nbsp;13.53125&nbsp;C&nbsp;15.171875&nbsp;13.265625&nbsp;14.746094&nbsp;13.265625&nbsp;14.484375&nbsp;13.53125&nbsp;L&nbsp;14.300781&nbsp;13.710938&nbsp;L&nbsp;13.082031&nbsp;12.492188&nbsp;L&nbsp;13.242188&nbsp;12.332031&nbsp;C&nbsp;15.601562&nbsp;9.484375&nbsp;15.304688&nbsp;5.289062&nbsp;12.574219&nbsp;2.800781&nbsp;C&nbsp;9.839844&nbsp;0.308594&nbsp;5.636719&nbsp;0.410156&nbsp;3.023438&nbsp;3.023438&nbsp;C&nbsp;0.410156&nbsp;5.636719&nbsp;0.308594&nbsp;9.839844&nbsp;2.800781&nbsp;12.574219&nbsp;C&nbsp;5.289062&nbsp;15.304688&nbsp;9.484375&nbsp;15.601562&nbsp;12.332031&nbsp;13.242188&nbsp;L&nbsp;12.492188&nbsp;13.082031&nbsp;L&nbsp;13.710938&nbsp;14.300781&nbsp;L&nbsp;13.53125&nbsp;14.484375&nbsp;C&nbsp;13.265625&nbsp;14.746094&nbsp;13.265625&nbsp;15.175781&nbsp;13.53125&nbsp;15.4375&nbsp;L&nbsp;17.0625&nbsp;18.96875&nbsp;C&nbsp;17.328125&nbsp;19.230469&nbsp;17.753906&nbsp;19.230469&nbsp;18.015625&nbsp;18.96875&nbsp;L&nbsp;18.96875&nbsp;18.015625&nbsp;C&nbsp;19.230469&nbsp;17.753906&nbsp;19.230469&nbsp;17.328125&nbsp;18.96875&nbsp;17.0625&nbsp;Z&nbsp;M&nbsp;7.914062&nbsp;14&nbsp;C&nbsp;6.300781&nbsp;14.003906&nbsp;4.753906&nbsp;13.363281&nbsp;3.617188&nbsp;12.21875&nbsp;C&nbsp;1.292969&nbsp;9.898438&nbsp;1.230469&nbsp;6.148438&nbsp;3.480469&nbsp;3.75&nbsp;C&nbsp;5.730469&nbsp;1.355469&nbsp;9.476562&nbsp;1.179688&nbsp;11.941406&nbsp;3.355469&nbsp;C&nbsp;14.40625&nbsp;5.53125&nbsp;14.695312&nbsp;9.269531&nbsp;12.597656&nbsp;11.796875&nbsp;L&nbsp;11.742188&nbsp;12.648438&nbsp;C&nbsp;10.660156&nbsp;13.527344&nbsp;9.308594&nbsp;14.003906&nbsp;7.914062&nbsp;14&nbsp;Z&nbsp;M&nbsp;17.539062&nbsp;18.265625&nbsp;L&nbsp;14.230469&nbsp;14.960938&nbsp;L&nbsp;14.960938&nbsp;14.234375&nbsp;L&nbsp;18.269531&nbsp;17.539062&nbsp;Z&nbsp;M&nbsp;8.332031&nbsp;7.5&nbsp;L&nbsp;10.832031&nbsp;7.5&nbsp;L&nbsp;10.832031&nbsp;8.332031&nbsp;L&nbsp;8.332031&nbsp;8.332031&nbsp;L&nbsp;8.332031&nbsp;10.832031&nbsp;L&nbsp;7.5&nbsp;10.832031&nbsp;L&nbsp;7.5&nbsp;8.332031&nbsp;L&nbsp;5&nbsp;8.332031&nbsp;L&nbsp;5&nbsp;7.5&nbsp;L&nbsp;7.5&nbsp;7.5&nbsp;L&nbsp;7.5&nbsp;5&nbsp;L&nbsp;8.332031&nbsp;5&nbsp;Z&nbsp;M&nbsp;8.332031&nbsp;7.5&nbsp;&apos;/&gt;&lt;/svg&gt;&quot;</span></div>
+<div id="line97"><a href="#line97" class="IdrisLineNumber"> &nbsp;97 | </a></div>
+<div id="line98"><a href="#line98" class="IdrisLineNumber"> &nbsp;98 | </a><span class="IdrisComment">|||&nbsp;Lens&nbsp;with&nbsp;a&nbsp;minus&nbsp;sign</span></div>
+<div id="line99"><a href="#line99" class="IdrisLineNumber"> &nbsp;99 | </a><span class="IdrisKeyword">export</span></div>
+<div id="line100"><a href="#line100" class="IdrisLineNumber"> 100 | </a><span class="IdrisFunction">zoomOut</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HTMLNode</span></div>
+<div id="line101"><a href="#line101" class="IdrisLineNumber"> 101 | </a><span class="IdrisFunction">zoomOut</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisData">Raw</span>&nbsp;<span class="IdrisData">&quot;&lt;svg&nbsp;viewBox=&apos;0&nbsp;0&nbsp;20&nbsp;20&apos;&gt;&lt;\{</span><span class="IdrisFunction">pathNoStroke</span><span class="IdrisData">}&nbsp;d=&apos;M&nbsp;18.96875&nbsp;17.0625&nbsp;L&nbsp;15.4375&nbsp;13.53125&nbsp;C&nbsp;15.171875&nbsp;13.265625&nbsp;14.746094&nbsp;13.265625&nbsp;14.484375&nbsp;13.53125&nbsp;L&nbsp;14.300781&nbsp;13.710938&nbsp;L&nbsp;13.082031&nbsp;12.492188&nbsp;L&nbsp;13.242188&nbsp;12.332031&nbsp;C&nbsp;15.601562&nbsp;9.484375&nbsp;15.304688&nbsp;5.289062&nbsp;12.574219&nbsp;2.800781&nbsp;C&nbsp;9.839844&nbsp;0.308594&nbsp;5.636719&nbsp;0.410156&nbsp;3.023438&nbsp;3.023438&nbsp;C&nbsp;0.410156&nbsp;5.636719&nbsp;0.308594&nbsp;9.839844&nbsp;2.800781&nbsp;12.574219&nbsp;C&nbsp;5.289062&nbsp;15.304688&nbsp;9.484375&nbsp;15.601562&nbsp;12.332031&nbsp;13.242188&nbsp;L&nbsp;12.492188&nbsp;13.082031&nbsp;L&nbsp;13.710938&nbsp;14.300781&nbsp;L&nbsp;13.53125&nbsp;14.484375&nbsp;C&nbsp;13.265625&nbsp;14.746094&nbsp;13.265625&nbsp;15.175781&nbsp;13.53125&nbsp;15.4375&nbsp;L&nbsp;17.0625&nbsp;18.96875&nbsp;C&nbsp;17.328125&nbsp;19.230469&nbsp;17.753906&nbsp;19.230469&nbsp;18.015625&nbsp;18.96875&nbsp;L&nbsp;18.96875&nbsp;18.015625&nbsp;C&nbsp;19.230469&nbsp;17.753906&nbsp;19.230469&nbsp;17.328125&nbsp;18.96875&nbsp;17.0625&nbsp;Z&nbsp;M&nbsp;7.914062&nbsp;14&nbsp;C&nbsp;6.300781&nbsp;14.003906&nbsp;4.753906&nbsp;13.363281&nbsp;3.617188&nbsp;12.21875&nbsp;C&nbsp;1.292969&nbsp;9.898438&nbsp;1.230469&nbsp;6.148438&nbsp;3.480469&nbsp;3.75&nbsp;C&nbsp;5.730469&nbsp;1.355469&nbsp;9.476562&nbsp;1.179688&nbsp;11.941406&nbsp;3.355469&nbsp;C&nbsp;14.40625&nbsp;5.53125&nbsp;14.695312&nbsp;9.269531&nbsp;12.597656&nbsp;11.796875&nbsp;L&nbsp;11.742188&nbsp;12.648438&nbsp;C&nbsp;10.660156&nbsp;13.527344&nbsp;9.308594&nbsp;14.003906&nbsp;7.914062&nbsp;14&nbsp;Z&nbsp;M&nbsp;17.539062&nbsp;18.265625&nbsp;L&nbsp;14.230469&nbsp;14.960938&nbsp;L&nbsp;14.960938&nbsp;14.234375&nbsp;L&nbsp;18.269531&nbsp;17.539062&nbsp;Z&nbsp;M&nbsp;5&nbsp;7.5&nbsp;L&nbsp;10.832031&nbsp;7.5&nbsp;L&nbsp;10.832031&nbsp;8.332031&nbsp;L&nbsp;5&nbsp;8.332031&nbsp;Z&nbsp;M&nbsp;5&nbsp;7.5&nbsp;&apos;/&gt;&lt;/svg&gt;&quot;</span></div>
+<div id="line102"><a href="#line102" class="IdrisLineNumber"> 102 | </a></div>
+<div id="line103"><a href="#line103" class="IdrisLineNumber"> 103 | </a><span class="IdrisComment">|||&nbsp;A&nbsp;single&nbsp;bond&nbsp;(TODO:&nbsp;fix&nbsp;its&nbsp;size)</span></div>
+<div id="line104"><a href="#line104" class="IdrisLineNumber"> 104 | </a><span class="IdrisKeyword">export</span></div>
+<div id="line105"><a href="#line105" class="IdrisLineNumber"> 105 | </a><span class="IdrisFunction">single</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HTMLNode</span></div>
+<div id="line106"><a href="#line106" class="IdrisLineNumber"> 106 | </a><span class="IdrisFunction">single</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisData">Raw</span>&nbsp;<span class="IdrisData">&quot;&lt;svg&nbsp;viewBox=&apos;0&nbsp;0&nbsp;20&nbsp;20&apos;&gt;&lt;path&nbsp;style=&apos;fill:none;stroke:currentcolor;stroke-width:1;stroke-linecap:round&apos;&nbsp;d=&apos;M&nbsp;17.134464,3.1507937&nbsp;2.9920635,17.291594&apos;/&gt;&lt;/svg&gt;&quot;</span></div>
+<div id="line107"><a href="#line107" class="IdrisLineNumber"> 107 | </a></div>
+<div id="line108"><a href="#line108" class="IdrisLineNumber"> 108 | </a><span class="IdrisComment">|||&nbsp;A&nbsp;double&nbsp;bond</span></div>
+<div id="line109"><a href="#line109" class="IdrisLineNumber"> 109 | </a><span class="IdrisKeyword">export</span></div>
+<div id="line110"><a href="#line110" class="IdrisLineNumber"> 110 | </a><span class="IdrisFunction">double</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HTMLNode</span></div>
+<div id="line111"><a href="#line111" class="IdrisLineNumber"> 111 | </a><span class="IdrisFunction">double</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisData">Raw</span>&nbsp;<span class="IdrisData">&quot;&lt;svg&nbsp;viewBox=&apos;0&nbsp;0&nbsp;20&nbsp;20&apos;&gt;&lt;g&nbsp;transform=&apos;translate(-32.888486,-15.32218)&apos;&gt;&lt;path&nbsp;style=&apos;fill:none;stroke:currentcolor;stroke-width:1;stroke-linecap:round&apos;&nbsp;d=&apos;m&nbsp;37.34373,33.95029&nbsp;14.1424,-14.1408&apos;/&gt;&lt;path&nbsp;style=&apos;fill:none;stroke:currentcolor;stroke-width:1;stroke-linecap:round&apos;&nbsp;d=&apos;m&nbsp;34.51547,31.12171&nbsp;14.1424,-14.1408&apos;/&gt;&lt;/g&gt;&lt;/svg&gt;&quot;</span></div>
+<div id="line112"><a href="#line112" class="IdrisLineNumber"> 112 | </a><span class="IdrisComment">|||&nbsp;A&nbsp;triple&nbsp;bond</span></div>
+<div id="line113"><a href="#line113" class="IdrisLineNumber"> 113 | </a></div>
+<div id="line114"><a href="#line114" class="IdrisLineNumber"> 114 | </a><span class="IdrisKeyword">export</span></div>
+<div id="line115"><a href="#line115" class="IdrisLineNumber"> 115 | </a><span class="IdrisFunction">triple</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HTMLNode</span></div>
+<div id="line116"><a href="#line116" class="IdrisLineNumber"> 116 | </a><span class="IdrisFunction">triple</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisData">Raw</span>&nbsp;<span class="IdrisData">&quot;&lt;svg&nbsp;viewBox=&apos;0&nbsp;0&nbsp;20&nbsp;20&apos;&gt;&lt;g&nbsp;transform=&apos;matrix(0.90059434,0,0,0.90059387,-56.99508,-11.508089)&apos;&nbsp;style=&apos;stroke-width:1&apos;&gt;&lt;path&nbsp;style=&apos;fill:none;stroke:currentcolor;stroke-width:1.11038;stroke-linecap:round&apos;&nbsp;d=&apos;M&nbsp;67.392,30.9552&nbsp;81.536,16.8144&apos;/&gt;&lt;path&nbsp;style=&apos;fill:none;stroke:currentcolor;stroke-width:1.11038;stroke-linecap:round&apos;&nbsp;d=&apos;m&nbsp;70.22011,33.78395&nbsp;14.144,-14.1408&apos;/&gt;&lt;path&nbsp;style=&apos;fill:none;stroke:currentcolor;stroke-width:1.11038;stroke-linecap:round&apos;&nbsp;d=&apos;m&nbsp;64.56389,28.12645&nbsp;14.144,-14.1408&apos;/&gt;&lt;/g&gt;&lt;/svg&gt;&quot;</span></div>
+<div id="line117"><a href="#line117" class="IdrisLineNumber"> 117 | </a></div>
+<div id="line118"><a href="#line118" class="IdrisLineNumber"> 118 | </a><span class="IdrisComment">|||&nbsp;A&nbsp;wedged&nbsp;bond&nbsp;towards&nbsp;the&nbsp;viewer</span></div>
+<div id="line119"><a href="#line119" class="IdrisLineNumber"> 119 | </a><span class="IdrisKeyword">export</span></div>
+<div id="line120"><a href="#line120" class="IdrisLineNumber"> 120 | </a><span class="IdrisFunction">bondUp</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HTMLNode</span></div>
+<div id="line121"><a href="#line121" class="IdrisLineNumber"> 121 | </a><span class="IdrisFunction">bondUp</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisData">Raw</span>&nbsp;<span class="IdrisData">&quot;&lt;svg&nbsp;viewBox=&apos;0&nbsp;0&nbsp;20&nbsp;20&apos;&gt;&lt;g&nbsp;style=&apos;fill:currentcolor;currentcolor;stroke-width:1;stroke:currentcolor;stroke-linecap:round;stroke-linejoin:round&apos;&nbsp;transform=&apos;translate(406.95379,162.55406)&apos;&gt;&lt;polygon&nbsp;points=&apos;-404.96175,-144.54576&nbsp;-392.54997,-160.41917&nbsp;-389.01483,-156.88323&nbsp;-404.89105,-144.47504&apos;&lt;/g&gt;&lt;/svg&gt;&quot;</span></div>
+<div id="line122"><a href="#line122" class="IdrisLineNumber"> 122 | </a></div>
+<div id="line123"><a href="#line123" class="IdrisLineNumber"> 123 | </a><span class="IdrisComment">|||&nbsp;A&nbsp;wedged&nbsp;bond&nbsp;away&nbsp;from&nbsp;the&nbsp;viewer</span></div>
+<div id="line124"><a href="#line124" class="IdrisLineNumber"> 124 | </a><span class="IdrisKeyword">export</span></div>
+<div id="line125"><a href="#line125" class="IdrisLineNumber"> 125 | </a><span class="IdrisFunction">bondDown</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HTMLNode</span></div>
+<div id="line126"><a href="#line126" class="IdrisLineNumber"> 126 | </a><span class="IdrisFunction">bondDown</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisData">Raw</span>&nbsp;<span class="IdrisData">&quot;&lt;svg&nbsp;viewBox=&apos;0&nbsp;0&nbsp;20&nbsp;20&apos;&gt;&lt;g&nbsp;transform=&apos;matrix(1.0889093,0,0,1.0889103,-148.48125,-12.18109)&apos;&nbsp;style=&apos;stroke-width:1&apos;&gt;&lt;path&nbsp;style=&apos;fill:none;stroke:currentcolor;stroke-width:0.91835;stroke-linecap:round&apos;&nbsp;d=&apos;m&nbsp;152.86559,16.42123&nbsp;-3.04022,-3.0409&apos;/&gt;&lt;path&nbsp;style=&apos;fill:none;stroke:currentcolor;stroke-width:0.91835;stroke-linecap:round&apos;&nbsp;d=&apos;m&nbsp;150.49657,18.2948&nbsp;-2.5453,-2.54588&apos;/&gt;&lt;path&nbsp;style=&apos;fill:none;stroke:currentcolor;stroke-width:0.91835;stroke-linecap:round&apos;&nbsp;d=&apos;m&nbsp;148.12755,20.16836&nbsp;-2.05038,-2.05084&apos;/&gt;&lt;path&nbsp;style=&apos;fill:none;stroke:currentcolor;stroke-width:0.91835;stroke-linecap:round&apos;&nbsp;d=&apos;m&nbsp;145.75853,22.04193&nbsp;-1.55546,-1.55582&apos;/&gt;&lt;path&nbsp;style=&apos;fill:none;stroke:currentcolor;stroke-width:0.91835;stroke-linecap:round&apos;&nbsp;d=&apos;m&nbsp;143.38951,23.91549&nbsp;-1.06054,-1.06078&apos;/&gt;&lt;path&nbsp;style=&apos;fill:none;stroke:currentcolor;stroke-width:0.91835;stroke-linecap:round&apos;&nbsp;d=&apos;m&nbsp;141.02049,25.78906&nbsp;-0.56562,-0.56575&apos;/&gt;&lt;path&nbsp;style=&apos;fill:none;stroke:currentcolor;stroke-width:0.91835;stroke-linecap:round&apos;&nbsp;d=&apos;m&nbsp;138.65147,27.6626&nbsp;-0.0707,-0.0707&apos;/&gt;&lt;/g&gt;&lt;/svg&gt;&quot;</span></div>
+<div id="line127"><a href="#line127" class="IdrisLineNumber"> 127 | </a></div>
+<div id="line128"><a href="#line128" class="IdrisLineNumber"> 128 | </a><span class="IdrisComment">|||&nbsp;A&nbsp;wavy&nbsp;bond</span></div>
+<div id="line129"><a href="#line129" class="IdrisLineNumber"> 129 | </a><span class="IdrisKeyword">export</span></div>
+<div id="line130"><a href="#line130" class="IdrisLineNumber"> 130 | </a><span class="IdrisFunction">bondEither</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HTMLNode</span></div>
+<div id="line131"><a href="#line131" class="IdrisLineNumber"> 131 | </a><span class="IdrisFunction">bondEither</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisData">Raw</span>&nbsp;<span class="IdrisData">&quot;&lt;svg&nbsp;viewBox=&apos;0&nbsp;0&nbsp;20&nbsp;20&apos;&gt;&lt;path&nbsp;style=&apos;fill:none;stroke:currentcolor;stroke-width:1;stroke-linecap:round&apos;&nbsp;d=&apos;M&nbsp;2.3254458,17.784193&nbsp;A&nbsp;1.607724,1.6077546&nbsp;0&nbsp;0&nbsp;1&nbsp;4.2202771,15.88954&nbsp;1.607724,1.6077546&nbsp;0&nbsp;0&nbsp;0&nbsp;6.1151085,13.994887&nbsp;1.607724,1.6077546&nbsp;0&nbsp;0&nbsp;1&nbsp;8.0099398,12.100234&nbsp;1.607724,1.6077546&nbsp;0&nbsp;0&nbsp;0&nbsp;9.9047604,10.205591&nbsp;1.607724,1.6077546&nbsp;0&nbsp;0&nbsp;1&nbsp;11.799592,8.3109377&nbsp;1.607724,1.6077546&nbsp;0&nbsp;0&nbsp;0&nbsp;13.694423,6.4162846&nbsp;1.607724,1.6077546&nbsp;0&nbsp;0&nbsp;1&nbsp;15.589244,4.5216423&nbsp;1.607724,1.6077546&nbsp;0&nbsp;0&nbsp;0&nbsp;17.484075,2.6269893&apos;/&gt;&lt;/svg&gt;&quot;</span></div>
+<div id="line132"><a href="#line132" class="IdrisLineNumber"> 132 | </a></div>
+<div id="line133"><a href="#line133" class="IdrisLineNumber"> 133 | </a><span class="IdrisKeyword">export</span></div>
+<div id="line134"><a href="#line134" class="IdrisLineNumber"> 134 | </a><span class="IdrisFunction">cyclopropane</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HTMLNode</span></div>
+<div id="line135"><a href="#line135" class="IdrisLineNumber"> 135 | </a><span class="IdrisFunction">cyclopropane</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisData">Raw</span>&nbsp;<span class="IdrisData">&quot;&lt;svg&nbsp;viewBox=&apos;0&nbsp;0&nbsp;20&nbsp;20&apos;&gt;&lt;g&nbsp;transform=&apos;matrix(0.68754514,0,0,0.68564061,142.00812,87.13402)&apos;&nbsp;style=&apos;fill:none;stroke:currentcolor;stroke-width:0.971469;stroke-linecap:round&apos;&gt;&lt;path&nbsp;d=&apos;m&nbsp;-182,-103.84&nbsp;-10,-17.3184&nbsp;m&nbsp;-9.9984,17.3184&nbsp;9.9984,-17.3184&nbsp;m&nbsp;-9.9984,17.3184&nbsp;H&nbsp;-182&apos;/&gt;&lt;/g&gt;&lt;/svg&gt;&quot;</span></div>
+<div id="line136"><a href="#line136" class="IdrisLineNumber"> 136 | </a></div>
+<div id="line137"><a href="#line137" class="IdrisLineNumber"> 137 | </a><span class="IdrisKeyword">export</span></div>
+<div id="line138"><a href="#line138" class="IdrisLineNumber"> 138 | </a><span class="IdrisFunction">cyclobutane</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HTMLNode</span></div>
+<div id="line139"><a href="#line139" class="IdrisLineNumber"> 139 | </a><span class="IdrisFunction">cyclobutane</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisData">Raw</span>&nbsp;<span class="IdrisData">&quot;&lt;svg&nbsp;viewBox=&apos;0&nbsp;0&nbsp;20&nbsp;20&apos;&gt;&lt;g&nbsp;transform=&apos;matrix(0.624986,0,0,0.624986,132.49726,78.435467)&apos;&nbsp;style=&apos;fill:none;stroke:currentcolor;stroke-width:1.06722;stroke-linecap:round&apos;&gt;&lt;path&nbsp;d=&apos;m&nbsp;-206,-99.4992&nbsp;h&nbsp;20&nbsp;m&nbsp;-0.002,-20&nbsp;0.002,20&nbsp;m&nbsp;-20,-20&nbsp;v&nbsp;20&nbsp;m&nbsp;19.9984,-20&nbsp;H&nbsp;-206&apos;/&gt;&lt;/g&gt;&lt;/svg&gt;&quot;</span></div>
+<div id="line140"><a href="#line140" class="IdrisLineNumber"> 140 | </a></div>
+<div id="line141"><a href="#line141" class="IdrisLineNumber"> 141 | </a><span class="IdrisKeyword">export</span></div>
+<div id="line142"><a href="#line142" class="IdrisLineNumber"> 142 | </a><span class="IdrisFunction">cyclopentane</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HTMLNode</span></div>
+<div id="line143"><a href="#line143" class="IdrisLineNumber"> 143 | </a><span class="IdrisFunction">cyclopentane</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisData">Raw</span>&nbsp;<span class="IdrisData">&quot;&lt;svg&nbsp;viewBox=&apos;0&nbsp;0&nbsp;20&nbsp;20&apos;&gt;&lt;g&nbsp;transform=&apos;matrix(0.44796566,0,0,0.44739288,108.10448,58.094377)&apos;&nbsp;style=&apos;fill:none;stroke:currentcolor;stroke-width:1.48991;stroke-linecap:round&apos;&gt;&lt;path&nbsp;d=&apos;M&nbsp;-235.1792,-103.8672&nbsp;-219,-92.1104&nbsp;m&nbsp;16.1792,-11.7568&nbsp;L&nbsp;-219,-92.1104&nbsp;m&nbsp;-10,-30.7776&nbsp;-6.1792,19.0208&nbsp;m&nbsp;26.1776,-19.0208&nbsp;H&nbsp;-229&nbsp;m&nbsp;26.1792,19.0208&nbsp;-6.1808,-19.0208&apos;/&gt;&lt;/g&gt;&lt;/svg&gt;&quot;</span></div>
+<div id="line144"><a href="#line144" class="IdrisLineNumber"> 144 | </a></div>
+<div id="line145"><a href="#line145" class="IdrisLineNumber"> 145 | </a><span class="IdrisKeyword">export</span></div>
+<div id="line146"><a href="#line146" class="IdrisLineNumber"> 146 | </a><span class="IdrisFunction">cyclohexane</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HTMLNode</span></div>
+<div id="line147"><a href="#line147" class="IdrisLineNumber"> 147 | </a><span class="IdrisFunction">cyclohexane</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisData">Raw</span>&nbsp;<span class="IdrisData">&quot;&lt;svg&nbsp;viewBox=&apos;0&nbsp;0&nbsp;20&nbsp;20&apos;&gt;&lt;g&nbsp;transform=&apos;matrix(0.45314325,0,0,0.45366675,102.89437,76.915573)&apos;&nbsp;style=&apos;fill:none;stroke:currentcolor;stroke-width:1.47109;stroke-linecap:round&apos;&gt;&lt;path&nbsp;d=&apos;m&nbsp;-205,-127.4992&nbsp;17.32,-10&nbsp;m&nbsp;0,-20&nbsp;v&nbsp;20&nbsp;m&nbsp;-34.64,0&nbsp;17.32,10&nbsp;m&nbsp;-17.32,-29.9984&nbsp;v&nbsp;19.9984&nbsp;m&nbsp;17.32,-30&nbsp;-17.32,10.0016&nbsp;m&nbsp;34.64,-0.002&nbsp;-17.32,-10&apos;/&gt;&lt;/g&gt;&lt;/svg&gt;&quot;</span></div>
+<div id="line148"><a href="#line148" class="IdrisLineNumber"> 148 | </a></div>
+<div id="line149"><a href="#line149" class="IdrisLineNumber"> 149 | </a><span class="IdrisKeyword">export</span></div>
+<div id="line150"><a href="#line150" class="IdrisLineNumber"> 150 | </a><span class="IdrisFunction">cycloheptane</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HTMLNode</span></div>
+<div id="line151"><a href="#line151" class="IdrisLineNumber"> 151 | </a><span class="IdrisFunction">cycloheptane</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisData">Raw</span>&nbsp;<span class="IdrisData">&quot;&lt;svg&nbsp;viewBox=&apos;0&nbsp;0&nbsp;20&nbsp;20&apos;&gt;&lt;g&nbsp;transform=&apos;matrix(0.40637446,0,0,0.40615158,98.183258,63.815084)&apos;&nbsp;style=&apos;fill:none;stroke:currentcolor;stroke-width:1.64179;stroke-linecap:round&apos;&gt;&lt;path&nbsp;d=&apos;m&nbsp;-235.0192,-119.2704&nbsp;18.0192,8.6768&nbsp;m&nbsp;18.0208,-8.6768&nbsp;-18.0208,8.6768&nbsp;m&nbsp;-22.4688,-28.176&nbsp;4.4496,19.4992&nbsp;m&nbsp;8.0192,-35.136&nbsp;-12.4688,15.6368&nbsp;M&nbsp;-207,-154.4064&nbsp;h&nbsp;-20&nbsp;m&nbsp;32.4688,15.6368&nbsp;L&nbsp;-207,-154.4064&nbsp;m&nbsp;8.0208,35.136&nbsp;4.448,-19.4992&apos;/&gt;&lt;/g&gt;&lt;/svg&gt;&quot;</span></div>
+<div id="line152"><a href="#line152" class="IdrisLineNumber"> 152 | </a></div>
+<div id="line153"><a href="#line153" class="IdrisLineNumber"> 153 | </a><span class="IdrisKeyword">export</span></div>
+<div id="line154"><a href="#line154" class="IdrisLineNumber"> 154 | </a><span class="IdrisFunction">cyclooctane</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HTMLNode</span></div>
+<div id="line155"><a href="#line155" class="IdrisLineNumber"> 155 | </a><span class="IdrisFunction">cyclooctane</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisData">Raw</span>&nbsp;<span class="IdrisData">&quot;&lt;svg&nbsp;viewBox=&apos;0&nbsp;0&nbsp;20&nbsp;20&apos;&gt;&lt;g&nbsp;transform=&apos;matrix(0.36164455,0,0,0.3616441,71.479284,74.191249)&apos;&nbsp;style=&apos;fill:none;stroke:currentcolor;stroke-width:1.84435;stroke-linecap:round&apos;&gt;&lt;path&nbsp;d=&apos;m&nbsp;-160,-153.3584&nbsp;14.1424,-14.1408&nbsp;m&nbsp;0,-20&nbsp;v&nbsp;20&nbsp;M&nbsp;-180,-153.3584&nbsp;h&nbsp;20&nbsp;m&nbsp;-34.1408,-14.1408&nbsp;14.1408,14.1408&nbsp;m&nbsp;-14.1408,-34.1392&nbsp;v&nbsp;19.9984&nbsp;m&nbsp;14.1408,-34.1392&nbsp;-14.1408,14.1408&nbsp;M&nbsp;-160,-201.6384&nbsp;h&nbsp;-20&nbsp;m&nbsp;34.1424,14.1392&nbsp;L&nbsp;-160,-201.6384&apos;/&gt;&lt;/g&gt;&lt;/svg&gt;&quot;</span></div>
+<div id="line156"><a href="#line156" class="IdrisLineNumber"> 156 | </a></div>
+<div id="line157"><a href="#line157" class="IdrisLineNumber"> 157 | </a><span class="IdrisKeyword">export</span></div>
+<div id="line158"><a href="#line158" class="IdrisLineNumber"> 158 | </a><span class="IdrisFunction">benzene</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HTMLNode</span></div>
+<div id="line159"><a href="#line159" class="IdrisLineNumber"> 159 | </a><span class="IdrisFunction">benzene</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisData">Raw</span>&nbsp;<span class="IdrisData">&quot;&lt;svg&nbsp;viewBox=&apos;0&nbsp;0&nbsp;20&nbsp;20&apos;&gt;&lt;g&nbsp;transform=&apos;matrix(0.45096964,0,0,0.45303572,116.42884,56.435799)&apos;&nbsp;style=&apos;fill:none;stroke:currentcolor;stroke-width:1.47492141;stroke-linecap:round&apos;&gt;&lt;path&nbsp;d=&apos;m&nbsp;-236,-122.4992&nbsp;-17.3184,10&nbsp;m&nbsp;17.31816,-5.3812&nbsp;13.31852,7.69039&nbsp;M&nbsp;-236,-122.4992&nbsp;l&nbsp;17.3184,10&nbsp;m&nbsp;-30.6368,2.3094&nbsp;v&nbsp;15.381199&nbsp;m&nbsp;-4,-17.690599&nbsp;v&nbsp;20&nbsp;m&nbsp;0,0&nbsp;17.3184,10&nbsp;m&nbsp;-2.4e-4,-4.618802&nbsp;13.31852,-7.690388&nbsp;M&nbsp;-236,-82.4992&nbsp;l&nbsp;17.3184,-10&nbsp;m&nbsp;0,0&nbsp;v&nbsp;-20&apos;/&gt;&lt;/g&gt;&lt;/svg&gt;&quot;</span></div>
+<div id="line160"><a href="#line160" class="IdrisLineNumber"> 160 | </a></div>
+<div id="line161"><a href="#line161" class="IdrisLineNumber"> 161 | </a><span class="IdrisComment">|||&nbsp;base-64&nbsp;encoded&nbsp;png&nbsp;of&nbsp;the&nbsp;rotate&nbsp;icon</span></div>
+<div id="line162"><a href="#line162" class="IdrisLineNumber"> 162 | </a><span class="IdrisKeyword">export</span></div>
+<div id="line163"><a href="#line163" class="IdrisLineNumber"> 163 | </a><span class="IdrisFunction">rotate</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">String</span></div>
+<div id="line164"><a href="#line164" class="IdrisLineNumber"> 164 | </a><span class="IdrisFunction">rotate</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisData">&quot;iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAATlJREFUOI2t1L8rt1EYx/HXhcQgkygZDKRkYkOZlNm/oWzKIFam58litTH4JwzKbPEjZZNsFE89OIbvwZfur/u+5arTqXN9rvc5netHpJT8prVVEUVE568CcRwRw5WUKaWWC71YxAtuMfedPqVUDEQP/uABqWnt1gZiCOe4xwbG8B9riFpAdOMEVxhtOl8oA7UCruEfJqoCWgJzxq+x81NYSulT2YxjAAcVS6nQmoGDeb+sGhwRXRFxGBFjRcDHvHfXeNAIZtFXBDzXqLXJGsDJHHPxdhDNwyEijvCSUpopI0VE4E0//e74UjYL+cal0vJgOWvnyzplG09YQUeBvwOreMbfKq3Xji2NgXCKdY0BsajRimfZt4n2SsMhg6ewjzsfw+EOe5hqFfcpKd8koD//902ptgqwjr0CIOjbf9SaOuwAAAAASUVORK5CYII=&quot;</span></div>
+<div id="line165"><a href="#line165" class="IdrisLineNumber"> 165 | </a></div>
+</code>
+</body>
+</html>
