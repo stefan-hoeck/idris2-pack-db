@@ -1254,7 +1254,7 @@ ipkg   = "http-server-api/http-server-api.ipkg"
 # commit = "main"
 # ipkg   = "prob-fx.ipkg"
 
-[db.c-ffi]
+[db.uuid]
 type   = "github"
 url    = "https://codeberg.org/joelberkeley/uuid"
 commit = "master"
