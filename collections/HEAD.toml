@@ -1254,6 +1254,13 @@ ipkg   = "http-server-api/http-server-api.ipkg"
 # commit = "main"
 # ipkg   = "prob-fx.ipkg"
 
+[db.c-ffi]
+type   = "github"
+url    = "https://codeberg.org/joelberkeley/uuid"
+commit = "master"
+ipkg   = "uuid.ipkg"
+test   = "test/test.ipkg"
+
 [db.uniplate]
 type   = "github"
 url    = "https://github.com/Z-snails/uniplate-idr"
