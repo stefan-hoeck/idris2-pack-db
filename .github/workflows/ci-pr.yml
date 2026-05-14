@@ -55,6 +55,8 @@ jobs:
           apt-get install --yes nodejs
           # spidr ecosystem
           apt-get install --yes curl
+          # uuid
+          apt-get install --yes uuid-dev
       - name: Use latest pack commit
         run: |
           /root/.local/bin/pack info
