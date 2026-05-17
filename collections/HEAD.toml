@@ -1399,3 +1399,10 @@ url    = "https://codeberg.org/tzemanovic/idris2-dep-graph"
 commit = "main"
 ipkg   = "idris2-dep-graph.ipkg"
 test   = "test/test.ipkg"
+
+[db.resource-pool]
+type   = "github"
+url    = "https://github.com/Matthew-Mosior/idris2-resource-pool"
+commit = "main"
+ipkg   = "resource-pool.ipkg"
+test   = "test/test.ipkg"
