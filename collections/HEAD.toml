@@ -91,6 +91,13 @@ commit = "master"
 ipkg   = "best-alternative.ipkg"
 test   = "tests/tests.ipkg"
 
+[db.betti]
+type   = "git"
+url    = "https://github.com/ohad/betti"
+commit = "main"
+ipkg   = "betti.ipkg"
+test   = "tests/tests.ipkg"
+
 [db.bounded-doubles]
 type   = "git"
 url    = "https://github.com/buzden/idris2-bounded-doubles"
