@@ -553,6 +553,12 @@ commit = "main"
 ipkg   = "json.ipkg"
 test   = "test/test.ipkg"
 
+[db.json-schema]
+type   = "github"
+url    = "https://github.com/madman-bob/idris2-json-schema"
+commit = "main"
+ipkg   = "json-schema.ipkg"
+
 [db.json-simple]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-json"
