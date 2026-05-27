@@ -1016,11 +1016,17 @@ url    = "https://gitlab.com/avidela/stellar"
 commit = "main"
 ipkg   = "api/stellar-api.ipkg"
 
-[db.stellar-http]
+[db.stellar-http-node]
 type   = "git"
 url    = "https://gitlab.com/avidela/stellar"
 commit = "main"
-ipkg   = "http/stellar-http.ipkg"
+ipkg   = "http/stellar-http-node.ipkg"
+
+[db.stellar-http-scheme]
+type   = "git"
+url    = "https://gitlab.com/avidela/stellar"
+commit = "main"
+ipkg   = "http/stellar-http-scheme.ipkg"
 
 [db.stellar-sql]
 type   = "git"
