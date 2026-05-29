@@ -47,6 +47,12 @@ url    = "https://github.com/stefan-hoeck/idris2-async-dom"
 commit = "main"
 ipkg   = "async-dom.ipkg"
 
+[db.async-dom-extra]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-async-dom"
+commit = "main"
+ipkg   = "extra/async-dom-extra.ipkg"
+
 [db.async-js]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-async"
