@@ -2,8 +2,8 @@
 
 <head>
   <meta charset="utf-8">
-  <title>cyby-css</title>
-  <link rel="stylesheet" type="text/css" id="preferredStyle" href="default.css">
+  <title>Text.HTML.Extra.Attribute</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
   <script>
     /* Updates the stylesheet to use the preferred one.
        Note that we set the link to root ++ sourceLoc because the config
@@ -11,7 +11,7 @@
        page to page.
     */
     function setStyleSource (sourceLoc) {
-      document.getElementById("preferredStyle").href = "" + sourceLoc + ".css";
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
       document.getElementById("selectPreferredStyle").value = sourceLoc;
     }
     /* Initialises the preferred style sheet:
@@ -33,10 +33,10 @@
     </script>
 </head>
 
-<body class="index">
+<body class="namespace">
 <header>
-  <strong>Idris2Doc</strong> : cyby-css
-  <nav><a href="index.html">Index</a>
+  <strong>Idris2Doc</strong> : Text.HTML.Extra.Attribute
+  <nav><a href="../index.html">Index</a>
 
   <select id="selectPreferredStyle">
     <option value="default">Default</option>
@@ -61,40 +61,4 @@
 </script>
 
 </header>
-<div class="container"><h1>Package cyby-css - Namespaces</h1><ul class="names"><li>
-  <div class="index-wrapper">
-    <div class="index-namespace-url">
-      <a class="code" href="docs/CyBy.UI.CSS.Classes.html">CyBy.UI.CSS.Classes</a>
-    </div>
-    <div class="index-namespace-doc">
-      
-    </div>
-  </div>
-</li><li>
-  <div class="index-wrapper">
-    <div class="index-namespace-url">
-      <a class="code" href="docs/CyBy.UI.CSS.Rules.html">CyBy.UI.CSS.Rules</a>
-    </div>
-    <div class="index-namespace-doc">
-      
-    </div>
-  </div>
-</li><li>
-  <div class="index-wrapper">
-    <div class="index-namespace-url">
-      <a class="code" href="docs/CyBy.UI.CSS.Vars.html">CyBy.UI.CSS.Vars</a>
-    </div>
-    <div class="index-namespace-doc">
-      
-    </div>
-  </div>
-</li><li>
-  <div class="index-wrapper">
-    <div class="index-namespace-url">
-      <a class="code" href="docs/CyBy.UI.HTML.html">CyBy.UI.HTML</a>
-    </div>
-    <div class="index-namespace-doc">
-      
-    </div>
-  </div>
-</li></ul></div><footer>Produced by Idris 2 version 0.8.0-a286fcadb</footer></body></html>
+<div class="container"><div id="module-header"><h1>Text.HTML.Extra.Attribute</h1><span style="float:right">(<a href="Text.HTML.Extra.Attribute.src.html">source</a>)</span><pre></pre></div><h2>Reexports</h2><code><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Text.HTML.Attribute</code><h2>Definitions</h2><dl class="decls"><dt id="Text.HTML.Extra.Attribute.active"><code><a class="type" href="Text.HTML.Extra.Attribute.html#Text.HTML.Extra.Attribute.active"><span class="name function">active</span></a>&ensp;:&ensp;<span class="type resolved" title="Prelude.Basics.Bool"><span class="name type">Bool</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Text.HTML.Attribute.Attribute"><span class="name type">Attribute</span></span>&ensp;<span class="boundvar">t</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd></dl></div><footer>Produced by Idris 2 version 0.8.0-a286fcadb</footer></body></html>
