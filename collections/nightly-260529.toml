@@ -50,8 +50,15 @@ packagePath = false
 [db.async-dom]
 type        = "github"
 url         = "https://github.com/stefan-hoeck/idris2-async-dom"
-commit      = "d7abf0eaaaaa98130163194dfdaafc39658403a7"
+commit      = "df08a47277538ea8a3c068267e5f60dbaf6417cd"
 ipkg        = "async-dom.ipkg"
+packagePath = false
+
+[db.async-dom-extra]
+type        = "github"
+url         = "https://github.com/stefan-hoeck/idris2-async-dom"
+commit      = "df08a47277538ea8a3c068267e5f60dbaf6417cd"
+ipkg        = "extra/async-dom-extra.ipkg"
 packagePath = false
 
 [db.async-epoll]
@@ -272,14 +279,14 @@ packagePath = false
 [db.cyby-css]
 type        = "github"
 url         = "https://github.com/stefan-hoeck/idris2-cyby-draw"
-commit      = "43b691b26a5b7f24eb2b86ee714b9b8e9b05426a"
+commit      = "23fdca4c7bfb1974b8f08eb106a759fa2b793415"
 ipkg        = "cyby-css/cyby-css.ipkg"
 packagePath = false
 
 [db.cyby-draw]
 type        = "github"
 url         = "https://github.com/stefan-hoeck/idris2-cyby-draw"
-commit      = "43b691b26a5b7f24eb2b86ee714b9b8e9b05426a"
+commit      = "23fdca4c7bfb1974b8f08eb106a759fa2b793415"
 ipkg        = "cyby-draw.ipkg"
 packagePath = false
 
@@ -492,7 +499,7 @@ packagePath = false
 [db.fs-utils]
 type        = "github"
 url         = "https://gitlab.com/avidela/fs-utils"
-commit      = "650c710a75e8516e7be688f1b5dbb48b44b05985"
+commit      = "28dd3c9a1f086f54704c17c4f2d65378fe3b6f3e"
 ipkg        = "fs-utils.ipkg"
 packagePath = false
 
@@ -581,21 +588,21 @@ packagePath = false
 [db.http-client-api]
 type        = "github"
 url         = "https://github.com/stefan-hoeck/idris2-http-types"
-commit      = "703e351f3fc878cef937b8c46cb1f740251ad162"
+commit      = "30d11fb54bb78b1d1be15d9e1cbbe497b656baf5"
 ipkg        = "http-client-api/http-client-api.ipkg"
 packagePath = false
 
 [db.http-server-api]
 type        = "github"
 url         = "https://github.com/stefan-hoeck/idris2-http-types"
-commit      = "703e351f3fc878cef937b8c46cb1f740251ad162"
+commit      = "30d11fb54bb78b1d1be15d9e1cbbe497b656baf5"
 ipkg        = "http-server-api/http-server-api.ipkg"
 packagePath = false
 
 [db.http-types]
 type        = "github"
 url         = "https://github.com/stefan-hoeck/idris2-http-types"
-commit      = "703e351f3fc878cef937b8c46cb1f740251ad162"
+commit      = "30d11fb54bb78b1d1be15d9e1cbbe497b656baf5"
 ipkg        = "http-types.ipkg"
 packagePath = false
 
@@ -1257,7 +1264,7 @@ packagePath = false
 [db.scgi]
 type        = "github"
 url         = "https://github.com/idris-community/idris2-scgi"
-commit      = "8abd9a8555cb2cd2717339a8a21656c020869970"
+commit      = "7551730d60a37b67cd1e7a9557bb588dfc168545"
 ipkg        = "scgi.ipkg"
 packagePath = false
 
