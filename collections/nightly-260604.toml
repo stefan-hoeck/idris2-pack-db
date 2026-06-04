@@ -852,7 +852,7 @@ packagePath = false
 [db.markdown]
 type        = "github"
 url         = "https://codeberg.org/berg4478/idris2-text-markdown"
-commit      = "0cd58c79d6112756557eb8f0785342dbbef00eb9"
+commit      = "f4745e6692995d0d00d8b0e412b91c77a1e54d83"
 ipkg        = "markdown.ipkg"
 packagePath = false
 
