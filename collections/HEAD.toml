@@ -1419,3 +1419,10 @@ url    = "https://github.com/Matthew-Mosior/idris2-resource-pool"
 commit = "main"
 ipkg   = "resource-pool.ipkg"
 test   = "test/test.ipkg"
+
+[db.lsm-rrbvector]
+type   = "github"
+url    = "https://github.com/Matthew-Mosior/idris2-lsm-rrbvector"
+commit = "main"
+ipkg   = "lsm-rrbvector.ipkg"
+test   = "test/test.ipkg"
