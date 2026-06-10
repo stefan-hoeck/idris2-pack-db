@@ -1426,3 +1426,10 @@ url    = "https://github.com/Matthew-Mosior/idris2-lsm-rrbvector"
 commit = "main"
 ipkg   = "lsm-rrbvector.ipkg"
 test   = "test/test.ipkg"
+
+[db.yaml]
+type   = "github"
+url    = "https://github.com/mitchmindtree/idris2-yaml"
+commit = "main"
+ipkg   = "yaml.ipkg"
+test   = "test/test.ipkg"
