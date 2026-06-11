@@ -234,6 +234,7 @@
 | [web-server-racket-hello-world](https://git.sr.ht/~janus/web-server-racket-hello-world) | Example demo web server that computes 1+1 on a PostgreSQL server and returns the result over HTTP2. Racket only. | BSD-3 Clause | [afa3aa1](https://git.sr.ht/~janus/web-server-racket-hello-world/commit/afa3aa1e8b8e7367802731cb5e239ecfeed63aad) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-db/docs/web-server-racket-hello-world/docs/index.html) |
 | [webidl](https://github.com/stefan-hoeck/idris2-webidl) |  |  | [eaf66e8](https://github.com/stefan-hoeck/idris2-webidl/commit/eaf66e8247dac112fd535cb3371a300d5a220fd7) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-db/docs/webidl/docs/index.html) |
 | [xml](https://github.com/madman-bob/idris2-xml) |  |  | [bfb02ff](https://github.com/madman-bob/idris2-xml/commit/bfb02ff5c195218de7d33ed0ee9e6a26c60c0f0b) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-db/docs/xml/docs/index.html) |
+| [yaml](https://github.com/mitchmindtree/idris2-yaml) | Total parser for the YAML file format | BSD-2-Clause | [d946ee0](https://github.com/mitchmindtree/idris2-yaml/commit/d946ee063cad5367f30630b357e142713ee04495) | success | [docs](https://stefan-hoeck.github.io/idris2-pack-db/docs/yaml/docs/index.html) |
 
 
 ## Failing Packages
