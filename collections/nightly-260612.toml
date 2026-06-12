@@ -1,7 +1,7 @@
 [idris2]
 url     = "https://github.com/idris-lang/Idris2"
 version = "0.8.0"
-commit  = "3442ed7c9b329a6d0c3ad181de3d03bb520b1a75"
+commit  = "6dcf1593bec638b4e5b553672dd27bcbebaaf3cf"
 
 [db.algdata]
 type        = "github"
@@ -279,14 +279,14 @@ packagePath = false
 [db.cyby-css]
 type        = "github"
 url         = "https://github.com/stefan-hoeck/idris2-cyby-draw"
-commit      = "61e5da91c171ccfb03d5fe14b71fae1ac2a6c92b"
+commit      = "297afb87cf5530391605b855440d2275951b1164"
 ipkg        = "cyby-css/cyby-css.ipkg"
 packagePath = false
 
 [db.cyby-draw]
 type        = "github"
 url         = "https://github.com/stefan-hoeck/idris2-cyby-draw"
-commit      = "61e5da91c171ccfb03d5fe14b71fae1ac2a6c92b"
+commit      = "297afb87cf5530391605b855440d2275951b1164"
 ipkg        = "cyby-draw.ipkg"
 packagePath = false
 
@@ -845,7 +845,7 @@ test        = "log4types-json/test/test.ipkg"
 [db.lsm-rrbvector]
 type        = "github"
 url         = "https://github.com/Matthew-Mosior/idris2-lsm-rrbvector"
-commit      = "d824727c57d0d0538dafd0db26abbe39920d6f88"
+commit      = "5389c53c669a7aae69238aa44cf6f0c092f7c35d"
 ipkg        = "lsm-rrbvector.ipkg"
 packagePath = false
 test        = "test/test.ipkg"
