@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Text.ILex.Bytes</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Text.ILex.Bytes
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Text.ILex.Bytes</h1><span style="float:right">(<a href="Text.ILex.Bytes.src.html">source</a>)</span><pre></pre></div><h2>Reexports</h2><code><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Text.ILex.Runner<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Text.ILex.Bytes.Interfaces<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Text.ILex.Bytes.Stack</code><h2>Definitions</h2><dl class="decls"><dt id="Text.ILex.Bytes.parseBB"><code><a class="type" href="Text.ILex.Bytes.html#Text.ILex.Bytes.parseBB"><span class="name function">parseBB</span></a>&ensp;:&ensp;<a class="type" href="Text.ILex.Parser.html#Text.ILex.Parser.Parser1"><span class="name function">Parser1</span></a>&ensp;(<span class="type resolved" title="Text.ByteBounds.BBErr"><span class="name function">BBErr</span></span>&ensp;<span class="boundvar">e</span>)&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Text.FC.Origin"><span class="name type">Origin</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Data.Buffer.Core.IBuffer"><span class="name type">IBuffer</span></span>&ensp;<span class="boundvar">n</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Types.Either"><span class="name type">Either</span></span>&ensp;(<span class="type resolved" title="Text.ParseError.ParseError"><span class="name type">ParseError</span></span>&ensp;<span class="boundvar">e</span>)&ensp;<span class="boundvar">a</span></code></dt><dd><pre>  Like `run` but fails with a proper parse error<br>  including error bounds and highlighting of<br>  the section where an error occurred.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Text.ILex.Bytes.parseStringBB"><code><a class="type" href="Text.ILex.Bytes.html#Text.ILex.Bytes.parseStringBB"><span class="name function">parseStringBB</span></a>&ensp;:&ensp;<a class="type" href="Text.ILex.Parser.html#Text.ILex.Parser.Parser1"><span class="name function">Parser1</span></a>&ensp;(<span class="type resolved" title="Text.ByteBounds.BBErr"><span class="name function">BBErr</span></span>&ensp;<span class="boundvar">e</span>)&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Text.FC.Origin"><span class="name type">Origin</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Types.Either"><span class="name type">Either</span></span>&ensp;(<span class="type resolved" title="Text.ParseError.ParseError"><span class="name type">ParseError</span></span>&ensp;<span class="boundvar">e</span>)&ensp;<span class="boundvar">a</span></code></dt><dd><pre>  Like `parse` but processes a UTF-8 string instead.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Text.ILex.Bytes.parseBytesBB"><code><a class="type" href="Text.ILex.Bytes.html#Text.ILex.Bytes.parseBytesBB"><span class="name function">parseBytesBB</span></a>&ensp;:&ensp;<a class="type" href="Text.ILex.Parser.html#Text.ILex.Parser.Parser1"><span class="name function">Parser1</span></a>&ensp;(<span class="type resolved" title="Text.ByteBounds.BBErr"><span class="name function">BBErr</span></span>&ensp;<span class="boundvar">e</span>)&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Text.FC.Origin"><span class="name type">Origin</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Data.ByteVect.ByteString"><span class="name type">ByteString</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Types.Either"><span class="name type">Either</span></span>&ensp;(<span class="type resolved" title="Text.ParseError.ParseError"><span class="name type">ParseError</span></span>&ensp;<span class="boundvar">e</span>)&ensp;<span class="boundvar">a</span></code></dt><dd><pre>  Like `parse` but processes a `ByteString` instead.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd></dl></div><footer>Produced by Idris 2 version 0.8.0-6ca00e72e</footer></body></html>
