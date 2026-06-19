@@ -153,7 +153,7 @@ packagePath = false
 [db.bytestring]
 type        = "github"
 url         = "https://github.com/stefan-hoeck/idris2-bytestring"
-commit      = "230d8577f02de22251786f128ec921078da4d880"
+commit      = "1c5c6160eef2a91b222d219383af6901c74b57e0"
 ipkg        = "bytestring.ipkg"
 packagePath = false
 
@@ -408,7 +408,7 @@ test        = "elab-util-extra/tests/tests.ipkg"
 [db.elin]
 type        = "github"
 url         = "https://github.com/stefan-hoeck/idris2-elin"
-commit      = "c66a6709397431150235e8bdddc0a21fcbedb7de"
+commit      = "70d0d81631da44c7e5abad758c751bb454f2c5b9"
 ipkg        = "elin.ipkg"
 packagePath = false
 
@@ -588,21 +588,21 @@ packagePath = false
 [db.http-client-api]
 type        = "github"
 url         = "https://github.com/stefan-hoeck/idris2-http-types"
-commit      = "ed1d3c01d22f008e1d7c526376538b1aefa05188"
+commit      = "2230788ece17b4360c62940837c1f685e9420a90"
 ipkg        = "http-client-api/http-client-api.ipkg"
 packagePath = false
 
 [db.http-server-api]
 type        = "github"
 url         = "https://github.com/stefan-hoeck/idris2-http-types"
-commit      = "ed1d3c01d22f008e1d7c526376538b1aefa05188"
+commit      = "2230788ece17b4360c62940837c1f685e9420a90"
 ipkg        = "http-server-api/http-server-api.ipkg"
 packagePath = false
 
 [db.http-types]
 type        = "github"
 url         = "https://github.com/stefan-hoeck/idris2-http-types"
-commit      = "ed1d3c01d22f008e1d7c526376538b1aefa05188"
+commit      = "2230788ece17b4360c62940837c1f685e9420a90"
 ipkg        = "http-types.ipkg"
 packagePath = false
 
@@ -1438,7 +1438,7 @@ packagePath = false
 [db.tensortype]
 type        = "github"
 url         = "https://github.com/bgavran/TensorType"
-commit      = "b85946f0dd2ee4989b8900b6bbadf6c14340550b"
+commit      = "8fedb3ec31a203d30ed82f8d6d3548bf7c22b9a1"
 ipkg        = "tensortype.ipkg"
 packagePath = false
 
