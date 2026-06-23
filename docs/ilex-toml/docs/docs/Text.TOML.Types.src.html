@@ -123,7 +123,7 @@
 <div id="line2"><a href="#line2" class="IdrisLineNumber"> &nbsp;&nbsp;2 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisModule">Data.Time.Time</span></div>
 <div id="line3"><a href="#line3" class="IdrisLineNumber"> &nbsp;&nbsp;3 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisModule">Data.SortedMap</span></div>
 <div id="line4"><a href="#line4" class="IdrisLineNumber"> &nbsp;&nbsp;4 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">Derive.Prelude</span></div>
-<div id="line5"><a href="#line5" class="IdrisLineNumber"> &nbsp;&nbsp;5 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">Text.Bounds</span></div>
+<div id="line5"><a href="#line5" class="IdrisLineNumber"> &nbsp;&nbsp;5 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">Text.ByteBounds</span></div>
 <div id="line6"><a href="#line6" class="IdrisLineNumber"> &nbsp;&nbsp;6 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">Text.ParseError</span></div>
 <div id="line7"><a href="#line7" class="IdrisLineNumber"> &nbsp;&nbsp;7 | </a></div>
 <div id="line8"><a href="#line8" class="IdrisLineNumber"> &nbsp;&nbsp;8 | </a><span class="IdrisKeyword">%default</span>&nbsp;<span class="IdrisKeyword">total</span></div>
@@ -201,7 +201,7 @@
 <div id="line80"><a href="#line80" class="IdrisLineNumber"> &nbsp;80 | </a>&nbsp;&nbsp;<span class="IdrisKeyword">constructor</span>&nbsp;<span class="IdrisData">KT</span></div>
 <div id="line81"><a href="#line81" class="IdrisLineNumber"> &nbsp;81 | </a>&nbsp;&nbsp;<span class="IdrisFunction">key</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">String</span></div>
 <div id="line82"><a href="#line82" class="IdrisLineNumber"> &nbsp;82 | </a>&nbsp;&nbsp;<span class="IdrisFunction">tpe</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">KeyType</span></div>
-<div id="line83"><a href="#line83" class="IdrisLineNumber"> &nbsp;83 | </a>&nbsp;&nbsp;<span class="IdrisFunction">bounds</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Bounds</span></div>
+<div id="line83"><a href="#line83" class="IdrisLineNumber"> &nbsp;83 | </a>&nbsp;&nbsp;<span class="IdrisFunction">bounds</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">ByteBounds</span></div>
 <div id="line84"><a href="#line84" class="IdrisLineNumber"> &nbsp;84 | </a></div>
 <div id="line85"><a href="#line85" class="IdrisLineNumber"> &nbsp;85 | </a><span class="IdrisKeyword">%name</span>&nbsp;Key&nbsp;<span class="IdrisBound">k</span><span class="IdrisKeyword">,</span><span class="IdrisBound">k2</span><span class="IdrisKeyword">,</span><span class="IdrisBound">k3</span></div>
 <div id="line86"><a href="#line86" class="IdrisLineNumber"> &nbsp;86 | </a><span class="IdrisKeyword">%runElab</span>&nbsp;<span class="IdrisFunction">derive</span>&nbsp;<span class="IdrisData">&quot;Key&quot;</span>&nbsp;<span class="IdrisData">[</span><span class="IdrisFunction">Eq</span><span class="IdrisData">,</span><span class="IdrisFunction">Show</span><span class="IdrisData">]</span></div>
@@ -248,7 +248,7 @@
 <div id="line127"><a href="#line127" class="IdrisLineNumber"> 127 | </a><span class="IdrisComment">|||&nbsp;Error&nbsp;type&nbsp;when&nbsp;lexing&nbsp;and&nbsp;parsing&nbsp;TOML&nbsp;files</span></div>
 <div id="line128"><a href="#line128" class="IdrisLineNumber"> 128 | </a><span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisKeyword">export</span></div>
 <div id="line129"><a href="#line129" class="IdrisLineNumber"> 129 | </a><span class="IdrisKeyword">0</span>&nbsp;<span class="IdrisFunction">TErr</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Type</span></div>
-<div id="line130"><a href="#line130" class="IdrisLineNumber"> 130 | </a><span class="IdrisFunction">TErr</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">BoundedErr</span>&nbsp;<span class="IdrisType">TomlParseError</span></div>
+<div id="line130"><a href="#line130" class="IdrisLineNumber"> 130 | </a><span class="IdrisFunction">TErr</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">BBErr</span>&nbsp;<span class="IdrisType">TomlParseError</span></div>
 <div id="line131"><a href="#line131" class="IdrisLineNumber"> 131 | </a></div>
 </code>
 </body>
