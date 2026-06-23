@@ -316,7 +316,7 @@ test        = "tests/tests.ipkg"
 [db.deptycheck]
 type        = "github"
 url         = "https://github.com/buzden/deptycheck"
-commit      = "660a23e6da286359af6edad09b5d441a39a4f8c5"
+commit      = "20400cad184ceb365509d025d930387f09f69488"
 ipkg        = "deptycheck.ipkg"
 packagePath = false
 
@@ -400,7 +400,7 @@ packagePath = false
 [db.elab-util-extra]
 type        = "github"
 url         = "https://github.com/buzden/deptycheck"
-commit      = "660a23e6da286359af6edad09b5d441a39a4f8c5"
+commit      = "20400cad184ceb365509d025d930387f09f69488"
 ipkg        = "elab-util-extra/elab-util-extra.ipkg"
 packagePath = false
 test        = "elab-util-extra/tests/tests.ipkg"
@@ -408,7 +408,7 @@ test        = "elab-util-extra/tests/tests.ipkg"
 [db.elin]
 type        = "github"
 url         = "https://github.com/stefan-hoeck/idris2-elin"
-commit      = "70d0d81631da44c7e5abad758c751bb454f2c5b9"
+commit      = "8bb9ccdbe68ca0c4b19675ada350a30c7530db3a"
 ipkg        = "elin.ipkg"
 packagePath = false
 
@@ -676,21 +676,21 @@ test        = "tests/tests.ipkg"
 [db.ilex]
 type        = "github"
 url         = "https://github.com/stefan-hoeck/idris2-ilex"
-commit      = "22530cd0a21e7b8d736f5f32a7d005a2552c8bd0"
+commit      = "6071cc3c4666d26f293044cdf6d6f7df21b3e3ed"
 ipkg        = "ilex.ipkg"
 packagePath = false
 
 [db.ilex-core]
 type        = "github"
 url         = "https://github.com/stefan-hoeck/idris2-ilex"
-commit      = "22530cd0a21e7b8d736f5f32a7d005a2552c8bd0"
+commit      = "6071cc3c4666d26f293044cdf6d6f7df21b3e3ed"
 ipkg        = "core/ilex-core.ipkg"
 packagePath = false
 
 [db.ilex-debug]
 type        = "github"
 url         = "https://github.com/stefan-hoeck/idris2-ilex"
-commit      = "22530cd0a21e7b8d736f5f32a7d005a2552c8bd0"
+commit      = "6071cc3c4666d26f293044cdf6d6f7df21b3e3ed"
 ipkg        = "debug/ilex-debug.ipkg"
 packagePath = false
 
@@ -705,7 +705,7 @@ test        = "test/test.ipkg"
 [db.ilex-json]
 type        = "github"
 url         = "https://github.com/stefan-hoeck/idris2-ilex"
-commit      = "22530cd0a21e7b8d736f5f32a7d005a2552c8bd0"
+commit      = "6071cc3c4666d26f293044cdf6d6f7df21b3e3ed"
 ipkg        = "json/ilex-json.ipkg"
 packagePath = false
 test        = "test/test.ipkg"
@@ -713,14 +713,14 @@ test        = "test/test.ipkg"
 [db.ilex-streams]
 type        = "github"
 url         = "https://github.com/stefan-hoeck/idris2-ilex"
-commit      = "22530cd0a21e7b8d736f5f32a7d005a2552c8bd0"
+commit      = "6071cc3c4666d26f293044cdf6d6f7df21b3e3ed"
 ipkg        = "streams/ilex-streams.ipkg"
 packagePath = false
 
 [db.ilex-toml]
 type        = "github"
 url         = "https://github.com/stefan-hoeck/idris2-ilex"
-commit      = "22530cd0a21e7b8d736f5f32a7d005a2552c8bd0"
+commit      = "6071cc3c4666d26f293044cdf6d6f7df21b3e3ed"
 ipkg        = "toml/ilex-toml.ipkg"
 packagePath = false
 test        = "test/test.ipkg"
@@ -1115,7 +1115,7 @@ packagePath = false
 [db.pretty-show]
 type        = "github"
 url         = "https://github.com/stefan-hoeck/idris2-pretty-show"
-commit      = "b49cc6197aa9c6ca4bc941519f3088950a0c05a3"
+commit      = "07b79c5e69cd3f98bd23ff0019b23fe345a95a91"
 ipkg        = "pretty-show.ipkg"
 packagePath = false
 test        = "test/test.ipkg"
@@ -1152,7 +1152,7 @@ packagePath = false
 [db.quantifiers-extra]
 type        = "github"
 url         = "https://github.com/stefan-hoeck/idris2-quantifiers-extra"
-commit      = "5e368c5dcc7724e19b1e9eb3baf8e206cf79d2a1"
+commit      = "751f03ca0a34fd3a41928674fe6a40a9725b87c9"
 ipkg        = "quantifiers-extra.ipkg"
 packagePath = false
 
