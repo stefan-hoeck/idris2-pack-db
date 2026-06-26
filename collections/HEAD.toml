@@ -35,6 +35,12 @@ commit = "main"
 ipkg   = "array.ipkg"
 test   = "test/test.ipkg"
 
+[db.arrayvect]
+type   = "github"
+url    = "https://github.com/danielwaterworth/idris2-arrayvect"
+commit = "main"
+ipkg   = "arrayvect.ipkg"
+
 [db.async]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-async"
