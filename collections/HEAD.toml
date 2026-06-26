@@ -345,6 +345,26 @@ commit = "main"
 ipkg   = "evince/evince.ipkg"
 test   = "evince/test/test.ipkg"
 
+[db.evince-async]
+type   = "github"
+url    = "https://github.com/bio-aeon/evince"
+commit = "main"
+ipkg   = "evince-async/evince-async.ipkg"
+test   = "evince-async/test/test.ipkg"
+
+[db.evince-async-js]
+type   = "github"
+url    = "https://github.com/bio-aeon/evince"
+commit = "main"
+ipkg   = "evince-async-js/evince-async-js.ipkg"
+
+[db.evince-async-posix]
+type   = "github"
+url    = "https://github.com/bio-aeon/evince"
+commit = "main"
+ipkg   = "evince-async-posix/evince-async-posix.ipkg"
+test   = "evince-async-posix/test/test.ipkg"
+
 [db.evince-hedgehog]
 type   = "github"
 url    = "https://github.com/bio-aeon/evince"
