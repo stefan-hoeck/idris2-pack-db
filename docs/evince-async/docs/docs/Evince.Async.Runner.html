@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Evince.Async.Runner</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Evince.Async.Runner
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Evince.Async.Runner</h1><span style="float:right">(<a href="Evince.Async.Runner.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="Evince.Async.Runner.runSpecAsyncWith"><code><a class="type" href="Evince.Async.Runner.html#Evince.Async.Runner.runSpecAsyncWith"><span class="name function">runSpecAsyncWith</span></a>&ensp;:&ensp;<span class="type resolved" title="Evince.Core.RunConfig"><span class="name type">RunConfig</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Evince.Core.Spec"><span class="name type">Spec</span></span>&ensp;(<span class="type resolved" title="IO.Async.Core.Async"><span class="name type">Async</span></span>&ensp;<span class="type resolved" title="IO.Async.Loop.Sync.SyncST"><span class="name type">SyncST</span></span>&ensp;[])&ensp;()&ensp;()&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="PrimIO.IO"><span class="name type">IO</span></span>&ensp;()</code></dt><dd><pre>  Run a spec under the async driver with custom configuration, printing<br>  results and exiting non-zero if any test failed. Concurrency is controlled<br>  by `cfg.jobs` (`--jobs`).</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Evince.Async.Runner.runSpecAsync"><code><a class="type" href="Evince.Async.Runner.html#Evince.Async.Runner.runSpecAsync"><span class="name function">runSpecAsync</span></a>&ensp;:&ensp;<span class="type resolved" title="Evince.Core.Spec"><span class="name type">Spec</span></span>&ensp;(<span class="type resolved" title="IO.Async.Core.Async"><span class="name type">Async</span></span>&ensp;<span class="type resolved" title="IO.Async.Loop.Sync.SyncST"><span class="name type">SyncST</span></span>&ensp;[])&ensp;()&ensp;()&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="PrimIO.IO"><span class="name type">IO</span></span>&ensp;()</code></dt><dd><pre>  Run a spec under the async driver with default configuration.</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Evince.Async.Runner.runSpecAsyncWithSummaryAndConfig"><code><a class="type" href="Evince.Async.Runner.html#Evince.Async.Runner.runSpecAsyncWithSummaryAndConfig"><span class="name function">runSpecAsyncWithSummaryAndConfig</span></a>&ensp;:&ensp;<span class="type resolved" title="Evince.Core.RunConfig"><span class="name type">RunConfig</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Evince.Core.Spec"><span class="name type">Spec</span></span>&ensp;(<span class="type resolved" title="IO.Async.Core.Async"><span class="name type">Async</span></span>&ensp;<span class="type resolved" title="IO.Async.Loop.Sync.SyncST"><span class="name type">SyncST</span></span>&ensp;[])&ensp;()&ensp;()&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="PrimIO.IO"><span class="name type">IO</span></span>&ensp;<span class="type resolved" title="Evince.Core.Summary"><span class="name type">Summary</span></span></code></dt><dd><pre>  Run under the async driver with custom configuration and return the<br>  summary without exiting. Useful for meta-testing.</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Evince.Async.Runner.runSpecAsyncWithSummary"><code><a class="type" href="Evince.Async.Runner.html#Evince.Async.Runner.runSpecAsyncWithSummary"><span class="name function">runSpecAsyncWithSummary</span></a>&ensp;:&ensp;<span class="type resolved" title="Evince.Core.Spec"><span class="name type">Spec</span></span>&ensp;(<span class="type resolved" title="IO.Async.Core.Async"><span class="name type">Async</span></span>&ensp;<span class="type resolved" title="IO.Async.Loop.Sync.SyncST"><span class="name type">SyncST</span></span>&ensp;[])&ensp;()&ensp;()&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="PrimIO.IO"><span class="name type">IO</span></span>&ensp;<span class="type resolved" title="Evince.Core.Summary"><span class="name type">Summary</span></span></code></dt><dd><pre>  Run under the async driver and return the summary without exiting.</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Evince.Async.Runner.runSpecAsyncWithArgs"><code><a class="type" href="Evince.Async.Runner.html#Evince.Async.Runner.runSpecAsyncWithArgs"><span class="name function">runSpecAsyncWithArgs</span></a>&ensp;:&ensp;<span class="type resolved" title="Evince.Core.Spec"><span class="name type">Spec</span></span>&ensp;(<span class="type resolved" title="IO.Async.Core.Async"><span class="name type">Async</span></span>&ensp;<span class="type resolved" title="IO.Async.Loop.Sync.SyncST"><span class="name type">SyncST</span></span>&ensp;[])&ensp;()&ensp;()&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="PrimIO.IO"><span class="name type">IO</span></span>&ensp;()</code></dt><dd><pre>  Run a spec under the async driver, reading CLI args (e.g. `--jobs=N`).</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Evince.Async.Runner.runSpecAsyncFailFast"><code><a class="type" href="Evince.Async.Runner.html#Evince.Async.Runner.runSpecAsyncFailFast"><span class="name function">runSpecAsyncFailFast</span></a>&ensp;:&ensp;<span class="type resolved" title="Evince.Core.Spec"><span class="name type">Spec</span></span>&ensp;(<span class="type resolved" title="IO.Async.Core.Async"><span class="name type">Async</span></span>&ensp;<span class="type resolved" title="IO.Async.Loop.Sync.SyncST"><span class="name type">SyncST</span></span>&ensp;[])&ensp;()&ensp;()&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="PrimIO.IO"><span class="name type">IO</span></span>&ensp;()</code></dt><dd><pre>  Run under the async driver with fail-fast - stop after the first failure.</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Evince.Async.Runner.runSpecAsyncTimed"><code><a class="type" href="Evince.Async.Runner.html#Evince.Async.Runner.runSpecAsyncTimed"><span class="name function">runSpecAsyncTimed</span></a>&ensp;:&ensp;<span class="type resolved" title="Evince.Core.Spec"><span class="name type">Spec</span></span>&ensp;(<span class="type resolved" title="IO.Async.Core.Async"><span class="name type">Async</span></span>&ensp;<span class="type resolved" title="IO.Async.Loop.Sync.SyncST"><span class="name type">SyncST</span></span>&ensp;[])&ensp;()&ensp;()&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="PrimIO.IO"><span class="name type">IO</span></span>&ensp;()</code></dt><dd><pre>  Run under the async driver with per-test timing displayed.</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Evince.Async.Runner.runSpecAsyncIO"><code><a class="type" href="Evince.Async.Runner.html#Evince.Async.Runner.runSpecAsyncIO"><span class="name function">runSpecAsyncIO</span></a>&ensp;:&ensp;<span class="type resolved" title="Evince.Core.Spec"><span class="name type">Spec</span></span>&ensp;<span class="type resolved" title="PrimIO.IO"><span class="name type">IO</span></span>&ensp;()&ensp;()&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="PrimIO.IO"><span class="name type">IO</span></span>&ensp;()</code></dt><dd><pre>  Run a concrete `Spec IO` under the async driver, hoisting its actions into<br>  `Async` via `liftIO`. Group hooks (`beforeAll`/`beforeAllWith`) keep their<br>  `IO`-baked (no-op) synchronization, so prefer an effect-polymorphic spec<br>  with `runSpecAsync` if you run group-level setup concurrently.</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Evince.Async.Runner.runSpecAsyncIOWith"><code><a class="type" href="Evince.Async.Runner.html#Evince.Async.Runner.runSpecAsyncIOWith"><span class="name function">runSpecAsyncIOWith</span></a>&ensp;:&ensp;<span class="type resolved" title="Evince.Core.RunConfig"><span class="name type">RunConfig</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Evince.Core.Spec"><span class="name type">Spec</span></span>&ensp;<span class="type resolved" title="PrimIO.IO"><span class="name type">IO</span></span>&ensp;()&ensp;()&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="PrimIO.IO"><span class="name type">IO</span></span>&ensp;()</code></dt><dd><pre>  Like `runSpecAsyncIO`, with custom configuration.</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd></dl></div><footer>Produced by Idris 2 version 0.8.0-fd405085b</footer></body></html>
