@@ -110,6 +110,13 @@ commit = "main"
 ipkg   = "betti.ipkg"
 test   = "tests/tests.ipkg"
 
+[db.blake2b]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-blake2b"
+commit = "main"
+ipkg   = "blake2b.ipkg"
+test   = "tests/tests.ipkg"
+
 [db.bounded-doubles]
 type   = "git"
 url    = "https://github.com/buzden/idris2-bounded-doubles"
