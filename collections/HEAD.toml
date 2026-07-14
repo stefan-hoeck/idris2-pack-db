@@ -1466,3 +1466,9 @@ url    = "https://github.com/mitchmindtree/idris2-yaml"
 commit = "main"
 ipkg   = "yaml.ipkg"
 test   = "test/test.ipkg"
+
+[db.oracle]
+type   = "github"
+url    = "https://github.com/Matthew-Mosior/idris2-oracle"
+commit = "main"
+ipkg   = "oracle.ipkg"
