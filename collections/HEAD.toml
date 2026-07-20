@@ -841,6 +841,7 @@ type   = "github"
 url    = "https://codeberg.org/joelberkeley/spidr"
 commit = "master"
 ipkg   = "pjrt-plugins/xla-cpu/pjrt-plugin-xla-cpu.ipkg"
+test   = "tutorials/how-to-run-a-tensor-program.ipkg"
 
 [db.pjrt-plugin-xla-cuda]
 type   = "github"
