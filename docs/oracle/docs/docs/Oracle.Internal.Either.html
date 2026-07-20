@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Oracle.Internal.Either</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Oracle.Internal.Either
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Oracle.Internal.Either</h1><span style="float:right">(<a href="Oracle.Internal.Either.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="Oracle.Internal.Either.andThen"><code><a class="type" href="Oracle.Internal.Either.html#Oracle.Internal.Either.andThen"><span class="name function">andThen</span></a>&ensp;:&ensp;<span class="type resolved" title="PrimIO.IO"><span class="name type">IO</span></span>&ensp;(<span class="type resolved" title="Prelude.Types.Either"><span class="name type">Either</span></span>&ensp;<span class="boundvar">e</span>&ensp;<span class="boundvar">a</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="PrimIO.IO"><span class="name type">IO</span></span>&ensp;(<span class="type resolved" title="Prelude.Types.Either"><span class="name type">Either</span></span>&ensp;<span class="boundvar">e</span>&ensp;<span class="boundvar">b</span>))&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="PrimIO.IO"><span class="name type">IO</span></span>&ensp;(<span class="type resolved" title="Prelude.Types.Either"><span class="name type">Either</span></span>&ensp;<span class="boundvar">e</span>&ensp;<span class="boundvar">b</span>)</code></dt><dd><pre>  Monadic composition for Oracle operations that return `Either` values inside `IO`.<br>  <br>  If the first action succeeds, its result is passed to the supplied continuation.<br>  <br>  If the first action fails with `Left`, the error is propagated immediately and the continuation is not executed.<br>  <br>  This function is useful for sequencing database operations while automatically propagating `OracleError` values without deeply nested pattern matching.<br>  <br>  Example:<br>  <br>  ```idris<br>  query conn sql params =<br>    withStatement conn sql $ \stmt =&gt;<br>      bind stmt params `andThen` \_ =&gt;<br>      execute stmt     `andThen` \_ =&gt;<br>      fetchRaw stmt<br>  ```<br>  <br>  This behaves similarly to `(&gt;&gt;=)` for `Either e`, but operates on values of type `IO (Either e a)`.<br>  </pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Oracle.Internal.Either.(&gt;&gt;==)"><code><a class="type" href="Oracle.Internal.Either.html#Oracle.Internal.Either.(&gt;&gt;==)"><span class="name function">(&gt;&gt;==)</span></a>&ensp;:&ensp;<span class="type resolved" title="PrimIO.IO"><span class="name type">IO</span></span>&ensp;(<span class="type resolved" title="Prelude.Types.Either"><span class="name type">Either</span></span>&ensp;<span class="boundvar">e</span>&ensp;<span class="boundvar">a</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="PrimIO.IO"><span class="name type">IO</span></span>&ensp;(<span class="type resolved" title="Prelude.Types.Either"><span class="name type">Either</span></span>&ensp;<span class="boundvar">e</span>&ensp;<span class="boundvar">b</span>))&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="PrimIO.IO"><span class="name type">IO</span></span>&ensp;(<span class="type resolved" title="Prelude.Types.Either"><span class="name type">Either</span></span>&ensp;<span class="boundvar">e</span>&ensp;<span class="boundvar">b</span>)</code></dt><dd><pre>  Infix version of `andThen`.<br>  <br>  Allows sequencing Oracle operations using monadic-style syntax.<br>  <br>  Example:<br>  <br>  ```idris<br>  bind stmt params &gt;&gt;== \_ =&gt;<br>  execute stmt     &gt;&gt;== \_ =&gt;<br>  fetchRaw stmt<br>  ```<br>  <br>  Equivalent to:<br>  <br>  ```idris<br>  andThen (bind stmt params) (\_ =&gt;<br>    andThen (execute stmt) (\_ =&gt;<br>      fetchRaw stmt))<br>  ```<br>  </pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span><br>  <b>Fixity Declaration</b>:&ensp;infixl&ensp;operator,&ensp;level&ensp;1</dd></dl></div><footer>Produced by Idris 2 version 0.8.0-0fb7253b8</footer></body></html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Oracle.FFI.Statement</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Oracle.FFI.Statement
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Oracle.FFI.Statement</h1><span style="float:right">(<a href="Oracle.FFI.Statement.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="Oracle.FFI.Statement.prim__prepareStmt"><code><a class="type" href="Oracle.FFI.Statement.html#Oracle.FFI.Statement.prim__prepareStmt"><span class="name function">prim__prepareStmt</span></a>&ensp;:&ensp;<span class="type resolved" title="PrimIO.AnyPtr"><span class="name type">AnyPtr</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="PrimIO.PrimIO"><span class="name function">PrimIO</span></span>&ensp;<span class="type resolved" title="PrimIO.AnyPtr"><span class="name type">AnyPtr</span></span></code></dt><dd><pre>  Prepare a SQL statement.<br>  <br>  Parameters:<br>  <br>  * Oracle connection handle<br>  * SQL text<br>  <br>  Returns:<br>  <br>  * Raw dpiStmt pointer<br>  * NULL on failure<br>  </pre></dd><dt id="Oracle.FFI.Statement.prim__releaseStmt"><code><a class="type" href="Oracle.FFI.Statement.html#Oracle.FFI.Statement.prim__releaseStmt"><span class="name function">prim__releaseStmt</span></a>&ensp;:&ensp;<span class="type resolved" title="PrimIO.AnyPtr"><span class="name type">AnyPtr</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="PrimIO.PrimIO"><span class="name function">PrimIO</span></span>&ensp;()</code></dt><dd><pre>  Release a previously prepared statement.<br>  <br>  This ultimately calls dpiStmt_release().<br>  </pre></dd><dt id="Oracle.FFI.Statement.prim__executeStmt"><code><a class="type" href="Oracle.FFI.Statement.html#Oracle.FFI.Statement.prim__executeStmt"><span class="name function">prim__executeStmt</span></a>&ensp;:&ensp;<span class="type resolved" title="PrimIO.AnyPtr"><span class="name type">AnyPtr</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="PrimIO.PrimIO"><span class="name function">PrimIO</span></span>&ensp;<span class="name type">Int32</span></code></dt><dd><pre>  Execute a prepared statement.<br>  <br>  Returns:<br>  * 0 on success.<br>  * non-zero on failure.<br>  </pre></dd><dt id="Oracle.FFI.Statement.prim__fetch"><code><a class="type" href="Oracle.FFI.Statement.html#Oracle.FFI.Statement.prim__fetch"><span class="name function">prim__fetch</span></a>&ensp;:&ensp;<span class="type resolved" title="PrimIO.AnyPtr"><span class="name type">AnyPtr</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="PrimIO.PrimIO"><span class="name function">PrimIO</span></span>&ensp;<span class="name type">Int32</span></code></dt><dd><pre>  Fetch the next row from a query result.<br>  <br>  Returns:<br>  * 1 if a row was fetched.<br>  * 0 if no rows remain.<br>  * negative value on error.<br>  </pre></dd><dt id="Oracle.FFI.Statement.prim__columnCount"><code><a class="type" href="Oracle.FFI.Statement.html#Oracle.FFI.Statement.prim__columnCount"><span class="name function">prim__columnCount</span></a>&ensp;:&ensp;<span class="type resolved" title="PrimIO.AnyPtr"><span class="name type">AnyPtr</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="PrimIO.PrimIO"><span class="name function">PrimIO</span></span>&ensp;<span class="name type">Int32</span></code></dt><dd><pre>  Retrieve the number of columns in the statement result set.<br>  </pre></dd><dt id="Oracle.FFI.Statement.prim__columnValue"><code><a class="type" href="Oracle.FFI.Statement.html#Oracle.FFI.Statement.prim__columnValue"><span class="name function">prim__columnValue</span></a>&ensp;:&ensp;<span class="type resolved" title="PrimIO.AnyPtr"><span class="name type">AnyPtr</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Int32</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="PrimIO.PrimIO"><span class="name function">PrimIO</span></span>&ensp;<span class="type resolved" title="PrimIO.AnyPtr"><span class="name type">AnyPtr</span></span></code></dt><dd><pre>  Retrieve the current row value for a column.<br>  <br>  This interface is not sufficient for a production-quality Oracle driver.<br>  Oracle values should be marshalled through type-specific accessors instead.<br>  </pre></dd></dl></div><footer>Produced by Idris 2 version 0.8.0-0fb7253b8</footer></body></html>
