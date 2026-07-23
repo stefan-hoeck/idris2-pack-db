@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Oracle.Internal.Query</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Oracle.Internal.Query
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Oracle.Internal.Query</h1><span style="float:right">(<a href="Oracle.Internal.Query.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="Oracle.Internal.Query.renderQueryColumn"><code><a class="type" href="Oracle.Internal.Query.html#Oracle.Internal.Query.renderQueryColumn"><span class="name function">renderQueryColumn</span></a>&ensp;:&ensp;<a class="type" href="Oracle.Types.QueryColumn.html#Oracle.Types.QueryColumn.QueryColumn"><span class="name type">QueryColumn</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">String</span></code></dt><dd><pre>  Render a single query column into its SQL representation.<br>  <br>  `Column` leaves the supplied expression unchanged.<br>  <br>  `JSONColumn` wraps the supplied expression with `JSON_SERIALIZE(... RETURNING CLOB)` so that Oracle returns the JSON value as CLOB text rather than as a native Oracle JSON value.<br>  </pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Oracle.Internal.Query.buildQuerySQL"><code><a class="type" href="Oracle.Internal.Query.html#Oracle.Internal.Query.buildQuerySQL"><span class="name function">buildQuerySQL</span></a>&ensp;:&ensp;<a class="type" href="Oracle.Types.Query.html#Oracle.Types.Query.Query"><span class="name type">Query</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">String</span></code></dt><dd><pre>  Construct the SQL statement represented by a Query.<br>  <br>  The query columns are rendered into the SELECT projection and joined with commas.<br>  <br>  The query body is appended after FROM and is expected to contain the table expression and any additional SQL clauses.<br>  <br>  For example:<br>  <br>    buildQuerySQL $<br>      MkQuery<br>        [Column &quot;id&quot;, JSONColumn &quot;profile&quot;]<br>        &quot;people&quot;<br>        []<br>  <br>  Produces:<br>  <br>    SELECT id, JSON_SERIALIZE(profile RETURNING CLOB) FROM people<br>  </pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd></dl></div><footer>Produced by Idris 2 version 0.8.0-870fcdb81</footer></body></html>

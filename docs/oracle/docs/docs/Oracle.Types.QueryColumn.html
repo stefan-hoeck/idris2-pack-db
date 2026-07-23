@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Oracle.Types.QueryColumn</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Oracle.Types.QueryColumn
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Oracle.Types.QueryColumn</h1><span style="float:right">(<a href="Oracle.Types.QueryColumn.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="Oracle.Types.QueryColumn.QueryColumn"><code><span class="keyword">data</span>&ensp;<a class="type" href="Oracle.Types.QueryColumn.html#Oracle.Types.QueryColumn.QueryColumn"><span class="name type">QueryColumn</span></a>&ensp;:&ensp;<span class="name type">Type</span></code></dt><dd><pre>  Describes a single expression selected by a Query.<br>  <br>  `Column` selects the expression exactly as provided.<br>  <br>  `JSONColumn` selects the expression after wrapping it in `JSON_SERIALIZE(... RETURNING CLOB)`.<br>  <br>  JSON columns are therefore returned to Idris as CLOB-backed text, allowing them to be decoded as ordinary String values or passed to a `FromJSON` implementation.<br>  <br>  For example:<br>  <br>    JSONColumn &quot;profile&quot;<br>  <br>  renders as:<br>  <br>    JSON_SERIALIZE(profile RETURNING CLOB)<br>  </pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span><br>  <b>Constructors</b>:<br><dl class="decls">  <dt id="Oracle.Types.QueryColumn.Column"><code><a class="type" href="Oracle.Types.QueryColumn.html#Oracle.Types.QueryColumn.Column"><span class="name constructor">Column</span></a>&ensp;:&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Oracle.Types.QueryColumn.html#Oracle.Types.QueryColumn.QueryColumn"><span class="name type">QueryColumn</span></a></code></dt>  <dt id="Oracle.Types.QueryColumn.JSONColumn"><code><a class="type" href="Oracle.Types.QueryColumn.html#Oracle.Types.QueryColumn.JSONColumn"><span class="name constructor">JSONColumn</span></a>&ensp;:&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Oracle.Types.QueryColumn.html#Oracle.Types.QueryColumn.QueryColumn"><span class="name type">QueryColumn</span></a></code></dt></dl></dd></dl></div><footer>Produced by Idris 2 version 0.8.0-870fcdb81</footer></body></html>
