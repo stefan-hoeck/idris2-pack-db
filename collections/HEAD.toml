@@ -1484,3 +1484,10 @@ type   = "github"
 url    = "https://github.com/Matthew-Mosior/idris2-oracle"
 commit = "main"
 ipkg   = "oracle.ipkg"
+
+[db.iotaTime]
+type   = "github"
+url    = "https://github.com/jason-johnson/iotaTime"
+commit = "9bfe456b5d7ff2229b9e91a309eab92705173caa"
+ipkg   = "iotaTime.ipkg"
+test   = "test/iotaTime-test.ipkg"
