@@ -648,6 +648,13 @@ commit = "main"
 ipkg   = "log4types/log4types.ipkg"
 test   = "log4types/test/test.ipkg"
 
+[db.log4types-async]
+type   = "github"
+url    = "https://github.com/bio-aeon/log4types"
+commit = "main"
+ipkg   = "log4types-async/log4types-async.ipkg"
+test   = "log4types-async/test/test.ipkg"
+
 [db.log4types-core]
 type   = "github"
 url    = "https://github.com/bio-aeon/log4types"
