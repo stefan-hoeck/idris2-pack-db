@@ -648,6 +648,13 @@ commit = "main"
 ipkg   = "log4types/log4types.ipkg"
 test   = "log4types/test/test.ipkg"
 
+[db.log4types-async]
+type   = "github"
+url    = "https://github.com/bio-aeon/log4types"
+commit = "main"
+ipkg   = "log4types-async/log4types-async.ipkg"
+test   = "log4types-async/test/test.ipkg"
+
 [db.log4types-core]
 type   = "github"
 url    = "https://github.com/bio-aeon/log4types"
@@ -1491,3 +1498,9 @@ url    = "https://github.com/jason-johnson/iotaTime"
 commit = "main"
 ipkg   = "iotaTime.ipkg"
 test   = "test/iotaTime-test.ipkg"
+
+[db.bcrypt]
+type   = "github"
+url    = "https://github.com/Matthew-Mosior/idris2-bcrypt"
+commit = "main"
+ipkg   = "bcrypt.ipkg"
