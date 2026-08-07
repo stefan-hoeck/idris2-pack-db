@@ -1,7 +1,7 @@
 [idris2]
 url     = "https://github.com/idris-lang/Idris2"
 version = "0.8.0"
-commit  = "b51cac2d215c75ac1a05dddb7a2590695bc93d22"
+commit  = "3e8882813e4135e425cc248497a59c3dd5ef116e"
 
 [db.algdata]
 type        = "github"
@@ -338,7 +338,7 @@ test        = "tests/tests.ipkg"
 [db.deptycheck]
 type        = "github"
 url         = "https://github.com/buzden/deptycheck"
-commit      = "b1f177d60b8e6b056afbf3e30ed2d968b01d81d8"
+commit      = "0f070214dd5ba085125e46e5fa8fe44bd2540b63"
 ipkg        = "deptycheck.ipkg"
 packagePath = false
 
@@ -422,7 +422,7 @@ packagePath = false
 [db.elab-util-extra]
 type        = "github"
 url         = "https://github.com/buzden/deptycheck"
-commit      = "b1f177d60b8e6b056afbf3e30ed2d968b01d81d8"
+commit      = "0f070214dd5ba085125e46e5fa8fe44bd2540b63"
 ipkg        = "elab-util-extra/elab-util-extra.ipkg"
 packagePath = false
 test        = "elab-util-extra/tests/tests.ipkg"
@@ -783,6 +783,14 @@ url         = "https://github.com/stefan-hoeck/idris2-indexed-graph"
 commit      = "b8f1fb1157cbe6ac9b487efa81284ab4342169af"
 ipkg        = "indexed-graph.ipkg"
 packagePath = false
+
+[db.iotaTime]
+type        = "github"
+url         = "https://github.com/jason-johnson/iotaTime"
+commit      = "0ab334759ee0e69153ed32009621596322015a5f"
+ipkg        = "iotaTime.ipkg"
+packagePath = false
+test        = "test/iotaTime-test.ipkg"
 
 [db.js]
 type        = "github"
