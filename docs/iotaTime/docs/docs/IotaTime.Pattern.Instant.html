@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>IotaTime.Pattern.Instant</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : IotaTime.Pattern.Instant
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>IotaTime.Pattern.Instant</h1><span style="float:right">(<a href="IotaTime.Pattern.Instant.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt data-src-mod="IotaTime.Pattern.Instant" data-src-start="17:1" data-fc-type="virtual" id="IotaTime.Pattern.Instant.InstantPattern"><code><span class="keyword">record</span>&ensp;<a class="type" href="IotaTime.Pattern.Instant.html#IotaTime.Pattern.Instant.InstantPattern"><span class="name type">InstantPattern</span></a>&ensp;:&ensp;<span class="name type">Type</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd><pre>  A Gregorian date-time pattern adapted to parse and format UTC instants.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span><br>  <b>Constructor</b>:&ensp;<dl class="decls"><dt data-src-mod="IotaTime.Pattern.Instant" data-src-start="17:1" data-fc-type="virtual" id="IotaTime.Pattern.Instant.MkInstantPattern"><code><a class="type" href="IotaTime.Pattern.Instant.html#IotaTime.Pattern.Instant.MkInstantPattern"><span class="name constructor">MkInstantPattern</span></a>&ensp;:&ensp;<a class="type" href="IotaTime.Pattern.html#IotaTime.Pattern.Pattern"><span class="name type">Pattern</span></a>&ensp;<span class="boundvar">state</span>&ensp;(<a class="type" href="IotaTime.CalendarDateTime.html#IotaTime.CalendarDateTime.CalendarDateTime"><span class="name function">CalendarDateTime</span></a>&ensp;<a class="type" href="IotaTime.Calendar.Gregorian.html#IotaTime.Calendar.Gregorian.Gregorian"><span class="name type">Gregorian</span></a>)&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="IotaTime.Pattern.Instant.html#IotaTime.Pattern.Instant.InstantPattern"><span class="name type">InstantPattern</span></a>&ensp;<span class="boundvar">state</span></code></dt></dl><br>  <b>Projection</b>:&ensp;<dl class="decls"><dt data-src-mod="IotaTime.Pattern.Instant" data-src-start="21:3" data-fc-type="virtual" id="IotaTime.Pattern.Instant.InstantPattern.(.calendarPattern)"><code><span class="type resolved" title="IotaTime.Pattern.Instant.InstantPattern.(.calendarPattern)"><span class="name function">.calendarPattern</span></span>&ensp;:&ensp;<a class="type" href="IotaTime.Pattern.Instant.html#IotaTime.Pattern.Instant.InstantPattern"><span class="name type">InstantPattern</span></a>&ensp;<span class="boundvar">state</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="IotaTime.Pattern.html#IotaTime.Pattern.Pattern"><span class="name type">Pattern</span></a>&ensp;<span class="boundvar">state</span>&ensp;(<a class="type" href="IotaTime.CalendarDateTime.html#IotaTime.CalendarDateTime.CalendarDateTime"><span class="name function">CalendarDateTime</span></a>&ensp;<a class="type" href="IotaTime.Calendar.Gregorian.html#IotaTime.Calendar.Gregorian.Gregorian"><span class="name type">Gregorian</span></a>)</code></dt></dl></dd><dt data-src-mod="IotaTime.Pattern.Instant" data-src-start="27:1" id="IotaTime.Pattern.Instant.instantPattern"><code><a class="type" href="IotaTime.Pattern.Instant.html#IotaTime.Pattern.Instant.instantPattern"><span class="name function">instantPattern</span></a>&ensp;:&ensp;<a class="type" href="IotaTime.Pattern.html#IotaTime.Pattern.Pattern"><span class="name type">Pattern</span></a>&ensp;<span class="boundvar">state</span>&ensp;(<a class="type" href="IotaTime.CalendarDateTime.html#IotaTime.CalendarDateTime.CalendarDateTime"><span class="name function">CalendarDateTime</span></a>&ensp;<a class="type" href="IotaTime.Calendar.Gregorian.html#IotaTime.Calendar.Gregorian.Gregorian"><span class="name type">Gregorian</span></a>)&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="IotaTime.Pattern.Instant.html#IotaTime.Pattern.Instant.InstantPattern"><span class="name type">InstantPattern</span></a>&ensp;<span class="boundvar">state</span></code></dt><dd><pre>  Build an Instant pattern from a Gregorian CalendarDateTime pattern.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt data-src-mod="IotaTime.Pattern.Instant" data-src-start="33:1" id="IotaTime.Pattern.Instant.parseInstant"><code><a class="type" href="IotaTime.Pattern.Instant.html#IotaTime.Pattern.Instant.parseInstant"><span class="name function">parseInstant</span></a>&ensp;:&ensp;<a class="type" href="IotaTime.Pattern.Instant.html#IotaTime.Pattern.Instant.InstantPattern"><span class="name type">InstantPattern</span></a>&ensp;<span class="boundvar">state</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Types.Either"><span class="name type">Either</span></span>&ensp;<a class="type" href="IotaTime.Pattern.html#IotaTime.Pattern.PatternError"><span class="name type">PatternError</span></a>&ensp;<a class="type" href="IotaTime.Instant.html#IotaTime.Instant.Instant"><span class="name type">Instant</span></a></code></dt><dd><pre>  Parse an Instant, treating the underlying Gregorian date-time as UTC.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt data-src-mod="IotaTime.Pattern.Instant" data-src-start="40:1" id="IotaTime.Pattern.Instant.formatInstant"><code><a class="type" href="IotaTime.Pattern.Instant.html#IotaTime.Pattern.Instant.formatInstant"><span class="name function">formatInstant</span></a>&ensp;:&ensp;<a class="type" href="IotaTime.Pattern.Instant.html#IotaTime.Pattern.Instant.InstantPattern"><span class="name type">InstantPattern</span></a>&ensp;<span class="boundvar">state</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="IotaTime.Instant.html#IotaTime.Instant.Instant"><span class="name type">Instant</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Types.Either"><span class="name type">Either</span></span>&ensp;<a class="type" href="IotaTime.Calendar.html#IotaTime.Calendar.CalendarConversionError"><span class="name type">CalendarConversionError</span></a>&ensp;<span class="name type">String</span></code></dt><dd><pre>  Format an Instant in UTC. Instants outside the Gregorian calendar&apos;s<br>  supported range return the existing typed calendar conversion error.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt data-src-mod="IotaTime.Pattern.Instant" data-src-start="51:1" id="IotaTime.Pattern.Instant.pInstant"><code><a class="type" href="IotaTime.Pattern.Instant.html#IotaTime.Pattern.Instant.pInstant"><span class="name function">pInstant</span></a>&ensp;:&ensp;<a class="type" href="IotaTime.Pattern.Instant.html#IotaTime.Pattern.Instant.InstantPattern"><span class="name type">InstantPattern</span></a>&ensp;(<a class="type" href="IotaTime.Pattern.CalendarDate.html#IotaTime.Pattern.CalendarDate.DateFields"><span class="name type">DateFields</span></a>,&ensp;<a class="type" href="IotaTime.Pattern.LocalTime.html#IotaTime.Pattern.LocalTime.TimeFields"><span class="name type">TimeFields</span></a>)</code></dt><dd><pre>  ISO-8601 UTC at whole-second precision: yyyy-MM-ddTHH:mm:ssZ.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt data-src-mod="IotaTime.Pattern.Instant" data-src-start="56:1" id="IotaTime.Pattern.Instant.pInstantNano"><code><a class="type" href="IotaTime.Pattern.Instant.html#IotaTime.Pattern.Instant.pInstantNano"><span class="name function">pInstantNano</span></a>&ensp;:&ensp;<a class="type" href="IotaTime.Pattern.Instant.html#IotaTime.Pattern.Instant.InstantPattern"><span class="name type">InstantPattern</span></a>&ensp;(<a class="type" href="IotaTime.Pattern.CalendarDate.html#IotaTime.Pattern.CalendarDate.DateFields"><span class="name type">DateFields</span></a>,&ensp;<a class="type" href="IotaTime.Pattern.LocalTime.html#IotaTime.Pattern.LocalTime.TimeFields"><span class="name type">TimeFields</span></a>)</code></dt><dd><pre>  ISO-8601 UTC with nine fractional digits:<br>  yyyy-MM-ddTHH:mm:ss.fffffffffZ.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd></dl></div><footer>Produced by Idris 2 version 0.8.0-3e8882813</footer></body></html>

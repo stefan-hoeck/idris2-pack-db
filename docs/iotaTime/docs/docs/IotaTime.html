@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>IotaTime</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : IotaTime
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>IotaTime</h1><span style="float:right">(<a href="IotaTime.src.html">source</a>)</span><pre></pre></div><h2>Reexports</h2><code><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;IotaTime.Duration<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;IotaTime.DateTimeZone<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;IotaTime.Instant<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;IotaTime.Clock<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;IotaTime.Interval<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;IotaTime.Offset<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;IotaTime.OffsetDateTime<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;IotaTime.Period<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;IotaTime.ZonedDateTime<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;IotaTime.Tzdb<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;IotaTime.LocalTime<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;IotaTime.Calendar<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;IotaTime.Calendar.Gregorian<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;IotaTime.Calendar.Julian<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;IotaTime.Calendar.Coptic<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;IotaTime.Calendar.Islamic<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;IotaTime.Calendar.Persian<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;IotaTime.Calendar.Hebrew<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;IotaTime.Locale<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;IotaTime.Pattern<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;IotaTime.Pattern.Scalar<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;IotaTime.Pattern.Calendar<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;IotaTime.Pattern.CalendarDate<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;IotaTime.Pattern.LocalTime<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;IotaTime.Pattern.Offset<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;IotaTime.Pattern.Duration<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;IotaTime.Pattern.Instant<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;IotaTime.Pattern.CalendarDateTime<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;IotaTime.Pattern.OffsetDateTime<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;IotaTime.Pattern.ZonedDateTime<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;IotaTime.Pattern.Locale<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;IotaTime.CalendarDateTime</code></div><footer>Produced by Idris 2 version 0.8.0-3e8882813</footer></body></html>

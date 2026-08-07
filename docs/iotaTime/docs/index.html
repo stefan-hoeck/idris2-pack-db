@@ -1,0 +1,480 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>iotaTime</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="index">
+<header>
+  <strong>Idris2Doc</strong> : iotaTime
+  <nav><a href="index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><h1>Package iotaTime - Namespaces</h1><ul class="names"><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/IotaTime.Duration.html">IotaTime.Duration</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/IotaTime.Clock.html">IotaTime.Clock</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/IotaTime.DateTimeZone.html">IotaTime.DateTimeZone</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/IotaTime.Instant.html">IotaTime.Instant</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/IotaTime.Interval.html">IotaTime.Interval</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/IotaTime.Offset.html">IotaTime.Offset</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/IotaTime.OffsetDateTime.html">IotaTime.OffsetDateTime</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/IotaTime.Period.html">IotaTime.Period</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/IotaTime.ZonedDateTime.html">IotaTime.ZonedDateTime</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/IotaTime.Tzdb.Tzif.html">IotaTime.Tzdb.Tzif</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/IotaTime.Tzdb.Posix.html">IotaTime.Tzdb.Posix</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/IotaTime.Tzdb.Windows.Types.html">IotaTime.Tzdb.Windows.Types</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/IotaTime.Tzdb.Metadata.html">IotaTime.Tzdb.Metadata</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/IotaTime.Tzdb.Provider.html">IotaTime.Tzdb.Provider</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/IotaTime.Tzdb.Windows.html">IotaTime.Tzdb.Windows</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/IotaTime.Tzdb.Windows.Platform.html">IotaTime.Tzdb.Windows.Platform</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/IotaTime.Tzdb.html">IotaTime.Tzdb</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/IotaTime.Time.Component.html">IotaTime.Time.Component</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/IotaTime.LocalTime.html">IotaTime.LocalTime</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/IotaTime.Calendar.Component.html">IotaTime.Calendar.Component</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/IotaTime.Calendar.html">IotaTime.Calendar</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/IotaTime.Calendar.Gregorian.html">IotaTime.Calendar.Gregorian</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/IotaTime.Calendar.Iso.html">IotaTime.Calendar.Iso</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/IotaTime.Calendar.Coptic.html">IotaTime.Calendar.Coptic</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/IotaTime.Calendar.Islamic.html">IotaTime.Calendar.Islamic</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/IotaTime.Calendar.Persian.html">IotaTime.Calendar.Persian</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/IotaTime.Calendar.Julian.html">IotaTime.Calendar.Julian</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/IotaTime.Calendar.Hebrew.html">IotaTime.Calendar.Hebrew</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/IotaTime.Locale.Unix.Platform.html">IotaTime.Locale.Unix.Platform</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/IotaTime.Locale.Windows.Platform.html">IotaTime.Locale.Windows.Platform</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/IotaTime.Locale.html">IotaTime.Locale</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/IotaTime.Pattern.html">IotaTime.Pattern</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/IotaTime.Pattern.Scalar.html">IotaTime.Pattern.Scalar</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/IotaTime.Pattern.Calendar.html">IotaTime.Pattern.Calendar</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/IotaTime.Pattern.CalendarDate.html">IotaTime.Pattern.CalendarDate</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/IotaTime.Pattern.LocalTime.html">IotaTime.Pattern.LocalTime</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/IotaTime.Pattern.Offset.html">IotaTime.Pattern.Offset</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/IotaTime.Pattern.Duration.html">IotaTime.Pattern.Duration</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/IotaTime.Pattern.Instant.html">IotaTime.Pattern.Instant</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/IotaTime.Pattern.CalendarDateTime.html">IotaTime.Pattern.CalendarDateTime</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/IotaTime.Pattern.OffsetDateTime.html">IotaTime.Pattern.OffsetDateTime</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/IotaTime.Pattern.ZonedDateTime.html">IotaTime.Pattern.ZonedDateTime</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/IotaTime.Pattern.Locale.html">IotaTime.Pattern.Locale</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/IotaTime.CalendarDateTime.html">IotaTime.CalendarDateTime</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/IotaTime.Pure.html">IotaTime.Pure</a>
+    </div>
+    <div class="index-namespace-doc">
+      Native-free iotaTime surface for applications that supply their own
+time-zone provider and do not require operating-system locale acquisition.
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/IotaTime.html">IotaTime</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li></ul></div><footer>Produced by Idris 2 version 0.8.0-3e8882813</footer></body></html>

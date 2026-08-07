@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>IotaTime.Pattern.Offset</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : IotaTime.Pattern.Offset
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>IotaTime.Pattern.Offset</h1><span style="float:right">(<a href="IotaTime.Pattern.Offset.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt data-src-mod="IotaTime.Pattern.Offset" data-src-start="64:1" id="IotaTime.Pattern.Offset.pOffset"><code><a class="type" href="IotaTime.Pattern.Offset.html#IotaTime.Pattern.Offset.pOffset"><span class="name function">pOffset</span></a>&ensp;:&ensp;<a class="type" href="IotaTime.Pattern.html#IotaTime.Pattern.Pattern"><span class="name type">Pattern</span></a>&ensp;<a class="type" href="IotaTime.Offset.html#IotaTime.Offset.Offset"><span class="name function">Offset</span></a>&ensp;<a class="type" href="IotaTime.Offset.html#IotaTime.Offset.Offset"><span class="name function">Offset</span></a></code></dt><dd><pre>  ISO-8601 signed hours and minutes, such as +02:00 or -05:30.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt data-src-mod="IotaTime.Pattern.Offset" data-src-start="69:1" id="IotaTime.Pattern.Offset.pOffsetFull"><code><a class="type" href="IotaTime.Pattern.Offset.html#IotaTime.Pattern.Offset.pOffsetFull"><span class="name function">pOffsetFull</span></a>&ensp;:&ensp;<a class="type" href="IotaTime.Pattern.html#IotaTime.Pattern.Pattern"><span class="name type">Pattern</span></a>&ensp;<a class="type" href="IotaTime.Offset.html#IotaTime.Offset.Offset"><span class="name function">Offset</span></a>&ensp;<a class="type" href="IotaTime.Offset.html#IotaTime.Offset.Offset"><span class="name function">Offset</span></a></code></dt><dd><pre>  Signed hours, minutes, and seconds, such as -05:30:15.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt data-src-mod="IotaTime.Pattern.Offset" data-src-start="74:1" id="IotaTime.Pattern.Offset.pOffsetZ"><code><a class="type" href="IotaTime.Pattern.Offset.html#IotaTime.Pattern.Offset.pOffsetZ"><span class="name function">pOffsetZ</span></a>&ensp;:&ensp;<a class="type" href="IotaTime.Pattern.html#IotaTime.Pattern.Pattern"><span class="name type">Pattern</span></a>&ensp;<a class="type" href="IotaTime.Offset.html#IotaTime.Offset.Offset"><span class="name function">Offset</span></a>&ensp;<a class="type" href="IotaTime.Offset.html#IotaTime.Offset.Offset"><span class="name function">Offset</span></a></code></dt><dd><pre>  The ISO-8601 offset pattern with Z used for UTC.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt data-src-mod="IotaTime.Pattern.Offset" data-src-start="86:1" id="IotaTime.Pattern.Offset.pOffsetCompact"><code><a class="type" href="IotaTime.Pattern.Offset.html#IotaTime.Pattern.Offset.pOffsetCompact"><span class="name function">pOffsetCompact</span></a>&ensp;:&ensp;<a class="type" href="IotaTime.Pattern.html#IotaTime.Pattern.Pattern"><span class="name type">Pattern</span></a>&ensp;<a class="type" href="IotaTime.Offset.html#IotaTime.Offset.Offset"><span class="name function">Offset</span></a>&ensp;<a class="type" href="IotaTime.Offset.html#IotaTime.Offset.Offset"><span class="name function">Offset</span></a></code></dt><dd><pre>  The strftime %z form, such as +0200 or -0530.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd></dl></div><footer>Produced by Idris 2 version 0.8.0-3e8882813</footer></body></html>
