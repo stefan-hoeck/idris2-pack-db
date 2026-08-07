@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Crypto.BCrypt.FFI</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Crypto.BCrypt.FFI
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Crypto.BCrypt.FFI</h1><span style="float:right">(<a href="Crypto.BCrypt.FFI.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt data-src-mod="Crypto.BCrypt.FFI" data-src-start="5:1" id="Crypto.BCrypt.FFI.prim__bcryptGenSalt"><code><a class="type" href="Crypto.BCrypt.FFI.html#Crypto.BCrypt.FFI.prim__bcryptGenSalt"><span class="name function">prim__bcryptGenSalt</span></a>&ensp;:&ensp;<span class="name type">Bits8</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="PrimIO.PrimIO"><span class="name function">PrimIO</span></span>&ensp;<span class="name type">String</span></code></dt><dd><pre>  Generate a new bcrypt salt.<br>  <br>  The supplied cost factor should be between 4 and 31 inclusive.<br>  <br>  Values outside this range are handled according to the underlying libbcrypt implementation.<br>  </pre></dd><dt data-src-mod="Crypto.BCrypt.FFI" data-src-start="14:1" id="Crypto.BCrypt.FFI.prim__bcryptHash"><code><a class="type" href="Crypto.BCrypt.FFI.html#Crypto.BCrypt.FFI.prim__bcryptHash"><span class="name function">prim__bcryptHash</span></a>&ensp;:&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Bits8</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="PrimIO.PrimIO"><span class="name function">PrimIO</span></span>&ensp;<span class="name type">String</span></code></dt><dd><pre>  Hash a password using a newly generated bcrypt salt.<br>  <br>  The supplied cost factor should be between 4 and 31 inclusive.<br>  <br>  Values outside this range are handled according to the underlying libbcrypt implementation.<br>  </pre></dd><dt data-src-mod="Crypto.BCrypt.FFI" data-src-start="23:1" id="Crypto.BCrypt.FFI.prim__bcryptHashWithSalt"><code><a class="type" href="Crypto.BCrypt.FFI.html#Crypto.BCrypt.FFI.prim__bcryptHashWithSalt"><span class="name function">prim__bcryptHashWithSalt</span></a>&ensp;:&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="PrimIO.PrimIO"><span class="name function">PrimIO</span></span>&ensp;<span class="name type">String</span></code></dt><dd><pre>  Hash a password using an existing bcrypt salt or bcrypt hash.<br>  <br>  The supplied salt may either be a bcrypt salt or a previously generated bcrypt hash.<br>  <br>  When a hash is supplied, its embedded salt is reused.<br>  </pre></dd><dt data-src-mod="Crypto.BCrypt.FFI" data-src-start="32:1" id="Crypto.BCrypt.FFI.prim__bcryptValidate"><code><a class="type" href="Crypto.BCrypt.FFI.html#Crypto.BCrypt.FFI.prim__bcryptValidate"><span class="name function">prim__bcryptValidate</span></a>&ensp;:&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="PrimIO.PrimIO"><span class="name function">PrimIO</span></span>&ensp;<span class="name type">Int</span></code></dt><dd><pre>  Validate a password against a bcrypt hash.<br>  <br>  Returns:<br>  - 1 if the password matches.<br>  - 0 otherwise.<br>  </pre></dd></dl></div><footer>Produced by Idris 2 version 0.8.0-b51cac2d2</footer></body></html>

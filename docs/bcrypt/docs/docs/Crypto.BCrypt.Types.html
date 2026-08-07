@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Crypto.BCrypt.Types</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Crypto.BCrypt.Types
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Crypto.BCrypt.Types</h1><span style="float:right">(<a href="Crypto.BCrypt.Types.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt data-src-mod="Crypto.BCrypt.Types" data-src-start="7:1" data-fc-type="virtual" id="Crypto.BCrypt.Types.WorkFactor"><code><span class="keyword">record</span>&ensp;<a class="type" href="Crypto.BCrypt.Types.html#Crypto.BCrypt.Types.WorkFactor"><span class="name type">WorkFactor</span></a>&ensp;:&ensp;<span class="name type">Type</span></code></dt><dd><pre>  The bcrypt work factor.<br>  <br>  The work factor determines the computational cost of hashing a password.<br>  <br>  Each increment approximately doubles the amount of work required to compute and verify a bcrypt hash.<br>  <br>  Valid bcrypt work factors are in the range 4 to 31 inclusive.<br>  <br>  Values outside this range are handled according to the underlying libbcrypt implementation.<br>  </pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span><br>  <b>Constructor</b>:&ensp;<dl class="decls"><dt data-src-mod="Crypto.BCrypt.Types" data-src-start="7:1" data-fc-type="virtual" id="Crypto.BCrypt.Types.MkWorkFactor"><code><a class="type" href="Crypto.BCrypt.Types.html#Crypto.BCrypt.Types.MkWorkFactor"><span class="name constructor">MkWorkFactor</span></a>&ensp;:&ensp;<span class="name type">Bits8</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Crypto.BCrypt.Types.html#Crypto.BCrypt.Types.WorkFactor"><span class="name type">WorkFactor</span></a></code></dt></dl><br>  <b>Projection</b>:&ensp;<dl class="decls"><dt data-src-mod="Crypto.BCrypt.Types" data-src-start="20:5" data-fc-type="virtual" id="Crypto.BCrypt.Types.WorkFactor.(.value)"><code><span class="type resolved" title="Crypto.BCrypt.Types.WorkFactor.(.value)"><span class="name function">.value</span></span>&ensp;:&ensp;<a class="type" href="Crypto.BCrypt.Types.html#Crypto.BCrypt.Types.WorkFactor"><span class="name type">WorkFactor</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Bits8</span></code></dt></dl><br>  <b>Hints</b>:<br><dl class="decls">  <dt  id="$resolved365"><code><span class="type resolved" title="Prelude.EqOrd.Eq"><span class="name type">Eq</span></span>&ensp;<a class="type" href="Crypto.BCrypt.Types.html#Crypto.BCrypt.Types.WorkFactor"><span class="name type">WorkFactor</span></a></code></dt>  <dt  id="$resolved364"><code><span class="type resolved" title="Prelude.EqOrd.Ord"><span class="name type">Ord</span></span>&ensp;<a class="type" href="Crypto.BCrypt.Types.html#Crypto.BCrypt.Types.WorkFactor"><span class="name type">WorkFactor</span></a></code></dt>  <dt  id="$resolved363"><code><span class="type resolved" title="Prelude.Show.Show"><span class="name type">Show</span></span>&ensp;<a class="type" href="Crypto.BCrypt.Types.html#Crypto.BCrypt.Types.WorkFactor"><span class="name type">WorkFactor</span></a></code></dt></dl></dd><dt data-src-mod="Crypto.BCrypt.Types" data-src-start="20:5" data-fc-type="virtual" id="Crypto.BCrypt.Types.WorkFactor.(.value)"><code><span class="type resolved" title="Crypto.BCrypt.Types.WorkFactor.(.value)"><span class="name function">.value</span></span>&ensp;:&ensp;<a class="type" href="Crypto.BCrypt.Types.html#Crypto.BCrypt.Types.WorkFactor"><span class="name type">WorkFactor</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Bits8</span></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt data-src-mod="Crypto.BCrypt.Types" data-src-start="20:5" data-fc-type="virtual" id="Crypto.BCrypt.Types.WorkFactor.value"><code><span class="type resolved" title="Crypto.BCrypt.Types.WorkFactor.value"><span class="name function">value</span></span>&ensp;:&ensp;<a class="type" href="Crypto.BCrypt.Types.html#Crypto.BCrypt.Types.WorkFactor"><span class="name type">WorkFactor</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Bits8</span></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd></dl></div><footer>Produced by Idris 2 version 0.8.0-b51cac2d2</footer></body></html>
