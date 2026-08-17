@@ -122,12 +122,15 @@
 <div id="line1"><a href="#line1" class="IdrisLineNumber"> &nbsp;1 | </a></div>
 <div id="line2"><a href="#line2" class="IdrisLineNumber"> &nbsp;2 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">Data.Container.Base</span></div>
 <div id="line3"><a href="#line3" class="IdrisLineNumber"> &nbsp;3 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">Data.Container.Additive.Object.Definition</span></div>
-<div id="line4"><a href="#line4" class="IdrisLineNumber"> &nbsp;4 | </a></div>
-<div id="line5"><a href="#line5" class="IdrisLineNumber"> &nbsp;5 | </a><span class="IdrisComment">|||&nbsp;If&nbsp;extension&nbsp;of&nbsp;a&nbsp;container&nbsp;is&nbsp;a&nbsp;functor&nbsp;Type&nbsp;-&gt;&nbsp;Type,&nbsp;what&nbsp;is&nbsp;an&nbsp;extension</span></div>
-<div id="line6"><a href="#line6" class="IdrisLineNumber"> &nbsp;6 | </a><span class="IdrisComment">|||&nbsp;of&nbsp;an&nbsp;additive&nbsp;container?</span></div>
+<div id="line4"><a href="#line4" class="IdrisLineNumber"> &nbsp;4 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">Data.ComMonoid</span></div>
+<div id="line5"><a href="#line5" class="IdrisLineNumber"> &nbsp;5 | </a></div>
+<div id="line6"><a href="#line6" class="IdrisLineNumber"> &nbsp;6 | </a><span class="IdrisComment">|||&nbsp;A&nbsp;functor&nbsp;`AddCont&nbsp;-&gt;&nbsp;[ComMon,&nbsp;Type]`</span></div>
 <div id="line7"><a href="#line7" class="IdrisLineNumber"> &nbsp;7 | </a><span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisKeyword">export</span></div>
-<div id="line8"><a href="#line8" class="IdrisLineNumber"> &nbsp;8 | </a><span class="IdrisFunction">Ext</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">AddCont</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Type</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Type</span></div>
-<div id="line9"><a href="#line9" class="IdrisLineNumber"> &nbsp;9 | </a><span class="IdrisFunction">Ext</span>&nbsp;<span class="IdrisBound">c</span>&nbsp;<span class="IdrisBound">x</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisType">Ext</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisFunction">UC</span>&nbsp;<span class="IdrisBound">c</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisBound">x</span></div>
+<div id="line8"><a href="#line8" class="IdrisLineNumber"> &nbsp;8 | </a><span class="IdrisKeyword">record</span>&nbsp;<span class="IdrisType">Ext</span>&nbsp;<span class="IdrisKeyword">(0</span>&nbsp;<span class="IdrisBound">c</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">AddCont</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisBound">y</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisFunction">ComMonoid</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisKeyword">where</span></div>
+<div id="line9"><a href="#line9" class="IdrisLineNumber"> &nbsp;9 | </a>&nbsp;&nbsp;<span class="IdrisKeyword">constructor</span>&nbsp;<span class="IdrisData">(&lt;|)</span></div>
+<div id="line10"><a href="#line10" class="IdrisLineNumber"> 10 | </a>&nbsp;&nbsp;<span class="IdrisFunction">shapeExt</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisBound">c</span><span class="IdrisFunction">.Shp</span></div>
+<div id="line11"><a href="#line11" class="IdrisLineNumber"> 11 | </a>&nbsp;&nbsp;<span class="IdrisFunction">index</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisFunction">ComMonoidHomo</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisFunction">UMon</span>&nbsp;<span class="IdrisBound">c</span>&nbsp;<span class="IdrisBound">shapeExt</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisBound">y</span></div>
+<div id="line12"><a href="#line12" class="IdrisLineNumber"> 12 | </a></div>
 </code>
 </body>
 </html>
