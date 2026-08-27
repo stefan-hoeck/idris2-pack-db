@@ -631,7 +631,7 @@ ipkg   = "lana.ipkg"
 
 [db.lens]
 type   = "github"
-url    = "https://github.com/kiana-S/idris2-lens"
+url    = "https://github.com/tokinanpa/idris2-lens"
 commit = "main"
 ipkg   = "lens.ipkg"
 
@@ -742,7 +742,7 @@ ipkg   = "nested.ipkg"
 
 [db.numidr]
 type   = "github"
-url    = "https://github.com/kiana-S/numidr"
+url    = "https://github.com/tokinanpa/numidr"
 commit = "main"
 ipkg   = "numidr.ipkg"
 
@@ -915,7 +915,7 @@ ipkg   = "profiler.ipkg"
 
 [db.profunctors]
 type   = "github"
-url    = "https://github.com/kiana-S/idris2-profunctors"
+url    = "https://github.com/tokinanpa/idris2-profunctors"
 commit = "main"
 ipkg   = "profunctors.ipkg"
 
@@ -940,7 +940,7 @@ test   = "tests/tests.ipkg"
 
 [db.ratio]
 type   = "github"
-url    = "https://github.com/kiana-S/idris2-ratio"
+url    = "https://github.com/tokinanpa/idris2-ratio"
 commit = "main"
 ipkg   = "ratio.ipkg"
 
