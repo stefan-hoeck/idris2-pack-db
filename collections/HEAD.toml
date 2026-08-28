@@ -143,6 +143,12 @@ url    = "https://github.com/stefan-hoeck/idris2-bytestring"
 commit = "main"
 ipkg   = "bytestring.ipkg"
 
+[db.cats-and-arrows]
+type   = "github"
+url    = "https://github.com/tokinanpa/cats-and-arrows"
+commit = "main"
+ipkg   = "cats-and-arrows.ipkg"
+
 [db.chem]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-chem"
@@ -625,7 +631,7 @@ ipkg   = "lana.ipkg"
 
 [db.lens]
 type   = "github"
-url    = "https://github.com/kiana-S/idris2-lens"
+url    = "https://github.com/tokinanpa/idris2-lens"
 commit = "main"
 ipkg   = "lens.ipkg"
 
@@ -736,7 +742,7 @@ ipkg   = "nested.ipkg"
 
 [db.numidr]
 type   = "github"
-url    = "https://github.com/kiana-S/numidr"
+url    = "https://github.com/tokinanpa/numidr"
 commit = "main"
 ipkg   = "numidr.ipkg"
 
@@ -909,7 +915,7 @@ ipkg   = "profiler.ipkg"
 
 [db.profunctors]
 type   = "github"
-url    = "https://github.com/kiana-S/idris2-profunctors"
+url    = "https://github.com/tokinanpa/idris2-profunctors"
 commit = "main"
 ipkg   = "profunctors.ipkg"
 
@@ -934,7 +940,7 @@ test   = "tests/tests.ipkg"
 
 [db.ratio]
 type   = "github"
-url    = "https://github.com/kiana-S/idris2-ratio"
+url    = "https://github.com/tokinanpa/idris2-ratio"
 commit = "main"
 ipkg   = "ratio.ipkg"
 
