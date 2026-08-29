@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Control.Category.Traced</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Control.Category.Traced
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Control.Category.Traced</h1><span style="float:right">(<a href="Control.Category.Traced.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt data-src-mod="Control.Category.Traced" data-src-start="14:1" data-fc-type="virtual" id="Control.Category.Traced.Traced"><code><span class="keyword">interface</span>&ensp;<a class="type" href="Control.Category.Traced.html#Control.Category.Traced.Traced"><span class="name type">Traced</span></a>&ensp;:&ensp;<a class="type" href="Control.Category.Core.html#Control.Category.Core.Hom"><span class="name function">Hom</span></a>&ensp;<span class="boundvar">obj</span>&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="boundvar">obj</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">obj</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">obj</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">obj</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd><pre>  A *traced monoidal category* is a monoidal category equipped with<br>  trace maps, maps which allow one to write loops in string diagrams.<br>  The name &quot;traced&quot; comes from a connection to the trace of a matrix<br>  in linear algebra, though the concept has far greater applications.<br>  <br>  This is the interface-style definition of a traced monoidal category.<br>  For the record-style definition, see `Control.Category.Records.TracedR`.<br>  <br>  Laws:<br>  * `tracel (mapr f . g) = f . tracel g`<br>  * `tracer (mapl f . g) = f . tracer g`<br>  * `tracel (f . mapr g) = tracel f . g`<br>  * `tracer (f . mapl g) = tracer f . g`<br>  * `tracel (unitl&apos; . f . unitl) = f`<br>  * `tracer (unitr&apos; . f . unitr) = f`<br>  * `tracel (tracel f) . assoc = tracel f`<br>  * `tracer (tracer f) . assoc&apos; = tracer f`<br>  * `assoc . tracer (bimap f g) = bimap f (tracer g)`<br>  * `assoc&apos; . tracel (bimap f g) = bimap (tracel f) g`<br>  * `tracel f = tracer f` for all `f : cat a a`<br>  <br>  Note that these laws are for spherical traces, which are rather<br>  restrictive. Some weaker versions of these laws may be appropriate<br>  depending on the needs of the implementation.</pre><br>  <b>Parameters</b>:&ensp;cat,&ensp;ten,&ensp;i<br><b>Constraints</b>:&ensp;Monoidal&ensp;cat&ensp;ten&ensp;i<br><b>Constructor</b>:&ensp;<dl class="decls"><dt data-src-mod="Control.Category.Traced" data-src-start="14:1" data-fc-type="virtual" id="Control.Category.Traced.MkTraced"><code><a class="type" href="Control.Category.Traced.html#Control.Category.Traced.MkTraced"><span class="name constructor">MkTraced</span></a></code></dt></dl><br><b>Methods</b>:<br><dl class="decls">  <dt data-src-mod="Control.Category.Traced" data-src-start="43:3" data-fc-type="virtual" id="Control.Category.Traced.tracel"><code><a class="type" href="Control.Category.Traced.html#Control.Category.Traced.tracel"><span class="name function">tracel</span></a>&ensp;:&ensp;<span class="boundvar">cat</span>&ensp;(<span class="boundvar">ten</span>&ensp;<span class="boundvar">a</span>&ensp;<span class="boundvar">b</span>)&ensp;(<span class="boundvar">ten</span>&ensp;<span class="boundvar">a</span>&ensp;<span class="boundvar">c</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">cat</span>&ensp;<span class="boundvar">b</span>&ensp;<span class="boundvar">c</span></code></dt><dd><pre>  The left trace.</pre></dd>  <dt data-src-mod="Control.Category.Traced" data-src-start="45:3" data-fc-type="virtual" id="Control.Category.Traced.tracer"><code><a class="type" href="Control.Category.Traced.html#Control.Category.Traced.tracer"><span class="name function">tracer</span></a>&ensp;:&ensp;<span class="boundvar">cat</span>&ensp;(<span class="boundvar">ten</span>&ensp;<span class="boundvar">a</span>&ensp;<span class="boundvar">c</span>)&ensp;(<span class="boundvar">ten</span>&ensp;<span class="boundvar">b</span>&ensp;<span class="boundvar">c</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">cat</span>&ensp;<span class="boundvar">a</span>&ensp;<span class="boundvar">b</span></code></dt><dd><pre>  The right trace.</pre></dd></dl></dd><dt data-src-mod="Control.Category.Traced" data-src-start="43:3" data-fc-type="virtual" id="Control.Category.Traced.tracel"><code><a class="type" href="Control.Category.Traced.html#Control.Category.Traced.tracel"><span class="name function">tracel</span></a>&ensp;:&ensp;<a class="type" href="Control.Category.Traced.html#Control.Category.Traced.Traced"><span class="name type">Traced</span></a>&ensp;<span class="boundvar">cat</span>&ensp;<span class="boundvar">ten</span>&ensp;<span class="boundvar">i</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="boundvar">cat</span>&ensp;(<span class="boundvar">ten</span>&ensp;<span class="boundvar">a</span>&ensp;<span class="boundvar">b</span>)&ensp;(<span class="boundvar">ten</span>&ensp;<span class="boundvar">a</span>&ensp;<span class="boundvar">c</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">cat</span>&ensp;<span class="boundvar">b</span>&ensp;<span class="boundvar">c</span></code></dt><dd><pre>  The left trace.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt data-src-mod="Control.Category.Traced" data-src-start="45:3" data-fc-type="virtual" id="Control.Category.Traced.tracer"><code><a class="type" href="Control.Category.Traced.html#Control.Category.Traced.tracer"><span class="name function">tracer</span></a>&ensp;:&ensp;<a class="type" href="Control.Category.Traced.html#Control.Category.Traced.Traced"><span class="name type">Traced</span></a>&ensp;<span class="boundvar">cat</span>&ensp;<span class="boundvar">ten</span>&ensp;<span class="boundvar">i</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="boundvar">cat</span>&ensp;(<span class="boundvar">ten</span>&ensp;<span class="boundvar">a</span>&ensp;<span class="boundvar">c</span>)&ensp;(<span class="boundvar">ten</span>&ensp;<span class="boundvar">b</span>&ensp;<span class="boundvar">c</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">cat</span>&ensp;<span class="boundvar">a</span>&ensp;<span class="boundvar">b</span></code></dt><dd><pre>  The right trace.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt data-src-mod="Control.Category.Traced" data-src-start="47:1" id="Control.Category.Traced.PreTraced"><code><a class="type" href="Control.Category.Traced.html#Control.Category.Traced.PreTraced"><span class="name function">PreTraced</span></a>&ensp;:&ensp;<a class="type" href="Control.Category.Core.html#Control.Category.Core.Hom"><span class="name function">Hom</span></a>&ensp;<span class="boundvar">obj</span>&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="boundvar">obj</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">obj</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">obj</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">obj</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd><pre>  See `PreMonoidal`.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt data-src-mod="Control.Category.Traced" data-src-start="53:1" id="Control.Category.Traced.trace"><code><a class="type" href="Control.Category.Traced.html#Control.Category.Traced.trace"><span class="name function">trace</span></a>&ensp;:&ensp;<a class="type" href="Control.Category.Traced.html#Control.Category.Traced.Traced"><span class="name type">Traced</span></a>&ensp;<span class="boundvar">cat</span>&ensp;<span class="boundvar">ten</span>&ensp;<span class="boundvar">i</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="boundvar">cat</span>&ensp;<span class="boundvar">a</span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">cat</span>&ensp;<span class="boundvar">i</span>&ensp;<span class="boundvar">i</span></code></dt><dd><pre>  Take the trace of an endomorphism, returning an endomorphism in<br>  the unit object. Depending on what the unit object is, this may<br>  or may not actually be useful.<br>  <br>  The name comes from the fact that in the monoidal category of<br>  vector spaces, this takes a square matrix `M` to the 1x1 matrix<br>  `[ tr(M) ]`.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd></dl></div><footer>Produced by Idris 2 version 0.8.0-4f9f99bea</footer></body></html>

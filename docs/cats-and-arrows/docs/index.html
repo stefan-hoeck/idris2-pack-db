@@ -1,0 +1,417 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>cats-and-arrows</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="index">
+<header>
+  <strong>Idris2Doc</strong> : cats-and-arrows
+  <nav><a href="index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><h1>Package cats-and-arrows - Namespaces</h1><ul class="names"><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Control.Category.html">Control.Category</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Control.Category.Bimonoidal.html">Control.Category.Bimonoidal</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Control.Category.Braided.html">Control.Category.Braided</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Control.Category.Cartesian.html">Control.Category.Cartesian</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Control.Category.Closed.html">Control.Category.Closed</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Control.Category.Cocartesian.html">Control.Category.Cocartesian</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Control.Category.Core.html">Control.Category.Core</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Control.Category.Functor.html">Control.Category.Functor</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Control.Category.Monad.html">Control.Category.Monad</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Control.Category.NatTrans.html">Control.Category.NatTrans</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Control.Category.Promonad.html">Control.Category.Promonad</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Control.Category.Records.html">Control.Category.Records</a>
+    </div>
+    <div class="index-namespace-doc">
+      This module exports "record-style" wrappers around various
+interfaces in this library. These may be easier to use if the
+categories you're constructing are particularly complex, as
+Idris's interface resolution can often break.
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Control.Category.Semigroupoid.html">Control.Category.Semigroupoid</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Control.Category.Traced.html">Control.Category.Traced</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Control.Category.Records.Bimonoidal.html">Control.Category.Records.Bimonoidal</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Control.Category.Records.Braided.html">Control.Category.Records.Braided</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Control.Category.Records.Cartesian.html">Control.Category.Records.Cartesian</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Control.Category.Records.Category.html">Control.Category.Records.Category</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Control.Category.Records.Closed.html">Control.Category.Records.Closed</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Control.Category.Records.Cocartesian.html">Control.Category.Records.Cocartesian</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Control.Category.Records.Functor.html">Control.Category.Records.Functor</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Control.Category.Records.Monad.html">Control.Category.Records.Monad</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Control.Category.Records.Monoidal.html">Control.Category.Records.Monoidal</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Control.Category.Records.NatTrans.html">Control.Category.Records.NatTrans</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Control.Category.Records.Semigroupoid.html">Control.Category.Records.Semigroupoid</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Control.Category.Records.Traced.html">Control.Category.Records.Traced</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Control.Category.Instances.Cat.html">Control.Category.Instances.Cat</a>
+    </div>
+    <div class="index-namespace-doc">
+      This module defines the category of categories, `Cat`, whose
+morphisms are functors.
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Control.Category.Instances.FunCat.html">Control.Category.Instances.FunCat</a>
+    </div>
+    <div class="index-namespace-doc">
+      This module defines the functor category between two categories,
+`FunCat C D`, traditionally written `[C, D]`. Its morphisms are
+natural transformations between parallel functors.
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Control.Category.Instances.Kleisli.html">Control.Category.Instances.Kleisli</a>
+    </div>
+    <div class="index-namespace-doc">
+      This module defines a more general Kleisli category construction
+that can be used to derive a premonoidal category structure from
+any strong monad on any premonoidal category.
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Control.Category.Instances.Linear.html">Control.Category.Instances.Linear</a>
+    </div>
+    <div class="index-namespace-doc">
+      This module defines `Linear`, the category of types and linear
+functions. Unlike the unrestricted function category `Typ`, this
+is a non-distributive bimonoidal category.
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Control.Category.Instances.One.html">Control.Category.Instances.One</a>
+    </div>
+    <div class="index-namespace-doc">
+      This module defines `Zero`, the one category, which contains one
+single object and one identity morphism.
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Control.Category.Instances.Op.html">Control.Category.Instances.Op</a>
+    </div>
+    <div class="index-namespace-doc">
+      This module defines the opposite category, which is an operation
+on a category that flips the direction of its morphisms.
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Control.Category.Instances.Prod.html">Control.Category.Instances.Prod</a>
+    </div>
+    <div class="index-namespace-doc">
+      This module defines the product of two categories.
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Control.Category.Instances.Type.html">Control.Category.Instances.Type</a>
+    </div>
+    <div class="index-namespace-doc">
+      This module defines record-style wrappers for the canonical
+category of Idris types and pure unrestricted functions, referred
+to simply as `Typ`.
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Control.Category.Instances.Zero.html">Control.Category.Instances.Zero</a>
+    </div>
+    <div class="index-namespace-doc">
+      This module defines `Zero`, the zero category, which contains no
+objects and no morphisms.
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Control.Arrow.html">Control.Arrow</a>
+    </div>
+    <div class="index-namespace-doc">
+      This module provides a compatibility layer between the traditional
+Haskell arrow hierarchy and the categorical interfaces of this
+library. These functions may be easier to write code with for users
+who are already familiar with arrows.
+
+    </div>
+  </div>
+</li></ul></div><footer>Produced by Idris 2 version 0.8.0-4f9f99bea</footer></body></html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Control.Category.Instances.Type</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Control.Category.Instances.Type
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Control.Category.Instances.Type</h1><span style="float:right">(<a href="Control.Category.Instances.Type.src.html">source</a>)</span><pre>This module defines record-style wrappers for the canonical
+category of Idris types and pure unrestricted functions, referred
+to simply as `Typ`.
+</pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt data-src-mod="Control.Category.Instances.Type" data-src-start="12:3" id="Control.Category.Instances.Type.SemigroupoidR.Typ"><code><span class="type resolved" title="Control.Category.Instances.Type.SemigroupoidR.Typ"><span class="name function">Typ</span></span>&ensp;:&ensp;<a class="type" href="Control.Category.Records.Semigroupoid.html#Control.Category.Records.Semigroupoid.SemigroupoidR"><span class="name type">SemigroupoidR</span></a></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt data-src-mod="Control.Category.Instances.Type" data-src-start="17:3" id="Control.Category.Instances.Type.CategoryR.Typ"><code><span class="type resolved" title="Control.Category.Instances.Type.CategoryR.Typ"><span class="name function">Typ</span></span>&ensp;:&ensp;<a class="type" href="Control.Category.Records.Category.html#Control.Category.Records.Category.CategoryR"><span class="name type">CategoryR</span></a></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt data-src-mod="Control.Category.Instances.Type" data-src-start="22:3" id="Control.Category.Instances.Type.MonoidalR.TypPair"><code><span class="type resolved" title="Control.Category.Instances.Type.MonoidalR.TypPair"><span class="name function">TypPair</span></span>&ensp;:&ensp;<a class="type" href="Control.Category.Records.Monoidal.html#Control.Category.Records.Monoidal.MonoidalR"><span class="name type">MonoidalR</span></a></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt data-src-mod="Control.Category.Instances.Type" data-src-start="26:3" id="Control.Category.Instances.Type.MonoidalR.TypEither"><code><span class="type resolved" title="Control.Category.Instances.Type.MonoidalR.TypEither"><span class="name function">TypEither</span></span>&ensp;:&ensp;<a class="type" href="Control.Category.Records.Monoidal.html#Control.Category.Records.Monoidal.MonoidalR"><span class="name type">MonoidalR</span></a></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt data-src-mod="Control.Category.Instances.Type" data-src-start="31:3" id="Control.Category.Instances.Type.BraidedR.TypPair"><code><span class="type resolved" title="Control.Category.Instances.Type.BraidedR.TypPair"><span class="name function">TypPair</span></span>&ensp;:&ensp;<a class="type" href="Control.Category.Records.Braided.html#Control.Category.Records.Braided.BraidedR"><span class="name type">BraidedR</span></a></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt data-src-mod="Control.Category.Instances.Type" data-src-start="35:3" id="Control.Category.Instances.Type.BraidedR.TypEither"><code><span class="type resolved" title="Control.Category.Instances.Type.BraidedR.TypEither"><span class="name function">TypEither</span></span>&ensp;:&ensp;<a class="type" href="Control.Category.Records.Braided.html#Control.Category.Records.Braided.BraidedR"><span class="name type">BraidedR</span></a></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt data-src-mod="Control.Category.Instances.Type" data-src-start="40:3" id="Control.Category.Instances.Type.CartesianR.Typ"><code><span class="type resolved" title="Control.Category.Instances.Type.CartesianR.Typ"><span class="name function">Typ</span></span>&ensp;:&ensp;<a class="type" href="Control.Category.Records.Cartesian.html#Control.Category.Records.Cartesian.CartesianR"><span class="name type">CartesianR</span></a></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt data-src-mod="Control.Category.Instances.Type" data-src-start="45:3" id="Control.Category.Instances.Type.CocartesianR.Typ"><code><span class="type resolved" title="Control.Category.Instances.Type.CocartesianR.Typ"><span class="name function">Typ</span></span>&ensp;:&ensp;<a class="type" href="Control.Category.Records.Cocartesian.html#Control.Category.Records.Cocartesian.CocartesianR"><span class="name type">CocartesianR</span></a></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt data-src-mod="Control.Category.Instances.Type" data-src-start="50:3" id="Control.Category.Instances.Type.ClosedR.Typ"><code><span class="type resolved" title="Control.Category.Instances.Type.ClosedR.Typ"><span class="name function">Typ</span></span>&ensp;:&ensp;<a class="type" href="Control.Category.Records.Closed.html#Control.Category.Records.Closed.ClosedR"><span class="name type">ClosedR</span></a></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt data-src-mod="Control.Category.Instances.Type" data-src-start="55:3" id="Control.Category.Instances.Type.BimonoidalR.Typ"><code><span class="type resolved" title="Control.Category.Instances.Type.BimonoidalR.Typ"><span class="name function">Typ</span></span>&ensp;:&ensp;<a class="type" href="Control.Category.Records.Bimonoidal.html#Control.Category.Records.Bimonoidal.BimonoidalR"><span class="name type">BimonoidalR</span></a></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt data-src-mod="Control.Category.Instances.Type" data-src-start="60:3" id="Control.Category.Instances.Type.RigCategoryR.Typ"><code><span class="type resolved" title="Control.Category.Instances.Type.RigCategoryR.Typ"><span class="name function">Typ</span></span>&ensp;:&ensp;<a class="type" href="Control.Category.Records.Bimonoidal.html#Control.Category.Records.Bimonoidal.RigCategoryR"><span class="name type">RigCategoryR</span></a></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt data-src-mod="Control.Category.Instances.Type" data-src-start="65:3" id="Control.Category.Instances.Type.SymRigCategoryR.Typ"><code><span class="type resolved" title="Control.Category.Instances.Type.SymRigCategoryR.Typ"><span class="name function">Typ</span></span>&ensp;:&ensp;<a class="type" href="Control.Category.Records.Bimonoidal.html#Control.Category.Records.Bimonoidal.SymRigCategoryR"><span class="name type">SymRigCategoryR</span></a></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt data-src-mod="Control.Category.Instances.Type" data-src-start="70:3" id="Control.Category.Instances.Type.DistributiveR.Typ"><code><span class="type resolved" title="Control.Category.Instances.Type.DistributiveR.Typ"><span class="name function">Typ</span></span>&ensp;:&ensp;<a class="type" href="Control.Category.Records.Bimonoidal.html#Control.Category.Records.Bimonoidal.DistributiveR"><span class="name type">DistributiveR</span></a></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd></dl></div><footer>Produced by Idris 2 version 0.8.0-4f9f99bea</footer></body></html>
