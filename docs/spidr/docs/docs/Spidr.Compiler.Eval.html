@@ -1,0 +1,65 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Spidr.Compiler.Eval</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Spidr.Compiler.Eval
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Spidr.Compiler.Eval</h1><span style="float:right">(<a href="Spidr.Compiler.Eval.src.html">source</a>)</span><pre>For internal spidr use only.
+</pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt data-src-mod="Spidr.Compiler.Eval" data-src-start="50:1" id="Spidr.Compiler.Eval.Err"><code><span class="keyword">data</span>&ensp;<a class="type" href="Spidr.Compiler.Eval.html#Spidr.Compiler.Eval.Err"><span class="name type">Err</span></a>&ensp;:&ensp;<span class="name type">Type</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span><br>  <b>Constructors</b>:<br><dl class="decls">  <dt data-src-mod="Spidr.Compiler.Eval" data-src-start="51:5" id="Spidr.Compiler.Eval.OutOfBounds"><code><a class="type" href="Spidr.Compiler.Eval.html#Spidr.Compiler.Eval.OutOfBounds"><span class="name constructor">OutOfBounds</span></a>&ensp;:&ensp;<span class="type resolved" title="Prelude.Types.Nat"><span class="name type">Nat</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Types.Nat"><span class="name type">Nat</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Spidr.Compiler.Eval.html#Spidr.Compiler.Eval.Err"><span class="name type">Err</span></a></code></dt>  <dt data-src-mod="Spidr.Compiler.Eval" data-src-start="52:5" id="Spidr.Compiler.Eval.ValueNotFound"><code><a class="type" href="Spidr.Compiler.Eval.html#Spidr.Compiler.Eval.ValueNotFound"><span class="name constructor">ValueNotFound</span></a>&ensp;:&ensp;<span class="type resolved" title="Prelude.Types.Nat"><span class="name type">Nat</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Spidr.Compiler.Eval.html#Spidr.Compiler.Eval.Err"><span class="name type">Err</span></a></code></dt>  <dt data-src-mod="Spidr.Compiler.Eval" data-src-start="53:5" id="Spidr.Compiler.Eval.PjrtErr"><code><a class="type" href="Spidr.Compiler.Eval.html#Spidr.Compiler.Eval.PjrtErr"><span class="name constructor">PjrtErr</span></a>&ensp;:&ensp;<a class="type" href="Spidr.Compiler.Xla.PJRT.C.PjrtCApi.html#Spidr.Compiler.Xla.PJRT.C.PjrtCApi.PjrtError"><span class="name type">PjrtError</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Spidr.Compiler.Eval.html#Spidr.Compiler.Eval.Err"><span class="name type">Err</span></a></code></dt>  <dt data-src-mod="Spidr.Compiler.Eval" data-src-start="54:5" id="Spidr.Compiler.Eval.MlirPassError"><code><a class="type" href="Spidr.Compiler.Eval.html#Spidr.Compiler.Eval.MlirPassError"><span class="name constructor">MlirPassError</span></a>&ensp;:&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Spidr.Compiler.Eval.html#Spidr.Compiler.Eval.Err"><span class="name type">Err</span></a></code></dt>  <dt data-src-mod="Spidr.Compiler.Eval" data-src-start="55:5" id="Spidr.Compiler.Eval.InvalidHloError"><code><a class="type" href="Spidr.Compiler.Eval.html#Spidr.Compiler.Eval.InvalidHloError"><span class="name constructor">InvalidHloError</span></a>&ensp;:&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Spidr.Compiler.Eval.html#Spidr.Compiler.Eval.Err"><span class="name type">Err</span></a></code></dt></dl><br>  <b>Hint</b>:&ensp;<dl class="decls"><dt data-src-mod="Spidr.Compiler.Eval" data-src-start="61:1" data-fc-type="virtual" id="$resolved12737"><code><span class="type resolved" title="Prelude.Show.Show"><span class="name type">Show</span></span>&ensp;<a class="type" href="Spidr.Compiler.Eval.html#Spidr.Compiler.Eval.Err"><span class="name type">Err</span></a></code></dt></dl></dd><dt data-src-mod="Spidr.Compiler.Eval" data-src-start="69:1" id="Spidr.Compiler.Eval.ErrIO"><code><span class="keyword">0</span>&ensp;<a class="type" href="Spidr.Compiler.Eval.html#Spidr.Compiler.Eval.ErrIO"><span class="name function">ErrIO</span></a>&ensp;:&ensp;<span class="name type">Type</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt data-src-mod="Spidr.Compiler.Eval" data-src-start="345:1" id="Spidr.Compiler.Eval.TensorData"><code><span class="keyword">data</span>&ensp;<a class="type" href="Spidr.Compiler.Eval.html#Spidr.Compiler.Eval.TensorData"><span class="name type">TensorData</span></a>&ensp;:&ensp;(<a class="type" href="Spidr.Shape.html#Spidr.Shape.Shape"><span class="name function">Shape</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Spidr.DType.html#Spidr.DType.DType"><span class="name type">DType</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Spidr.Shape.html#Spidr.Shape.Shape"><span class="name function">Shape</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Spidr.DType.html#Spidr.DType.DType"><span class="name type">DType</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span><br>  <b>Constructor</b>:&ensp;<dl class="decls"><dt data-src-mod="Spidr.Compiler.Eval" data-src-start="346:3" id="Spidr.Compiler.Eval.MkTensorData"><code><a class="type" href="Spidr.Compiler.Eval.html#Spidr.Compiler.Eval.MkTensorData"><span class="name constructor">MkTensorData</span></a>&ensp;:&ensp;<span class="boundvar">f</span>&ensp;<span class="boundvar">shape</span>&ensp;<span class="boundvar">dtype</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Spidr.Compiler.Eval.html#Spidr.Compiler.Eval.TensorData"><span class="name type">TensorData</span></a>&ensp;<span class="boundvar">f</span>&ensp;<span class="boundvar">shape</span>&ensp;<span class="boundvar">dtype</span></code></dt></dl></dd><dt data-src-mod="Spidr.Compiler.Eval" data-src-start="357:1" id="Spidr.Compiler.Eval.execute"><code><a class="type" href="Spidr.Compiler.Eval.html#Spidr.Compiler.Eval.execute"><span class="name function">execute</span></a>&ensp;:&ensp;<a class="type" href="Spidr.Device.html#Spidr.Device.Device"><span class="name type">Device</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Spidr.Compiler.IR.html#Spidr.Compiler.IR.Fn"><span class="name type">Fn</span></a>&ensp;<span class="name constructor">0</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Spidr.Data.List.html#Spidr.Data.List.All2"><span class="name type">All2</span></a>&ensp;(<a class="type" href="Spidr.Compiler.Eval.html#Spidr.Compiler.Eval.TensorData"><span class="name type">TensorData</span></a>&ensp;(\<span class="boundvar">{_:9570}</span>,&ensp;<span class="boundvar">{_:9573}</span>&ensp;<span class="keyword">=&gt;</span>&ensp;()))&ensp;<span class="boundvar">shapes</span>&ensp;<span class="boundvar">dtypes</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Spidr.Compiler.Eval.html#Spidr.Compiler.Eval.ErrIO"><span class="name function">ErrIO</span></a>&ensp;(<a class="type" href="Spidr.Data.List.html#Spidr.Data.List.All2"><span class="name type">All2</span></a>&ensp;(<a class="type" href="Spidr.Compiler.Eval.html#Spidr.Compiler.Eval.TensorData"><span class="name type">TensorData</span></a>&ensp;(\<span class="boundvar">{_:9582}</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<a class="type" href="Spidr.Compiler.Array.html#Spidr.Compiler.Array.Array"><span class="name type">Array</span></a>&ensp;<span class="type resolved" title="Prelude.Basics.(.)"><span class="name function">.</span></span>&ensp;<a class="type" href="Spidr.DType.html#Spidr.DType.idrisType"><span class="name function">idrisType</span></a>))&ensp;<span class="boundvar">shapes</span>&ensp;<span class="boundvar">dtypes</span>)</code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd></dl></div><footer>Produced by Idris 2 version 0.8.0-84de84efe</footer></body></html>
