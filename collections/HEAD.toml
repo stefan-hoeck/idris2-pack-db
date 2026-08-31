@@ -1254,6 +1254,12 @@ url    = "https://github.com/kasiaMarek/TyRE"
 commit = "main"
 ipkg   = "tyre.ipkg"
 
+[db.darray]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-array"
+commit = "main"
+ipkg   = "darray/darray.ipkg"
+
 [db.distribution]
 type   = "github"
 url    = "https://github.com/idris-bayes/distribution"
