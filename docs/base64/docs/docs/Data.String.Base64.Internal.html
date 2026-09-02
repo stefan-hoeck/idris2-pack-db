@@ -1,0 +1,65 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Data.String.Base64.Internal</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Data.String.Base64.Internal
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Data.String.Base64.Internal</h1><span style="float:right">(<a href="Data.String.Base64.Internal.src.html">source</a>)</span><pre>Base64 Internals
+</pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt data-src-mod="Data.String.Base64.Internal" data-src-start="10:1" id="Data.String.Base64.Internal.char62"><code><a class="type" href="Data.String.Base64.Internal.html#Data.String.Base64.Internal.char62"><span class="name function">char62</span></a>&ensp;:&ensp;<span class="name type">Char</span></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt data-src-mod="Data.String.Base64.Internal" data-src-start="14:1" id="Data.String.Base64.Internal.char63"><code><a class="type" href="Data.String.Base64.Internal.html#Data.String.Base64.Internal.char63"><span class="name function">char63</span></a>&ensp;:&ensp;<span class="name type">Char</span></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt data-src-mod="Data.String.Base64.Internal" data-src-start="18:1" id="Data.String.Base64.Internal.charpad"><code><a class="type" href="Data.String.Base64.Internal.html#Data.String.Base64.Internal.charpad"><span class="name function">charpad</span></a>&ensp;:&ensp;<span class="name type">Char</span></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt data-src-mod="Data.String.Base64.Internal" data-src-start="22:1" id="Data.String.Base64.Internal.e0a"><code><a class="type" href="Data.String.Base64.Internal.html#Data.String.Base64.Internal.e0a"><span class="name function">e0a</span></a>&ensp;:&ensp;<span class="type resolved" title="Data.Array.Indexed.Array"><span class="name type">Array</span></span>&ensp;<span class="name type">Char</span></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt data-src-mod="Data.String.Base64.Internal" data-src-start="55:1" id="Data.String.Base64.Internal.e1a"><code><a class="type" href="Data.String.Base64.Internal.html#Data.String.Base64.Internal.e1a"><span class="name function">e1a</span></a>&ensp;:&ensp;<span class="type resolved" title="Data.Array.Indexed.Array"><span class="name type">Array</span></span>&ensp;<span class="name type">Char</span></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt data-src-mod="Data.String.Base64.Internal" data-src-start="87:1" id="Data.String.Base64.Internal.e2a"><code><a class="type" href="Data.String.Base64.Internal.html#Data.String.Base64.Internal.e2a"><span class="name function">e2a</span></a>&ensp;:&ensp;<span class="type resolved" title="Data.Array.Indexed.Array"><span class="name type">Array</span></span>&ensp;<span class="name type">Char</span></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt data-src-mod="Data.String.Base64.Internal" data-src-start="119:1" id="Data.String.Base64.Internal.d0a"><code><a class="type" href="Data.String.Base64.Internal.html#Data.String.Base64.Internal.d0a"><span class="name function">d0a</span></a>&ensp;:&ensp;<span class="type resolved" title="Data.Array.Indexed.Array"><span class="name type">Array</span></span>&ensp;<span class="name type">Bits32</span></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt data-src-mod="Data.String.Base64.Internal" data-src-start="168:1" id="Data.String.Base64.Internal.d1a"><code><a class="type" href="Data.String.Base64.Internal.html#Data.String.Base64.Internal.d1a"><span class="name function">d1a</span></a>&ensp;:&ensp;<span class="type resolved" title="Data.Array.Indexed.Array"><span class="name type">Array</span></span>&ensp;<span class="name type">Bits32</span></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt data-src-mod="Data.String.Base64.Internal" data-src-start="217:1" id="Data.String.Base64.Internal.d2a"><code><a class="type" href="Data.String.Base64.Internal.html#Data.String.Base64.Internal.d2a"><span class="name function">d2a</span></a>&ensp;:&ensp;<span class="type resolved" title="Data.Array.Indexed.Array"><span class="name type">Array</span></span>&ensp;<span class="name type">Bits32</span></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt data-src-mod="Data.String.Base64.Internal" data-src-start="266:1" id="Data.String.Base64.Internal.d3a"><code><a class="type" href="Data.String.Base64.Internal.html#Data.String.Base64.Internal.d3a"><span class="name function">d3a</span></a>&ensp;:&ensp;<span class="type resolved" title="Data.Array.Indexed.Array"><span class="name type">Array</span></span>&ensp;<span class="name type">Bits32</span></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd></dl></div><footer>Produced by Idris 2 version 0.8.0-74b33730b</footer></body></html>

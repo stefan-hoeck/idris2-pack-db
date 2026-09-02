@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Data.Tensor.Softargmax</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Data.Tensor.Softargmax
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Data.Tensor.Softargmax</h1><span style="float:right">(<a href="Data.Tensor.Softargmax.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt data-src-mod="Data.Tensor.Softargmax" data-src-start="10:1" id="Data.Tensor.Softargmax.logSumExp"><code><a class="type" href="Data.Tensor.Softargmax.html#Data.Tensor.Softargmax.logSumExp"><span class="name function">logSumExp</span></a>&ensp;:&ensp;<span class="type resolved" title="Data.Num.Exp.Exp"><span class="name type">Exp</span></span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="type resolved" title="Prelude.EqOrd.Ord"><span class="name type">Ord</span></span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="type resolved" title="Prelude.Num.Neg"><span class="name type">Neg</span></span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="type resolved" title="Prelude.Interfaces.Foldable"><span class="name type">Foldable</span></span>&ensp;(<a class="type" href="Data.Tensor.Tensor.html#Data.Tensor.Tensor.Tensor"><span class="name type">Tensor</span></a>&ensp;[<span class="boundvar">i</span>])&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="type resolved" title="Data.Tensor.Tensor.Reshape.TensorInstances.AlgebraInstance.AllAlgebra"><span class="name type">AllAlgebra</span></span>&ensp;[<span class="boundvar">i</span>]&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<a class="type" href="Data.Tensor.Tensor.html#Data.Tensor.Tensor.Tensor"><span class="name type">Tensor</span></a>&ensp;[<span class="boundvar">i</span>]&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Types.Maybe"><span class="name type">Maybe</span></span>&ensp;<span class="boundvar">a</span></code></dt><dd><pre>  Numerically stable log-sum-exp operation<br>  LSE(x) = max(x) + log(&#931;&#7522; exp(x&#7522; - max(x)))<br>  See https://gregorygundersen.com/blog/2020/02/09/log-sum-exp/</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt data-src-mod="Data.Tensor.Softargmax" data-src-start="22:1" id="Data.Tensor.Softargmax.logSoftargmax"><code><a class="type" href="Data.Tensor.Softargmax.html#Data.Tensor.Softargmax.logSoftargmax"><span class="name function">logSoftargmax</span></a>&ensp;:&ensp;<span class="type resolved" title="Data.Num.Exp.Exp"><span class="name type">Exp</span></span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="type resolved" title="Prelude.EqOrd.Ord"><span class="name type">Ord</span></span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="type resolved" title="Prelude.Num.Neg"><span class="name type">Neg</span></span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="type resolved" title="Prelude.Interfaces.Foldable"><span class="name type">Foldable</span></span>&ensp;(<a class="type" href="Data.Tensor.Tensor.html#Data.Tensor.Tensor.Tensor"><span class="name type">Tensor</span></a>&ensp;[<span class="boundvar">i</span>])&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="type resolved" title="Data.Tensor.Tensor.Reshape.TensorInstances.AlgebraInstance.AllAlgebra"><span class="name type">AllAlgebra</span></span>&ensp;[<span class="boundvar">i</span>]&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<a class="type" href="Data.Tensor.Tensor.html#Data.Tensor.Tensor.Tensor"><span class="name type">Tensor</span></a>&ensp;[<span class="boundvar">i</span>]&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Tensor.Tensor.html#Data.Tensor.Tensor.Tensor"><span class="name type">Tensor</span></a>&ensp;[<span class="boundvar">i</span>]&ensp;<span class="boundvar">a</span></code></dt><dd><pre>  Log(softargmax(x)), but computationally efficient and numerically stable<br>  Used for computing cross-entropy loss<br>  Returns empty tensor for empty input</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt data-src-mod="Data.Tensor.Softargmax" data-src-start="34:1" id="Data.Tensor.Softargmax.softargmaxImpl"><code><a class="type" href="Data.Tensor.Softargmax.html#Data.Tensor.Softargmax.softargmaxImpl"><span class="name function">softargmaxImpl</span></a>&ensp;:&ensp;<span class="type resolved" title="Prelude.Num.Fractional"><span class="name type">Fractional</span></span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="type resolved" title="Data.Num.Exp.Exp"><span class="name type">Exp</span></span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="type resolved" title="Prelude.EqOrd.Ord"><span class="name type">Ord</span></span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="type resolved" title="Prelude.Num.Neg"><span class="name type">Neg</span></span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="type resolved" title="Data.Container.Base.Properties.Definition.IsFoldable.IsFoldable"><span class="name type">IsFoldable</span></span>&ensp;(<span class="boundvar">i</span>&ensp;<span class="type resolved" title="Data.Tensor.Shape.Axis.Axis.(.cont)"><span class="name function">.cont</span></span>)&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="type resolved" title="Data.Tensor.Tensor.Reshape.TensorInstances.AlgebraInstance.AllAlgebra"><span class="name type">AllAlgebra</span></span>&ensp;[<span class="boundvar">i</span>]&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">=&gt;</span>&ensp;{<span class="keyword">default</span>&ensp;<span class="name constructor">1</span>&ensp;<span class="boundvar">_</span>&ensp;:&ensp;<span class="boundvar">a</span>}&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Tensor.Tensor.html#Data.Tensor.Tensor.Tensor"><span class="name type">Tensor</span></a>&ensp;[<span class="boundvar">i</span>]&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Tensor.Tensor.html#Data.Tensor.Tensor.Tensor"><span class="name type">Tensor</span></a>&ensp;[<span class="boundvar">i</span>]&ensp;<span class="boundvar">a</span></code></dt><dd><pre>  Commonly known as &apos;softmax&apos;<br>  When `temperature=0` it reduces to `argmax`</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd></dl></div><footer>Produced by Idris 2 version 0.8.0-74b33730b</footer></body></html>
