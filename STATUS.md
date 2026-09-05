@@ -188,7 +188,7 @@
 | [random-pure](https://github.com/buzden/idris2-random-pure) | Pure pseudo-random interface and splitmix implementation | Apache-2.0 | [bfe091b](https://github.com/buzden/idris2-random-pure/commit/bfe091b2ee1bc561ca2e6c17ddeb9972964bd6e8) | success | [docs](https://stefan-hoeck.github.io/idris2-pack-db/docs/random-pure/docs/index.html) |
 | [ratio](https://github.com/tokinanpa/idris2-ratio) | Arbitrary-precision ratio types | MIT | [1bdfde8](https://github.com/tokinanpa/idris2-ratio/commit/1bdfde80d70c1dc63df186e32f7c86ba6545dff2) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-db/docs/ratio/docs/index.html) |
 | [records](https://github.com/kuribas/idris-records) | extensible, specification based records | BSD3 | [4a57846](https://github.com/kuribas/idris-records/commit/4a5784648d3f8b544e7a375431fa70698e8ed6fc) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-db/docs/records/docs/index.html) |
-| [ref1](https://github.com/stefan-hoeck/idris2-ref1) | Linear mutable references and utilities |  | [7ababae](https://github.com/stefan-hoeck/idris2-ref1/commit/7ababaeb9dfd88aaf80a342ac93a6b50e58f485d) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-db/docs/ref1/docs/index.html) |
+| [ref1](https://github.com/stefan-hoeck/idris2-ref1) | Linear mutable references and utilities |  | [5aa1311](https://github.com/stefan-hoeck/idris2-ref1/commit/5aa131180051ac86beaa433af46a1623181607d6) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-db/docs/ref1/docs/index.html) |
 | [refined](https://github.com/stefan-hoeck/idris2-refined) | Refinement types in Idris2 | BSD-3 | [7ad095d](https://github.com/stefan-hoeck/idris2-refined/commit/7ad095dc89232cfa667e47ae507b13f132837fdd) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-db/docs/refined/docs/index.html) |
 | [refined-json](https://github.com/stefan-hoeck/idris2-refined) | Deriving JSON marshallers for refinement types | BSD-3 | [7ad095d](https://github.com/stefan-hoeck/idris2-refined/commit/7ad095dc89232cfa667e47ae507b13f132837fdd) | failure | [docs](https://stefan-hoeck.github.io/idris2-pack-db/docs/refined-json/docs/index.html) |
 | [refined-tsv](https://github.com/stefan-hoeck/idris2-refined) | Deriving TSV marshallers for refinement types | BSD-3 | [7ad095d](https://github.com/stefan-hoeck/idris2-refined/commit/7ad095dc89232cfa667e47ae507b13f132837fdd) | failure | [docs](https://stefan-hoeck.github.io/idris2-pack-db/docs/refined-tsv/docs/index.html) |
@@ -236,6 +236,9 @@
 | [uniplate](https://github.com/Z-snails/uniplate-idr) |  | MIT and BSD-3 | [caac354](https://github.com/Z-snails/uniplate-idr/commit/caac354759a62a52596b6f77971327e17ff81c0f) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-db/docs/uniplate/docs/index.html) |
 | [url](https://github.com/running-grass/idris2-url) | A url library for idris2 | MIT | [7198814](https://github.com/running-grass/idris2-url/commit/7198814cb1493691254f548e7bff93052b87dd84) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-db/docs/url/docs/index.html) |
 | [utf8](https://git.sr.ht/~janus/utf8) | UTF-8 encoding and decoding, thin wrapper around the 'array' library | BSD-3 Clause | [f3584f3](https://git.sr.ht/~janus/utf8/commit/f3584f3cf7ac09bd566b5cc5301192db272d03c9) | success | [docs](https://stefan-hoeck.github.io/idris2-pack-db/docs/utf8/docs/index.html) |
+| [uuid-base](https://codeberg.org/joelberkeley/uuid) | UUIDs for Idris2 | MIT License | [7b27013](https://codeberg.org/joelberkeley/uuid/commit/7b2701307df7fa99572a0a06e977883eaffe4aad) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-db/docs/uuid-base/docs/index.html) |
+| [uuid-c](https://codeberg.org/joelberkeley/uuid) | UUIDs for Idris2 | MIT License | [7b27013](https://codeberg.org/joelberkeley/uuid/commit/7b2701307df7fa99572a0a06e977883eaffe4aad) | failure | [docs](https://stefan-hoeck.github.io/idris2-pack-db/docs/uuid-c/docs/index.html) |
+| [uuid-js](https://codeberg.org/joelberkeley/uuid) | UUIDs for Idris2 | MIT License | [7b27013](https://codeberg.org/joelberkeley/uuid/commit/7b2701307df7fa99572a0a06e977883eaffe4aad) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-db/docs/uuid-js/docs/index.html) |
 | [uv](https://github.com/stefan-hoeck/idris2-uv) | Idris2 bindings to libuv |  | [e388bf3](https://github.com/stefan-hoeck/idris2-uv/commit/e388bf34404410cbea14924dda7f7fcabc33b2a4) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-db/docs/uv/docs/index.html) |
 | [uv-data](https://github.com/stefan-hoeck/idris2-uv) | Generated constants fir idris2-uv |  | [e388bf3](https://github.com/stefan-hoeck/idris2-uv/commit/e388bf34404410cbea14924dda7f7fcabc33b2a4) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-db/docs/uv-data/docs/index.html) |
 | [weaker-traversals](https://github.com/buzden/idris2-weaker-traversals) | Traversals that are weaker than `Traversable` and thus more broadly applicable | Apache-2.0 | [0c3cb74](https://github.com/buzden/idris2-weaker-traversals/commit/0c3cb74cea9c4e838e82c2536198a0a1de2a5d8d) | success | [docs](https://stefan-hoeck.github.io/idris2-pack-db/docs/weaker-traversals/docs/index.html) |
@@ -250,12 +253,9 @@
 
 | Package | Dependencies | Commit |
 | --- | --- | --- |
-| [pjrt-plugin-xla-cpu](https://codeberg.org/joelberkeley/spidr) | spidr | [03cb5fa](https://codeberg.org/joelberkeley/spidr/commit/03cb5fa0a91b56a90104c60e112fb1c082a041d4) |
-| [pjrt-plugin-xla-cuda](https://codeberg.org/joelberkeley/spidr) | spidr | [03cb5fa](https://codeberg.org/joelberkeley/spidr/commit/03cb5fa0a91b56a90104c60e112fb1c082a041d4) |
-| [spidr](https://codeberg.org/joelberkeley/spidr) |  | [03cb5fa](https://codeberg.org/joelberkeley/spidr/commit/03cb5fa0a91b56a90104c60e112fb1c082a041d4) |
-| [uuid-base](https://codeberg.org/joelberkeley/uuid) |  | [7b27013](https://codeberg.org/joelberkeley/uuid/commit/7b2701307df7fa99572a0a06e977883eaffe4aad) |
-| [uuid-c](https://codeberg.org/joelberkeley/uuid) | uuid-base | [7b27013](https://codeberg.org/joelberkeley/uuid/commit/7b2701307df7fa99572a0a06e977883eaffe4aad) |
-| [uuid-js](https://codeberg.org/joelberkeley/uuid) | uuid-base | [7b27013](https://codeberg.org/joelberkeley/uuid/commit/7b2701307df7fa99572a0a06e977883eaffe4aad) |
+| [pjrt-plugin-xla-cpu](https://codeberg.org/joelberkeley/spidr) | spidr | [2ab9a5c](https://codeberg.org/joelberkeley/spidr/commit/2ab9a5c8c5986d0b8f295d0db956941d124957d3) |
+| [pjrt-plugin-xla-cuda](https://codeberg.org/joelberkeley/spidr) | spidr | [2ab9a5c](https://codeberg.org/joelberkeley/spidr/commit/2ab9a5c8c5986d0b8f295d0db956941d124957d3) |
+| [spidr](https://codeberg.org/joelberkeley/spidr) |  | [2ab9a5c](https://codeberg.org/joelberkeley/spidr/commit/2ab9a5c8c5986d0b8f295d0db956941d124957d3) |
 
 
 ## Unresolved Packages
