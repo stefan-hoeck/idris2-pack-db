@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Data.Container.Base.Fix.Definition</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Data.Container.Base.Fix.Definition
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Data.Container.Base.Fix.Definition</h1><span style="float:right">(<a href="Data.Container.Base.Fix.Definition.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt data-src-mod="Data.Container.Base.Fix.Definition" data-src-start="13:1" id="Data.Container.Base.Fix.Definition.KleeneShp"><code><span class="keyword">data</span>&ensp;<a class="type" href="Data.Container.Base.Fix.Definition.html#Data.Container.Base.Fix.Definition.KleeneShp"><span class="name type">KleeneShp</span></a>&ensp;:&ensp;<a class="type" href="Data.Container.Base.Object.Definition.html#Data.Container.Base.Object.Definition.Cont"><span class="name type">Cont</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd><pre>  Kleene star, aka. the free monad monad on containers<br>  Is the least fixpoint in the category of containers of<br>  Kleene c = Scalar &gt;+&lt; (c &gt;@ Kleene c)<br>  Since Idris doesn&apos;t support codata, we can also use this for greatest fixpoint<br>  by using corecursive shapes and marking them as partial</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span><br>  <b>Constructors</b>:<br><dl class="decls">  <dt data-src-mod="Data.Container.Base.Fix.Definition" data-src-start="14:3" id="Data.Container.Base.Fix.Definition.Done"><code><a class="type" href="Data.Container.Base.Fix.Definition.html#Data.Container.Base.Fix.Definition.Done"><span class="name constructor">Done</span></a>&ensp;:&ensp;<a class="type" href="Data.Container.Base.Fix.Definition.html#Data.Container.Base.Fix.Definition.KleeneShp"><span class="name type">KleeneShp</span></a>&ensp;<span class="boundvar">c</span></code></dt>  <dt data-src-mod="Data.Container.Base.Fix.Definition" data-src-start="15:3" id="Data.Container.Base.Fix.Definition.More"><code><a class="type" href="Data.Container.Base.Fix.Definition.html#Data.Container.Base.Fix.Definition.More"><span class="name constructor">More</span></a>&ensp;:&ensp;<a class="type" href="Data.Container.Base.Extension.Definition.html#Data.Container.Base.Extension.Definition.Ext"><span class="name type">Ext</span></a>&ensp;<span class="boundvar">c</span>&ensp;(<a class="type" href="Data.Container.Base.Fix.Definition.html#Data.Container.Base.Fix.Definition.KleeneShp"><span class="name type">KleeneShp</span></a>&ensp;<span class="boundvar">c</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Container.Base.Fix.Definition.html#Data.Container.Base.Fix.Definition.KleeneShp"><span class="name type">KleeneShp</span></a>&ensp;<span class="boundvar">c</span></code></dt></dl></dd><dt data-src-mod="Data.Container.Base.Fix.Definition" data-src-start="18:1" id="Data.Container.Base.Fix.Definition.KleenePos"><code><span class="keyword">data</span>&ensp;<a class="type" href="Data.Container.Base.Fix.Definition.html#Data.Container.Base.Fix.Definition.KleenePos"><span class="name type">KleenePos</span></a>&ensp;:&ensp;<a class="type" href="Data.Container.Base.Fix.Definition.html#Data.Container.Base.Fix.Definition.KleeneShp"><span class="name type">KleeneShp</span></a>&ensp;<span class="boundvar">c</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span><br>  <b>Constructors</b>:<br><dl class="decls">  <dt data-src-mod="Data.Container.Base.Fix.Definition" data-src-start="19:3" id="Data.Container.Base.Fix.Definition.DonePos"><code><a class="type" href="Data.Container.Base.Fix.Definition.html#Data.Container.Base.Fix.Definition.DonePos"><span class="name constructor">DonePos</span></a>&ensp;:&ensp;<a class="type" href="Data.Container.Base.Fix.Definition.html#Data.Container.Base.Fix.Definition.KleenePos"><span class="name type">KleenePos</span></a>&ensp;<a class="type" href="Data.Container.Base.Fix.Definition.html#Data.Container.Base.Fix.Definition.Done"><span class="name constructor">Done</span></a></code></dt>  <dt data-src-mod="Data.Container.Base.Fix.Definition" data-src-start="20:3" id="Data.Container.Base.Fix.Definition.MorePos"><code><a class="type" href="Data.Container.Base.Fix.Definition.html#Data.Container.Base.Fix.Definition.MorePos"><span class="name constructor">MorePos</span></a>&ensp;:&ensp;(<span class="boundvar">cp</span>&ensp;:&ensp;<span class="boundvar">c</span>&ensp;<span class="type resolved" title="Data.Container.Base.Object.Definition.Cont.(.Pos)"><span class="name function">.Pos</span></span>&ensp;<span class="boundvar">cs</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Container.Base.Fix.Definition.html#Data.Container.Base.Fix.Definition.KleenePos"><span class="name type">KleenePos</span></a>&ensp;(<span class="boundvar">f</span>&ensp;<span class="boundvar">cp</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Container.Base.Fix.Definition.html#Data.Container.Base.Fix.Definition.KleenePos"><span class="name type">KleenePos</span></a>&ensp;(<a class="type" href="Data.Container.Base.Fix.Definition.html#Data.Container.Base.Fix.Definition.More"><span class="name constructor">More</span></a>&ensp;(<span class="boundvar">cs</span>&ensp;<a class="type" href="Data.Container.Base.Extension.Definition.html#Data.Container.Base.Extension.Definition.(&lt;|)"><span class="name constructor">&lt;|</span></a>&ensp;<span class="boundvar">f</span>))</code></dt></dl></dd><dt data-src-mod="Data.Container.Base.Fix.Definition" data-src-start="23:1" id="Data.Container.Base.Fix.Definition.Kleene"><code><a class="type" href="Data.Container.Base.Fix.Definition.html#Data.Container.Base.Fix.Definition.Kleene"><span class="name function">Kleene</span></a>&ensp;:&ensp;<a class="type" href="Data.Container.Base.Object.Definition.html#Data.Container.Base.Object.Definition.Cont"><span class="name type">Cont</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Container.Base.Object.Definition.html#Data.Container.Base.Object.Definition.Cont"><span class="name type">Cont</span></a></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt data-src-mod="Data.Container.Base.Fix.Definition" data-src-start="29:3" id="Data.Container.Base.Fix.Definition.Morphism.KleeneShp"><code><span class="type resolved" title="Data.Container.Base.Fix.Definition.Morphism.KleeneShp"><span class="name function">KleeneShp</span></span>&ensp;:&ensp;<span class="boundvar">c</span>&ensp;<span class="type resolved" title="Data.Container.Base.Morphism.Definition.DependentLenses.(=%&gt;)"><span class="name type">=%&gt;</span></span>&ensp;<span class="boundvar">d</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Container.Base.Fix.Definition.html#Data.Container.Base.Fix.Definition.KleeneShp"><span class="name type">KleeneShp</span></a>&ensp;<span class="boundvar">c</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Container.Base.Fix.Definition.html#Data.Container.Base.Fix.Definition.KleeneShp"><span class="name type">KleeneShp</span></a>&ensp;<span class="boundvar">d</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt data-src-mod="Data.Container.Base.Fix.Definition" data-src-start="34:3" id="Data.Container.Base.Fix.Definition.Morphism.KleenePos"><code><span class="type resolved" title="Data.Container.Base.Fix.Definition.Morphism.KleenePos"><span class="name function">KleenePos</span></span>&ensp;:&ensp;(<span class="boundvar">f</span>&ensp;:&ensp;<span class="boundvar">c</span>&ensp;<span class="type resolved" title="Data.Container.Base.Morphism.Definition.DependentLenses.(=%&gt;)"><span class="name type">=%&gt;</span></span>&ensp;<span class="boundvar">d</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="boundvar">ks</span>&ensp;:&ensp;<a class="type" href="Data.Container.Base.Fix.Definition.html#Data.Container.Base.Fix.Definition.KleeneShp"><span class="name type">KleeneShp</span></a>&ensp;<span class="boundvar">c</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Container.Base.Fix.Definition.html#Data.Container.Base.Fix.Definition.KleenePos"><span class="name type">KleenePos</span></a>&ensp;(<span class="type resolved" title="Data.Container.Base.Fix.Definition.Morphism.KleeneShp"><span class="name function">KleeneShp</span></span>&ensp;<span class="boundvar">f</span>&ensp;<span class="boundvar">ks</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Container.Base.Fix.Definition.html#Data.Container.Base.Fix.Definition.KleenePos"><span class="name type">KleenePos</span></a>&ensp;<span class="boundvar">ks</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt data-src-mod="Data.Container.Base.Fix.Definition" data-src-start="41:3" id="Data.Container.Base.Fix.Definition.Morphism.Kleene"><code><span class="type resolved" title="Data.Container.Base.Fix.Definition.Morphism.Kleene"><span class="name function">Kleene</span></span>&ensp;:&ensp;<span class="boundvar">c</span>&ensp;<span class="type resolved" title="Data.Container.Base.Morphism.Definition.DependentLenses.(=%&gt;)"><span class="name type">=%&gt;</span></span>&ensp;<span class="boundvar">d</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Container.Base.Fix.Definition.html#Data.Container.Base.Fix.Definition.Kleene"><span class="name function">Kleene</span></a>&ensp;<span class="boundvar">c</span>&ensp;<span class="type resolved" title="Data.Container.Base.Morphism.Definition.DependentLenses.(=%&gt;)"><span class="name type">=%&gt;</span></span>&ensp;<a class="type" href="Data.Container.Base.Fix.Definition.html#Data.Container.Base.Fix.Definition.Kleene"><span class="name function">Kleene</span></a>&ensp;<span class="boundvar">d</span></code></dt><dd><pre>  Action on morphisms</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd></dl></div><footer>Produced by Idris 2 version 0.8.0-5aaefadb5</footer></body></html>
