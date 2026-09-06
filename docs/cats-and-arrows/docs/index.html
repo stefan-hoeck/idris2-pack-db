@@ -384,9 +384,9 @@ on a category that flips the direction of its morphisms.
       <a class="code" href="docs/Control.Category.Instances.Type.html">Control.Category.Instances.Type</a>
     </div>
     <div class="index-namespace-doc">
-      This module defines record-style wrappers for the canonical
-category of Idris types and pure unrestricted functions, referred
-to simply as `Typ`.
+      This module defines the category of types and functions, named
+`Typ`. Using this is more efficient than something like `Morphism`,
+as it erases the types at runtime.
 
     </div>
   </div>
@@ -411,6 +411,19 @@ objects and no morphisms.
 Haskell arrow hierarchy and the categorical interfaces of this
 library. These functions may be easier to write code with for users
 who are already familiar with arrows.
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Data.Wrap0.html">Data.Wrap0</a>
+    </div>
+    <div class="index-namespace-doc">
+      This module defines `Wrap0`, a wrapper type containing a value
+that is present at compile-time, but erased during run-time. This
+wrapper is used to define categories with erased objects, such as
+the category of types `Typ`.
 
     </div>
   </div>
