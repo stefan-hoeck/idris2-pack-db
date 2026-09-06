@@ -1028,21 +1028,21 @@ packagePath = false
 [db.oracle]
 type        = "github"
 url         = "https://github.com/Matthew-Mosior/idris2-oracle"
-commit      = "942c7f3359ae7e19a2797bf2adc3a78699c4abce"
+commit      = "acd25aa170077254cb67384529d41a4dec09d6e4"
 ipkg        = "oracle.ipkg"
 packagePath = false
 
 [db.pack]
 type        = "github"
 url         = "https://github.com/stefan-hoeck/idris2-pack"
-commit      = "846a90d76d1d4c451484eb09773f11a9e2fd58f2"
+commit      = "0efdab5fbd086fa1005b57a94cec963909fd7fb4"
 ipkg        = "pack.ipkg"
 packagePath = false
 
 [db.pack-admin]
 type        = "github"
 url         = "https://github.com/stefan-hoeck/idris2-pack"
-commit      = "846a90d76d1d4c451484eb09773f11a9e2fd58f2"
+commit      = "0efdab5fbd086fa1005b57a94cec963909fd7fb4"
 ipkg        = "pack-admin.ipkg"
 packagePath = false
 
