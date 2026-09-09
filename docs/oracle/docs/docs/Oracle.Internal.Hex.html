@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Oracle.Internal.Hex</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Oracle.Internal.Hex
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Oracle.Internal.Hex</h1><span style="float:right">(<a href="Oracle.Internal.Hex.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt data-src-mod="Oracle.Internal.Hex" data-src-start="7:1" id="Oracle.Internal.Hex.hexDigit"><code><a class="type" href="Oracle.Internal.Hex.html#Oracle.Internal.Hex.hexDigit"><span class="name function">hexDigit</span></a>&ensp;:&ensp;<span class="name type">Bits8</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Char</span></code></dt><dd><pre>  Convert a four-bit hexadecimal digit into its uppercase character<br>  representation.<br>  <br>  Values 0 through 15 are mapped to `&apos;0&apos;` through `&apos;9&apos;` and `&apos;A&apos;`<br>  through `&apos;F&apos;`.<br>  <br>  Values greater than 15 are treated as 15 and therefore map to `&apos;F&apos;`.<br>  </pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt data-src-mod="Oracle.Internal.Hex" data-src-start="36:1" id="Oracle.Internal.Hex.hexByte"><code><a class="type" href="Oracle.Internal.Hex.html#Oracle.Internal.Hex.hexByte"><span class="name function">hexByte</span></a>&ensp;:&ensp;<span class="name type">Bits8</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">String</span></code></dt><dd><pre>  Encode a single byte as a two-character uppercase hexadecimal String.<br>  <br>  The high four bits are encoded first, followed by the low four bits.<br>  <br>  For example:<br>  <br>  ```text<br>  0x00 -&gt; &quot;00&quot;<br>  0x2A -&gt; &quot;2A&quot;<br>  0xFF -&gt; &quot;FF&quot;<br>  ```<br>  </pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt data-src-mod="Oracle.Internal.Hex" data-src-start="56:1" id="Oracle.Internal.Hex.hexEncode"><code><a class="type" href="Oracle.Internal.Hex.html#Oracle.Internal.Hex.hexEncode"><span class="name function">hexEncode</span></a>&ensp;:&ensp;<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;<span class="name type">Bits8</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">String</span></code></dt><dd><pre>  Encode a list of bytes as an uppercase hexadecimal String.<br>  <br>  Each byte is represented by exactly two hexadecimal characters, so the<br>  resulting String has twice as many characters as the input has bytes.<br>  <br>  This representation is safe for transporting arbitrary binary data across<br>  String-based FFI boundaries because the resulting value contains only<br>  ASCII hexadecimal characters.<br>  <br>  For example:<br>  <br>  ```text<br>  [0x00, 0xFF, 0x01, 0x80, 0x41, 0x42]<br>      -&gt; &quot;00FF01804142&quot;<br>  ```<br>  </pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt data-src-mod="Oracle.Internal.Hex" data-src-start="77:1" id="Oracle.Internal.Hex.hexValue"><code><a class="type" href="Oracle.Internal.Hex.html#Oracle.Internal.Hex.hexValue"><span class="name function">hexValue</span></a>&ensp;:&ensp;<span class="name type">Char</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Types.Maybe"><span class="name type">Maybe</span></span>&ensp;<span class="name type">Bits8</span></code></dt><dd><pre>  Decode a hexadecimal character into its four-bit numeric value.<br>  <br>  Both uppercase and lowercase hexadecimal characters are accepted.<br>  </pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt data-src-mod="Oracle.Internal.Hex" data-src-start="107:1" id="Oracle.Internal.Hex.hexPair"><code><a class="type" href="Oracle.Internal.Hex.html#Oracle.Internal.Hex.hexPair"><span class="name function">hexPair</span></a>&ensp;:&ensp;<span class="name type">Char</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Char</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Types.Maybe"><span class="name type">Maybe</span></span>&ensp;<span class="name type">Bits8</span></code></dt><dd><pre>  Decode two hexadecimal characters into a single byte.<br>  </pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt data-src-mod="Oracle.Internal.Hex" data-src-start="116:1" id="Oracle.Internal.Hex.hexDecode"><code><a class="type" href="Oracle.Internal.Hex.html#Oracle.Internal.Hex.hexDecode"><span class="name function">hexDecode</span></a>&ensp;:&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Types.Maybe"><span class="name type">Maybe</span></span>&ensp;(<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;<span class="name type">Bits8</span>)</code></dt><dd><pre>  Decode an uppercase or lowercase hexadecimal String into bytes.<br>  <br>  Returns Nothing if the String has an odd number of characters or contains<br>  any non-hexadecimal character.<br>  </pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd></dl></div><footer>Produced by Idris 2 version 0.8.0-1c630e67c</footer></body></html>
