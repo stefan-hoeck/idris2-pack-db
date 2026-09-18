@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Syntax.E1</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Syntax.E1
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Syntax.E1</h1><span style="float:right">(<a href="Syntax.E1.src.html">source</a>)</span><pre></pre></div><h2>Reexports</h2><code><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Data.Linear.ELift1</code><h2>Definitions</h2><dl class="decls"><dt data-src-mod="Syntax.E1" data-src-start="7:1" id="Syntax.E1.map1"><code><a class="type" href="Syntax.E1.html#Syntax.E1.map1"><span class="name function">map1</span></a>&ensp;:&ensp;(<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">b</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Linear.ELift1.html#Data.Linear.ELift1.E1"><span class="name function">E1</span></a>&ensp;<span class="boundvar">s</span>&ensp;<span class="boundvar">es</span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Linear.ELift1.html#Data.Linear.ELift1.E1"><span class="name function">E1</span></a>&ensp;<span class="boundvar">s</span>&ensp;<span class="boundvar">es</span>&ensp;<span class="boundvar">b</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt data-src-mod="Syntax.E1" data-src-start="13:1" id="Syntax.E1.(&lt;$&gt;)"><code><a class="type" href="Syntax.E1.html#Syntax.E1.(&lt;$&gt;)"><span class="name function">(&lt;$&gt;)</span></a>&ensp;:&ensp;(<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">b</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Linear.ELift1.html#Data.Linear.ELift1.E1"><span class="name function">E1</span></a>&ensp;<span class="boundvar">s</span>&ensp;<span class="boundvar">es</span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Linear.ELift1.html#Data.Linear.ELift1.E1"><span class="name function">E1</span></a>&ensp;<span class="boundvar">s</span>&ensp;<span class="boundvar">es</span>&ensp;<span class="boundvar">b</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span><br>  <b>Fixity Declaration</b>:&ensp;infixr&ensp;operator,&ensp;level&ensp;4</dd><dt data-src-mod="Syntax.E1" data-src-start="17:1" id="Syntax.E1.(&lt;&amp;&gt;)"><code><a class="type" href="Syntax.E1.html#Syntax.E1.(&lt;&amp;&gt;)"><span class="name function">(&lt;&amp;&gt;)</span></a>&ensp;:&ensp;<a class="type" href="Data.Linear.ELift1.html#Data.Linear.ELift1.E1"><span class="name function">E1</span></a>&ensp;<span class="boundvar">s</span>&ensp;<span class="boundvar">es</span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">b</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Linear.ELift1.html#Data.Linear.ELift1.E1"><span class="name function">E1</span></a>&ensp;<span class="boundvar">s</span>&ensp;<span class="boundvar">es</span>&ensp;<span class="boundvar">b</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span><br>  <b>Fixity Declaration</b>:&ensp;infixl&ensp;operator,&ensp;level&ensp;1</dd><dt data-src-mod="Syntax.E1" data-src-start="21:1" id="Syntax.E1.ignore1"><code><a class="type" href="Syntax.E1.html#Syntax.E1.ignore1"><span class="name function">ignore1</span></a>&ensp;:&ensp;<a class="type" href="Data.Linear.ELift1.html#Data.Linear.ELift1.E1"><span class="name function">E1</span></a>&ensp;<span class="boundvar">s</span>&ensp;<span class="boundvar">es</span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Linear.ELift1.html#Data.Linear.ELift1.E1&apos;"><span class="name function">E1&apos;</span></a>&ensp;<span class="boundvar">s</span>&ensp;<span class="boundvar">es</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt data-src-mod="Syntax.E1" data-src-start="27:1" id="Syntax.E1.pure"><code><a class="type" href="Syntax.E1.html#Syntax.E1.pure"><span class="name function">pure</span></a>&ensp;:&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Linear.ELift1.html#Data.Linear.ELift1.E1"><span class="name function">E1</span></a>&ensp;<span class="boundvar">s</span>&ensp;<span class="boundvar">es</span>&ensp;<span class="boundvar">a</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt data-src-mod="Syntax.E1" data-src-start="31:1" id="Syntax.E1.(&gt;&gt;=)"><code><a class="type" href="Syntax.E1.html#Syntax.E1.(&gt;&gt;=)"><span class="name function">(&gt;&gt;=)</span></a>&ensp;:&ensp;<a class="type" href="Data.Linear.ELift1.html#Data.Linear.ELift1.E1"><span class="name function">E1</span></a>&ensp;<span class="boundvar">s</span>&ensp;<span class="boundvar">es</span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Linear.ELift1.html#Data.Linear.ELift1.E1"><span class="name function">E1</span></a>&ensp;<span class="boundvar">s</span>&ensp;<span class="boundvar">es</span>&ensp;<span class="boundvar">b</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Linear.ELift1.html#Data.Linear.ELift1.E1"><span class="name function">E1</span></a>&ensp;<span class="boundvar">s</span>&ensp;<span class="boundvar">es</span>&ensp;<span class="boundvar">b</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span><br>  <b>Fixity Declaration</b>:&ensp;infixl&ensp;operator,&ensp;level&ensp;1</dd><dt data-src-mod="Syntax.E1" data-src-start="37:1" id="Syntax.E1.(&gt;&gt;)"><code><a class="type" href="Syntax.E1.html#Syntax.E1.(&gt;&gt;)"><span class="name function">(&gt;&gt;)</span></a>&ensp;:&ensp;<a class="type" href="Data.Linear.ELift1.html#Data.Linear.ELift1.E1&apos;"><span class="name function">E1&apos;</span></a>&ensp;<span class="boundvar">s</span>&ensp;<span class="boundvar">es</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Linear.ELift1.html#Data.Linear.ELift1.E1"><span class="name function">E1</span></a>&ensp;<span class="boundvar">s</span>&ensp;<span class="boundvar">es</span>&ensp;<span class="boundvar">b</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Linear.ELift1.html#Data.Linear.ELift1.E1"><span class="name function">E1</span></a>&ensp;<span class="boundvar">s</span>&ensp;<span class="boundvar">es</span>&ensp;<span class="boundvar">b</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span><br>  <b>Fixity Declaration</b>:&ensp;infixl&ensp;operator,&ensp;level&ensp;1</dd><dt data-src-mod="Syntax.E1" data-src-start="41:1" id="Syntax.E1.(&lt;*)"><code><a class="type" href="Syntax.E1.html#Syntax.E1.(&lt;*)"><span class="name function">(&lt;*)</span></a>&ensp;:&ensp;<a class="type" href="Data.Linear.ELift1.html#Data.Linear.ELift1.E1"><span class="name function">E1</span></a>&ensp;<span class="boundvar">s</span>&ensp;<span class="boundvar">es</span>&ensp;<span class="boundvar">b</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Linear.ELift1.html#Data.Linear.ELift1.E1&apos;"><span class="name function">E1&apos;</span></a>&ensp;<span class="boundvar">s</span>&ensp;<span class="boundvar">es</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Linear.ELift1.html#Data.Linear.ELift1.E1"><span class="name function">E1</span></a>&ensp;<span class="boundvar">s</span>&ensp;<span class="boundvar">es</span>&ensp;<span class="boundvar">b</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span><br>  <b>Fixity Declaration</b>:&ensp;infixl&ensp;operator,&ensp;level&ensp;3</dd><dt data-src-mod="Syntax.E1" data-src-start="48:1" id="Syntax.E1.(&lt;*&gt;)"><code><a class="type" href="Syntax.E1.html#Syntax.E1.(&lt;*&gt;)"><span class="name function">(&lt;*&gt;)</span></a>&ensp;:&ensp;<a class="type" href="Data.Linear.ELift1.html#Data.Linear.ELift1.E1"><span class="name function">E1</span></a>&ensp;<span class="boundvar">s</span>&ensp;<span class="boundvar">es</span>&ensp;(<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">b</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Linear.ELift1.html#Data.Linear.ELift1.E1"><span class="name function">E1</span></a>&ensp;<span class="boundvar">s</span>&ensp;<span class="boundvar">es</span>&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Linear.ELift1.html#Data.Linear.ELift1.E1"><span class="name function">E1</span></a>&ensp;<span class="boundvar">s</span>&ensp;<span class="boundvar">es</span>&ensp;<span class="boundvar">b</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span><br>  <b>Fixity Declaration</b>:&ensp;infixl&ensp;operator,&ensp;level&ensp;3</dd></dl></div><footer>Produced by Idris 2 version 0.8.0-1c630e67c</footer></body></html>
