@@ -83,16 +83,25 @@ jobs:
     name: Check package collection (macos-latest)
     runs-on: macos-latest
     env:
-      PACK_USER_DIR: /root/.config/pack
-      PACK_STATE_DIR: /root/.local/state/pack
-      PACK_CACHE_DIR: /root/.cache/pack
-      PACK_BIN_DIR: /root/.local/bin
+      PACK_USER_DIR: /macos-user/.config/pack
+      PACK_STATE_DIR: /macos-user/.local/state/pack
+      PACK_CACHE_DIR: /macos-user/.cache/pack
+      PACK_BIN_DIR: /macos-user/.local/bin
       GOFLAGS: "-buildvcs=false"
     strategy:
       fail-fast: false
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Create /macos-user directory
+        run: |
+          mkdir /macos-user
+      - name: Set HOME to macos-user directory
+        run: |
+          export HOME="/macos-user"
+      - name: Change to /macos-user directory
+        run: |
+          cd $HOME
       - name: Make output
         run: mkdir -p "$HOME/output"
       - name: Install dependencies
