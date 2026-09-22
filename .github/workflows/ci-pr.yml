@@ -83,27 +83,22 @@ jobs:
     name: Check package collection (macos-latest)
     runs-on: macos-latest
     env:
-      PACK_USER_DIR: /macos-user/.config/pack
-      PACK_STATE_DIR: /macos-user/.local/state/pack
-      PACK_CACHE_DIR: /macos-user/.cache/pack
-      PACK_BIN_DIR: /macos-user/.local/bin
+      PACK_USER_DIR: /Users/runner/macos-user/.config/pack
+      PACK_STATE_DIR: /Users/runner/macos-user/.local/state/pack
+      PACK_CACHE_DIR: /Users/runner/macos-user/.cache/pack
+      PACK_BIN_DIR: /Users/runner/macos-user/.local/bin
       GOFLAGS: "-buildvcs=false"
     strategy:
       fail-fast: false
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Create /macos-user directory
-        run: |
-          mkdir /macos-user
-      - name: Set HOME to macos-user directory
-        run: |
-          export HOME="/macos-user"
-      - name: Change to /macos-user directory
-        run: |
-          cd $HOME
+      - name: Create macos-user directory
+        run: mkdir -p "$HOME/macos-user"
+      - name: Change to macos-user directory
+        run: cd $HOME/macos-user
       - name: Make output
-        run: mkdir -p "$HOME/output"
+        run: mkdir -p "$HOME/macos-user/output"
       - name: Install dependencies
         run: |
           set -euxo pipefail
@@ -125,24 +120,24 @@ jobs:
           cd /tmp/ChezScheme
           ./configure \
             --threads \
-            --installprefix="$HOME/.local"
+            --installprefix="$HOME/macos-user/.local"
           make -j"$(sysctl -n hw.ncpu)"
           make install
-          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
-          PATH="$HOME/.local/bin:$PATH"
+          echo "$HOME/macos-user/.local/bin" >> "$GITHUB_PATH"
+          PATH="$HOME/macos-user/.local/bin:$PATH"
           export PATH
       - name: Install Idris2 and Pack
         run: |
           set -euxo pipefail
-          PATH="$HOME/.local/bin:$PATH"
+          PATH="$HOME/macos-user/.local/bin:$PATH"
           export PATH
           git clone --depth=1 \
             https://github.com/stefan-hoeck/idris2-pack.git \
             /tmp/idris2-pack
           cd /tmp/idris2-pack
           make micropack SCHEME=scheme
-          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
-          PATH="$HOME/.local/bin:$PATH"
+          echo "$HOME/macos-user/.local/bin" >> "$GITHUB_PATH"
+          PATH="$HOME/macos-user.local/bin:$PATH"
           export PATH
           rm -rf /tmp/idris2-pack
       - name: Use latest pack commit
@@ -161,6 +156,6 @@ jobs:
       - name: Re-Install pack-admin
         run: pack --no-prompt install-app pack-admin
       - name: Check Collection
-        run: pack-admin --no-prompt --skip-tests check-collection "$HOME/output/"
+        run: pack-admin --no-prompt --skip-tests check-collection "$HOME/macos-user/output/"
       - name: Fail if missing
-        run: test -f "$HOME/output/testdb.toml"
+        run: test -f "$HOME/macos-user/output/testdb.toml"
