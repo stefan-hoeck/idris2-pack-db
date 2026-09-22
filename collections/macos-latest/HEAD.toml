@@ -1,0 +1,10 @@
+[idris2]
+version = "0.8.0"
+url     = "https://github.com/idris-lang/Idris2"
+commit  = "main"
+
+[db.async-kqueue]
+type   = "github"
+url    = "https://github.com/Matthew-Mosior/idris2-async-kqueue"
+commit = "main"
+ipkg   = "async-kqueue.ipkg"
