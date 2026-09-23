@@ -9,6 +9,13 @@ url    = "https://github.com/stefan-hoeck/idris2-enum"
 commit = "main"
 ipkg   = "enum.ipkg"
 
+[db.finite]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-finite"
+commit = "main"
+ipkg   = "finite.ipkg"
+test   = "test/test.ipkg"
+
 [db.async-kqueue]
 type   = "github"
 url    = "https://github.com/Matthew-Mosior/idris2-async-kqueue"
