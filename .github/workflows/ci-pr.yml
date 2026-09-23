@@ -145,6 +145,7 @@ jobs:
           pack info
           pack update
           pack info
+          pack install enum
       - name: Install pack-admin
         run: pack --no-prompt install-app pack-admin
       - name: Copy HEAD
