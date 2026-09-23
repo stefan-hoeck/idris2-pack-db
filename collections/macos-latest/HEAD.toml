@@ -3,11 +3,426 @@ version = "0.8.0"
 url     = "https://github.com/idris-lang/Idris2"
 commit  = "main"
 
+[db.algdata]
+type   = "github"
+url    = "https://gitlab.com/avidela/algebraic-data"
+commit = "main"
+ipkg   = "algdata.ipkg"
+
+[db.algebra]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-algebra"
+commit = "main"
+ipkg   = "algebra.ipkg"
+test   = "test/test.ipkg"
+
+[db.ansi]
+type   = "github"
+url    = "https://github.com/idris-community/idris2-ansi"
+commit = "main"
+ipkg   = "ansi.ipkg"
+
+[db.apache-mime-types]
+type   = "github"
+url    = "https://github.com/kbertalan/idris2-apache-mime-types"
+commit = "main"
+ipkg   = "apache-mime-types.ipkg"
+
+[db.array]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-array"
+commit = "main"
+ipkg   = "array.ipkg"
+test   = "test/test.ipkg"
+
+[db.arrayvect]
+type   = "github"
+url    = "https://github.com/danielwaterworth/idris2-arrayvect"
+commit = "main"
+ipkg   = "arrayvect.ipkg"
+
+[db.async]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-async"
+commit = "main"
+ipkg   = "async.ipkg"
+
+[db.async-dom]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-async-dom"
+commit = "main"
+ipkg   = "async-dom.ipkg"
+
+[db.async-dom-extra]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-async-dom"
+commit = "main"
+ipkg   = "extra/async-dom-extra.ipkg"
+
+[db.async-js]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-async"
+commit = "main"
+ipkg   = "async-js/async-js.ipkg"
+
+[db.async-epoll]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-async"
+commit = "main"
+ipkg   = "async-epoll/async-epoll.ipkg"
+
+[db.async-posix]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-async"
+commit = "main"
+ipkg   = "async-posix/async-posix.ipkg"
+
+[db.async-spec]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-async"
+commit = "main"
+ipkg   = "async-spec/async-spec.ipkg"
+
+[db.barbies]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-barbies"
+commit = "main"
+ipkg   = "barbies.ipkg"
+
+[db.base64]
+type   = "github"
+url    = "https://git.sr.ht/~janus/base64"
+commit = "master"
+ipkg   = "base64.ipkg"
+test   = "test/test.ipkg"
+
+[db.best-alternative]
+type   = "git"
+url    = "https://github.com/buzden/idris2-best-alternative"
+commit = "master"
+ipkg   = "best-alternative.ipkg"
+test   = "tests/tests.ipkg"
+
+[db.betti]
+type   = "git"
+url    = "https://github.com/ohad/betti"
+commit = "main"
+ipkg   = "betti.ipkg"
+test   = "tests/tests.ipkg"
+
+[db.blake2b]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-blake2b"
+commit = "main"
+ipkg   = "blake2b.ipkg"
+test   = "tests/tests.ipkg"
+
+[db.bounded-doubles]
+type   = "git"
+url    = "https://github.com/buzden/idris2-bounded-doubles"
+commit = "master"
+ipkg   = "bounded-doubles.ipkg"
+test   = "tests/library-tests.ipkg"
+
+[db.bounded-doubles-hedgehog-generators]
+type   = "git"
+url    = "https://github.com/buzden/idris2-bounded-doubles"
+commit = "master"
+ipkg   = "hedgehog-generators.ipkg"
+test   = "tests/generators-tests.ipkg"
+
+[db.byteorder]
+type   = "git"
+url    = "https://git.sr.ht/~stygianentity/byteorder-idr"
+commit = "trunk"
+ipkg   = "byteorder.ipkg"
+
+[db.bytestring]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-bytestring"
+commit = "main"
+ipkg   = "bytestring.ipkg"
+
+[db.cats-and-arrows]
+type   = "github"
+url    = "https://github.com/tokinanpa/cats-and-arrows"
+commit = "main"
+ipkg   = "cats-and-arrows.ipkg"
+
+[db.chem]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-chem"
+commit = "main"
+ipkg   = "chem.ipkg"
+test   = "test/test.ipkg"
+
+[db.chem-generators]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-chem"
+commit = "main"
+ipkg   = "chem-generators/chem-generators.ipkg"
+
+[db.collie]
+type   = "github"
+url    = "https://github.com/ohad/collie"
+commit = "main"
+ipkg   = "collie.ipkg"
+
+[db.collection-utils]
+type   = "github"
+url    = "https://github.com/buzden/idris2-collection-utils"
+commit = "master"
+ipkg   = "collection-utils.ipkg"
+test   = "test/test.ipkg"
+
+[db.control-flow]
+type   = "github"
+url    = "https://github.com/JankaGramofonomanka/idris-compiler-tools"
+commit = "master"
+ipkg   = "control-flow/control-flow.ipkg"
+
+[db.comonad]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-comonad"
+commit = "main"
+ipkg   = "comonad.ipkg"
+
+[db.containers]
+type   = "github"
+url    = "https://github.com/idris-community/idris2-containers"
+commit = "main"
+ipkg   = "containers.ipkg"
+
+[db.continuation-monad]
+type = "git"
+url = "https://gitlab.com/avidela/continuation-monad"
+commit = "main"
+ipkg = "continuation-monad.ipkg"
+
+[db.coop]
+type   = "git"
+url    = "https://github.com/buzden/idris2-coop"
+commit = "master"
+ipkg   = "coop.ipkg"
+test   = "tests/tests.ipkg"
+
+[db.control-spec]
+type   = "github"
+url    = "https://github.com/dannypsnl/control-spec"
+commit = "main"
+ipkg   = "control-spec.ipkg"
+
+[db.cozippable]
+type   = "git"
+url    = "https://github.com/buzden/idris2-cozippable"
+commit = "master"
+ipkg   = "cozippable.ipkg"
+test   = "test/test.ipkg"
+
+[db.cptr]
+type = "github"
+url  = "https://github.com/stefan-hoeck/idris2-cptr"
+commit = "main"
+ipkg = "cptr.ipkg"
+test = "test/test.ipkg"
+
+[db.crypt]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-crypt"
+commit = "main"
+ipkg   = "crypt.ipkg"
+test   = "test/test.ipkg"
+
+[db.css]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-css"
+commit = "main"
+ipkg   = "css.ipkg"
+
+[db.cyby-css]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-cyby-draw"
+commit = "main"
+ipkg   = "cyby-css/cyby-css.ipkg"
+
+[db.cyby-draw]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-cyby-draw"
+commit = "main"
+ipkg   = "cyby-draw.ipkg"
+
+[db.decord]
+type   = "github"
+url    = "https://github.com/jcranch/idris-decord"
+commit = "main"
+ipkg   = "decord.ipkg"
+
+[db.dependent-map]
+type   = "github"
+url    = "https://github.com/JankaGramofonomanka/idris-dependent-map"
+commit = "master"
+ipkg   = "dependent-map.ipkg"
+test   = "test/dependent-map-test.ipkg"
+
+[db.dependent-vect]
+type   = "git"
+url    = "https://github.com/buzden/idris2-dependent-vect"
+commit = "master"
+ipkg   = "dependent-vect.ipkg"
+test   = "tests/tests.ipkg"
+
+[db.deptycheck]
+type   = "git"
+url    = "https://github.com/buzden/deptycheck"
+commit = "master"
+ipkg   = "deptycheck.ipkg"
+
+[db.dinwiddy]
+type   = "github"
+url    = "https://github.com/bobbbay/dinwiddy"
+commit = "main"
+ipkg   = "dinwiddy.ipkg"
+
+[db.dom]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-dom"
+commit = "main"
+ipkg   = "dom.ipkg"
+
+[db.dom-mvc]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-dom-mvc"
+commit = "main"
+ipkg   = "dom-mvc.ipkg"
+
+[db.dom-mvc-extra]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-dom-mvc"
+commit = "main"
+ipkg   = "extra/dom-mvc-extra.ipkg"
+
+[db.dot-gv]
+type   = "github"
+url    = "https://github.com/CodingCellist/idris2-dot-parse"
+commit = "main"
+ipkg   = "dot-parse.ipkg"
+
+[db.dtypes]
+type   = "github"
+url    = "https://github.com/JankaGramofonomanka/idris-dtypes"
+commit = "master"
+ipkg   = "dtypes.ipkg"
+
+[db.eff]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-eff"
+commit = "main"
+ipkg   = "eff.ipkg"
+
+[db.effect]
+type   = "github"
+url    = "https://github.com/Russoul/Idris2-Effect"
+commit = "master"
+ipkg   = "effect.ipkg"
+
+[db.elab-pretty]
+type   = "git"
+url    = "https://github.com/stefan-hoeck/idris2-elab-util"
+commit = "latest:main"
+ipkg   = "elab-pretty.ipkg"
+
+[db.elab-util]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-elab-util"
+commit = "main"
+ipkg   = "elab-util.ipkg"
+
+[db.elab-util-extra]
+type   = "git"
+url    = "https://github.com/buzden/deptycheck"
+commit = "master"
+ipkg   = "elab-util-extra/elab-util-extra.ipkg"
+test   = "elab-util-extra/tests/tests.ipkg"
+
+[db.elin]
+type = "github"
+url  = "https://github.com/stefan-hoeck/idris2-elin"
+commit = "main"
+ipkg = "elin.ipkg"
+
 [db.enum]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-enum"
 commit = "main"
 ipkg   = "enum.ipkg"
+
+[db.epoll]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-epoll"
+commit = "main"
+ipkg   = "epoll.ipkg"
+test   = "tests/test.ipkg"
+
+[db.evince]
+type   = "github"
+url    = "https://github.com/bio-aeon/evince"
+commit = "main"
+ipkg   = "evince/evince.ipkg"
+test   = "evince/test/test.ipkg"
+
+[db.evince-async]
+type   = "github"
+url    = "https://github.com/bio-aeon/evince"
+commit = "main"
+ipkg   = "evince-async/evince-async.ipkg"
+test   = "evince-async/test/test.ipkg"
+
+[db.evince-async-js]
+type   = "github"
+url    = "https://github.com/bio-aeon/evince"
+commit = "main"
+ipkg   = "evince-async-js/evince-async-js.ipkg"
+
+[db.evince-async-posix]
+type   = "github"
+url    = "https://github.com/bio-aeon/evince"
+commit = "main"
+ipkg   = "evince-async-posix/evince-async-posix.ipkg"
+test   = "evince-async-posix/test/test.ipkg"
+
+[db.evince-hedgehog]
+type   = "github"
+url    = "https://github.com/bio-aeon/evince"
+commit = "main"
+ipkg   = "evince-hedgehog/evince-hedgehog.ipkg"
+test   = "evince-hedgehog/test/test.ipkg"
+
+[db.extrafun]
+type   = "github"
+url    = "https://github.com/jcranch/extrafun"
+commit = "main"
+ipkg   = "extrafun.ipkg"
+
+[db.i-hate-parens]
+type   = "git"
+url    = "https://github.com/buzden/idris2-i-hate-parens"
+commit = "master"
+ipkg   = "i-hate-parens.ipkg"
+test   = "tests/tests.ipkg"
+
+[db.filepath]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-filepath"
+commit = "main"
+ipkg   = "filepath.ipkg"
+test   = "test/test.ipkg"
+
+[db.fin-lizzie]
+type   = "git"
+url    = "https://github.com/buzden/idris2-fin-lizzie"
+commit = "master"
+ipkg   = "fin-lizzie.ipkg"
+test   = "tests/tests.ipkg"
 
 [db.finite]
 type   = "github"
@@ -16,11 +431,1104 @@ commit = "main"
 ipkg   = "finite.ipkg"
 test   = "test/test.ipkg"
 
+[db.fix-whitespace]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris-fix-whitespace"
+commit = "main"
+ipkg   = "fix-whitespace.ipkg"
+
+[db.freer]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-freer"
+commit = "main"
+ipkg   = "freer.ipkg"
+
+[db.fs-utils]
+type = "git"
+url = "https://gitlab.com/avidela/fs-utils"
+commit = "main"
+ipkg = "fs-utils.ipkg"
+
+[db.fvect]
+type   = "github"
+url    = "https://github.com/mattpolzin/idris-fvect"
+commit = "main"
+ipkg   = "fvect.ipkg"
+notice = "DEPRECATED. The FVect datatype can now be found in the containers package."
+
+[db.getopts]
+type   = "github"
+url    = "https://github.com/idris-community/idris2-getopts"
+commit = "main"
+ipkg   = "getopts.ipkg"
+
+[db.graph]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-graph"
+commit = "main"
+ipkg   = "graph.ipkg"
+test   = "test/test.ipkg"
+
+[db.golden-runner-helper]
+type   = "github"
+url    = "https://github.com/buzden/idris2-golden-runner-helper"
+commit = "master"
+ipkg   = "golden-runner-helper.ipkg"
+test   = "tests/tests.ipkg"
+
+[db.hash]
+type   = "github"
+url    = "https://git.sr.ht/~janus/hash"
+commit = "master"
+ipkg   = "hash.ipkg"
+
+[db.hashable]
+type   = "github"
+url    = "https://github.com/Z-snails/Idris2-hashable"
+commit = "main"
+ipkg   = "hashable.ipkg"
+
+[db.hashable-derive]
+type = "github"
+url = "https://github.com/uartman/hashable-derive"
+commit = "main"
+ipkg = "hashable-derive.ipkg"
+
+[db.hashmap]
+type   = "github"
+url    = "https://github.com/Z-snails/idris2-hashmap"
+commit = "main"
+ipkg   = "hashmap.ipkg"
+
+[db.hedgehog]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-hedgehog"
+commit = "main"
+ipkg   = "hedgehog.ipkg"
+test   = "tests/tests.ipkg"
+
+[db.hmac]
+type   = "github"
+url    = "https://git.sr.ht/~janus/hmac"
+commit = "master"
+ipkg   = "hmac.ipkg"
+test   = "test/test.ipkg"
+
+[db.idrall]
+type   = "github"
+url    = "https://github.com/alexhumphreys/idrall"
+commit = "main"
+ipkg   = "idrall.ipkg"
+
+[db.idris2-go]
+type        = "github"
+url         = "https://github.com/kbertalan/idris2-go"
+commit      = "main"
+ipkg        = "idris2-go.ipkg"
+packagePath = true
+
+[db.idris2-go-lib]
+type   = "github"
+url    = "https://github.com/kbertalan/idris2-go"
+commit = "main"
+ipkg   = "idris2-go-lib.ipkg"
+test   = "tests/libtests.ipkg"
+
+[db.if-unsolved-implicit]
+type   = "git"
+url    = "https://github.com/buzden/idris2-if-unsolved-implicit"
+commit = "master"
+ipkg   = "if-unsolved-implicit.ipkg"
+test   = "tests/tests.ipkg"
+
+[db.ilex]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-ilex"
+commit = "main"
+ipkg   = "ilex.ipkg"
+
+[db.ilex-core]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-ilex"
+commit = "main"
+ipkg   = "core/ilex-core.ipkg"
+
+[db.ilex-debug]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-ilex"
+commit = "main"
+ipkg   = "debug/ilex-debug.ipkg"
+
+[db.ilex-streams]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-ilex"
+commit = "main"
+ipkg   = "streams/ilex-streams.ipkg"
+
+[db.ilex-json]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-ilex"
+commit = "main"
+ipkg   = "json/ilex-json.ipkg"
+test   = "test/test.ipkg"
+
+[db.ilex-toml]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-ilex"
+commit = "main"
+ipkg   = "toml/ilex-toml.ipkg"
+test   = "test/test.ipkg"
+
+[db.indexed]
+type   = "github"
+url    = "https://github.com/mattpolzin/idris-indexed"
+commit = "main"
+ipkg   = "indexed.ipkg"
+
+[db.indexed-graph]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-indexed-graph"
+commit = "main"
+ipkg   = "indexed-graph.ipkg"
+
+[db.js]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-dom"
+commit = "main"
+ipkg   = "js/js.ipkg"
+
+[db.json]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-json"
+commit = "main"
+ipkg   = "json.ipkg"
+test   = "test/test.ipkg"
+
+[db.json-simple]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-json"
+commit = "main"
+ipkg   = "simple/json-simple.ipkg"
+test   = "test/test.ipkg"
+
+[db.just-a-monad]
+type   = "github"
+url    = "https://github.com/Russoul/Just-a-Monad"
+commit = "main"
+ipkg   = "just-a-monad.ipkg"
+
+[db.katla]
+type   = "github"
+url    = "https://github.com/idris-community/katla"
+commit = "main"
+ipkg   = "katla.ipkg"
+
+[db.katla-pandoc]
+type   = "github"
+url    = "https://github.com/idris-community/katla"
+commit = "main"
+ipkg   = "katla-pandoc.ipkg"
+
+[db.katla-typst]
+type   = "github"
+url    = "https://github.com/idris-community/katla"
+commit = "main"
+ipkg   = "katla-typst.ipkg"
+
+[db.lana]
+type   = "github"
+url    = "https://git.sr.ht/~janus/lana"
+commit = "master"
+ipkg   = "lana.ipkg"
+
+[db.lens]
+type   = "github"
+url    = "https://github.com/tokinanpa/idris2-lens"
+commit = "main"
+ipkg   = "lens.ipkg"
+
+[db.linux]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-linux"
+commit = "main"
+ipkg   = "linux/linux.ipkg"
+
+[db.literal]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-literal"
+commit = "main"
+ipkg   = "literal.ipkg"
+
+[db.log4types]
+type   = "github"
+url    = "https://github.com/bio-aeon/log4types"
+commit = "main"
+ipkg   = "log4types/log4types.ipkg"
+test   = "log4types/test/test.ipkg"
+
+[db.log4types-async]
+type   = "github"
+url    = "https://github.com/bio-aeon/log4types"
+commit = "main"
+ipkg   = "log4types-async/log4types-async.ipkg"
+test   = "log4types-async/test/test.ipkg"
+
+[db.log4types-core]
+type   = "github"
+url    = "https://github.com/bio-aeon/log4types"
+commit = "main"
+ipkg   = "log4types-core/log4types-core.ipkg"
+test   = "log4types-core/test/test.ipkg"
+
+[db.log4types-json]
+type   = "github"
+url    = "https://github.com/bio-aeon/log4types"
+commit = "main"
+ipkg   = "log4types-json/log4types-json.ipkg"
+test   = "log4types-json/test/test.ipkg"
+
+[db.idris2-lsp]
+type        = "github"
+url         = "https://github.com/idris-community/idris2-lsp"
+commit      = "main"
+ipkg        = "idris2-lsp.ipkg"
+packagePath = true
+
+[db.lsp-lib]
+type        = "github"
+url         = "https://github.com/idris-community/lsp-lib"
+commit      = "main"
+ipkg        = "lsp-lib.ipkg"
+
+[db.markdown]
+type   = "github"
+url    = "https://codeberg.org/berg4478/idris2-text-markdown"
+commit = "main"
+ipkg   = "markdown.ipkg"
+tests  = "test/test.ipkg"
+
+[db.mk]
+type   = "git"
+url    = "https://github.com/buzden/idris2-mk"
+commit = "master"
+ipkg   = "mk.ipkg"
+tests  = "tests/tests.ipkg"
+
+[db.monocle]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-monocle"
+commit = "main"
+ipkg   = "monocle.ipkg"
+
+[db.mtl-tuple-impls]
+type   = "github"
+url    = "https://github.com/buzden/idris2-mtl-tuple-impls"
+commit = "master"
+ipkg   = "mtl-tuple-impls.ipkg"
+test   = "tests/tests.ipkg"
+
+[db.multiplate]
+type   = "github"
+url    = "https://github.com/Z-snails/multiplate-idr"
+commit = "main"
+ipkg   = "multiplate.ipkg"
+test   = "test/test.ipkg"
+
+# [db.newtype-deriving]
+# type   = "github"
+# url    = "https://github.com/MarcelineVQ/idris2-newtype-deriving"
+# commit = "master"
+# ipkg   = "newtype-deriving.ipkg"
+
+[db.ncurses-idris]
+type   = "github"
+url    = "https://github.com/mattpolzin/ncurses-idris"
+commit = "main"
+ipkg   = "ncurses-idris.ipkg"
+
+[db.nested]
+type   = "github"
+url    = "https://gitlab.com/bss03/nested"
+commit = "main"
+ipkg   = "nested.ipkg"
+
+[db.numidr]
+type   = "github"
+url    = "https://github.com/tokinanpa/numidr"
+commit = "main"
+ipkg   = "numidr.ipkg"
+
+[db.okasaki-pfds]
+type   = "github"
+url    = "https://gitlab.com/bss03/idris2-okasaki-pfds"
+commit = "master"
+ipkg   = "okasaki-pfds.ipkg"
+
 [db.pack]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-pack"
 commit = "main"
 ipkg   = "pack.ipkg"
+
+[db.pack-admin]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-pack"
+commit = "main"
+ipkg   = "pack-admin.ipkg"
+
+[db.pact-api]
+type   = "github"
+url    = "https://github.com/running-grass/idris2-pact"
+commit = "main"
+ipkg   = "api/pact-api.ipkg"
+
+[db.pact-client]
+type   = "github"
+url    = "https://github.com/running-grass/idris2-pact"
+commit = "main"
+ipkg   = "client/pact-client.ipkg"
+
+[db.pact-server]
+type   = "github"
+url    = "https://github.com/running-grass/idris2-pact"
+commit = "main"
+ipkg   = "server/pact-server.ipkg"
+
+[db.pact-wai]
+type   = "github"
+url    = "https://github.com/running-grass/idris2-pact"
+commit = "main"
+ipkg   = "wai/pact-wai.ipkg"
+
+[db.pact-todomvc]
+type   = "github"
+url    = "https://github.com/running-grass/idris2-pact"
+commit = "main"
+ipkg   = "todomvc/pact-todomvc.ipkg"
+
+[db.park_bench]
+type   = "github"
+url    = "https://github.com/Z-snails/park_bench"
+commit = "main"
+ipkg   = "park_bench.ipkg"
+
+[db.parser]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-parser"
+commit = "main"
+ipkg   = "parser.ipkg"
+test   = "test/test.ipkg"
+
+[db.parser-json]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-parser"
+commit = "main"
+ipkg   = "json/parser-json.ipkg"
+test   = "test/test.ipkg"
+notice = "DEPRECATED. Use ilex-json instead."
+
+[db.parser-show]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-parser"
+commit = "main"
+ipkg   = "show/parser-show.ipkg"
+test   = "test/test.ipkg"
+
+[db.parser-tsv]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-parser"
+commit = "main"
+ipkg   = "tsv/parser-tsv.ipkg"
+test   = "test/test.ipkg"
+
+[db.parser-toml]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-parser"
+commit = "main"
+ipkg   = "toml/parser-toml.ipkg"
+test   = "test/test.ipkg"
+
+[db.parser-webidl]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-parser"
+commit = "main"
+ipkg   = "webidl/parser-webidl.ipkg"
+test   = "test/test.ipkg"
+
+[db.pipelines]
+type   = "git"
+url    = "https://gitlab.com/glaive-research/pipelines.git"
+commit = "main"
+ipkg   = "pipelines.ipkg"
+
+[db.pjrt-plugin-xla-cpu]
+type   = "github"
+url    = "https://codeberg.org/joelberkeley/spidr"
+commit = "master"
+ipkg   = "pjrt-plugins/xla-cpu/pjrt-plugin-xla-cpu.ipkg"
+test   = "tutorials/how-to-run-a-tensor-program.ipkg"
+
+[db.pjrt-plugin-xla-cuda]
+type   = "github"
+url    = "https://codeberg.org/joelberkeley/spidr"
+commit = "master"
+ipkg   = "pjrt-plugins/xla-cuda/pjrt-plugin-xla-cuda.ipkg"
+
+[db.pg-idris]
+type   = "github"
+url    = "https://github.com/mattpolzin/pg-idris"
+commit = "main"
+ipkg   = "pg-idris.ipkg"
+
+[db.positive-nat]
+type   = "git"
+url    = "https://github.com/buzden/idris2-positive-nat"
+commit = "master"
+ipkg   = "positive-nat.ipkg"
+test   = "tests/tests.ipkg"
+
+[db.posix]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-linux"
+commit = "main"
+ipkg   = "posix/posix.ipkg"
+
+[db.prettier]
+type   = "github"
+url    = "https://github.com/Z-snails/prettier"
+commit = "main"
+ipkg   = "prettier.ipkg"
+
+[db.prettier-ansi]
+type = "github"
+url  = "https://github.com/idris-community/idris2-ansi"
+commit = "main"
+ipkg = "prettier/prettier-ansi.ipkg"
+
+[db.pretty-show]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-pretty-show"
+commit = "main"
+ipkg   = "pretty-show.ipkg"
+test   = "test/test.ipkg"
+
+[db.prim]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-prim"
+commit = "main"
+ipkg   = "prim.ipkg"
+test   = "test/test.ipkg"
+
+[db.profiler]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-profiler"
+commit = "main"
+ipkg   = "profiler.ipkg"
+
+[db.profunctors]
+type   = "github"
+url    = "https://github.com/tokinanpa/idris2-profunctors"
+commit = "main"
+ipkg   = "profunctors.ipkg"
+
+[db.quantifiers-extra]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-quantifiers-extra"
+commit = "main"
+ipkg   = "quantifiers-extra.ipkg"
+
+[db.qutescript]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-qutescript"
+commit = "main"
+ipkg   = "qutescript.ipkg"
+
+[db.random-pure]
+type   = "git"
+url    = "https://github.com/buzden/idris2-random-pure"
+commit = "master"
+ipkg   = "random-pure.ipkg"
+test   = "tests/tests.ipkg"
+
+[db.ratio]
+type   = "github"
+url    = "https://github.com/tokinanpa/idris2-ratio"
+commit = "main"
+ipkg   = "ratio.ipkg"
+
+[db.ref1]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-ref1"
+commit = "main"
+ipkg   = "ref1.ipkg"
+
+[db.refined]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-refined"
+commit = "main"
+ipkg   = "refined.ipkg"
+
+[db.refined-json]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-refined"
+commit = "main"
+ipkg   = "json/refined-json.ipkg"
+test   = "test/test.ipkg"
+
+[db.refined-tsv]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-refined"
+commit = "main"
+ipkg   = "tsv/refined-tsv.ipkg"
+test   = "test/test.ipkg"
+
+[db.regex]
+type   = "git"
+url    = "https://github.com/buzden/idris2-regex"
+commit = "master"
+ipkg   = "regex.ipkg"
+test   = "tests/tests.ipkg"
+
+[db.rhone]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-rhone"
+commit = "main"
+ipkg   = "rhone.ipkg"
+test   = "test/test.ipkg"
+
+[db.rhone-js]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-rhone-js"
+commit = "main"
+ipkg   = "rhone-js.ipkg"
+
+[db.rio]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-rio"
+commit = "main"
+ipkg   = "rio.ipkg"
+test   = "test.ipkg"
+notice = "DEPRECATED. Package rio is no longer maintained. Consider using async for a much more powerful effect type"
+
+[db.scram]
+type   = "github"
+url    = "https://git.sr.ht/~janus/scram"
+commit = "master"
+ipkg   = "scram.ipkg"
+test   = "test/test.ipkg"
+
+[db.scgi]
+type   = "github"
+url    = "https://github.com/idris-community/idris2-scgi"
+commit = "main"
+ipkg   = "scgi.ipkg"
+
+[db.simple-tests]
+type   = "git"
+url    = "https://gitlab.com/avidela/idris2-simple-tests"
+commit = "main"
+ipkg   = "simple-tests.ipkg"
+test   = "test/test.ipkg"
+
+[db.sha]
+type   = "github"
+url    = "https://git.sr.ht/~janus/sha"
+commit = "master"
+ipkg   = "sha.ipkg"
+test   = "test/test.ipkg"
+
+[db.snocvect]
+type   = "github"
+url    = "https://github.com/mattpolzin/idris-snocvect"
+commit = "main"
+ipkg   = "snocvect.ipkg"
+notice = "DEPRECATED. The SnocVect datatype can now be found in the containers package."
+
+[db.sop]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-sop"
+commit = "main"
+ipkg   = "sop.ipkg"
+
+[db.spidr]
+type   = "github"
+url    = "https://codeberg.org/joelberkeley/spidr"
+commit = "master"
+ipkg   = "spidr/spidr.ipkg"
+
+[db.sqlite3]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-sqlite3"
+commit = "main"
+ipkg   = "sqlite3.ipkg"
+
+[db.sqlite3-rio]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-sqlite3"
+commit = "main"
+ipkg   = "sqlite3-rio/sqlite3-rio.ipkg"
+notice = "DEPRECATED. Use sqlite3-streams instead"
+
+[db.sqlite3-streams]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-sqlite3"
+commit = "main"
+ipkg   = "sqlite3-streams/sqlite3-streams.ipkg"
+
+# [db.stellar-api]
+# type   = "git"
+# url    = "https://gitlab.com/avidela/stellar"
+# commit = "main"
+# ipkg   = "api/stellar-api.ipkg"
+#
+# [db.stellar-http]
+# type   = "git"
+# url    = "https://gitlab.com/avidela/stellar"
+# commit = "main"
+# ipkg   = "http/stellar-http.ipkg"
+#
+# [db.stellar-sql]
+# type   = "git"
+# url    = "https://gitlab.com/avidela/stellar"
+# commit = "main"
+# ipkg   = "sql/stellar-sql.ipkg"
+
+[db.structures]
+type   = "git"
+url    = "https://git.sr.ht/~thatonelutenist/Structures"
+commit = "trunk"
+ipkg   = "structures.ipkg"
+
+[db.streams]
+type   = "git"
+url    = "https://github.com/stefan-hoeck/idris2-streams"
+commit = "main"
+ipkg   = "streams.ipkg"
+
+[db.streams-posix]
+type   = "git"
+url    = "https://github.com/stefan-hoeck/idris2-streams"
+commit = "main"
+ipkg   = "posix/streams-posix.ipkg"
+
+[db.string-builder]
+type   = "github"
+url    = "https://github.com/Z-snails/string-builder"
+commit = "main"
+ipkg   = "string-builder.ipkg"
+test   = "test/test.ipkg"
+
+[db.string-search]
+type   = "github"
+url    = "https://git.sr.ht/~janus/string-search"
+commit = "master"
+ipkg   = "string-search.ipkg"
+test   = "test/test.ipkg"
+
+[db.summary-stat]
+type   = "github"
+url    = "https://github.com/buzden/idris2-summary-stat"
+commit = "master"
+ipkg   = "summary-stat.ipkg"
+test   = "tests/tests.ipkg"
+notice = "Weak traversal interface can be found in `weaker-traversals` lib"
+
+[db.svg]
+type   = "git"
+url    = "https://github.com/stefan-hoeck/idris2-svg"
+commit = "main"
+ipkg   = "svg.ipkg"
+
+[db.swirl]
+type   = "git"
+url    = "https://github.com/buzden/idris2-swirl"
+commit = "master"
+ipkg   = "swirl.ipkg"
+test   = "tests/tests.ipkg"
+
+[db.tailrec]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-tailrec"
+commit = "main"
+ipkg   = "tailrec.ipkg"
+
+[db.telescope]
+type   = "git"
+url    = "https://gitlab.com/avidela/idris2-telescope.git"
+commit = "main"
+ipkg   = "telescope.ipkg"
+
+[db.tensortype]
+type   = "github"
+url    = "https://github.com/bgavran/TensorType"
+commit = "main"
+ipkg   = "tensortype.ipkg"
+
+[db.time-for-sleep]
+type   = "github"
+url    = "https://github.com/buzden/idris2-time-for-sleep"
+commit = "master"
+ipkg   = "time-for-sleep.ipkg"
+test   = "tests/tests.ipkg"
+
+[db.tester]
+type   = "github"
+url    = "https://github.com/hydrolarus/tester-idr"
+commit = "main"
+ipkg   = "tester.ipkg"
+
+[db.theory]
+type   = "github"
+url    = "https://github.com/JankaGramofonomanka/idris-theory"
+commit = "master"
+ipkg   = "theory.ipkg"
+
+[db.toml]
+type   = "github"
+url    = "https://github.com/hydrolarus/toml-idr"
+commit = "main"
+ipkg   = "toml.ipkg"
+
+[db.typelevel-emptiness-collections]
+type   = "git"
+url    = "https://github.com/buzden/idris2-typelevel-emptiness-collections"
+commit = "master"
+ipkg   = "typelevel-emptiness-collections.ipkg"
+test   = "tests/tests.ipkg"
+
+[db.node]
+type   = "github"
+url    = "https://github.com/kbertalan/idris2-node"
+commit = "main"
+ipkg   = "node.ipkg"
+
+[db.promise]
+type   = "github"
+url    = "https://github.com/kbertalan/idris2-promise"
+commit = "main"
+ipkg   = "promise.ipkg"
+
+[db.timeit]
+type   = "github"
+url    = "https://github.com/MarcelineVQ/idris2-timeit"
+commit = "main"
+ipkg   = "timeit.ipkg"
+
+[db.type-aligned]
+type   = "github"
+url    = "https://gitlab.com/bss03/type-aligned"
+commit = "main"
+ipkg   = "type-aligned.ipkg"
+
+[db.tyttp]
+type   = "github"
+url    = "https://github.com/kbertalan/tyttp"
+commit = "main"
+ipkg   = "tyttp.ipkg"
+test   = "tests/tests.ipkg"
+
+[db.tyttp-adapter-node]
+type   = "github"
+url    = "https://github.com/kbertalan/tyttp"
+commit = "main"
+ipkg   = "adapter-node/tyttp-adapter-node.ipkg"
+test   = "adapter-node/tests/tests.ipkg"
+
+[db.tyttp-json]
+type   = "github"
+url    = "https://github.com/kbertalan/tyttp"
+commit = "main"
+ipkg   = "json/tyttp-json.ipkg"
+test   = "json/tests/tests.ipkg"
+
+[db.weaker-traversals]
+type   = "git"
+url    = "https://github.com/buzden/idris2-weaker-traversals"
+commit = "master"
+ipkg   = "weaker-traversals.ipkg"
+test   = "tests/tests.ipkg"
+
+[db.xml]
+type   = "github"
+url    = "https://github.com/madman-bob/idris2-xml"
+commit = "main"
+ipkg   = "xml.ipkg"
+
+[db.tyre]
+type   = "github"
+url    = "https://github.com/kasiaMarek/TyRE"
+commit = "main"
+ipkg   = "tyre.ipkg"
+
+[db.darray]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-array"
+commit = "main"
+ipkg   = "darray/darray.ipkg"
+
+[db.distribution]
+type   = "github"
+url    = "https://github.com/idris-bayes/distribution"
+commit = "main"
+ipkg   = "distribution.ipkg"
+
+[db.free]
+type   = "github"
+url    = "https://github.com/idris-bayes/free"
+commit = "main"
+ipkg   = "free.ipkg"
+
+[db.log-domain]
+type   = "github"
+url    = "https://github.com/idris-bayes/log-domain"
+commit = "main"
+ipkg   = "log-domain.ipkg"
+
+[db.monad-bayes]
+type   = "github"
+url    = "https://github.com/idris-bayes/monad-bayes"
+commit = "main"
+ipkg   = "monad-bayes.ipkg"
+
+[db.url]
+type   = "github"
+url    = "https://github.com/running-grass/idris2-url"
+commit = "main"
+ipkg   = "url.ipkg"
+
+[db.tls]
+type   = "github"
+url    = "https://github.com/idris-community/idris2-tls"
+commit = "master"
+ipkg   = "tls.ipkg"
+
+[db.http]
+type   = "github"
+url    = "https://github.com/idris-community/idris2-http"
+commit = "master"
+ipkg   = "http.ipkg"
+
+[db.http-client-api]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-http-types"
+commit = "main"
+ipkg   = "http-client-api/http-client-api.ipkg"
+
+[db.http-types]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-http-types"
+commit = "main"
+ipkg   = "http-types.ipkg"
+
+[db.http-server-api]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-http-types"
+commit = "main"
+ipkg   = "http-server-api/http-server-api.ipkg"
+
+# [db.prob-fx]
+# type   = "github"
+# url    = "https://github.com/idris-bayes/prob-fx"
+# commit = "main"
+# ipkg   = "prob-fx.ipkg"
+
+[db.uuid-base]
+type   = "github"
+url    = "https://codeberg.org/joelberkeley/uuid"
+commit = "master"
+ipkg   = "uuid-base/uuid-base.ipkg"
+
+[db.uuid-c]
+type   = "github"
+url    = "https://codeberg.org/joelberkeley/uuid"
+commit = "master"
+ipkg   = "uuid-c/uuid-c.ipkg"
+test   = "test/c/c.ipkg"
+
+[db.uuid-js]
+type   = "github"
+url    = "https://codeberg.org/joelberkeley/uuid"
+commit = "master"
+ipkg   = "uuid-js/uuid-js.ipkg"
+
+[db.uniplate]
+type   = "github"
+url    = "https://github.com/Z-snails/uniplate-idr"
+commit = "main"
+ipkg   = "uniplate.ipkg"
+
+[db.utf8]
+type   = "github"
+url    = "https://git.sr.ht/~janus/utf8"
+commit = "master"
+ipkg   = "utf8.ipkg"
+test   = "test/test.ipkg"
+
+[db.uv]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-uv"
+commit = "main"
+ipkg   = "uv.ipkg"
+
+[db.uv-data]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-uv"
+commit = "main"
+ipkg   = "data/uv-data.ipkg"
+
+[db.webidl]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-webidl"
+commit = "main"
+ipkg   = "webidl.ipkg"
+
+[db.idrisGL]
+type   = "github"
+url    = "https://github.com/ECburx/Idris2GL"
+commit = "main"
+ipkg   = "idrisGL.ipkg"
+
+[db.c-ffi]
+type   = "github"
+url    = "https://codeberg.org/joelberkeley/c-ffi"
+commit = "master"
+ipkg   = "c-ffi.ipkg"
+test   = "test.ipkg"
+
+[db.cont]
+type   = "github"
+url    = "https://git.sr.ht/~janus/cont"
+commit = "master"
+ipkg   = "cont.ipkg"
+
+[db.buf-conn]
+type   = "github"
+url    = "https://git.sr.ht/~janus/buf-conn"
+commit = "master"
+ipkg   = "buf-conn.ipkg"
+
+[db.http2]
+type   = "github"
+url    = "https://git.sr.ht/~janus/http2"
+commit = "master"
+ipkg   = "http2.ipkg"
+
+[db.pg]
+type   = "github"
+url    = "https://git.sr.ht/~janus/pg"
+commit = "master"
+ipkg   = "pg.ipkg"
+
+[db.pg-types]
+type   = "github"
+url    = "https://git.sr.ht/~janus/pg-types"
+commit = "master"
+ipkg   = "pg-types.ipkg"
+
+[db.racket-tcp]
+type   = "github"
+url    = "https://git.sr.ht/~janus/racket-tcp"
+commit = "master"
+ipkg   = "racket-tcp.ipkg"
+
+[db.records]
+type   = "github"
+url    = "https://github.com/kuribas/idris-records"
+commit = "main"
+ipkg   = "records.ipkg"
+
+[db.rtlsdr]
+type   = "github"
+url    = "https://github.com/victoredwardocallaghan/idris2-rtlsdr"
+commit = "master"
+ipkg   = "rtlsdr.ipkg"
+
+[db.web-server-racket]
+type   = "github"
+url    = "https://git.sr.ht/~janus/web-server-racket"
+commit = "master"
+ipkg   = "web-server-racket.ipkg"
+
+[db.web-server-racket-hello-world]
+type   = "github"
+url    = "https://git.sr.ht/~janus/web-server-racket-hello-world"
+commit = "master"
+ipkg   = "web-server-racket-hello-world.ipkg"
+
+[db.systemd]
+type   = "github"
+url    = "https://github.com/Matthew-Mosior/idris2-systemd"
+commit = "main"
+ipkg   = "systemd.ipkg"
+test   = "test/test.ipkg"
+
+[db.fixed]
+type   = "github"
+url    = "https://github.com/Matthew-Mosior/idris2-fixed"
+commit = "main"
+ipkg   = "fixed.ipkg"
+test   = "test/test.ipkg"
+
+[db.stringsearch-algorithms]
+type   = "github"
+url    = "https://github.com/Matthew-Mosior/idris2-stringsearch-algorithms"
+commit = "main"
+ipkg   = "stringsearch-algorithms.ipkg"
+test   = "test/test.ipkg"
+
+[db.ilex-fasta]
+type   = "github"
+url    = "https://github.com/Matthew-Mosior/idris2-bioinformatics"
+commit = "main"
+ipkg   = "fasta/ilex-fasta.ipkg"
+test   = "test/test.ipkg"
+
+[db.idris2-dep-graph]
+type   = "git"
+url    = "https://codeberg.org/tzemanovic/idris2-dep-graph"
+commit = "main"
+ipkg   = "idris2-dep-graph.ipkg"
+test   = "test/test.ipkg"
+
+[db.resource-pool]
+type   = "github"
+url    = "https://github.com/Matthew-Mosior/idris2-resource-pool"
+commit = "main"
+ipkg   = "resource-pool.ipkg"
+test   = "test/test.ipkg"
+
+[db.lsm-rrbvector]
+type   = "github"
+url    = "https://github.com/Matthew-Mosior/idris2-lsm-rrbvector"
+commit = "main"
+ipkg   = "lsm-rrbvector.ipkg"
+test   = "test/test.ipkg"
+
+[db.yaml]
+type   = "github"
+url    = "https://github.com/mitchmindtree/idris2-yaml"
+commit = "main"
+ipkg   = "yaml.ipkg"
+test   = "test/test.ipkg"
+
+[db.oracle]
+type   = "github"
+url    = "https://github.com/Matthew-Mosior/idris2-oracle"
+commit = "main"
+ipkg   = "oracle.ipkg"
+
+[db.iotaTime]
+type   = "github"
+url    = "https://github.com/jason-johnson/iotaTime"
+commit = "main"
+ipkg   = "iotaTime.ipkg"
+test   = "test/iotaTime-test.ipkg"
+
+[db.bcrypt]
+type   = "github"
+url    = "https://github.com/Matthew-Mosior/idris2-bcrypt"
+commit = "main"
+ipkg   = "bcrypt.ipkg"
 
 [db.async-kqueue]
 type   = "github"
