@@ -16,6 +16,12 @@ commit = "main"
 ipkg   = "finite.ipkg"
 test   = "test/test.ipkg"
 
+[db.pack]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-pack"
+commit = "main"
+ipkg   = "pack.ipkg"
+
 [db.async-kqueue]
 type   = "github"
 url    = "https://github.com/Matthew-Mosior/idris2-async-kqueue"
