@@ -83,10 +83,10 @@ jobs:
     name: Check package collection (macos-latest)
     runs-on: macos-latest
     env:
-      PACK_USER_DIR: $HOME/macos-user/.config/pack
-      PACK_STATE_DIR: $HOME/macos-user/.local/state/pack
-      PACK_CACHE_DIR: $HOME/macos-user/.cache/pack
-      PACK_BIN_DIR: $HOME/macos-user/.local/bin
+      PACK_USER_DIR: /Users/runner/macos-user/.config/pack
+      PACK_STATE_DIR: /Users/runner/macos-user/.local/state/pack
+      PACK_CACHE_DIR: /Users/runner/macos-user/.cache/pack
+      PACK_BIN_DIR: /Users/runner/macos-user/.local/bin
       GOFLAGS: "-buildvcs=false"
     strategy:
       fail-fast: false
