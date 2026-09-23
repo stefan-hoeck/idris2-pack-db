@@ -137,7 +137,7 @@ jobs:
           cd /tmp/idris2-pack
           make micropack SCHEME=scheme
           echo "$HOME/macos-user/.local/bin" >> "$GITHUB_PATH"
-          PATH="$HOME/macos-user.local/bin:$PATH"
+          PATH="$HOME/macos-user/.local/bin:$PATH"
           export PATH
           rm -rf /tmp/idris2-pack
       - name: Use latest pack commit
