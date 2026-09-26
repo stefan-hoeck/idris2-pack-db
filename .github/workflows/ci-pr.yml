@@ -17,8 +17,8 @@ defaults:
 
 jobs:
 
-  build:
-    name: Check package collection
+  build-ubuntu:
+    name: Check package collection (ubuntu-latest)
     runs-on: ubuntu-latest
     env:
       PACK_USER_DIR: /root/.config/pack
@@ -67,7 +67,7 @@ jobs:
       - name: Install pack-admin
         run: /root/.local/bin/pack --no-prompt install-app pack-admin
       - name: Copy HEAD
-        run: cp collections/HEAD.toml "$PACK_STATE_DIR/db/HEAD.toml"
+        run: cp collections/ubuntu-latest/HEAD.toml "$PACK_STATE_DIR/db/HEAD.toml"
       - name: Extract Collection from HEAD
         run: /root/.local/bin/pack-admin --no-prompt extract-from-head "$PACK_STATE_DIR/db/testdb.toml"
       - name: Switch to testdb
@@ -78,3 +78,84 @@ jobs:
         run: /root/.local/bin/pack-admin --no-prompt --skip-tests check-collection "$HOME/output/"
       - name: Fail if missing
         run: test -f "$HOME/output/testdb.toml"
+
+  build-macos:
+    name: Check package collection (macos-latest)
+    runs-on: macos-latest
+    env:
+      PACK_USER_DIR: /Users/runner/macos-user/.config/pack
+      PACK_STATE_DIR: /Users/runner/macos-user/.local/state/pack
+      PACK_CACHE_DIR: /Users/runner/macos-user/.cache/pack
+      PACK_BIN_DIR: /Users/runner/macos-user/.local/bin
+      GOFLAGS: "-buildvcs=false"
+    strategy:
+      fail-fast: false
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Create macos-user directory
+        run: mkdir -p "$HOME/macos-user"
+      - name: Change to macos-user directory
+        run: cd $HOME/macos-user
+      - name: Make output
+        run: mkdir -p "$HOME/macos-user/output"
+      - name: Install dependencies
+        run: |
+          set -euxo pipefail
+          brew install gmp llvm lld
+          LLVM_PREFIX="$(brew --prefix llvm)"
+          LLD_PREFIX="$(brew --prefix lld)"
+          echo "$LLVM_PREFIX/bin" >> "$GITHUB_PATH"
+          echo "$LLD_PREFIX/bin" >> "$GITHUB_PATH"
+          PATH="$LLD_PREFIX/bin:$LLVM_PREFIX/bin:$PATH"
+          export PATH
+          uname -a
+          uname -m
+      - name: Build and install Chez Scheme
+        run: |
+          set -euxo pipefail
+          git clone --depth=1 \
+            https://github.com/cisco/ChezScheme.git \
+            /tmp/ChezScheme
+          cd /tmp/ChezScheme
+          ./configure \
+            --threads \
+            --installprefix="$HOME/macos-user/.local"
+          make -j"$(sysctl -n hw.ncpu)"
+          make install
+          echo "$HOME/macos-user/.local/bin" >> "$GITHUB_PATH"
+          PATH="$HOME/macos-user/.local/bin:$PATH"
+          export PATH
+      - name: Install Idris2 and Pack
+        run: |
+          set -euxo pipefail
+          PATH="$HOME/macos-user/.local/bin:$PATH"
+          export PATH
+          git clone --depth=1 \
+            https://github.com/stefan-hoeck/idris2-pack.git \
+            /tmp/idris2-pack
+          cd /tmp/idris2-pack
+          make micropack SCHEME=scheme
+          echo "$HOME/macos-user/.local/bin" >> "$GITHUB_PATH"
+          PATH="$HOME/macos-user/.local/bin:$PATH"
+          export PATH
+          rm -rf /tmp/idris2-pack
+      - name: Use latest pack commit
+        run: |
+          pack info
+          pack update
+          pack info
+      - name: Install pack-admin
+        run: pack --no-prompt install-app pack-admin
+      - name: Copy HEAD
+        run: cp collections/macos-latest/HEAD.toml "$PACK_STATE_DIR/db/HEAD.toml"
+      - name: Extract Collection from HEAD
+        run: pack-admin --no-prompt extract-from-head "$PACK_STATE_DIR/db/testdb.toml"
+      - name: Switch to testdb
+        run: pack --no-prompt switch "testdb"
+      - name: Re-Install pack-admin
+        run: pack --no-prompt install-app pack-admin
+      - name: Check Collection
+        run: pack-admin --no-prompt --skip-tests check-collection "$HOME/macos-user/output/"
+      - name: Fail if missing
+        run: test -f "$HOME/macos-user/output/testdb.toml"
