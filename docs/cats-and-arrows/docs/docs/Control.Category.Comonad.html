@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Control.Category.Comonad</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Control.Category.Comonad
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Control.Category.Comonad</h1><span style="float:right">(<a href="Control.Category.Comonad.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt data-src-mod="Control.Category.Comonad" data-src-start="15:1" data-fc-type="virtual" id="Control.Category.Comonad.CatComonad"><code><span class="keyword">interface</span>&ensp;<a class="type" href="Control.Category.Comonad.html#Control.Category.Comonad.CatComonad"><span class="name type">CatComonad</span></a>&ensp;:&ensp;<a class="type" href="Control.Category.Core.html#Control.Category.Core.Hom"><span class="name function">Hom</span></a>&ensp;<span class="boundvar">obj</span>&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="boundvar">obj</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">obj</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd><pre>  A *comonad* `w` is a comonoid object in the category of<br>  endofunctors in `cat`, where the tensor product is given by<br>  composition. Generally, `cat` is a category, though this is not<br>  enforced by the interface.<br>  <br>  This is the interface-style definition of a comonad. For the<br>  record-style definition, see `Control.Category.Records.ComonadR`.<br>  <br>  Laws (when `cat` is a category):<br>  * `counit . cojoin = id`<br>  * `map counit . cojoin = id`<br>  * `cojoin . cojoin = map cojoin . cojoin`</pre><br>  <b>Parameters</b>:&ensp;cat,&ensp;w<br><b>Constraints</b>:&ensp;CatFunctor&ensp;cat&ensp;cat&ensp;w<br><b>Constructor</b>:&ensp;<dl class="decls"><dt data-src-mod="Control.Category.Comonad" data-src-start="15:1" data-fc-type="virtual" id="Control.Category.Comonad.MkCatComonad"><code><a class="type" href="Control.Category.Comonad.html#Control.Category.Comonad.MkCatComonad"><span class="name constructor">MkCatComonad</span></a></code></dt></dl><br><b>Methods</b>:<br><dl class="decls">  <dt data-src-mod="Control.Category.Comonad" data-src-start="33:3" data-fc-type="virtual" id="Control.Category.Comonad.cojoin"><code><a class="type" href="Control.Category.Comonad.html#Control.Category.Comonad.cojoin"><span class="name function">cojoin</span></a>&ensp;:&ensp;<span class="boundvar">cat</span>&ensp;(<span class="boundvar">w</span>&ensp;<span class="boundvar">a</span>)&ensp;(<span class="boundvar">w</span>&ensp;(<span class="boundvar">w</span>&ensp;<span class="boundvar">a</span>))</code></dt><dd><pre>  The cojoin transformation of the comonad.</pre></dd>  <dt data-src-mod="Control.Category.Comonad" data-src-start="35:3" data-fc-type="virtual" id="Control.Category.Comonad.counit"><code><a class="type" href="Control.Category.Comonad.html#Control.Category.Comonad.counit"><span class="name function">counit</span></a>&ensp;:&ensp;<span class="boundvar">cat</span>&ensp;(<span class="boundvar">w</span>&ensp;<span class="boundvar">a</span>)&ensp;<span class="boundvar">a</span></code></dt><dd><pre>  The counit transformation of the comonad.</pre></dd></dl></dd><dt data-src-mod="Control.Category.Comonad" data-src-start="33:3" data-fc-type="virtual" id="Control.Category.Comonad.cojoin"><code><a class="type" href="Control.Category.Comonad.html#Control.Category.Comonad.cojoin"><span class="name function">cojoin</span></a>&ensp;:&ensp;<a class="type" href="Control.Category.Comonad.html#Control.Category.Comonad.CatComonad"><span class="name type">CatComonad</span></a>&ensp;<span class="boundvar">cat</span>&ensp;<span class="boundvar">w</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="boundvar">cat</span>&ensp;(<span class="boundvar">w</span>&ensp;<span class="boundvar">a</span>)&ensp;(<span class="boundvar">w</span>&ensp;(<span class="boundvar">w</span>&ensp;<span class="boundvar">a</span>))</code></dt><dd><pre>  The cojoin transformation of the comonad.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt data-src-mod="Control.Category.Comonad" data-src-start="35:3" data-fc-type="virtual" id="Control.Category.Comonad.counit"><code><a class="type" href="Control.Category.Comonad.html#Control.Category.Comonad.counit"><span class="name function">counit</span></a>&ensp;:&ensp;<a class="type" href="Control.Category.Comonad.html#Control.Category.Comonad.CatComonad"><span class="name type">CatComonad</span></a>&ensp;<span class="boundvar">cat</span>&ensp;<span class="boundvar">w</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="boundvar">cat</span>&ensp;(<span class="boundvar">w</span>&ensp;<span class="boundvar">a</span>)&ensp;<span class="boundvar">a</span></code></dt><dd><pre>  The counit transformation of the comonad.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt data-src-mod="Control.Category.Comonad" data-src-start="37:1" id="Control.Category.Comonad.StrongComonad"><code><a class="type" href="Control.Category.Comonad.html#Control.Category.Comonad.StrongComonad"><span class="name function">StrongComonad</span></a>&ensp;:&ensp;<a class="type" href="Control.Category.Core.html#Control.Category.Core.Hom"><span class="name function">Hom</span></a>&ensp;<span class="boundvar">obj</span>&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="boundvar">obj</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">obj</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">obj</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="boundvar">obj</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">obj</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd><pre>  A strong comonad is a comonad that is also a costrong functor,<br>  with additional compatibility laws.<br>  <br>  Laws:<br>  * `mapr counit . costrongl = counit`<br>  * `mapl counit . costrongr = counit`<br>  * `costrongl . map costrongl . cojoin = mapr cojoin . costrongl`<br>  * `costrongr . map costrongr . cojoin = mapl cojoin . costrongr`</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt data-src-mod="Control.Category.Comonad" data-src-start="62:3" id="Control.Category.Comonad.StrongComonad.Id"><code><span class="type resolved" title="Control.Category.Comonad.StrongComonad.Id"><span class="name function">Id</span></span>&ensp;:&ensp;<a class="type" href="Control.Category.Core.html#Control.Category.Core.Category"><span class="name type">Category</span></a>&ensp;<span class="boundvar">cat</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<a class="type" href="Control.Category.Comonad.html#Control.Category.Comonad.StrongComonad"><span class="name function">StrongComonad</span></a>&ensp;<span class="boundvar">cat</span>&ensp;<span class="boundvar">ten</span>&ensp;<span class="type resolved" title="Prelude.Basics.id"><span class="name function">id</span></span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd></dl></div><footer>Produced by Idris 2 version 0.8.0-1c630e67c</footer></body></html>

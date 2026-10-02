@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Data.Container.Additive.Product.Instances</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Data.Container.Additive.Product.Instances
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Data.Container.Additive.Product.Instances</h1><span style="float:right">(<a href="Data.Container.Additive.Product.Instances.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt data-src-mod="Data.Container.Additive.Product.Instances" data-src-start="13:1" id="Data.Container.Additive.Product.Instances.Product"><code><a class="type" href="Data.Container.Additive.Product.Instances.html#Data.Container.Additive.Product.Instances.Product"><span class="name function">Product</span></a>&ensp;:&ensp;(<span class="type resolved" title="Data.Fin.Fin"><span class="name type">Fin</span></span>&ensp;<span class="boundvar">n</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Container.Additive.Object.Definition.html#Data.Container.Additive.Object.Definition.AddCont"><span class="name type">AddCont</span></a>)&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.Container.Additive.Object.Definition.html#Data.Container.Additive.Object.Definition.AddCont"><span class="name type">AddCont</span></a></code></dt><dd><pre>  The product of a finite family, a special case of `Section,` but eager<br>  Used for parameters at the moment, where all of them are updated at every<br>  step<br>  TODO there is some difference with the `Coproduct` in Base?</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt data-src-mod="Data.Container.Additive.Product.Instances" data-src-start="22:1" id="Data.Container.Additive.Product.Instances.indexShp"><code><a class="type" href="Data.Container.Additive.Product.Instances.html#Data.Container.Additive.Product.Instances.indexShp"><span class="name function">indexShp</span></a>&ensp;:&ensp;(<span class="boundvar">j</span>&ensp;:&ensp;<span class="type resolved" title="Data.Fin.Fin"><span class="name type">Fin</span></span>&ensp;<span class="boundvar">n</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;(<a class="type" href="Data.Container.Additive.Product.Instances.html#Data.Container.Additive.Product.Instances.Product"><span class="name function">Product</span></a>&ensp;<span class="boundvar">f</span>)&ensp;<span class="type resolved" title="Data.Container.Additive.Object.Definition.AddCont.(.Shp)"><span class="name function">.Shp</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="boundvar">f</span>&ensp;<span class="boundvar">j</span>)&ensp;<span class="type resolved" title="Data.Container.Additive.Object.Definition.AddCont.(.Shp)"><span class="name function">.Shp</span></span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt data-src-mod="Data.Container.Additive.Product.Instances" data-src-start="29:1" id="Data.Container.Additive.Product.Instances.tabulateShp"><code><a class="type" href="Data.Container.Additive.Product.Instances.html#Data.Container.Additive.Product.Instances.tabulateShp"><span class="name function">tabulateShp</span></a>&ensp;:&ensp;((<span class="boundvar">i</span>&ensp;:&ensp;<span class="type resolved" title="Data.Fin.Fin"><span class="name type">Fin</span></span>&ensp;<span class="boundvar">n</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="boundvar">f</span>&ensp;<span class="boundvar">i</span>)&ensp;<span class="type resolved" title="Data.Container.Additive.Object.Definition.AddCont.(.Shp)"><span class="name function">.Shp</span></span>)&ensp;<span class="keyword">-&gt;</span>&ensp;(<a class="type" href="Data.Container.Additive.Product.Instances.html#Data.Container.Additive.Product.Instances.Product"><span class="name function">Product</span></a>&ensp;<span class="boundvar">f</span>)&ensp;<span class="type resolved" title="Data.Container.Additive.Object.Definition.AddCont.(.Shp)"><span class="name function">.Shp</span></span></code></dt><dd><pre>  Eager form of `Section`, inverse to `indexShp`</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt data-src-mod="Data.Container.Additive.Product.Instances" data-src-start="36:1" id="Data.Container.Additive.Product.Instances.injectPos"><code><a class="type" href="Data.Container.Additive.Product.Instances.html#Data.Container.Additive.Product.Instances.injectPos"><span class="name function">injectPos</span></a>&ensp;:&ensp;(<span class="boundvar">j</span>&ensp;:&ensp;<span class="type resolved" title="Data.Fin.Fin"><span class="name type">Fin</span></span>&ensp;<span class="boundvar">n</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="boundvar">bp</span>&ensp;:&ensp;(<a class="type" href="Data.Container.Additive.Product.Instances.html#Data.Container.Additive.Product.Instances.Product"><span class="name function">Product</span></a>&ensp;<span class="boundvar">f</span>)&ensp;<span class="type resolved" title="Data.Container.Additive.Object.Definition.AddCont.(.Shp)"><span class="name function">.Shp</span></span>)&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="boundvar">f</span>&ensp;<span class="boundvar">j</span>)&ensp;<a class="type" href="Data.Container.Additive.Object.Definition.html#Data.Container.Additive.Object.Definition.(.PosSet)"><span class="name function">.PosSet</span></a>&ensp;(<a class="type" href="Data.Container.Additive.Product.Instances.html#Data.Container.Additive.Product.Instances.indexShp"><span class="name function">indexShp</span></a>&ensp;<span class="boundvar">j</span>&ensp;<span class="boundvar">bp</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;(<a class="type" href="Data.Container.Additive.Product.Instances.html#Data.Container.Additive.Product.Instances.Product"><span class="name function">Product</span></a>&ensp;<span class="boundvar">f</span>)&ensp;<a class="type" href="Data.Container.Additive.Object.Definition.html#Data.Container.Additive.Object.Definition.(.PosSet)"><span class="name function">.PosSet</span></a>&ensp;<span class="boundvar">bp</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt data-src-mod="Data.Container.Additive.Product.Instances" data-src-start="46:1" id="Data.Container.Additive.Product.Instances.finiteShpMon"><code><a class="type" href="Data.Container.Additive.Product.Instances.html#Data.Container.Additive.Product.Instances.finiteShpMon"><span class="name function">finiteShpMon</span></a>&ensp;:&ensp;((<span class="boundvar">i</span>&ensp;:&ensp;<span class="type resolved" title="Data.Fin.Fin"><span class="name type">Fin</span></span>&ensp;<span class="boundvar">n</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.ComMonoid.html#Data.ComMonoid.ComMonoid"><span class="name type">ComMonoid</span></a>&ensp;((<span class="boundvar">f</span>&ensp;<span class="boundvar">i</span>)&ensp;<span class="type resolved" title="Data.Container.Additive.Object.Definition.AddCont.(.Shp)"><span class="name function">.Shp</span></span>))&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Data.ComMonoid.html#Data.ComMonoid.ComMonoid"><span class="name type">ComMonoid</span></a>&ensp;((<a class="type" href="Data.Container.Additive.Product.Instances.html#Data.Container.Additive.Product.Instances.Product"><span class="name function">Product</span></a>&ensp;<span class="boundvar">f</span>)&ensp;<span class="type resolved" title="Data.Container.Additive.Object.Definition.AddCont.(.Shp)"><span class="name function">.Shp</span></span>)</code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd></dl></div><footer>Produced by Idris 2 version 0.8.0-1c630e67c</footer></body></html>
