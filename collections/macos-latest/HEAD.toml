@@ -1529,9 +1529,3 @@ type   = "github"
 url    = "https://github.com/Matthew-Mosior/idris2-bcrypt"
 commit = "main"
 ipkg   = "bcrypt.ipkg"
-
-[db.async-kqueue]
-type   = "github"
-url    = "https://github.com/Matthew-Mosior/idris2-async-kqueue"
-commit = "main"
-ipkg   = "async-kqueue.ipkg"
