@@ -34,6 +34,7 @@
 | [byteorder](https://git.sr.ht/~stygianentity/byteorder-idr) | Convert Numbers to and from collections of bytes | BBHL | [8432cdd](https://git.sr.ht/~stygianentity/byteorder-idr/commit/8432cdd74a4129f95895586cbec203b15e89c91a) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-db/docs/byteorder/docs/index.html) |
 | [bytestring](https://github.com/stefan-hoeck/idris2-bytestring) | Immutable byte vectors for Idris2 |  | [1c5c616](https://github.com/stefan-hoeck/idris2-bytestring/commit/1c5c6160eef2a91b222d219383af6901c74b57e0) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-db/docs/bytestring/docs/index.html) |
 | [c-ffi](https://codeberg.org/joelberkeley/c-ffi) | Generic C FFI utilities for Idris | Apache License, Version 2.0 | [6c54ca8](https://codeberg.org/joelberkeley/c-ffi/commit/6c54ca867a124b3fa291b2ac3acdf54cd0f30110) | success | [docs](https://stefan-hoeck.github.io/idris2-pack-db/docs/c-ffi/docs/index.html) |
+| [cats-and-arrows](https://github.com/tokinanpa/cats-and-arrows) | A categorical foundation for a new effect system | LGPL-3.0-or-later | [fea1605](https://github.com/tokinanpa/cats-and-arrows/commit/fea1605a512fe45b43b7246e03f3b4162fb2db59) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-db/docs/cats-and-arrows/docs/index.html) |
 | [chem](https://github.com/stefan-hoeck/idris2-chem) | Pure functional cheminformatics in Idris |  | [08fff45](https://github.com/stefan-hoeck/idris2-chem/commit/08fff4540e965bf21f4d9ec9a0a81df58dff923e) | success | [docs](https://stefan-hoeck.github.io/idris2-pack-db/docs/chem/docs/index.html) |
 | [chem-generators](https://github.com/stefan-hoeck/idris2-chem) | Hedgehog generators for data types in the chem library |  | [08fff45](https://github.com/stefan-hoeck/idris2-chem/commit/08fff4540e965bf21f4d9ec9a0a81df58dff923e) |  | [docs](https://stefan-hoeck.github.io/idris2-pack-db/docs/chem-generators/docs/index.html) |
 | [collection-utils](https://github.com/buzden/idris2-collection-utils) | Non-standard functions for standard Idris 2 collections | Apache-2.0 | [0ddea1f](https://github.com/buzden/idris2-collection-utils/commit/0ddea1f62ff340f12488c371fa521d2af775ceea) | failure | [docs](https://stefan-hoeck.github.io/idris2-pack-db/docs/collection-utils/docs/index.html) |
@@ -256,7 +257,6 @@
 
 | Package | Dependencies | Commit |
 | --- | --- | --- |
-| [cats-and-arrows](https://github.com/tokinanpa/cats-and-arrows) |  | [68f496b](https://github.com/tokinanpa/cats-and-arrows/commit/68f496ba684907e0526e4aee93983fee4c066f8e) |
 
 
 ## Unresolved Packages
