@@ -1,0 +1,65 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Deriving.SpecialiseData.Utils.TypeInfo</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Deriving.SpecialiseData.Utils.TypeInfo
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Deriving.SpecialiseData.Utils.TypeInfo</h1><span style="float:right">(<a href="Deriving.SpecialiseData.Utils.TypeInfo.src.html">source</a>)</span><pre>Specialiser-specific extension functions for TypeInfo, Con, and Arg
+</pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt data-src-mod="Deriving.SpecialiseData.Utils.TypeInfo" data-src-start="18:1" id="Deriving.SpecialiseData.Utils.TypeInfo.(.appsWith)"><code><a class="type" href="Deriving.SpecialiseData.Utils.TypeInfo.html#Deriving.SpecialiseData.Utils.TypeInfo.(.appsWith)"><span class="name function">.appsWith</span></a>&ensp;:&ensp;(<span class="boundvar">args</span>&ensp;:&ensp;<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;<span class="type resolved" title="Language.Reflection.Syntax.Arg"><span class="name type">Arg</span></span>)&ensp;<span class="keyword">-&gt;</span>&ensp;{<span class="keyword">auto</span>&ensp;<span class="keyword">0</span>&ensp;<span class="boundvar">_</span>&ensp;:&ensp;<span class="type resolved" title="Data.List.Quantifiers.All.All"><span class="name type">All</span></span>&ensp;<a class="type" href="Language.Reflection.Expr.html#Language.Reflection.Expr.IsNamedArg"><span class="name type">IsNamedArg</span></a>&ensp;<span class="boundvar">args</span>}&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="type resolved" title="Language.Reflection.TT.Name"><span class="name type">Name</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Language.Reflection.TTImp.TTImp"><span class="name type">TTImp</span></span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Data.SortedMap.SortedMap"><span class="name type">SortedMap</span></span>&ensp;<span class="type resolved" title="Language.Reflection.TT.Name"><span class="name type">Name</span></span>&ensp;<span class="type resolved" title="Language.Reflection.TTImp.TTImp"><span class="name type">TTImp</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;<a class="type" href="Language.Reflection.Expr.html#Language.Reflection.Expr.AnyApp"><span class="name type">AnyApp</span></a></code></dt><dd><pre>  Generate a List AnyApp for given argument List,<br>  with arguments retrieved from the map if present or generated with `fallback`</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt data-src-mod="Deriving.SpecialiseData.Utils.TypeInfo" data-src-start="32:3" id="Deriving.SpecialiseData.Utils.TypeInfo.TypeInfoInvoke.(.apply)"><code><span class="type resolved" title="Deriving.SpecialiseData.Utils.TypeInfo.TypeInfoInvoke.(.apply)"><span class="name function">.apply</span></span>&ensp;:&ensp;(<span class="boundvar">ti</span>&ensp;:&ensp;<a class="type" href="Language.Reflection.Compat.html#Language.Reflection.Compat.TypeInfo"><span class="name type">TypeInfo</span></a>)&ensp;<span class="keyword">-&gt;</span>&ensp;{<span class="keyword">auto</span>&ensp;<span class="keyword">0</span>&ensp;<span class="boundvar">_</span>&ensp;:&ensp;<a class="type" href="Language.Reflection.Compat.html#Language.Reflection.Compat.AllTyArgsNamed"><span class="name type">AllTyArgsNamed</span></a>&ensp;<span class="boundvar">ti</span>}&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="type resolved" title="Language.Reflection.TT.Name"><span class="name type">Name</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Language.Reflection.TTImp.TTImp"><span class="name type">TTImp</span></span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Data.SortedMap.SortedMap"><span class="name type">SortedMap</span></span>&ensp;<span class="type resolved" title="Language.Reflection.TT.Name"><span class="name type">Name</span></span>&ensp;<span class="type resolved" title="Language.Reflection.TTImp.TTImp"><span class="name type">TTImp</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Language.Reflection.TTImp.TTImp"><span class="name type">TTImp</span></span></code></dt><dd><pre>  Returns a full application of the given type constructor<br>  with argument values sourced from `argValues`<br>  or generated with `fallback` if not present</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt data-src-mod="Deriving.SpecialiseData.Utils.TypeInfo" data-src-start="45:3" id="Deriving.SpecialiseData.Utils.TypeInfo.ConInvoke.(.apply)"><code><span class="type resolved" title="Deriving.SpecialiseData.Utils.TypeInfo.ConInvoke.(.apply)"><span class="name function">.apply</span></span>&ensp;:&ensp;(<span class="boundvar">con</span>&ensp;:&ensp;<a class="type" href="Language.Reflection.Compat.html#Language.Reflection.Compat.Con"><span class="name type">Con</span></a>)&ensp;<span class="keyword">-&gt;</span>&ensp;{<span class="keyword">auto</span>&ensp;<span class="keyword">0</span>&ensp;<span class="boundvar">_</span>&ensp;:&ensp;<a class="type" href="Language.Reflection.Compat.html#Language.Reflection.Compat.ConArgsNamed"><span class="name type">ConArgsNamed</span></a>&ensp;<span class="boundvar">con</span>}&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="type resolved" title="Language.Reflection.TT.Name"><span class="name type">Name</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Language.Reflection.TTImp.TTImp"><span class="name type">TTImp</span></span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Data.SortedMap.SortedMap"><span class="name type">SortedMap</span></span>&ensp;<span class="type resolved" title="Language.Reflection.TT.Name"><span class="name type">Name</span></span>&ensp;<span class="type resolved" title="Language.Reflection.TTImp.TTImp"><span class="name type">TTImp</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Language.Reflection.TTImp.TTImp"><span class="name type">TTImp</span></span></code></dt><dd><pre>  Returns a full application of the given constructor<br>  with argument values sourced from `argValues`<br>  or generated with `fallback` if not present</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd></dl></div><footer>Produced by Idris 2 version 0.8.0-d87ae51c3</footer></body></html>
