@@ -514,12 +514,12 @@ commit = "master"
 ipkg   = "hmac.ipkg"
 test   = "test/test.ipkg"
 
-[db.html]
-type   = "github"
-url    = "https://codeberg.org/berg4478/idris2-html"
-commit = "main"
-ipkg   = "idris2-html.ipkg"
-tests  = "test/test.ipkg"
+# [db.html]
+# type   = "github"
+# url    = "https://codeberg.org/berg4478/idris2-html"
+# commit = "main"
+# ipkg   = "idris2-html.ipkg"
+# tests  = "test/test.ipkg"
 
 [db.idrall]
 type   = "github"
@@ -1228,11 +1228,11 @@ url    = "https://github.com/MarcelineVQ/idris2-timeit"
 commit = "main"
 ipkg   = "timeit.ipkg"
 
-# [db.type-aligned]
-# type   = "github"
-# url    = "https://gitlab.com/bss03/type-aligned.git/"
-# commit = "main"
-# ipkg   = "type-aligned.ipkg"
+[db.type-aligned]
+type   = "github"
+url    = "https://gitlab.com/bss03/type-aligned.git/"
+commit = "main"
+ipkg   = "type-aligned.ipkg"
 
 [db.tyttp]
 type   = "github"
