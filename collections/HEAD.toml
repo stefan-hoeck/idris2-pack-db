@@ -5,7 +5,7 @@ commit  = "main"
 
 [db.algdata]
 type   = "github"
-url    = "https://gitlab.com/avidela/algebraic-data"
+url    = "https://gitlab.com/avidela/algebraic-data.git/"
 commit = "main"
 ipkg   = "algdata.ipkg"
 
@@ -195,7 +195,7 @@ ipkg   = "containers.ipkg"
 
 [db.continuation-monad]
 type = "git"
-url = "https://gitlab.com/avidela/continuation-monad"
+url = "https://gitlab.com/avidela/continuation-monad.git/"
 commit = "main"
 ipkg = "continuation-monad.ipkg"
 
@@ -445,7 +445,7 @@ ipkg   = "freer.ipkg"
 
 [db.fs-utils]
 type = "git"
-url = "https://gitlab.com/avidela/fs-utils"
+url = "https://gitlab.com/avidela/fs-utils.git/"
 commit = "main"
 ipkg = "fs-utils.ipkg"
 
@@ -613,7 +613,7 @@ test   = "test/test.ipkg"
 
 [db.jsonrpc]
 type   = "git"
-url    = "https://gitlab.com/avidela/idris2-jsonrpc"
+url    = "https://gitlab.com/avidela/idris2-jsonrpc.git/"
 commit = "main"
 ipkg   = "jsonrpc.ipkg"
 test   = "test/test.ipkg"
@@ -762,7 +762,7 @@ ipkg   = "ncurses-idris.ipkg"
 
 [db.nested]
 type   = "github"
-url    = "https://gitlab.com/bss03/nested"
+url    = "https://gitlab.com/bss03/nested.git/"
 commit = "main"
 ipkg   = "nested.ipkg"
 
@@ -774,7 +774,7 @@ ipkg   = "numidr.ipkg"
 
 [db.okasaki-pfds]
 type   = "github"
-url    = "https://gitlab.com/bss03/idris2-okasaki-pfds"
+url    = "https://gitlab.com/bss03/idris2-okasaki-pfds.git/"
 commit = "master"
 ipkg   = "okasaki-pfds.ipkg"
 
@@ -871,7 +871,7 @@ test   = "test/test.ipkg"
 
 [db.pipelines]
 type   = "git"
-url    = "https://gitlab.com/glaive-research/pipelines.git"
+url    = "https://gitlab.com/glaive-research/pipelines.git/"
 commit = "main"
 ipkg   = "pipelines.ipkg"
 
@@ -1039,7 +1039,7 @@ ipkg   = "scgi.ipkg"
 
 [db.simple-tests]
 type   = "git"
-url    = "https://gitlab.com/avidela/idris2-simple-tests"
+url    = "https://gitlab.com/avidela/idris2-simple-tests.git/"
 commit = "main"
 ipkg   = "simple-tests.ipkg"
 test   = "test/test.ipkg"
@@ -1091,19 +1091,19 @@ ipkg   = "sqlite3-streams/sqlite3-streams.ipkg"
 
 # [db.stellar-api]
 # type   = "git"
-# url    = "https://gitlab.com/avidela/stellar"
+# url    = "https://gitlab.com/avidela/stellar.git/"
 # commit = "main"
 # ipkg   = "api/stellar-api.ipkg"
-# 
+#
 # [db.stellar-http]
 # type   = "git"
-# url    = "https://gitlab.com/avidela/stellar"
+# url    = "https://gitlab.com/avidela/stellar.git/"
 # commit = "main"
 # ipkg   = "http/stellar-http.ipkg"
-# 
+#
 # [db.stellar-sql]
 # type   = "git"
-# url    = "https://gitlab.com/avidela/stellar"
+# url    = "https://gitlab.com/avidela/stellar.git/"
 # commit = "main"
 # ipkg   = "sql/stellar-sql.ipkg"
 
@@ -1168,7 +1168,7 @@ ipkg   = "tailrec.ipkg"
 
 [db.telescope]
 type   = "git"
-url    = "https://gitlab.com/avidela/idris2-telescope.git"
+url    = "https://gitlab.com/avidela/idris2-telescope.git/"
 commit = "main"
 ipkg   = "telescope.ipkg"
 
@@ -1230,7 +1230,7 @@ ipkg   = "timeit.ipkg"
 
 # [db.type-aligned]
 # type   = "github"
-# url    = "https://gitlab.com/bss03/type-aligned"
+# url    = "https://gitlab.com/bss03/type-aligned.git/"
 # commit = "main"
 # ipkg   = "type-aligned.ipkg"
 
