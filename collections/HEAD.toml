@@ -1064,7 +1064,7 @@ url    = "https://github.com/stefan-hoeck/idris2-sop"
 commit = "main"
 ipkg   = "sop.ipkg"
 
-[db.spesialise-data]
+[db.specialise-data]
 type   = "git"
 url    = "https://github.com/DepTyCheck/idris2-specialise-data"
 commit = "master"
