@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>System.Zlib.Constant</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : System.Zlib.Constant
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>System.Zlib.Constant</h1><span style="float:right">(<a href="System.Zlib.Constant.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt data-src-mod="System.Zlib.Constant" data-src-start="6:1" id="System.Zlib.Constant.ZlibConstant"><code><span class="keyword">data</span>&ensp;<a class="type" href="System.Zlib.Constant.html#System.Zlib.Constant.ZlibConstant"><span class="name type">ZlibConstant</span></a>&ensp;:&ensp;<span class="name type">Type</span></code></dt><dd><pre>  Constants that zlib defines.<br>  </pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span><br>  <b>Constructors</b>:<br><dl class="decls">  <dt data-src-mod="System.Zlib.Constant" data-src-start="7:5" id="System.Zlib.Constant.Z_OK"><code><a class="type" href="System.Zlib.Constant.html#System.Zlib.Constant.Z_OK"><span class="name constructor">Z_OK</span></a>&ensp;:&ensp;<a class="type" href="System.Zlib.Constant.html#System.Zlib.Constant.ZlibConstant"><span class="name type">ZlibConstant</span></a></code></dt>  <dt data-src-mod="System.Zlib.Constant" data-src-start="8:5" id="System.Zlib.Constant.Z_STREAM_END"><code><a class="type" href="System.Zlib.Constant.html#System.Zlib.Constant.Z_STREAM_END"><span class="name constructor">Z_STREAM_END</span></a>&ensp;:&ensp;<a class="type" href="System.Zlib.Constant.html#System.Zlib.Constant.ZlibConstant"><span class="name type">ZlibConstant</span></a></code></dt>  <dt data-src-mod="System.Zlib.Constant" data-src-start="9:5" id="System.Zlib.Constant.Z_FINISH"><code><a class="type" href="System.Zlib.Constant.html#System.Zlib.Constant.Z_FINISH"><span class="name constructor">Z_FINISH</span></a>&ensp;:&ensp;<a class="type" href="System.Zlib.Constant.html#System.Zlib.Constant.ZlibConstant"><span class="name type">ZlibConstant</span></a></code></dt>  <dt data-src-mod="System.Zlib.Constant" data-src-start="10:5" id="System.Zlib.Constant.Z_NEED_DICT"><code><a class="type" href="System.Zlib.Constant.html#System.Zlib.Constant.Z_NEED_DICT"><span class="name constructor">Z_NEED_DICT</span></a>&ensp;:&ensp;<a class="type" href="System.Zlib.Constant.html#System.Zlib.Constant.ZlibConstant"><span class="name type">ZlibConstant</span></a></code></dt>  <dt data-src-mod="System.Zlib.Constant" data-src-start="11:5" id="System.Zlib.Constant.Z_ERRNO"><code><a class="type" href="System.Zlib.Constant.html#System.Zlib.Constant.Z_ERRNO"><span class="name constructor">Z_ERRNO</span></a>&ensp;:&ensp;<a class="type" href="System.Zlib.Constant.html#System.Zlib.Constant.ZlibConstant"><span class="name type">ZlibConstant</span></a></code></dt>  <dt data-src-mod="System.Zlib.Constant" data-src-start="12:5" id="System.Zlib.Constant.Z_STREAM_ERROR"><code><a class="type" href="System.Zlib.Constant.html#System.Zlib.Constant.Z_STREAM_ERROR"><span class="name constructor">Z_STREAM_ERROR</span></a>&ensp;:&ensp;<a class="type" href="System.Zlib.Constant.html#System.Zlib.Constant.ZlibConstant"><span class="name type">ZlibConstant</span></a></code></dt>  <dt data-src-mod="System.Zlib.Constant" data-src-start="13:5" id="System.Zlib.Constant.Z_DATA_ERROR"><code><a class="type" href="System.Zlib.Constant.html#System.Zlib.Constant.Z_DATA_ERROR"><span class="name constructor">Z_DATA_ERROR</span></a>&ensp;:&ensp;<a class="type" href="System.Zlib.Constant.html#System.Zlib.Constant.ZlibConstant"><span class="name type">ZlibConstant</span></a></code></dt>  <dt data-src-mod="System.Zlib.Constant" data-src-start="14:5" id="System.Zlib.Constant.Z_MEM_ERROR"><code><a class="type" href="System.Zlib.Constant.html#System.Zlib.Constant.Z_MEM_ERROR"><span class="name constructor">Z_MEM_ERROR</span></a>&ensp;:&ensp;<a class="type" href="System.Zlib.Constant.html#System.Zlib.Constant.ZlibConstant"><span class="name type">ZlibConstant</span></a></code></dt>  <dt data-src-mod="System.Zlib.Constant" data-src-start="15:5" id="System.Zlib.Constant.Z_BUF_ERROR"><code><a class="type" href="System.Zlib.Constant.html#System.Zlib.Constant.Z_BUF_ERROR"><span class="name constructor">Z_BUF_ERROR</span></a>&ensp;:&ensp;<a class="type" href="System.Zlib.Constant.html#System.Zlib.Constant.ZlibConstant"><span class="name type">ZlibConstant</span></a></code></dt>  <dt data-src-mod="System.Zlib.Constant" data-src-start="16:5" id="System.Zlib.Constant.Z_VERSION_ERROR"><code><a class="type" href="System.Zlib.Constant.html#System.Zlib.Constant.Z_VERSION_ERROR"><span class="name constructor">Z_VERSION_ERROR</span></a>&ensp;:&ensp;<a class="type" href="System.Zlib.Constant.html#System.Zlib.Constant.ZlibConstant"><span class="name type">ZlibConstant</span></a></code></dt>  <dt data-src-mod="System.Zlib.Constant" data-src-start="17:5" id="System.Zlib.Constant.Z_DEFLATED"><code><a class="type" href="System.Zlib.Constant.html#System.Zlib.Constant.Z_DEFLATED"><span class="name constructor">Z_DEFLATED</span></a>&ensp;:&ensp;<a class="type" href="System.Zlib.Constant.html#System.Zlib.Constant.ZlibConstant"><span class="name type">ZlibConstant</span></a></code></dt>  <dt data-src-mod="System.Zlib.Constant" data-src-start="18:5" id="System.Zlib.Constant.Z_DEFAULT_STRATEGY"><code><a class="type" href="System.Zlib.Constant.html#System.Zlib.Constant.Z_DEFAULT_STRATEGY"><span class="name constructor">Z_DEFAULT_STRATEGY</span></a>&ensp;:&ensp;<a class="type" href="System.Zlib.Constant.html#System.Zlib.Constant.ZlibConstant"><span class="name type">ZlibConstant</span></a></code></dt>  <dt data-src-mod="System.Zlib.Constant" data-src-start="19:5" id="System.Zlib.Constant.Z_DEFAULT_MEM_LEVEL"><code><a class="type" href="System.Zlib.Constant.html#System.Zlib.Constant.Z_DEFAULT_MEM_LEVEL"><span class="name constructor">Z_DEFAULT_MEM_LEVEL</span></a>&ensp;:&ensp;<a class="type" href="System.Zlib.Constant.html#System.Zlib.Constant.ZlibConstant"><span class="name type">ZlibConstant</span></a></code></dt></dl></dd><dt data-src-mod="System.Zlib.Constant" data-src-start="21:1" id="System.Zlib.Constant.zlibconstantToInt"><code><a class="type" href="System.Zlib.Constant.html#System.Zlib.Constant.zlibconstantToInt"><span class="name function">zlibconstantToInt</span></a>&ensp;:&ensp;<a class="type" href="System.Zlib.Constant.html#System.Zlib.Constant.ZlibConstant"><span class="name type">ZlibConstant</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Int</span></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd></dl></div><footer>Produced by Idris 2 version 0.8.0-7f0189f64</footer></body></html>

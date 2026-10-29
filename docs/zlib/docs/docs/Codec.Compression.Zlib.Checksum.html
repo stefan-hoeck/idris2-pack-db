@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Codec.Compression.Zlib.Checksum</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Codec.Compression.Zlib.Checksum
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Codec.Compression.Zlib.Checksum</h1><span style="float:right">(<a href="Codec.Compression.Zlib.Checksum.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt data-src-mod="Codec.Compression.Zlib.Checksum" data-src-start="12:1" id="Codec.Compression.Zlib.Checksum.crc32Update"><code><a class="type" href="Codec.Compression.Zlib.Checksum.html#Codec.Compression.Zlib.Checksum.crc32Update"><span class="name function">crc32Update</span></a>&ensp;:&ensp;<span class="name type">Bits32</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Data.Buffer.Core.IBuffer"><span class="name type">IBuffer</span></span>&ensp;<span class="boundvar">n</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="PrimIO.IO"><span class="name type">IO</span></span>&ensp;<span class="name type">Bits32</span></code></dt><dd><pre>  Update an existing CRC-32 checksum with the contents of a byte buffer.<br>  <br>  This function can be used incrementally by passing the checksum returned<br>  from one invocation as the initial checksum of the next.<br>  <br>  The initial CRC-32 value for a new checksum is `0`.<br>  </pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt data-src-mod="Codec.Compression.Zlib.Checksum" data-src-start="27:1" id="Codec.Compression.Zlib.Checksum.crc32"><code><a class="type" href="Codec.Compression.Zlib.Checksum.html#Codec.Compression.Zlib.Checksum.crc32"><span class="name function">crc32</span></a>&ensp;:&ensp;<span class="type resolved" title="Data.Buffer.Core.IBuffer"><span class="name type">IBuffer</span></span>&ensp;<span class="boundvar">n</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="PrimIO.IO"><span class="name type">IO</span></span>&ensp;<span class="name type">Bits32</span></code></dt><dd><pre>  Compute the CRC-32 checksum of an immutable byte buffer.<br>  <br>  This is equivalent to calling `crc32Update` with zlib&apos;s initial CRC-32<br>  value of `0`.<br>  </pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt data-src-mod="Codec.Compression.Zlib.Checksum" data-src-start="43:1" id="Codec.Compression.Zlib.Checksum.adler32Update"><code><a class="type" href="Codec.Compression.Zlib.Checksum.html#Codec.Compression.Zlib.Checksum.adler32Update"><span class="name function">adler32Update</span></a>&ensp;:&ensp;<span class="name type">Bits32</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Data.Buffer.Core.IBuffer"><span class="name type">IBuffer</span></span>&ensp;<span class="boundvar">n</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="PrimIO.IO"><span class="name type">IO</span></span>&ensp;<span class="name type">Bits32</span></code></dt><dd><pre>  Update an existing Adler-32 checksum with the contents of a byte buffer.<br>  <br>  This function can be used incrementally by passing the checksum returned<br>  from one invocation as the initial checksum of the next.<br>  <br>  The initial Adler-32 value for a new checksum is `1`.<br>  </pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt data-src-mod="Codec.Compression.Zlib.Checksum" data-src-start="58:1" id="Codec.Compression.Zlib.Checksum.adler32"><code><a class="type" href="Codec.Compression.Zlib.Checksum.html#Codec.Compression.Zlib.Checksum.adler32"><span class="name function">adler32</span></a>&ensp;:&ensp;<span class="type resolved" title="Data.Buffer.Core.IBuffer"><span class="name type">IBuffer</span></span>&ensp;<span class="boundvar">n</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="PrimIO.IO"><span class="name type">IO</span></span>&ensp;<span class="name type">Bits32</span></code></dt><dd><pre>  Compute the Adler-32 checksum of an immutable byte buffer.<br>  <br>  This is equivalent to calling `adler32Update` with zlib&apos;s initial<br>  Adler-32 value of `1`.<br>  </pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd></dl></div><footer>Produced by Idris 2 version 0.8.0-7f0189f64</footer></body></html>

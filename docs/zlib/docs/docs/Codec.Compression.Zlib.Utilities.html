@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Codec.Compression.Zlib.Utilities</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Codec.Compression.Zlib.Utilities
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Codec.Compression.Zlib.Utilities</h1><span style="float:right">(<a href="Codec.Compression.Zlib.Utilities.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt data-src-mod="Codec.Compression.Zlib.Utilities" data-src-start="22:1" id="Codec.Compression.Zlib.Utilities.grabMonotonicTime"><code><a class="type" href="Codec.Compression.Zlib.Utilities.html#Codec.Compression.Zlib.Utilities.grabMonotonicTime"><span class="name function">grabMonotonicTime</span></a>&ensp;:&ensp;<span class="type resolved" title="Control.Monad.Elin.Elin"><span class="name type">Elin</span></span>&ensp;<span class="type resolved" title="Data.Linear.Token.World"><span class="name type">World</span></span>&ensp;[<span class="type resolved" title="System.Posix.Errno.Type.Errno"><span class="name type">Errno</span></span>]&ensp;(<span class="type resolved" title="System.Posix.Timer.Prim.IClock"><span class="name function">IClock</span></span>&ensp;<span class="type resolved" title="System.Posix.Timer.Types.CLOCK_MONOTONIC"><span class="name constructor">CLOCK_MONOTONIC</span></span>)</code></dt><dd><pre>  Grab CLOCK_MONOTONIC.<br>  </pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt data-src-mod="Codec.Compression.Zlib.Utilities" data-src-start="28:1" id="Codec.Compression.Zlib.Utilities.grabRealTime"><code><a class="type" href="Codec.Compression.Zlib.Utilities.html#Codec.Compression.Zlib.Utilities.grabRealTime"><span class="name function">grabRealTime</span></a>&ensp;:&ensp;<span class="type resolved" title="Control.Monad.Elin.Elin"><span class="name type">Elin</span></span>&ensp;<span class="type resolved" title="Data.Linear.Token.World"><span class="name type">World</span></span>&ensp;[<span class="type resolved" title="System.Posix.Errno.Type.Errno"><span class="name type">Errno</span></span>]&ensp;(<span class="type resolved" title="System.Posix.Timer.Prim.IClock"><span class="name function">IClock</span></span>&ensp;<span class="type resolved" title="System.Posix.Timer.Types.CLOCK_REALTIME"><span class="name constructor">CLOCK_REALTIME</span></span>)</code></dt><dd><pre>  Grab CLOCK_REALTIME.<br>  </pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt data-src-mod="Codec.Compression.Zlib.Utilities" data-src-start="34:1" id="Codec.Compression.Zlib.Utilities.zlibStatusMessage"><code><a class="type" href="Codec.Compression.Zlib.Utilities.html#Codec.Compression.Zlib.Utilities.zlibStatusMessage"><span class="name function">zlibStatusMessage</span></a>&ensp;:&ensp;<span class="name type">Int</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">String</span></code></dt><dd><pre>  Converts a zlib status code to a human-readable description.<br>  </pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt data-src-mod="Codec.Compression.Zlib.Utilities" data-src-start="61:1" id="Codec.Compression.Zlib.Utilities.mkError"><code><a class="type" href="Codec.Compression.Zlib.Utilities.html#Codec.Compression.Zlib.Utilities.mkError"><span class="name function">mkError</span></a>&ensp;:&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="PrimIO.IO"><span class="name type">IO</span></span>&ensp;(<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;<a class="type" href="System.Zlib.Error.html#System.Zlib.Error.ZlibError"><span class="name type">ZlibError</span></a>)</code></dt><dd><pre>  Constructs a timestamped zlib error.<br>  <br>  If obtaining CLOCK_REALTIME itself fails, both the timer error and the<br>  original zlib error are retained without timestamps.<br>  </pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt data-src-mod="Codec.Compression.Zlib.Utilities" data-src-start="90:1" id="Codec.Compression.Zlib.Utilities.statusError"><code><a class="type" href="Codec.Compression.Zlib.Utilities.html#Codec.Compression.Zlib.Utilities.statusError"><span class="name function">statusError</span></a>&ensp;:&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Int</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="PrimIO.IO"><span class="name type">IO</span></span>&ensp;(<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;<a class="type" href="System.Zlib.Error.html#System.Zlib.Error.ZlibError"><span class="name type">ZlibError</span></a>)</code></dt><dd><pre>  Constructs a timestamped `ZlibError` from a raw zlib status code.<br>  </pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt data-src-mod="Codec.Compression.Zlib.Utilities" data-src-start="99:1" id="Codec.Compression.Zlib.Utilities.freezeOutput"><code><a class="type" href="Codec.Compression.Zlib.Utilities.html#Codec.Compression.Zlib.Utilities.freezeOutput"><span class="name function">freezeOutput</span></a>&ensp;:&ensp;(<span class="boundvar">used</span>&ensp;:&ensp;<span class="type resolved" title="Prelude.Types.Nat"><span class="name type">Nat</span></span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Data.Buffer.Core.IOBuffer"><span class="name function">IOBuffer</span></span>&ensp;<span class="boundvar">capacity</span>&ensp;<span class="keyword">-&gt;</span>&ensp;{<span class="keyword">auto</span>&ensp;<span class="keyword">0</span>&ensp;<span class="boundvar">_</span>&ensp;:&ensp;<span class="type resolved" title="Data.Nat.LTE"><span class="name type">LTE</span></span>&ensp;<span class="boundvar">used</span>&ensp;<span class="boundvar">capacity</span>}&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="PrimIO.IO"><span class="name type">IO</span></span>&ensp;<span class="type resolved" title="Data.Buffer.Core.AnyBuffer"><span class="name type">AnyBuffer</span></span></code></dt><dd><pre>  Copy the used prefix of a mutable output buffer into an independently<br>  owned immutable buffer.<br>  </pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd></dl></div><footer>Produced by Idris 2 version 0.8.0-7f0189f64</footer></body></html>
