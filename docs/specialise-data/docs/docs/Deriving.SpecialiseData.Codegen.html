@@ -1,0 +1,65 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Deriving.SpecialiseData.Codegen</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Deriving.SpecialiseData.Codegen
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Deriving.SpecialiseData.Codegen</h1><span style="float:right">(<a href="Deriving.SpecialiseData.Codegen.src.html">source</a>)</span><pre>Toplevel code generation functions
+</pre></div><h2>Reexports</h2><code><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Data.DPair<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Deriving.SpecialiseData.Codegen.Type<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Deriving.SpecialiseData.Codegen.Cast<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Deriving.SpecialiseData.Codegen.Claims<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Deriving.SpecialiseData.Codegen.InterfaceImpls</code><h2>Definitions</h2><dl class="decls"><dt data-src-mod="Deriving.SpecialiseData.Codegen" data-src-start="36:1" id="Deriving.SpecialiseData.Codegen.mkSpecTySig"><code><a class="type" href="Deriving.SpecialiseData.Codegen.html#Deriving.SpecialiseData.Codegen.mkSpecTySig"><span class="name function">mkSpecTySig</span></a>&ensp;:&ensp;<a class="type" href="Deriving.SpecialiseData.Task.html#Deriving.SpecialiseData.Task.SpecTask"><span class="name type">SpecTask</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Language.Reflection.TTImp.Decl"><span class="name type">Decl</span></span></code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt data-src-mod="Deriving.SpecialiseData.Codegen" data-src-start="40:1" id="Deriving.SpecialiseData.Codegen.specClaims"><code><a class="type" href="Deriving.SpecialiseData.Codegen.html#Deriving.SpecialiseData.Codegen.specClaims"><span class="name function">specClaims</span></a>&ensp;:&ensp;<span class="type resolved" title="Language.Reflection.Logging.MonadLog"><span class="name type">MonadLog</span></span>&ensp;<span class="boundvar">m</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<a class="type" href="Deriving.SpecialiseData.Task.html#Deriving.SpecialiseData.Task.SpecTask"><span class="name type">SpecTask</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Deriving.SpecialiseData.Unification.html#Deriving.SpecialiseData.Unification.UniResults"><span class="name function">UniResults</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="boundvar">mt</span>&ensp;:&ensp;<span class="type resolved" title="Language.Reflection.Compat.TypeInfo"><span class="name type">TypeInfo</span></span>)&ensp;<span class="keyword">-&gt;</span>&ensp;{<span class="keyword">auto</span>&ensp;<span class="keyword">0</span>&ensp;<span class="boundvar">_</span>&ensp;:&ensp;<span class="type resolved" title="Language.Reflection.Compat.AllTyArgsNamed"><span class="name type">AllTyArgsNamed</span></span>&ensp;<span class="boundvar">mt</span>}&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Deriving.SpecialiseData.Helpers.html#Deriving.SpecialiseData.Helpers.TypeMeta"><span class="name type">TypeMeta</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">m</span>&ensp;(<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;<span class="type resolved" title="Language.Reflection.TTImp.Decl"><span class="name type">Decl</span></span>)</code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt data-src-mod="Deriving.SpecialiseData.Codegen" data-src-start="80:1" id="Deriving.SpecialiseData.Codegen.specBodies"><code><a class="type" href="Deriving.SpecialiseData.Codegen.html#Deriving.SpecialiseData.Codegen.specBodies"><span class="name function">specBodies</span></a>&ensp;:&ensp;<span class="type resolved" title="Language.Reflection.Logging.MonadLog"><span class="name type">MonadLog</span></span>&ensp;<span class="boundvar">m</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<a class="type" href="Deriving.SpecialiseData.Task.html#Deriving.SpecialiseData.Task.SpecTask"><span class="name type">SpecTask</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Deriving.SpecialiseData.Unification.html#Deriving.SpecialiseData.Unification.UniResults"><span class="name function">UniResults</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="boundvar">mt</span>&ensp;:&ensp;<span class="type resolved" title="Language.Reflection.Compat.TypeInfo"><span class="name type">TypeInfo</span></span>)&ensp;<span class="keyword">-&gt;</span>&ensp;{<span class="keyword">auto</span>&ensp;<span class="keyword">0</span>&ensp;<span class="boundvar">_</span>&ensp;:&ensp;<span class="type resolved" title="Language.Reflection.Compat.AllTyArgsNamed"><span class="name type">AllTyArgsNamed</span></span>&ensp;<span class="boundvar">mt</span>}&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Deriving.SpecialiseData.Helpers.html#Deriving.SpecialiseData.Helpers.TypeMeta"><span class="name type">TypeMeta</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">m</span>&ensp;(<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;<span class="type resolved" title="Language.Reflection.TTImp.Decl"><span class="name type">Decl</span></span>)</code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt data-src-mod="Deriving.SpecialiseData.Codegen" data-src-start="129:1" id="Deriving.SpecialiseData.Codegen.specDecls"><code><a class="type" href="Deriving.SpecialiseData.Codegen.html#Deriving.SpecialiseData.Codegen.specDecls"><span class="name function">specDecls</span></a>&ensp;:&ensp;<span class="type resolved" title="Language.Reflection.Logging.MonadLog"><span class="name type">MonadLog</span></span>&ensp;<span class="boundvar">m</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<a class="type" href="Deriving.SpecialiseData.Task.html#Deriving.SpecialiseData.Task.SpecTask"><span class="name type">SpecTask</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Deriving.SpecialiseData.Unification.html#Deriving.SpecialiseData.Unification.UniResults"><span class="name function">UniResults</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="boundvar">mt</span>&ensp;:&ensp;<span class="type resolved" title="Language.Reflection.Compat.TypeInfo"><span class="name type">TypeInfo</span></span>)&ensp;<span class="keyword">-&gt;</span>&ensp;{<span class="keyword">auto</span>&ensp;<span class="keyword">0</span>&ensp;<span class="boundvar">_</span>&ensp;:&ensp;<span class="type resolved" title="Language.Reflection.Compat.AllTyArgsNamed"><span class="name type">AllTyArgsNamed</span></span>&ensp;<span class="boundvar">mt</span>}&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Deriving.SpecialiseData.Helpers.html#Deriving.SpecialiseData.Helpers.TypeMeta"><span class="name type">TypeMeta</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">m</span>&ensp;(<span class="type resolved" title="Prelude.Basics.List"><span class="name type">List</span></span>&ensp;<span class="type resolved" title="Language.Reflection.TTImp.Decl"><span class="name type">Decl</span></span>)</code></dt><dd><pre>  Generate declarations for given task, unification results, and specialised type</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd></dl></div><footer>Produced by Idris 2 version 0.8.0-c35a6bd16</footer></body></html>
