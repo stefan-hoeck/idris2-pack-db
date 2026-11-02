@@ -888,6 +888,12 @@ url    = "https://codeberg.org/joelberkeley/spidr"
 commit = "master"
 ipkg   = "pjrt-plugins/xla-cuda/pjrt-plugin-xla-cuda.ipkg"
 
+[db.pjrt-plugin-xla-rocm]
+type   = "github"
+url    = "https://codeberg.org/joelberkeley/spidr"
+commit = "master"
+ipkg   = "pjrt-plugins/xla-rocm/pjrt-plugin-xla-rocm.ipkg"
+
 [db.pg-idris]
 type   = "github"
 url    = "https://github.com/mattpolzin/pg-idris"
