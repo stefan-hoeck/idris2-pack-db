@@ -1,0 +1,65 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Text.Html</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Text.Html
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Text.Html</h1><span style="float:right">(<a href="Text.Html.src.html">source</a>)</span><pre>Main module exporting all the necessary modules for using this library.
+</pre></div><h2>Reexports</h2><code><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Data.Either<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Data.List1<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Data.String<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Text.Html.Attributes<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Text.Html.Attributes.Types<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Text.Html.Attributes.Validation<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Text.Html.Elements<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Text.Html.Elements.NoAttr<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Text.Html.Elements.Raw<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Text.Html.Elements.Runtime<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Text.Html.Elements.Types<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Text.Html.Elements.Validation<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Text.Html.Generator<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Text.Html.Types<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Text.Html.Utils<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Text.Html.Values</code><h2>Definitions</h2><dl class="decls"></dl></div><footer>Produced by Idris 2 version 0.8.0-708075dc5</footer></body></html>

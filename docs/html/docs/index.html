@@ -1,0 +1,232 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>idris2-html</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="index">
+<header>
+  <strong>Idris2Doc</strong> : idris2-html
+  <nav><a href="index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><h1>Package idris2-html - Namespaces</h1><ul class="names"><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Text.Html.html">Text.Html</a>
+    </div>
+    <div class="index-namespace-doc">
+      Main module exporting all the necessary modules for using this library.
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Text.Html.Attributes.html">Text.Html.Attributes</a>
+    </div>
+    <div class="index-namespace-doc">
+      HTML element attributes.
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Text.Html.Attributes.Types.html">Text.Html.Attributes.Types</a>
+    </div>
+    <div class="index-namespace-doc">
+      Note: only currently valid attributes as per [MDN website][1] are listed.
+Experimental or deprecated attributes are on purpose not available.
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Text.Html.Attributes.Validation.html">Text.Html.Attributes.Validation</a>
+    </div>
+    <div class="index-namespace-doc">
+      Collection of validation functions for HTML element attributes.
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Text.Html.Elements.html">Text.Html.Elements</a>
+    </div>
+    <div class="index-namespace-doc">
+      Functions to create HTML elements with compile time validation.
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Text.Html.Elements.Elab.html">Text.Html.Elements.Elab</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Text.Html.Elements.NoAttr.html">Text.Html.Elements.NoAttr</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Text.Html.Elements.Raw.html">Text.Html.Elements.Raw</a>
+    </div>
+    <div class="index-namespace-doc">
+      Raw constructors for elements without any checks.
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Text.Html.Elements.Runtime.html">Text.Html.Elements.Runtime</a>
+    </div>
+    <div class="index-namespace-doc">
+      Runtime HTML elements constructors.
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Text.Html.Elements.Types.html">Text.Html.Elements.Types</a>
+    </div>
+    <div class="index-namespace-doc">
+      
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Text.Html.Elements.Validation.html">Text.Html.Elements.Validation</a>
+    </div>
+    <div class="index-namespace-doc">
+      Collection of validation functions for HTML elements.
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Text.Html.Generator.html">Text.Html.Generator</a>
+    </div>
+    <div class="index-namespace-doc">
+      HTML code generator.
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Text.Html.Runtime.html">Text.Html.Runtime</a>
+    </div>
+    <div class="index-namespace-doc">
+      Runtime HTML elements constructors without "either_" prefix.
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Text.Html.Runtime.NoAttr.html">Text.Html.Runtime.NoAttr</a>
+    </div>
+    <div class="index-namespace-doc">
+      Runtime HTML elements constructors without "either_" prefix nor attributes.
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Text.Html.Types.html">Text.Html.Types</a>
+    </div>
+    <div class="index-namespace-doc">
+      Types which are common to HTML elements and attributes.
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Text.Html.Utils.html">Text.Html.Utils</a>
+    </div>
+    <div class="index-namespace-doc">
+      Various utility functions used across the library.
+
+    </div>
+  </div>
+</li><li>
+  <div class="index-wrapper">
+    <div class="index-namespace-url">
+      <a class="code" href="docs/Text.Html.Values.html">Text.Html.Values</a>
+    </div>
+    <div class="index-namespace-doc">
+      Values for HTML elements and attributes.
+
+    </div>
+  </div>
+</li></ul></div><footer>Produced by Idris 2 version 0.8.0-708075dc5</footer></body></html>
