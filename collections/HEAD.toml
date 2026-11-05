@@ -518,7 +518,7 @@ test   = "test/test.ipkg"
 type   = "github"
 url    = "https://codeberg.org/berg4478/idris2-html"
 commit = "main"
-ipkg   = "idris2-html.ipkg"
+ipkg   = "html.ipkg"
 tests  = "test/test.ipkg"
 
 [db.idrall]
