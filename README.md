@@ -13,7 +13,7 @@ make sure the necessary libraries are installed by adjusting
 all three workflows under .github/workflows.
 
 As of [this](https://github.com/stefan-hoeck/idris2-pack/pull/417) PR,
-`pack-admin` now looks at the `runsOn` for every entry in
+`pack-admin` now looks at the `runsOn` field for every entry in
 `collections/HEAD.toml`. If there is no `runsOn` field for a given
 entry, then it is assumed that the given entry can build and test against
 both `ubuntu` and `macos` platforms.
