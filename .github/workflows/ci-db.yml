@@ -57,8 +57,8 @@ jobs:
           apt-get install --yes curl
           # uuid
           apt-get install --yes uuid-dev
-#      - name: Use latest pack commit
-#        run: pack update
+      - name: Use latest pack commit
+        run: pack update
       - name: Install pack-admin
         run: /root/.local/bin/pack --no-prompt install-app pack-admin
       - name: Copy HEAD
@@ -158,14 +158,14 @@ jobs:
         uses: actions/upload-artifact@master
         with:
           name: freshly-generated-status
-          path: ~/output/*
+          path: ~/macos-user/output/*
           if-no-files-found: error
 
-  upload:
-    name: Upload generated files to main
+  upload_ubuntu:
+    name: Upload generated files to main (ubuntu-latest)
     runs-on: ubuntu-latest
     needs:
-      - check_db
+      - check_db_ubuntu
     steps:
       - name: Checkout pack-db
         uses: actions/checkout@v4
@@ -179,14 +179,14 @@ jobs:
           path: ~/output/
       - name: Add files
         run: |
-          cp ~/output/STATUS.md STATUS.md
-          [ -f ~/output/testdb.toml ] && cp ~/output/testdb.toml  "collections/nightly-$(date +%y%m%d).toml"
+          cp ~/output/STATUS.md STATUS-ubuntu-latest.md
+          [ -f ~/output/testdb.toml ] && cp ~/output/testdb.toml  "collections/ubuntu-latest/nightly-$(date +%y%m%d).toml"
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add STATUS.md
-          git add collections/*
+          git add STATUS-ubuntu-latest.md
+          git add collections/ubuntu-latest/*
       - name: Git commit
-        run: git commit -m "[ check ] collection update" -m "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+        run: git commit -m "[ check ] collection update (ubuntu-latest)" -m "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
       - name: Push changes
         if: always()
         uses: ad-m/github-push-action@master
@@ -196,11 +196,46 @@ jobs:
       - name: Fail if missing
         run: test -f "$HOME/output/testdb.toml"
 
-  upload_docs:
-    name: Upload generated API docs
+  upload_macos:
+    name: Upload generated files to main (macos-latest)
+    runs-on: macos-latest
+    needs:
+      - check_db_macos
+    steps:
+      - name: Checkout pack-db
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Get generated files
+        uses: actions/download-artifact@master
+        with:
+          name: freshly-generated-status
+          path: ~/macos-user/output/
+      - name: Add files
+        run: |
+          cp ~/macos-user/output/STATUS.md STATUS-macos-latest.md
+          [ -f ~/macos-user/output/testdb.toml ] && cp ~/macos-user/output/testdb.toml  "collections/macos-latest/nightly-$(date +%y%m%d).toml"
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add STATUS-macos-latest.md
+          git add collections/macos-latest/*
+      - name: Git commit
+        run: git commit -m "[ check ] collection update (macos-latest)" -m "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+      - name: Push changes
+        if: always()
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+      - name: Fail if missing
+        run: test -f "$HOME/macos-user/output/testdb.toml"
+
+  upload_docs_ubuntu:
+    name: Upload generated API docs (ubuntu-latest)
     runs-on: ubuntu-latest
     needs:
-      - check_db
+      - check_db_ubuntu
     steps:
       - name: Checkout pack-db
         uses: actions/checkout@v4
@@ -215,14 +250,14 @@ jobs:
           path: ~/output/
       - name: Add files
         run: |
-          cp -a ~/output/docs/* docs
+          cp -a ~/output/docs/* docs-ubuntu-latest
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add docs
+          git add docs-ubuntu-latest
       - name: Git commit
         run: |
           git diff --cached --quiet --exit-code || \
-            git commit -m "[ docs ] CI docs generation" -m "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            git commit -m "[ docs ] CI docs generation (ubuntu-latest)" -m "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
       - name: Push changes
         if: always()
         uses: ad-m/github-push-action@master
@@ -231,3 +266,39 @@ jobs:
           branch: 'docs'
       - name: Fail if missing
         run: test -f "$HOME/output/testdb.toml"
+
+  upload_docs_macos:
+    name: Upload generated API docs (macos-latest)
+    runs-on: macos-latest
+    needs:
+      - check_db_macos
+    steps:
+      - name: Checkout pack-db
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+          ref: 'docs'
+      - name: Get generated files
+        uses: actions/download-artifact@master
+        with:
+          name: freshly-generated-status
+          path: ~/macos-user/output/
+      - name: Add files
+        run: |
+          cp -a ~/macos-user/output/docs/* docs-macos-latest
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add docs-macos-latest
+      - name: Git commit
+        run: |
+          git diff --cached --quiet --exit-code || \
+            git commit -m "[ docs ] CI docs generation (macos-latest)" -m "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+      - name: Push changes
+        if: always()
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: 'docs'
+      - name: Fail if missing
+        run: test -f "$HOME/macos-user/output/testdb.toml"
