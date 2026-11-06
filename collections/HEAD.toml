@@ -5,9 +5,10 @@ commit  = "main"
 
 [db.algdata]
 type   = "github"
-url    = "https://gitlab.com/avidela/algebraic-data"
+url    = "https://gitlab.com/avidela/algebraic-data.git/"
 commit = "main"
 ipkg   = "algdata.ipkg"
+runsOn = ["ubuntu"]
 
 [db.algebra]
 type   = "github"
@@ -15,18 +16,21 @@ url    = "https://github.com/stefan-hoeck/idris2-algebra"
 commit = "main"
 ipkg   = "algebra.ipkg"
 test   = "test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.ansi]
 type   = "github"
 url    = "https://github.com/idris-community/idris2-ansi"
 commit = "main"
 ipkg   = "ansi.ipkg"
+runsOn = ["ubuntu"]
 
 [db.apache-mime-types]
 type   = "github"
 url    = "https://github.com/kbertalan/idris2-apache-mime-types"
 commit = "main"
 ipkg   = "apache-mime-types.ipkg"
+runsOn = ["ubuntu"]
 
 [db.array]
 type   = "github"
@@ -34,60 +38,77 @@ url    = "https://github.com/stefan-hoeck/idris2-array"
 commit = "main"
 ipkg   = "array.ipkg"
 test   = "test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.arrayvect]
 type   = "github"
 url    = "https://github.com/danielwaterworth/idris2-arrayvect"
 commit = "main"
 ipkg   = "arrayvect.ipkg"
+runsOn = ["ubuntu"]
 
 [db.async]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-async"
 commit = "main"
 ipkg   = "async.ipkg"
+runsOn = ["ubuntu"]
 
 [db.async-dom]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-async-dom"
 commit = "main"
 ipkg   = "async-dom.ipkg"
+runsOn = ["ubuntu"]
 
 [db.async-dom-extra]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-async-dom"
 commit = "main"
 ipkg   = "extra/async-dom-extra.ipkg"
+runsOn = ["ubuntu"]
 
 [db.async-js]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-async"
 commit = "main"
 ipkg   = "async-js/async-js.ipkg"
+runsOn = ["ubuntu"]
 
 [db.async-epoll]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-async"
 commit = "main"
 ipkg   = "async-epoll/async-epoll.ipkg"
+runsOn = ["ubuntu"]
+
+[db.async-kqueue]
+type   = "github"
+url    = "https://github.com/Matthew-Mosior/idris2-async-kqueue"
+commit = "main"
+ipkg   = "async-kqueue.ipkg"
+runsOn = ["macos"]
 
 [db.async-posix]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-async"
 commit = "main"
 ipkg   = "async-posix/async-posix.ipkg"
+runsOn = ["ubuntu"]
 
 [db.async-spec]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-async"
 commit = "main"
 ipkg   = "async-spec/async-spec.ipkg"
+runsOn = ["ubuntu"]
 
 [db.barbies]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-barbies"
 commit = "main"
 ipkg   = "barbies.ipkg"
+runsOn = ["ubuntu"]
 
 [db.base64]
 type   = "github"
@@ -95,6 +116,7 @@ url    = "https://git.sr.ht/~janus/base64"
 commit = "master"
 ipkg   = "base64.ipkg"
 test   = "test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.best-alternative]
 type   = "git"
@@ -102,6 +124,7 @@ url    = "https://github.com/buzden/idris2-best-alternative"
 commit = "master"
 ipkg   = "best-alternative.ipkg"
 test   = "tests/tests.ipkg"
+runsOn = ["ubuntu"]
 
 [db.betti]
 type   = "git"
@@ -109,6 +132,7 @@ url    = "https://github.com/ohad/betti"
 commit = "main"
 ipkg   = "betti.ipkg"
 test   = "tests/tests.ipkg"
+runsOn = ["ubuntu"]
 
 [db.blake2b]
 type   = "github"
@@ -116,6 +140,7 @@ url    = "https://github.com/stefan-hoeck/idris2-blake2b"
 commit = "main"
 ipkg   = "blake2b.ipkg"
 test   = "tests/tests.ipkg"
+runsOn = ["ubuntu"]
 
 [db.bounded-doubles]
 type   = "git"
@@ -123,6 +148,7 @@ url    = "https://github.com/buzden/idris2-bounded-doubles"
 commit = "master"
 ipkg   = "bounded-doubles.ipkg"
 test   = "tests/library-tests.ipkg"
+runsOn = ["ubuntu"]
 
 [db.bounded-doubles-hedgehog-generators]
 type   = "git"
@@ -130,24 +156,28 @@ url    = "https://github.com/buzden/idris2-bounded-doubles"
 commit = "master"
 ipkg   = "hedgehog-generators.ipkg"
 test   = "tests/generators-tests.ipkg"
+runsOn = ["ubuntu"]
 
 [db.byteorder]
 type   = "git"
 url    = "https://git.sr.ht/~stygianentity/byteorder-idr"
 commit = "trunk"
 ipkg   = "byteorder.ipkg"
+runsOn = ["ubuntu"]
 
 [db.bytestring]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-bytestring"
 commit = "main"
 ipkg   = "bytestring.ipkg"
+runsOn = ["ubuntu"]
 
 [db.cats-and-arrows]
 type   = "github"
 url    = "https://github.com/tokinanpa/cats-and-arrows"
 commit = "main"
 ipkg   = "cats-and-arrows.ipkg"
+runsOn = ["ubuntu"]
 
 [db.chem]
 type   = "github"
@@ -155,18 +185,21 @@ url    = "https://github.com/stefan-hoeck/idris2-chem"
 commit = "main"
 ipkg   = "chem.ipkg"
 test   = "test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.chem-generators]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-chem"
 commit = "main"
 ipkg   = "chem-generators/chem-generators.ipkg"
+runsOn = ["ubuntu"]
 
 [db.collie]
 type   = "github"
 url    = "https://github.com/ohad/collie"
 commit = "main"
 ipkg   = "collie.ipkg"
+runsOn = ["ubuntu"]
 
 [db.collection-utils]
 type   = "github"
@@ -174,28 +207,32 @@ url    = "https://github.com/buzden/idris2-collection-utils"
 commit = "master"
 ipkg   = "collection-utils.ipkg"
 test   = "test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.control-flow]
 type   = "github"
 url    = "https://github.com/JankaGramofonomanka/idris-compiler-tools"
 commit = "master"
 ipkg   = "control-flow/control-flow.ipkg"
+runsOn = ["ubuntu"]
 
 [db.comonad]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-comonad"
 commit = "main"
 ipkg   = "comonad.ipkg"
+runsOn = ["ubuntu"]
 
 [db.containers]
 type   = "github"
 url    = "https://github.com/idris-community/idris2-containers"
 commit = "main"
 ipkg   = "containers.ipkg"
+runsOn = ["ubuntu"]
 
 [db.continuation-monad]
 type = "git"
-url = "https://gitlab.com/avidela/continuation-monad"
+url = "https://gitlab.com/avidela/continuation-monad.git/"
 commit = "main"
 ipkg = "continuation-monad.ipkg"
 
@@ -205,12 +242,14 @@ url    = "https://github.com/buzden/idris2-coop"
 commit = "master"
 ipkg   = "coop.ipkg"
 test   = "tests/tests.ipkg"
+runsOn = ["ubuntu"]
 
 [db.control-spec]
 type   = "github"
 url    = "https://github.com/dannypsnl/control-spec"
 commit = "main"
 ipkg   = "control-spec.ipkg"
+runsOn = ["ubuntu"]
 
 [db.cozippable]
 type   = "git"
@@ -218,13 +257,15 @@ url    = "https://github.com/buzden/idris2-cozippable"
 commit = "master"
 ipkg   = "cozippable.ipkg"
 test   = "test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.cptr]
-type = "github"
-url  = "https://github.com/stefan-hoeck/idris2-cptr"
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-cptr"
 commit = "main"
-ipkg = "cptr.ipkg"
-test = "test/test.ipkg"
+ipkg   = "cptr.ipkg"
+test   = "test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.crypt]
 type   = "github"
@@ -232,30 +273,35 @@ url    = "https://github.com/stefan-hoeck/idris2-crypt"
 commit = "main"
 ipkg   = "crypt.ipkg"
 test   = "test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.css]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-css"
 commit = "main"
 ipkg   = "css.ipkg"
+runsOn = ["ubuntu"]
 
 [db.cyby-css]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-cyby-draw"
 commit = "main"
 ipkg   = "cyby-css/cyby-css.ipkg"
+runsOn = ["ubuntu"]
 
 [db.cyby-draw]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-cyby-draw"
 commit = "main"
 ipkg   = "cyby-draw.ipkg"
+runsOn = ["ubuntu"]
 
 [db.decord]
 type   = "github"
 url    = "https://github.com/jcranch/idris-decord"
 commit = "main"
 ipkg   = "decord.ipkg"
+runsOn = ["ubuntu"]
 
 [db.dependent-map]
 type   = "github"
@@ -263,6 +309,7 @@ url    = "https://github.com/JankaGramofonomanka/idris-dependent-map"
 commit = "master"
 ipkg   = "dependent-map.ipkg"
 test   = "test/dependent-map-test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.dependent-vect]
 type   = "git"
@@ -270,72 +317,84 @@ url    = "https://github.com/buzden/idris2-dependent-vect"
 commit = "master"
 ipkg   = "dependent-vect.ipkg"
 test   = "tests/tests.ipkg"
+runsOn = ["ubuntu"]
 
 [db.deptycheck]
 type   = "git"
 url    = "https://github.com/buzden/deptycheck"
 commit = "master"
 ipkg   = "deptycheck.ipkg"
+runsOn = ["ubuntu"]
 
 [db.dinwiddy]
 type   = "github"
 url    = "https://github.com/bobbbay/dinwiddy"
 commit = "main"
 ipkg   = "dinwiddy.ipkg"
+runsOn = ["ubuntu"]
 
 [db.dom]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-dom"
 commit = "main"
 ipkg   = "dom.ipkg"
+runsOn = ["ubuntu"]
 
 [db.dom-mvc]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-dom-mvc"
 commit = "main"
 ipkg   = "dom-mvc.ipkg"
+runsOn = ["ubuntu"]
 
 [db.dom-mvc-extra]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-dom-mvc"
 commit = "main"
 ipkg   = "extra/dom-mvc-extra.ipkg"
+runsOn = ["ubuntu"]
 
 [db.dot-gv]
 type   = "github"
 url    = "https://github.com/CodingCellist/idris2-dot-parse"
 commit = "main"
 ipkg   = "dot-parse.ipkg"
+runsOn = ["ubuntu"]
 
 [db.dtypes]
 type   = "github"
 url    = "https://github.com/JankaGramofonomanka/idris-dtypes"
 commit = "master"
 ipkg   = "dtypes.ipkg"
+runsOn = ["ubuntu"]
 
 [db.eff]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-eff"
 commit = "main"
 ipkg   = "eff.ipkg"
+runsOn = ["ubuntu"]
 
 [db.effect]
 type   = "github"
 url    = "https://github.com/Russoul/Idris2-Effect"
 commit = "master"
 ipkg   = "effect.ipkg"
+runsOn = ["ubuntu"]
 
 [db.elab-pretty]
 type   = "git"
 url    = "https://github.com/stefan-hoeck/idris2-elab-util"
 commit = "latest:main"
 ipkg   = "elab-pretty.ipkg"
+runsOn = ["ubuntu"]
 
 [db.elab-util]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-elab-util"
 commit = "main"
 ipkg   = "elab-util.ipkg"
+runsOn = ["ubuntu"]
 
 [db.elab-util-extra]
 type   = "git"
@@ -343,18 +402,21 @@ url    = "https://github.com/buzden/deptycheck"
 commit = "master"
 ipkg   = "elab-util-extra/elab-util-extra.ipkg"
 test   = "elab-util-extra/tests/tests.ipkg"
+runsOn = ["ubuntu"]
 
 [db.elin]
-type = "github"
-url  = "https://github.com/stefan-hoeck/idris2-elin"
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-elin"
 commit = "main"
-ipkg = "elin.ipkg"
+ipkg   = "elin.ipkg"
+runsOn = ["ubuntu"]
 
 [db.enum]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-enum"
 commit = "main"
 ipkg   = "enum.ipkg"
+runsOn = ["ubuntu"]
 
 [db.epoll]
 type   = "github"
@@ -362,6 +424,7 @@ url    = "https://github.com/stefan-hoeck/idris2-epoll"
 commit = "main"
 ipkg   = "epoll.ipkg"
 test   = "tests/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.evince]
 type   = "github"
@@ -369,6 +432,7 @@ url    = "https://github.com/bio-aeon/evince"
 commit = "main"
 ipkg   = "evince/evince.ipkg"
 test   = "evince/test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.evince-async]
 type   = "github"
@@ -376,12 +440,14 @@ url    = "https://github.com/bio-aeon/evince"
 commit = "main"
 ipkg   = "evince-async/evince-async.ipkg"
 test   = "evince-async/test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.evince-async-js]
 type   = "github"
 url    = "https://github.com/bio-aeon/evince"
 commit = "main"
 ipkg   = "evince-async-js/evince-async-js.ipkg"
+runsOn = ["ubuntu"]
 
 [db.evince-async-posix]
 type   = "github"
@@ -389,6 +455,7 @@ url    = "https://github.com/bio-aeon/evince"
 commit = "main"
 ipkg   = "evince-async-posix/evince-async-posix.ipkg"
 test   = "evince-async-posix/test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.evince-hedgehog]
 type   = "github"
@@ -396,12 +463,14 @@ url    = "https://github.com/bio-aeon/evince"
 commit = "main"
 ipkg   = "evince-hedgehog/evince-hedgehog.ipkg"
 test   = "evince-hedgehog/test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.extrafun]
 type   = "github"
 url    = "https://github.com/jcranch/extrafun"
 commit = "main"
 ipkg   = "extrafun.ipkg"
+runsOn = ["ubuntu"]
 
 [db.i-hate-parens]
 type   = "git"
@@ -409,6 +478,7 @@ url    = "https://github.com/buzden/idris2-i-hate-parens"
 commit = "master"
 ipkg   = "i-hate-parens.ipkg"
 test   = "tests/tests.ipkg"
+runsOn = ["ubuntu"]
 
 [db.filepath]
 type   = "github"
@@ -416,6 +486,7 @@ url    = "https://github.com/stefan-hoeck/idris2-filepath"
 commit = "main"
 ipkg   = "filepath.ipkg"
 test   = "test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.fin-lizzie]
 type   = "git"
@@ -423,6 +494,7 @@ url    = "https://github.com/buzden/idris2-fin-lizzie"
 commit = "master"
 ipkg   = "fin-lizzie.ipkg"
 test   = "tests/tests.ipkg"
+runsOn = ["ubuntu"]
 
 [db.finite]
 type   = "github"
@@ -430,24 +502,28 @@ url    = "https://github.com/stefan-hoeck/idris2-finite"
 commit = "main"
 ipkg   = "finite.ipkg"
 test   = "test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.fix-whitespace]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris-fix-whitespace"
 commit = "main"
 ipkg   = "fix-whitespace.ipkg"
+runsOn = ["ubuntu"]
 
 [db.freer]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-freer"
 commit = "main"
 ipkg   = "freer.ipkg"
+runsOn = ["ubuntu"]
 
 [db.fs-utils]
-type = "git"
-url = "https://gitlab.com/avidela/fs-utils"
+type   = "git"
+url    = "https://gitlab.com/avidela/fs-utils.git/"
 commit = "main"
-ipkg = "fs-utils.ipkg"
+ipkg   = "fs-utils.ipkg"
+runsOn = ["ubuntu"]
 
 [db.fvect]
 type   = "github"
@@ -455,12 +531,14 @@ url    = "https://github.com/mattpolzin/idris-fvect"
 commit = "main"
 ipkg   = "fvect.ipkg"
 notice = "DEPRECATED. The FVect datatype can now be found in the containers package."
+runsOn = ["ubuntu"]
 
 [db.getopts]
 type   = "github"
 url    = "https://github.com/idris-community/idris2-getopts"
 commit = "main"
 ipkg   = "getopts.ipkg"
+runsOn = ["ubuntu"]
 
 [db.graph]
 type   = "github"
@@ -468,6 +546,7 @@ url    = "https://github.com/stefan-hoeck/idris2-graph"
 commit = "main"
 ipkg   = "graph.ipkg"
 test   = "test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.golden-runner-helper]
 type   = "github"
@@ -475,30 +554,35 @@ url    = "https://github.com/buzden/idris2-golden-runner-helper"
 commit = "master"
 ipkg   = "golden-runner-helper.ipkg"
 test   = "tests/tests.ipkg"
+runsOn = ["ubuntu"]
 
 [db.hash]
 type   = "github"
 url    = "https://git.sr.ht/~janus/hash"
 commit = "master"
 ipkg   = "hash.ipkg"
+runsOn = ["ubuntu"]
 
 [db.hashable]
 type   = "github"
 url    = "https://github.com/Z-snails/Idris2-hashable"
 commit = "main"
 ipkg   = "hashable.ipkg"
+runsOn = ["ubuntu"]
 
 [db.hashable-derive]
-type = "github"
-url = "https://github.com/uartman/hashable-derive"
+type   = "github"
+url    = "https://github.com/uartman/hashable-derive"
 commit = "main"
-ipkg = "hashable-derive.ipkg"
+ipkg   = "hashable-derive.ipkg"
+runsOn = ["ubuntu"]
 
 [db.hashmap]
 type   = "github"
 url    = "https://github.com/Z-snails/idris2-hashmap"
 commit = "main"
 ipkg   = "hashmap.ipkg"
+runsOn = ["ubuntu"]
 
 [db.hedgehog]
 type   = "github"
@@ -506,6 +590,7 @@ url    = "https://github.com/stefan-hoeck/idris2-hedgehog"
 commit = "main"
 ipkg   = "hedgehog.ipkg"
 test   = "tests/tests.ipkg"
+runsOn = ["ubuntu"]
 
 [db.hmac]
 type   = "github"
@@ -513,12 +598,22 @@ url    = "https://git.sr.ht/~janus/hmac"
 commit = "master"
 ipkg   = "hmac.ipkg"
 test   = "test/test.ipkg"
+runsOn = ["ubuntu"]
+
+[db.html]
+type   = "github"
+url    = "https://codeberg.org/berg4478/idris2-html"
+commit = "main"
+ipkg   = "html.ipkg"
+tests  = "test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.idrall]
 type   = "github"
 url    = "https://github.com/alexhumphreys/idrall"
 commit = "main"
 ipkg   = "idrall.ipkg"
+runsOn = ["ubuntu"]
 
 [db.idris2-go]
 type        = "github"
@@ -526,6 +621,7 @@ url         = "https://github.com/kbertalan/idris2-go"
 commit      = "main"
 ipkg        = "idris2-go.ipkg"
 packagePath = true
+runsOn      = ["ubuntu"]
 
 [db.idris2-go-lib]
 type   = "github"
@@ -533,6 +629,7 @@ url    = "https://github.com/kbertalan/idris2-go"
 commit = "main"
 ipkg   = "idris2-go-lib.ipkg"
 test   = "tests/libtests.ipkg"
+runsOn = ["ubuntu"]
 
 [db.if-unsolved-implicit]
 type   = "git"
@@ -540,30 +637,35 @@ url    = "https://github.com/buzden/idris2-if-unsolved-implicit"
 commit = "master"
 ipkg   = "if-unsolved-implicit.ipkg"
 test   = "tests/tests.ipkg"
+runsOn = ["ubuntu"]
 
 [db.ilex]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-ilex"
 commit = "main"
 ipkg   = "ilex.ipkg"
+runsOn = ["ubuntu"]
 
 [db.ilex-core]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-ilex"
 commit = "main"
 ipkg   = "core/ilex-core.ipkg"
+runsOn = ["ubuntu"]
 
 [db.ilex-debug]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-ilex"
 commit = "main"
 ipkg   = "debug/ilex-debug.ipkg"
+runsOn = ["ubuntu"]
 
 [db.ilex-streams]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-ilex"
 commit = "main"
 ipkg   = "streams/ilex-streams.ipkg"
+runsOn = ["ubuntu"]
 
 [db.ilex-json]
 type   = "github"
@@ -571,6 +673,7 @@ url    = "https://github.com/stefan-hoeck/idris2-ilex"
 commit = "main"
 ipkg   = "json/ilex-json.ipkg"
 test   = "test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.ilex-toml]
 type   = "github"
@@ -578,24 +681,28 @@ url    = "https://github.com/stefan-hoeck/idris2-ilex"
 commit = "main"
 ipkg   = "toml/ilex-toml.ipkg"
 test   = "test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.indexed]
 type   = "github"
 url    = "https://github.com/mattpolzin/idris-indexed"
 commit = "main"
 ipkg   = "indexed.ipkg"
+runsOn = ["ubuntu"]
 
 [db.indexed-graph]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-indexed-graph"
 commit = "main"
 ipkg   = "indexed-graph.ipkg"
+runsOn = ["ubuntu"]
 
 [db.js]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-dom"
 commit = "main"
 ipkg   = "js/js.ipkg"
+runsOn = ["ubuntu"]
 
 [db.json]
 type   = "github"
@@ -603,6 +710,15 @@ url    = "https://github.com/stefan-hoeck/idris2-json"
 commit = "main"
 ipkg   = "json.ipkg"
 test   = "test/test.ipkg"
+runsOn = ["ubuntu"]
+
+[db.jsonrpc]
+type   = "git"
+url    = "https://gitlab.com/avidela/idris2-jsonrpc.git/"
+commit = "main"
+ipkg   = "jsonrpc.ipkg"
+test   = "test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.json-simple]
 type   = "github"
@@ -610,54 +726,63 @@ url    = "https://github.com/stefan-hoeck/idris2-json"
 commit = "main"
 ipkg   = "simple/json-simple.ipkg"
 test   = "test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.just-a-monad]
 type   = "github"
 url    = "https://github.com/Russoul/Just-a-Monad"
 commit = "main"
 ipkg   = "just-a-monad.ipkg"
+runsOn = ["ubuntu"]
 
 [db.katla]
 type   = "github"
 url    = "https://github.com/idris-community/katla"
 commit = "main"
 ipkg   = "katla.ipkg"
+runsOn = ["ubuntu"]
 
 [db.katla-pandoc]
 type   = "github"
 url    = "https://github.com/idris-community/katla"
 commit = "main"
 ipkg   = "katla-pandoc.ipkg"
+runsOn = ["ubuntu"]
 
 [db.katla-typst]
 type   = "github"
 url    = "https://github.com/idris-community/katla"
 commit = "main"
 ipkg   = "katla-typst.ipkg"
+runsOn = ["ubuntu"]
 
 [db.lana]
 type   = "github"
 url    = "https://git.sr.ht/~janus/lana"
 commit = "master"
 ipkg   = "lana.ipkg"
+runsOn = ["ubuntu"]
 
 [db.lens]
 type   = "github"
 url    = "https://github.com/tokinanpa/idris2-lens"
 commit = "main"
 ipkg   = "lens.ipkg"
+runsOn = ["ubuntu"]
 
 [db.linux]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-linux"
 commit = "main"
 ipkg   = "linux/linux.ipkg"
+runsOn = ["ubuntu"]
 
 [db.literal]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-literal"
 commit = "main"
 ipkg   = "literal.ipkg"
+runsOn = ["ubuntu"]
 
 [db.log4types]
 type   = "github"
@@ -665,6 +790,7 @@ url    = "https://github.com/bio-aeon/log4types"
 commit = "main"
 ipkg   = "log4types/log4types.ipkg"
 test   = "log4types/test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.log4types-async]
 type   = "github"
@@ -672,6 +798,7 @@ url    = "https://github.com/bio-aeon/log4types"
 commit = "main"
 ipkg   = "log4types-async/log4types-async.ipkg"
 test   = "log4types-async/test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.log4types-core]
 type   = "github"
@@ -679,6 +806,7 @@ url    = "https://github.com/bio-aeon/log4types"
 commit = "main"
 ipkg   = "log4types-core/log4types-core.ipkg"
 test   = "log4types-core/test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.log4types-json]
 type   = "github"
@@ -686,6 +814,7 @@ url    = "https://github.com/bio-aeon/log4types"
 commit = "main"
 ipkg   = "log4types-json/log4types-json.ipkg"
 test   = "log4types-json/test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.idris2-lsp]
 type        = "github"
@@ -693,12 +822,14 @@ url         = "https://github.com/idris-community/idris2-lsp"
 commit      = "main"
 ipkg        = "idris2-lsp.ipkg"
 packagePath = true
+runsOn      = ["ubuntu"]
 
 [db.lsp-lib]
-type        = "github"
-url         = "https://github.com/idris-community/lsp-lib"
-commit      = "main"
-ipkg        = "lsp-lib.ipkg"
+type   = "github"
+url    = "https://github.com/idris-community/lsp-lib"
+commit = "main"
+ipkg   = "lsp-lib.ipkg"
+runsOn = ["ubuntu"]
 
 [db.markdown]
 type   = "github"
@@ -706,6 +837,7 @@ url    = "https://codeberg.org/berg4478/idris2-text-markdown"
 commit = "main"
 ipkg   = "markdown.ipkg"
 tests  = "test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.mk]
 type   = "git"
@@ -713,12 +845,14 @@ url    = "https://github.com/buzden/idris2-mk"
 commit = "master"
 ipkg   = "mk.ipkg"
 tests  = "tests/tests.ipkg"
+runsOn = ["ubuntu"]
 
 [db.monocle]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-monocle"
 commit = "main"
 ipkg   = "monocle.ipkg"
+runsOn = ["ubuntu"]
 
 [db.mtl-tuple-impls]
 type   = "github"
@@ -726,6 +860,7 @@ url    = "https://github.com/buzden/idris2-mtl-tuple-impls"
 commit = "master"
 ipkg   = "mtl-tuple-impls.ipkg"
 test   = "tests/tests.ipkg"
+runsOn = ["ubuntu"]
 
 [db.multiplate]
 type   = "github"
@@ -733,84 +868,98 @@ url    = "https://github.com/Z-snails/multiplate-idr"
 commit = "main"
 ipkg   = "multiplate.ipkg"
 test   = "test/test.ipkg"
+runsOn = ["ubuntu"]
 
 # [db.newtype-deriving]
 # type   = "github"
 # url    = "https://github.com/MarcelineVQ/idris2-newtype-deriving"
 # commit = "master"
 # ipkg   = "newtype-deriving.ipkg"
+# runsOn = ["ubuntu"]
 
 [db.ncurses-idris]
 type   = "github"
 url    = "https://github.com/mattpolzin/ncurses-idris"
 commit = "main"
 ipkg   = "ncurses-idris.ipkg"
+runsOn = ["ubuntu"]
 
 [db.nested]
 type   = "github"
-url    = "https://gitlab.com/bss03/nested"
+url    = "https://gitlab.com/bss03/nested.git/"
 commit = "main"
 ipkg   = "nested.ipkg"
+runsOn = ["ubuntu"]
 
 [db.numidr]
 type   = "github"
 url    = "https://github.com/tokinanpa/numidr"
 commit = "main"
 ipkg   = "numidr.ipkg"
+runsOn = ["ubuntu"]
 
 [db.okasaki-pfds]
 type   = "github"
-url    = "https://gitlab.com/bss03/idris2-okasaki-pfds"
+url    = "https://gitlab.com/bss03/idris2-okasaki-pfds.git/"
 commit = "master"
 ipkg   = "okasaki-pfds.ipkg"
+runsOn = ["ubuntu"]
 
 [db.pack]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-pack"
 commit = "main"
 ipkg   = "pack.ipkg"
+runsOn = ["ubuntu"]
 
 [db.pack-admin]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-pack"
 commit = "main"
 ipkg   = "pack-admin.ipkg"
+runsOn = ["ubuntu"]
 
 [db.pact-api]
 type   = "github"
 url    = "https://github.com/running-grass/idris2-pact"
 commit = "main"
 ipkg   = "api/pact-api.ipkg"
+runsOn = ["ubuntu"]
 
 [db.pact-client]
 type   = "github"
 url    = "https://github.com/running-grass/idris2-pact"
 commit = "main"
 ipkg   = "client/pact-client.ipkg"
+runsOn = ["ubuntu"]
 
 [db.pact-server]
 type   = "github"
 url    = "https://github.com/running-grass/idris2-pact"
 commit = "main"
 ipkg   = "server/pact-server.ipkg"
+runsOn = ["ubuntu"]
 
 [db.pact-wai]
 type   = "github"
 url    = "https://github.com/running-grass/idris2-pact"
 commit = "main"
 ipkg   = "wai/pact-wai.ipkg"
+runsOn = ["ubuntu"]
 
 [db.pact-todomvc]
 type   = "github"
 url    = "https://github.com/running-grass/idris2-pact"
 commit = "main"
 ipkg   = "todomvc/pact-todomvc.ipkg"
+runsOn = ["ubuntu"]
 
 [db.park_bench]
 type   = "github"
 url    = "https://github.com/Z-snails/park_bench"
 commit = "main"
 ipkg   = "park_bench.ipkg"
+runsOn = ["ubuntu"]
 
 [db.parser]
 type   = "github"
@@ -818,6 +967,7 @@ url    = "https://github.com/stefan-hoeck/idris2-parser"
 commit = "main"
 ipkg   = "parser.ipkg"
 test   = "test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.parser-json]
 type   = "github"
@@ -826,6 +976,7 @@ commit = "main"
 ipkg   = "json/parser-json.ipkg"
 test   = "test/test.ipkg"
 notice = "DEPRECATED. Use ilex-json instead."
+runsOn = ["ubuntu"]
 
 [db.parser-show]
 type   = "github"
@@ -833,6 +984,7 @@ url    = "https://github.com/stefan-hoeck/idris2-parser"
 commit = "main"
 ipkg   = "show/parser-show.ipkg"
 test   = "test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.parser-tsv]
 type   = "github"
@@ -840,6 +992,7 @@ url    = "https://github.com/stefan-hoeck/idris2-parser"
 commit = "main"
 ipkg   = "tsv/parser-tsv.ipkg"
 test   = "test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.parser-toml]
 type   = "github"
@@ -847,6 +1000,7 @@ url    = "https://github.com/stefan-hoeck/idris2-parser"
 commit = "main"
 ipkg   = "toml/parser-toml.ipkg"
 test   = "test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.parser-webidl]
 type   = "github"
@@ -854,12 +1008,14 @@ url    = "https://github.com/stefan-hoeck/idris2-parser"
 commit = "main"
 ipkg   = "webidl/parser-webidl.ipkg"
 test   = "test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.pipelines]
 type   = "git"
-url    = "https://gitlab.com/glaive-research/pipelines.git"
+url    = "https://gitlab.com/glaive-research/pipelines.git/"
 commit = "main"
 ipkg   = "pipelines.ipkg"
+runsOn = ["ubuntu"]
 
 [db.pjrt-plugin-xla-cpu]
 type   = "github"
@@ -867,18 +1023,28 @@ url    = "https://codeberg.org/joelberkeley/spidr"
 commit = "master"
 ipkg   = "pjrt-plugins/xla-cpu/pjrt-plugin-xla-cpu.ipkg"
 test   = "tutorials/how-to-run-a-tensor-program.ipkg"
+runsOn = ["ubuntu"]
 
 [db.pjrt-plugin-xla-cuda]
 type   = "github"
 url    = "https://codeberg.org/joelberkeley/spidr"
 commit = "master"
 ipkg   = "pjrt-plugins/xla-cuda/pjrt-plugin-xla-cuda.ipkg"
+runsOn = ["ubuntu"]
+
+[db.pjrt-plugin-xla-rocm]
+type   = "github"
+url    = "https://codeberg.org/joelberkeley/spidr"
+commit = "master"
+ipkg   = "pjrt-plugins/xla-rocm/pjrt-plugin-xla-rocm.ipkg"
+runsOn = ["ubuntu"]
 
 [db.pg-idris]
 type   = "github"
 url    = "https://github.com/mattpolzin/pg-idris"
 commit = "main"
 ipkg   = "pg-idris.ipkg"
+runsOn = ["ubuntu"]
 
 [db.positive-nat]
 type   = "git"
@@ -886,24 +1052,28 @@ url    = "https://github.com/buzden/idris2-positive-nat"
 commit = "master"
 ipkg   = "positive-nat.ipkg"
 test   = "tests/tests.ipkg"
+runsOn = ["ubuntu"]
 
 [db.posix]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-linux"
 commit = "main"
 ipkg   = "posix/posix.ipkg"
+runsOn = ["ubuntu"]
 
 [db.prettier]
 type   = "github"
 url    = "https://github.com/Z-snails/prettier"
 commit = "main"
 ipkg   = "prettier.ipkg"
+runsOn = ["ubuntu"]
 
 [db.prettier-ansi]
-type = "github"
-url  = "https://github.com/idris-community/idris2-ansi"
+type   = "github"
+url    = "https://github.com/idris-community/idris2-ansi"
 commit = "main"
-ipkg = "prettier/prettier-ansi.ipkg"
+ipkg   = "prettier/prettier-ansi.ipkg"
+runsOn = ["ubuntu"]
 
 [db.pretty-show]
 type   = "github"
@@ -911,6 +1081,7 @@ url    = "https://github.com/stefan-hoeck/idris2-pretty-show"
 commit = "main"
 ipkg   = "pretty-show.ipkg"
 test   = "test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.prim]
 type   = "github"
@@ -918,30 +1089,35 @@ url    = "https://github.com/stefan-hoeck/idris2-prim"
 commit = "main"
 ipkg   = "prim.ipkg"
 test   = "test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.profiler]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-profiler"
 commit = "main"
 ipkg   = "profiler.ipkg"
+runsOn = ["ubuntu"]
 
 [db.profunctors]
 type   = "github"
 url    = "https://github.com/tokinanpa/idris2-profunctors"
 commit = "main"
 ipkg   = "profunctors.ipkg"
+runsOn = ["ubuntu"]
 
 [db.quantifiers-extra]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-quantifiers-extra"
 commit = "main"
 ipkg   = "quantifiers-extra.ipkg"
+runsOn = ["ubuntu"]
 
 [db.qutescript]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-qutescript"
 commit = "main"
 ipkg   = "qutescript.ipkg"
+runsOn = ["ubuntu"]
 
 [db.random-pure]
 type   = "git"
@@ -949,24 +1125,28 @@ url    = "https://github.com/buzden/idris2-random-pure"
 commit = "master"
 ipkg   = "random-pure.ipkg"
 test   = "tests/tests.ipkg"
+runsOn = ["ubuntu"]
 
 [db.ratio]
 type   = "github"
 url    = "https://github.com/tokinanpa/idris2-ratio"
 commit = "main"
 ipkg   = "ratio.ipkg"
+runsOn = ["ubuntu"]
 
 [db.ref1]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-ref1"
 commit = "main"
 ipkg   = "ref1.ipkg"
+runsOn = ["ubuntu"]
 
 [db.refined]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-refined"
 commit = "main"
 ipkg   = "refined.ipkg"
+runsOn = ["ubuntu"]
 
 [db.refined-json]
 type   = "github"
@@ -974,6 +1154,7 @@ url    = "https://github.com/stefan-hoeck/idris2-refined"
 commit = "main"
 ipkg   = "json/refined-json.ipkg"
 test   = "test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.refined-tsv]
 type   = "github"
@@ -981,6 +1162,7 @@ url    = "https://github.com/stefan-hoeck/idris2-refined"
 commit = "main"
 ipkg   = "tsv/refined-tsv.ipkg"
 test   = "test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.regex]
 type   = "git"
@@ -988,6 +1170,7 @@ url    = "https://github.com/buzden/idris2-regex"
 commit = "master"
 ipkg   = "regex.ipkg"
 test   = "tests/tests.ipkg"
+runsOn = ["ubuntu"]
 
 [db.rhone]
 type   = "github"
@@ -995,12 +1178,14 @@ url    = "https://github.com/stefan-hoeck/idris2-rhone"
 commit = "main"
 ipkg   = "rhone.ipkg"
 test   = "test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.rhone-js]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-rhone-js"
 commit = "main"
 ipkg   = "rhone-js.ipkg"
+runsOn = ["ubuntu"]
 
 [db.rio]
 type   = "github"
@@ -1009,6 +1194,7 @@ commit = "main"
 ipkg   = "rio.ipkg"
 test   = "test.ipkg"
 notice = "DEPRECATED. Package rio is no longer maintained. Consider using async for a much more powerful effect type"
+runsOn = ["ubuntu"]
 
 [db.scram]
 type   = "github"
@@ -1016,19 +1202,22 @@ url    = "https://git.sr.ht/~janus/scram"
 commit = "master"
 ipkg   = "scram.ipkg"
 test   = "test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.scgi]
 type   = "github"
 url    = "https://github.com/idris-community/idris2-scgi"
 commit = "main"
 ipkg   = "scgi.ipkg"
+runsOn = ["ubuntu"]
 
 [db.simple-tests]
 type   = "git"
-url    = "https://gitlab.com/avidela/idris2-simple-tests"
+url    = "https://gitlab.com/avidela/idris2-simple-tests.git/"
 commit = "main"
 ipkg   = "simple-tests.ipkg"
 test   = "test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.sha]
 type   = "github"
@@ -1036,6 +1225,7 @@ url    = "https://git.sr.ht/~janus/sha"
 commit = "master"
 ipkg   = "sha.ipkg"
 test   = "test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.snocvect]
 type   = "github"
@@ -1043,24 +1233,36 @@ url    = "https://github.com/mattpolzin/idris-snocvect"
 commit = "main"
 ipkg   = "snocvect.ipkg"
 notice = "DEPRECATED. The SnocVect datatype can now be found in the containers package."
+runsOn = ["ubuntu"]
 
 [db.sop]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-sop"
 commit = "main"
 ipkg   = "sop.ipkg"
+runsOn = ["ubuntu"]
+
+[db.specialise-data]
+type   = "git"
+url    = "https://github.com/DepTyCheck/idris2-specialise-data"
+commit = "master"
+ipkg   = "specialise-data.ipkg"
+test   = "tests/tests.ipkg"
+runsOn = ["ubuntu"]
 
 [db.spidr]
 type   = "github"
 url    = "https://codeberg.org/joelberkeley/spidr"
 commit = "master"
 ipkg   = "spidr/spidr.ipkg"
+runsOn = ["ubuntu"]
 
 [db.sqlite3]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-sqlite3"
 commit = "main"
 ipkg   = "sqlite3.ipkg"
+runsOn = ["ubuntu"]
 
 [db.sqlite3-rio]
 type   = "github"
@@ -1068,48 +1270,56 @@ url    = "https://github.com/stefan-hoeck/idris2-sqlite3"
 commit = "main"
 ipkg   = "sqlite3-rio/sqlite3-rio.ipkg"
 notice = "DEPRECATED. Use sqlite3-streams instead"
+runsOn = ["ubuntu"]
 
 [db.sqlite3-streams]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-sqlite3"
 commit = "main"
 ipkg   = "sqlite3-streams/sqlite3-streams.ipkg"
+runsOn = ["ubuntu"]
 
 # [db.stellar-api]
 # type   = "git"
-# url    = "https://gitlab.com/avidela/stellar"
+# url    = "https://gitlab.com/avidela/stellar.git/"
 # commit = "main"
 # ipkg   = "api/stellar-api.ipkg"
+# runsOn = ["ubuntu"]
 #
 # [db.stellar-http]
 # type   = "git"
-# url    = "https://gitlab.com/avidela/stellar"
+# url    = "https://gitlab.com/avidela/stellar.git/"
 # commit = "main"
 # ipkg   = "http/stellar-http.ipkg"
+# runsOn = ["ubuntu"]
 #
 # [db.stellar-sql]
 # type   = "git"
-# url    = "https://gitlab.com/avidela/stellar"
+# url    = "https://gitlab.com/avidela/stellar.git/"
 # commit = "main"
 # ipkg   = "sql/stellar-sql.ipkg"
+# runsOn = ["ubuntu"]
 
 [db.structures]
 type   = "git"
 url    = "https://git.sr.ht/~thatonelutenist/Structures"
 commit = "trunk"
 ipkg   = "structures.ipkg"
+runsOn = ["ubuntu"]
 
 [db.streams]
 type   = "git"
 url    = "https://github.com/stefan-hoeck/idris2-streams"
 commit = "main"
 ipkg   = "streams.ipkg"
+runsOn = ["ubuntu"]
 
 [db.streams-posix]
 type   = "git"
 url    = "https://github.com/stefan-hoeck/idris2-streams"
 commit = "main"
 ipkg   = "posix/streams-posix.ipkg"
+runsOn = ["ubuntu"]
 
 [db.string-builder]
 type   = "github"
@@ -1117,6 +1327,7 @@ url    = "https://github.com/Z-snails/string-builder"
 commit = "main"
 ipkg   = "string-builder.ipkg"
 test   = "test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.string-search]
 type   = "github"
@@ -1124,6 +1335,7 @@ url    = "https://git.sr.ht/~janus/string-search"
 commit = "master"
 ipkg   = "string-search.ipkg"
 test   = "test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.summary-stat]
 type   = "github"
@@ -1132,12 +1344,14 @@ commit = "master"
 ipkg   = "summary-stat.ipkg"
 test   = "tests/tests.ipkg"
 notice = "Weak traversal interface can be found in `weaker-traversals` lib"
+runsOn = ["ubuntu"]
 
 [db.svg]
 type   = "git"
 url    = "https://github.com/stefan-hoeck/idris2-svg"
 commit = "main"
 ipkg   = "svg.ipkg"
+runsOn = ["ubuntu"]
 
 [db.swirl]
 type   = "git"
@@ -1145,24 +1359,28 @@ url    = "https://github.com/buzden/idris2-swirl"
 commit = "master"
 ipkg   = "swirl.ipkg"
 test   = "tests/tests.ipkg"
+runsOn = ["ubuntu"]
 
 [db.tailrec]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-tailrec"
 commit = "main"
 ipkg   = "tailrec.ipkg"
+runsOn = ["ubuntu"]
 
 [db.telescope]
 type   = "git"
-url    = "https://gitlab.com/avidela/idris2-telescope.git"
+url    = "https://gitlab.com/avidela/idris2-telescope.git/"
 commit = "main"
 ipkg   = "telescope.ipkg"
+runsOn = ["ubuntu"]
 
 [db.tensortype]
 type   = "github"
 url    = "https://github.com/bgavran/TensorType"
 commit = "main"
 ipkg   = "tensortype.ipkg"
+runsOn = ["ubuntu"]
 
 [db.time-for-sleep]
 type   = "github"
@@ -1170,24 +1388,28 @@ url    = "https://github.com/buzden/idris2-time-for-sleep"
 commit = "master"
 ipkg   = "time-for-sleep.ipkg"
 test   = "tests/tests.ipkg"
+runsOn = ["ubuntu"]
 
 [db.tester]
 type   = "github"
 url    = "https://github.com/hydrolarus/tester-idr"
 commit = "main"
 ipkg   = "tester.ipkg"
+runsOn = ["ubuntu"]
 
 [db.theory]
 type   = "github"
 url    = "https://github.com/JankaGramofonomanka/idris-theory"
 commit = "master"
 ipkg   = "theory.ipkg"
+runsOn = ["ubuntu"]
 
 [db.toml]
 type   = "github"
 url    = "https://github.com/hydrolarus/toml-idr"
 commit = "main"
 ipkg   = "toml.ipkg"
+runsOn = ["ubuntu"]
 
 [db.typelevel-emptiness-collections]
 type   = "git"
@@ -1195,30 +1417,35 @@ url    = "https://github.com/buzden/idris2-typelevel-emptiness-collections"
 commit = "master"
 ipkg   = "typelevel-emptiness-collections.ipkg"
 test   = "tests/tests.ipkg"
+runsOn = ["ubuntu"]
 
 [db.node]
 type   = "github"
 url    = "https://github.com/kbertalan/idris2-node"
 commit = "main"
 ipkg   = "node.ipkg"
+runsOn = ["ubuntu"]
 
 [db.promise]
 type   = "github"
 url    = "https://github.com/kbertalan/idris2-promise"
 commit = "main"
 ipkg   = "promise.ipkg"
+runsOn = ["ubuntu"]
 
 [db.timeit]
 type   = "github"
 url    = "https://github.com/MarcelineVQ/idris2-timeit"
 commit = "main"
 ipkg   = "timeit.ipkg"
+runsOn = ["ubuntu"]
 
 [db.type-aligned]
 type   = "github"
-url    = "https://gitlab.com/bss03/type-aligned"
+url    = "https://gitlab.com/bss03/type-aligned.git/"
 commit = "main"
 ipkg   = "type-aligned.ipkg"
+runsOn = ["ubuntu"]
 
 [db.tyttp]
 type   = "github"
@@ -1226,6 +1453,7 @@ url    = "https://github.com/kbertalan/tyttp"
 commit = "main"
 ipkg   = "tyttp.ipkg"
 test   = "tests/tests.ipkg"
+runsOn = ["ubuntu"]
 
 [db.tyttp-adapter-node]
 type   = "github"
@@ -1233,6 +1461,7 @@ url    = "https://github.com/kbertalan/tyttp"
 commit = "main"
 ipkg   = "adapter-node/tyttp-adapter-node.ipkg"
 test   = "adapter-node/tests/tests.ipkg"
+runsOn = ["ubuntu"]
 
 [db.tyttp-json]
 type   = "github"
@@ -1240,6 +1469,7 @@ url    = "https://github.com/kbertalan/tyttp"
 commit = "main"
 ipkg   = "json/tyttp-json.ipkg"
 test   = "json/tests/tests.ipkg"
+runsOn = ["ubuntu"]
 
 [db.weaker-traversals]
 type   = "git"
@@ -1247,96 +1477,112 @@ url    = "https://github.com/buzden/idris2-weaker-traversals"
 commit = "master"
 ipkg   = "weaker-traversals.ipkg"
 test   = "tests/tests.ipkg"
+runsOn = ["ubuntu"]
 
 [db.xml]
 type   = "github"
 url    = "https://github.com/madman-bob/idris2-xml"
 commit = "main"
 ipkg   = "xml.ipkg"
+runsOn = ["ubuntu"]
 
 [db.tyre]
 type   = "github"
 url    = "https://github.com/kasiaMarek/TyRE"
 commit = "main"
 ipkg   = "tyre.ipkg"
+runsOn = ["ubuntu"]
 
 [db.darray]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-array"
 commit = "main"
 ipkg   = "darray/darray.ipkg"
+runsOn = ["ubuntu"]
 
 [db.distribution]
 type   = "github"
 url    = "https://github.com/idris-bayes/distribution"
 commit = "main"
 ipkg   = "distribution.ipkg"
+runsOn = ["ubuntu"]
 
 [db.free]
 type   = "github"
 url    = "https://github.com/idris-bayes/free"
 commit = "main"
 ipkg   = "free.ipkg"
+runsOn = ["ubuntu"]
 
 [db.log-domain]
 type   = "github"
 url    = "https://github.com/idris-bayes/log-domain"
 commit = "main"
 ipkg   = "log-domain.ipkg"
+runsOn = ["ubuntu"]
 
 [db.monad-bayes]
 type   = "github"
 url    = "https://github.com/idris-bayes/monad-bayes"
 commit = "main"
 ipkg   = "monad-bayes.ipkg"
+runsOn = ["ubuntu"]
 
 [db.url]
 type   = "github"
 url    = "https://github.com/running-grass/idris2-url"
 commit = "main"
 ipkg   = "url.ipkg"
+runsOn = ["ubuntu"]
 
 [db.tls]
 type   = "github"
 url    = "https://github.com/idris-community/idris2-tls"
 commit = "master"
 ipkg   = "tls.ipkg"
+runsOn = ["ubuntu"]
 
 [db.http]
 type   = "github"
 url    = "https://github.com/idris-community/idris2-http"
 commit = "master"
 ipkg   = "http.ipkg"
+runsOn = ["ubuntu"]
 
 [db.http-client-api]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-http-types"
 commit = "main"
 ipkg   = "http-client-api/http-client-api.ipkg"
+runsOn = ["ubuntu"]
 
 [db.http-types]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-http-types"
 commit = "main"
 ipkg   = "http-types.ipkg"
+runsOn = ["ubuntu"]
 
 [db.http-server-api]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-http-types"
 commit = "main"
 ipkg   = "http-server-api/http-server-api.ipkg"
+runsOn = ["ubuntu"]
 
 # [db.prob-fx]
 # type   = "github"
 # url    = "https://github.com/idris-bayes/prob-fx"
 # commit = "main"
 # ipkg   = "prob-fx.ipkg"
+# runsOn = ["ubuntu"]
 
 [db.uuid-base]
 type   = "github"
 url    = "https://codeberg.org/joelberkeley/uuid"
 commit = "master"
 ipkg   = "uuid-base/uuid-base.ipkg"
+runsOn = ["ubuntu"]
 
 [db.uuid-c]
 type   = "github"
@@ -1344,18 +1590,21 @@ url    = "https://codeberg.org/joelberkeley/uuid"
 commit = "master"
 ipkg   = "uuid-c/uuid-c.ipkg"
 test   = "test/c/c.ipkg"
+runsOn = ["ubuntu"]
 
 [db.uuid-js]
 type   = "github"
 url    = "https://codeberg.org/joelberkeley/uuid"
 commit = "master"
 ipkg   = "uuid-js/uuid-js.ipkg"
+runsOn = ["ubuntu"]
 
 [db.uniplate]
 type   = "github"
 url    = "https://github.com/Z-snails/uniplate-idr"
 commit = "main"
 ipkg   = "uniplate.ipkg"
+runsOn = ["ubuntu"]
 
 [db.utf8]
 type   = "github"
@@ -1363,30 +1612,35 @@ url    = "https://git.sr.ht/~janus/utf8"
 commit = "master"
 ipkg   = "utf8.ipkg"
 test   = "test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.uv]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-uv"
 commit = "main"
 ipkg   = "uv.ipkg"
+runsOn = ["ubuntu"]
 
 [db.uv-data]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-uv"
 commit = "main"
 ipkg   = "data/uv-data.ipkg"
+runsOn = ["ubuntu"]
 
 [db.webidl]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-webidl"
 commit = "main"
 ipkg   = "webidl.ipkg"
+runsOn = ["ubuntu"]
 
 [db.idrisGL]
 type   = "github"
 url    = "https://github.com/ECburx/Idris2GL"
 commit = "main"
 ipkg   = "idrisGL.ipkg"
+runsOn = ["ubuntu"]
 
 [db.c-ffi]
 type   = "github"
@@ -1394,66 +1648,77 @@ url    = "https://codeberg.org/joelberkeley/c-ffi"
 commit = "master"
 ipkg   = "c-ffi.ipkg"
 test   = "test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.cont]
 type   = "github"
 url    = "https://git.sr.ht/~janus/cont"
 commit = "master"
 ipkg   = "cont.ipkg"
+runsOn = ["ubuntu"]
 
 [db.buf-conn]
 type   = "github"
 url    = "https://git.sr.ht/~janus/buf-conn"
 commit = "master"
 ipkg   = "buf-conn.ipkg"
+runsOn = ["ubuntu"]
 
 [db.http2]
 type   = "github"
 url    = "https://git.sr.ht/~janus/http2"
 commit = "master"
 ipkg   = "http2.ipkg"
+runsOn = ["ubuntu"]
 
 [db.pg]
 type   = "github"
 url    = "https://git.sr.ht/~janus/pg"
 commit = "master"
 ipkg   = "pg.ipkg"
+runsOn = ["ubuntu"]
 
 [db.pg-types]
 type   = "github"
 url    = "https://git.sr.ht/~janus/pg-types"
 commit = "master"
 ipkg   = "pg-types.ipkg"
+runsOn = ["ubuntu"]
 
 [db.racket-tcp]
 type   = "github"
 url    = "https://git.sr.ht/~janus/racket-tcp"
 commit = "master"
 ipkg   = "racket-tcp.ipkg"
+runsOn = ["ubuntu"]
 
 [db.records]
 type   = "github"
 url    = "https://github.com/kuribas/idris-records"
 commit = "main"
 ipkg   = "records.ipkg"
+runsOn = ["ubuntu"]
 
 [db.rtlsdr]
 type   = "github"
 url    = "https://github.com/victoredwardocallaghan/idris2-rtlsdr"
 commit = "master"
 ipkg   = "rtlsdr.ipkg"
+runsOn = ["ubuntu"]
 
 [db.web-server-racket]
 type   = "github"
 url    = "https://git.sr.ht/~janus/web-server-racket"
 commit = "master"
 ipkg   = "web-server-racket.ipkg"
+runsOn = ["ubuntu"]
 
 [db.web-server-racket-hello-world]
 type   = "github"
 url    = "https://git.sr.ht/~janus/web-server-racket-hello-world"
 commit = "master"
 ipkg   = "web-server-racket-hello-world.ipkg"
+runsOn = ["ubuntu"]
 
 [db.systemd]
 type   = "github"
@@ -1461,6 +1726,7 @@ url    = "https://github.com/Matthew-Mosior/idris2-systemd"
 commit = "main"
 ipkg   = "systemd.ipkg"
 test   = "test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.fixed]
 type   = "github"
@@ -1468,6 +1734,7 @@ url    = "https://github.com/Matthew-Mosior/idris2-fixed"
 commit = "main"
 ipkg   = "fixed.ipkg"
 test   = "test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.stringsearch-algorithms]
 type   = "github"
@@ -1475,6 +1742,7 @@ url    = "https://github.com/Matthew-Mosior/idris2-stringsearch-algorithms"
 commit = "main"
 ipkg   = "stringsearch-algorithms.ipkg"
 test   = "test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.ilex-fasta]
 type   = "github"
@@ -1482,6 +1750,7 @@ url    = "https://github.com/Matthew-Mosior/idris2-bioinformatics"
 commit = "main"
 ipkg   = "fasta/ilex-fasta.ipkg"
 test   = "test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.idris2-dep-graph]
 type   = "git"
@@ -1489,6 +1758,7 @@ url    = "https://codeberg.org/tzemanovic/idris2-dep-graph"
 commit = "main"
 ipkg   = "idris2-dep-graph.ipkg"
 test   = "test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.resource-pool]
 type   = "github"
@@ -1496,6 +1766,7 @@ url    = "https://github.com/Matthew-Mosior/idris2-resource-pool"
 commit = "main"
 ipkg   = "resource-pool.ipkg"
 test   = "test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.lsm-rrbvector]
 type   = "github"
@@ -1503,6 +1774,7 @@ url    = "https://github.com/Matthew-Mosior/idris2-lsm-rrbvector"
 commit = "main"
 ipkg   = "lsm-rrbvector.ipkg"
 test   = "test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.yaml]
 type   = "github"
@@ -1510,12 +1782,14 @@ url    = "https://github.com/mitchmindtree/idris2-yaml"
 commit = "main"
 ipkg   = "yaml.ipkg"
 test   = "test/test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.oracle]
 type   = "github"
 url    = "https://github.com/Matthew-Mosior/idris2-oracle"
 commit = "main"
 ipkg   = "oracle.ipkg"
+runsOn = ["ubuntu"]
 
 [db.iotaTime]
 type   = "github"
@@ -1523,9 +1797,18 @@ url    = "https://github.com/jason-johnson/iotaTime"
 commit = "main"
 ipkg   = "iotaTime.ipkg"
 test   = "test/iotaTime-test.ipkg"
+runsOn = ["ubuntu"]
 
 [db.bcrypt]
 type   = "github"
 url    = "https://github.com/Matthew-Mosior/idris2-bcrypt"
 commit = "main"
 ipkg   = "bcrypt.ipkg"
+runsOn = ["ubuntu"]
+
+[db.zlib]
+type   = "github"
+url    = "https://github.com/Matthew-Mosior/idris2-zlib"
+commit = "main"
+ipkg   = "zlib.ipkg"
+runsOn = ["ubuntu"]

@@ -12,6 +12,12 @@ the package's description added to `collections/HEAD.toml` and
 make sure the necessary libraries are installed by adjusting
 all three workflows under .github/workflows.
 
+As of [this](https://github.com/stefan-hoeck/idris2-pack/pull/417) PR,
+`pack-admin` now looks at the `runsOn` for every entry in
+`collections/HEAD.toml`. If there is no `runsOn` field for a given
+entry, then it is assumed that the given entry can build and test against
+both `ubuntu` and `macos` platforms.
+
 If it builds with Idris without failure, it will be included
 in the next nightly release of the package collection. Nightly releases
 are generated and checked automatically around 1 am UTC time
