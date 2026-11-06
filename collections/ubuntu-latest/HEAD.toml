@@ -604,6 +604,13 @@ commit = "main"
 ipkg   = "json.ipkg"
 test   = "test/test.ipkg"
 
+[db.jsonrpc]
+type   = "git"
+url    = "https://gitlab.com/avidela/idris2-jsonrpc"
+commit = "main"
+ipkg   = "jsonrpc.ipkg"
+test   = "test/test.ipkg"
+
 [db.json-simple]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-json"
