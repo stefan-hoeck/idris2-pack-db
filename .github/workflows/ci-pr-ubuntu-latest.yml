@@ -18,7 +18,7 @@ defaults:
 jobs:
 
   build-ubuntu:
-    name: Check package collection (ubuntu-latest)
+    name: Check package collection <-> ubuntu-latest
     runs-on: ubuntu-latest
     env:
       PACK_USER_DIR: /root/.config/pack

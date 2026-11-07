@@ -18,7 +18,7 @@ defaults:
 jobs:
 
   build-macos:
-    name: Check package collection (macos-latest)
+    name: Check package collection <-> macos-latest
     runs-on: macos-latest
     env:
       PACK_USER_DIR: /Users/runner/macos-user/.config/pack
