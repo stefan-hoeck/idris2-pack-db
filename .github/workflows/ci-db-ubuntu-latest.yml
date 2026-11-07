@@ -1,0 +1,150 @@
+---
+name: Check Collection
+
+on:
+  schedule:
+    - cron: '0 21 * * *'
+
+  workflow_dispatch:
+
+permissions: write-all
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+
+  check_db_ubuntu:
+    name: Check package collection (ubuntu-latest)
+    runs-on: ubuntu-latest
+    env:
+      PACK_USER_DIR: /root/.config/pack
+      PACK_STATE_DIR: /root/.local/state/pack
+      PACK_CACHE_DIR: /root/.cache/pack
+      PACK_BIN_DIR: /root/.local/bin
+      GOFLAGS: "-buildvcs=false"
+    strategy:
+      fail-fast: false
+    container: ghcr.io/stefan-hoeck/idris2-pack:latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Make output
+        run: mkdir -p "$HOME/output"
+      - name: Install dependencies
+        run: |
+          apt-get update
+          apt-get install --yes libgsl-dev
+          apt-get install --yes libpq-dev
+          # ncurses-idris:
+          apt-get install --yes libncurses-dev libc6-dev
+          # sqlite3:
+          apt-get install --yes libsqlite3-dev
+          # idrisGL:
+          apt-get install --yes libsdl1.2-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl2-image-dev libsdl2-ttf-dev libsdl2-gfx-dev libsdl2-mixer-dev
+          # idris2-go:
+          apt-get install --yes golang-go
+          # lld (needed by systemd)
+          apt-get install --yes lld
+          # libuv
+          apt-get install --yes libuv1-dev
+          # rtlsdr
+          apt-get install --yes librtlsdr-dev
+          # node codegen:
+          apt-get install --yes nodejs
+          # spidr ecosystem
+          apt-get install --yes curl
+          # uuid
+          apt-get install --yes uuid-dev
+      - name: Use latest pack commit
+        run: pack update
+      - name: Install pack-admin
+        run: /root/.local/bin/pack --no-prompt install-app pack-admin
+      - name: Copy HEAD
+        run: cp collections/HEAD.toml "$PACK_STATE_DIR/db/HEAD.toml"
+      - name: Extract Collection from HEAD
+        run: /root/.local/bin/pack-admin --no-prompt extract-from-head "$PACK_STATE_DIR/db/testdb.toml"
+      - name: Switch Collection
+        run: /root/.local/bin/pack --no-prompt switch "testdb"
+      - name: Re-Install pack-admin
+        run: /root/.local/bin/pack --no-prompt install-app pack-admin
+      - name: Check Collection
+        run: /root/.local/bin/pack-admin --no-prompt --with-docs --use-katla check-collection "$HOME/output/"
+      - name: Save generated files
+        uses: actions/upload-artifact@master
+        with:
+          name: freshly-generated-status
+          path: ~/output/*
+          if-no-files-found: error
+
+  upload_ubuntu:
+    name: Upload generated files to main (ubuntu-latest)
+    runs-on: ubuntu-latest
+    needs:
+      - check_db_ubuntu
+    steps:
+      - name: Checkout pack-db
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Get generated files
+        uses: actions/download-artifact@master
+        with:
+          name: freshly-generated-status
+          path: ~/output/
+      - name: Add files
+        run: |
+          cp ~/output/STATUS.md STATUS-ubuntu-latest.md
+          [ -f ~/output/testdb.toml ] && cp ~/output/testdb.toml  "collections/ubuntu-latest/nightly-$(date +%y%m%d).toml"
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add STATUS-ubuntu-latest.md
+          git add collections/ubuntu-latest/*
+      - name: Git commit
+        run: git commit -m "[ check ] collection update (ubuntu-latest)" -m "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+      - name: Push changes
+        if: always()
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+      - name: Fail if missing
+        run: test -f "$HOME/output/testdb.toml"
+
+  upload_docs_ubuntu:
+    name: Upload generated API docs (ubuntu-latest)
+    runs-on: ubuntu-latest
+    needs:
+      - check_db_ubuntu
+    steps:
+      - name: Checkout pack-db
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+          ref: 'docs'
+      - name: Get generated files
+        uses: actions/download-artifact@master
+        with:
+          name: freshly-generated-status
+          path: ~/output/
+      - name: Add files
+        run: |
+          cp -a ~/output/docs/* docs-ubuntu-latest
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add docs-ubuntu-latest
+      - name: Git commit
+        run: |
+          git diff --cached --quiet --exit-code || \
+            git commit -m "[ docs ] CI docs generation (ubuntu-latest)" -m "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+      - name: Push changes
+        if: always()
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: 'docs'
+      - name: Fail if missing
+        run: test -f "$HOME/output/testdb.toml"

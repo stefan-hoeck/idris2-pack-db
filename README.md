@@ -1,7 +1,7 @@
 # Curated Package Collections for Idris2
 
-[![Check Collection (ubuntu-latest)](https://github.com/stefan-hoeck/idris2-pack-db/actions/workflows/ci-db.yml/badge.svg)](STATUS-ubuntu-latest.md)
-[![Check Collection (macos-latest)](https://github.com/stefan-hoeck/idris2-pack-db/actions/workflows/ci-db.yml/badge.svg)](STATUS-macos-latest.md)
+[![Check Collection (ubuntu-latest)](https://github.com/stefan-hoeck/idris2-pack-db/actions/workflows/ci-db-ubuntu-latest.yml/badge.svg)](STATUS-ubuntu-latest.md)
+[![Check Collection (macos-latest)](https://github.com/stefan-hoeck/idris2-pack-db/actions/workflows/ci-db-macos-latest.yml/badge.svg)](STATUS-macos-latest.md)
 
 These are package collections to be used with the
 [pack](https://github.com/stefan-hoeck/idris2-pack) package manager
@@ -11,8 +11,8 @@ In order to add your own package, make sure it builds with HEAD
 of the main branch of the Idris2 project and submit a PR with
 the package's description added to `collections/HEAD.toml` and
 make sure the necessary libraries are installed by adjusting
-all three workflows under .github/workflows (there are two
-variants of each job, one that runs on `ubuntu-latest`, and
+all six workflows under .github/workflows (there are two
+variants of each workflow, one that runs on `ubuntu-latest`, and
 one that runs on `macos-latest`).
 
 As of [this](https://github.com/stefan-hoeck/idris2-pack/pull/417) PR,
