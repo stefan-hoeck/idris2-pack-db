@@ -46,7 +46,7 @@ jobs:
           # idris2-go:
           apt-get install --yes golang-go
           # lld (needed by systemd)
-          apt-get install --yes binutils lld
+          apt-get install --yes lld
           # libuv
           apt-get install --yes libuv1-dev
           # rtlsdr
@@ -57,6 +57,8 @@ jobs:
           apt-get install --yes curl
           # uuid
           apt-get install --yes uuid-dev
+          # libcrypt-dev
+          apt-get install --yes libcrypt-dev
 #      - name: Use latest pack commit
 #        run: pack update
       - name: Debug linker
