@@ -43,7 +43,7 @@ jobs:
           # idris2-go:
           apt-get install --yes golang-go
           # lld (needed by systemd)
-          apt-get install --yes lld
+          apt-get install --yes binutils lld
           # libuv
           apt-get install --yes libuv1-dev
           # rtlsdr
