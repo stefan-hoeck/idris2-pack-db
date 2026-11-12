@@ -54,6 +54,10 @@ jobs:
           apt-get install --yes curl
           # uuid
           apt-get install --yes uuid-dev
+          # libcrypt-dev
+          apt-get install --yes libcrypt-dev
+          # binutils-gold
+          apt-get install --yes binutils-gold
 #      - name: Use latest pack commit
 #        run: pack update
       - name: Install pack-admin
