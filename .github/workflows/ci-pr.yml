@@ -59,6 +59,12 @@ jobs:
           apt-get install --yes curl
           # uuid
           apt-get install --yes uuid-dev
+      - name: Debug linker
+        run: |
+          cat /etc/os-release | grep PRETTY_NAME
+          echo "$PATH"
+          which ld ld.gold lld gcc || echo "no linker on PATH"
+          dpkg -l binutils || echo "binutils not installed"
       - name: Use latest pack commit
         run: |
           /root/.local/bin/pack info
