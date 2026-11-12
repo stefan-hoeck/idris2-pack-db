@@ -61,6 +61,8 @@ jobs:
           apt-get install --yes uuid-dev
           # libcrypt-dev
           apt-get install --yes libcrypt-dev
+          # binutils-gold
+          apt-get install --yes binutils-gold
       - name: Debug linker
         run: |
           cat /etc/os-release | grep PRETTY_NAME
