@@ -63,6 +63,8 @@ jobs:
           apt-get install --yes libcrypt-dev
           # binutils-gold
           apt-get install --yes binutils-gold
+          # openrouter
+          apt-get install --yes libcurl4-openssl-dev
       - name: Debug linker
         run: |
           cat /etc/os-release | grep PRETTY_NAME
