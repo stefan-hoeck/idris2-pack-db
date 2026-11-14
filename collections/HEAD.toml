@@ -778,6 +778,13 @@ url    = "https://gitlab.com/bss03/idris2-okasaki-pfds.git/"
 commit = "master"
 ipkg   = "okasaki-pfds.ipkg"
 
+[db.openrouter]
+type   = "github"
+url    = "https://github.com/7ucina/idris2-openrouter"
+commit = "main"
+ipkg   = "openrouter.ipkg"
+test   = "test/test.ipkg"
+
 [db.pack]
 type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-pack"

@@ -58,6 +58,8 @@ jobs:
           apt-get install --yes libcrypt-dev
           # binutils-gold
           apt-get install --yes binutils-gold
+          # openrouter
+          apt-get install --yes libcurl4-openssl-dev
 #      - name: Use latest pack commit
 #        run: pack update
       - name: Install pack-admin
